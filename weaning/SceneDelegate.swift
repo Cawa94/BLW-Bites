@@ -11,6 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    lazy var appWindow: UIWindow = {
+        return window ?? UIWindow(frame: UIScreen.main.bounds) // To avoid optional appWindow
+    }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -47,6 +50,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
 }
 
+extension SceneDelegate {
+
+    static var shared: SceneDelegate {
+        let delegate = UIApplication.shared.connectedScenes.first?.delegate
+
+        guard let appDelegate = delegate as? SceneDelegate else {
+            fatalError("Cannot cast \(type(of: delegate)) to SceneDelegate")
+        }
+
+        return appDelegate
+    }
+
+}
