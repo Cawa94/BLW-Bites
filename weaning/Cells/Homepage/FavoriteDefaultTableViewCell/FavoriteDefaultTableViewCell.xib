@@ -55,6 +55,7 @@
             <connections>
                 <outlet property="mainCollectionView" destination="iy4-oM-4Wt" id="heG-j4-zBO"/>
                 <outlet property="mainCollectionViewHeightConstraint" destination="3Fk-fS-yKw" id="9sY-xR-1M4"/>
+                <outlet property="titleLabel" destination="2yx-Lr-m8S" id="egW-1O-ome"/>
             </connections>
             <point key="canvasLocation" x="21" y="-35"/>
         </tableViewCell>

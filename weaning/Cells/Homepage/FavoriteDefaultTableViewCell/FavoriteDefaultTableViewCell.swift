@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteDefaultTableViewCell: UITableViewCell {
 
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainCollectionView: UICollectionView!
     @IBOutlet private weak var mainCollectionViewHeightConstraint: NSLayoutConstraint!
 
@@ -20,6 +21,7 @@ class FavoriteDefaultTableViewCell: UITableViewCell {
                        isFavorites: Bool) {
         self.shortFoods = shortFoods
         self.shortRecipes = shortRecipes
+        self.titleLabel.text = shortFoods != nil ? "Popular Foods" : "Popular Recipes"
 
         mainCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
