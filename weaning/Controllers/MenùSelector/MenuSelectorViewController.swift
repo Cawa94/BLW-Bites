@@ -90,7 +90,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                                                                 title: "Menù first 30-days",
                                                                 subtitle: "A very simple and usefull menù to introduce the first aliments into your kid and get him used to solid foods",
                                                                 tapHandler: {
-                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "apple"))
+                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "30_days"))
                    })
                 cell.configureWith(viewModel)
                 return cell
@@ -104,7 +104,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                                                                 title: "Menù 7-12 months",
                                                                 subtitle: "A more complex and advanced menù with a variety of tasteful recipes adapt for all the family",
                                                                 tapHandler: {
-                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "apple"))
+                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "30_days"))
                    })
                 cell.configureWith(viewModel)
                 return cell

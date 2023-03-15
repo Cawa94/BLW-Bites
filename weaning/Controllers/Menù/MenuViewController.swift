@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class MenuViewController: UIViewController {
 
     @IBOutlet private weak var mainScrollView: UIScrollView!
     @IBOutlet private weak var mainTableView: ContentSizedTableView!
     @IBOutlet private weak var daysCollectionView: UICollectionView!
+    @IBOutlet private weak var daysCollectionViewBackground: UIView!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var menuNameLabel: UILabel!
     @IBOutlet private weak var navigationView: UIView!
@@ -37,51 +41,37 @@ class MenuViewController: UIViewController {
 
         mainTableView.estimatedRowHeight = 1000
         mainTableView.rowHeight = UITableView.automaticDimension
-        mainTableView.register(UINib(nibName: "RecipeTitleTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "RecipeTitleTableViewCell")
-        mainTableView.register(UINib(nibName: "RecipeInfoTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "RecipeInfoTableViewCell")
-        mainTableView.register(UINib(nibName: "RecipeFoodsTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "RecipeFoodsTableViewCell")
-        mainTableView.register(UINib(nibName: "SeparatorTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "SeparatorTableViewCell")
-
+        mainTableView.register(UINib(nibName: "MenuMealTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "MenuMealTableViewCell")
         daysCollectionView.register(UINib(nibName:"DayCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"DayCollectionViewCell")
 
-        DispatchQueue.main.async {
-            self.daysCollectionView.reloadData()
-        }
-
         // backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
 
-        FirestoreService.shared.database.document("recipes/\(viewModel?.menuId ?? "")").getDocument(as: Recipe.self) { result in
-            switch result {
-            case .success(let recipe):
-                self.viewModel?.recipe = recipe
-                self.configurePage()
-            case .failure(let error):
-                print("Error decoding recipe: \(error)")
+        FirestoreService.shared.database
+            .collection("menus")
+            .document("30_days")
+            .collection("menu")
+            .getDocuments() { querySnapshot, error in
+                self.convertMenuData(querySnapshot, error)
             }
-        }
     }
 
-    func configurePage() {
-        guard let recipe = viewModel?.recipe
-            else { return }
-        menuNameLabel.text = recipe.name
-
-        guard let image = recipe.image
-            else { return }
-        let reference = StorageService.shared.getReferenceFor(path: image)
-        menuImageView.sd_setImage(with: reference, placeholderImage: nil)
-
-        DispatchQueue.main.async {
-            self.mainTableView.reloadData(completion: {
-                self.mainTableView.invalidateIntrinsicContentSize()
-                self.mainTableView.layoutIfNeeded()
-                self.viewDidLayoutSubviews()
-            })
+    func convertMenuData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
+        if let error = error {
+            print("Error getting documents: \(error)")
+        } else {
+            for document in querySnapshot!.documents {
+                self.viewModel?.menuDays?.append(.init(data: document.data()))
+            }
+            DispatchQueue.main.async {
+                self.daysCollectionView.reloadData()
+                self.mainTableView.reloadData(completion: {
+                    self.mainTableView.invalidateIntrinsicContentSize()
+                    self.mainTableView.layoutIfNeeded()
+                    self.viewDidLayoutSubviews()
+                })
+            }
         }
     }
 
@@ -90,7 +80,7 @@ class MenuViewController: UIViewController {
         contentViewHeightConstraint.constant = imageViewHeightConstraint.constant
             + collectionViewHeightConstraint.constant
             + tableViewHeightConstraint.constant
-        daysCollectionView.roundCornersSimplified(cornerRadius: 45)
+        daysCollectionViewBackground.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
         mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
 
@@ -103,7 +93,9 @@ class MenuViewController: UIViewController {
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        guard !(viewModel?.menuDays?.isEmpty ?? true)
+            else { return 0 }
+        return viewModel?.menuDays?[viewModel?.selectedRow ?? 0].mealsCount ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,7 +111,14 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuMealTableViewCell", for: indexPath)
+            as? MenuMealTableViewCell, let meal = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].meals[indexPath.section] {
+            cell.configureWith(.init(title: meal.category ?? "",
+                                     dishes: meal.dishes ?? []))
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
 
 }
@@ -127,7 +126,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        30
+        viewModel?.menuDays?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -167,6 +166,11 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
         DispatchQueue.main.async {
             self.daysCollectionView.reloadData()
+            self.mainTableView.reloadData(completion: {
+                self.mainTableView.invalidateIntrinsicContentSize()
+                self.mainTableView.layoutIfNeeded()
+                self.viewDidLayoutSubviews()
+            })
         }
     }
 

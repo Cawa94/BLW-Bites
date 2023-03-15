@@ -10,11 +10,12 @@ import Foundation
 struct MenuViewModel {
 
     let menuId: String
-    var recipe: Recipe?
+    var menuDays: [MenuDay]?
     var selectedRow: Int
 
     init(menuId: String) {
         self.menuId = menuId
+        self.menuDays = []
         self.selectedRow = 0
     }
 

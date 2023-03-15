@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Alata-Regular.ttf">
+            <string>Alata-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuDishView" customModule="weaning" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="LHn-s1-0vT"/>
+                <outlet property="dishImageView" destination="X1S-Q7-IQI" id="9mQ-1S-jvL"/>
+                <outlet property="nameLabel" destination="H7g-MA-bHy" id="Oju-r8-6MO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1S-Q7-IQI">
+                    <rect key="frame" x="0.0" y="10" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="X1S-Q7-IQI" secondAttribute="height" multiplier="1:1" id="oRM-0I-TOd"/>
+                        <constraint firstAttribute="width" constant="80" id="qp8-Wa-y7C"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Apple" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7g-MA-bHy">
+                    <rect key="frame" x="95" y="37.666666666666664" width="270" height="25"/>
+                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F3-qK-JMa">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                    <connections>
+                        <action selector="openDish" destination="-1" eventType="touchUpInside" id="Dun-8n-elL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="X1S-Q7-IQI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1K8-UA-M2N"/>
+                <constraint firstAttribute="bottom" secondItem="X1S-Q7-IQI" secondAttribute="bottom" constant="10" id="6On-P6-HJC"/>
+                <constraint firstItem="4F3-qK-JMa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6f0-jJ-lIa"/>
+                <constraint firstItem="H7g-MA-bHy" firstAttribute="leading" secondItem="X1S-Q7-IQI" secondAttribute="trailing" constant="15" id="CIz-Jb-lVQ"/>
+                <constraint firstAttribute="trailing" secondItem="4F3-qK-JMa" secondAttribute="trailing" id="ETU-Qi-X4m"/>
+                <constraint firstItem="X1S-Q7-IQI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fkR-gc-LkP"/>
+                <constraint firstItem="H7g-MA-bHy" firstAttribute="centerY" secondItem="X1S-Q7-IQI" secondAttribute="centerY" id="imb-px-a9A"/>
+                <constraint firstAttribute="trailing" secondItem="H7g-MA-bHy" secondAttribute="trailing" constant="10" id="nNz-bb-Z2a"/>
+                <constraint firstAttribute="bottom" secondItem="4F3-qK-JMa" secondAttribute="bottom" id="nmC-l7-raP"/>
+                <constraint firstItem="4F3-qK-JMa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zUg-Sa-QNP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="129.00763358778624" y="-180.28169014084509"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
