@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Alata-Regular.ttf">
+            <string>Alata-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductView" customModule="weaning" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="phf-3d-wOE"/>
+                <outlet property="nameLabel" destination="awA-fQ-pWX" id="W77-SH-WEx"/>
+                <outlet property="priceLabel" destination="ujr-bV-Vs6" id="HXm-qy-7Nb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="468" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 months" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awA-fQ-pWX">
+                    <rect key="frame" x="99.333333333333314" y="16.333333333333329" width="80.666666666666686" height="27.666666666666671"/>
+                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="3,99€" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujr-bV-Vs6">
+                    <rect key="frame" x="15" y="15" width="64.333333333333329" height="30"/>
+                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="22"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8s-F0-hIl">
+                    <rect key="frame" x="0.0" y="0.0" width="468" height="60"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                    <connections>
+                        <action selector="startPurchasing" destination="-1" eventType="touchUpInside" id="nfu-nJ-AUl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ujr-bV-Vs6" secondAttribute="bottom" constant="15" id="Dd0-AC-jXx"/>
+                <constraint firstItem="ujr-bV-Vs6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="IOK-fh-iFA"/>
+                <constraint firstItem="j8s-F0-hIl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KfQ-FI-2jC"/>
+                <constraint firstItem="awA-fQ-pWX" firstAttribute="centerY" secondItem="ujr-bV-Vs6" secondAttribute="centerY" id="NjM-cQ-l5l"/>
+                <constraint firstAttribute="trailing" secondItem="j8s-F0-hIl" secondAttribute="trailing" id="X7j-8s-VRd"/>
+                <constraint firstAttribute="bottom" secondItem="j8s-F0-hIl" secondAttribute="bottom" id="f92-ao-WsA"/>
+                <constraint firstItem="ujr-bV-Vs6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="fPL-W9-rMQ"/>
+                <constraint firstItem="awA-fQ-pWX" firstAttribute="leading" secondItem="ujr-bV-Vs6" secondAttribute="trailing" constant="20" id="xQB-Zb-h5U"/>
+                <constraint firstItem="j8s-F0-hIl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ymm-td-MtZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="196.94656488549617" y="-257.3943661971831"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

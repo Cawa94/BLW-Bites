@@ -26,7 +26,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     }
 
     var mainViewControllers: [UIViewController] {
-        let homepageController = NavigationService.homepageViewController().embedInNavigationController()
+        let homepageController = NavigationService.subscriptionViewController().embedInNavigationController()
         homepageController.isNavigationBarHidden = true
         homepageController.tabBarItem =
             UITabBarItem(title: "Homepage",

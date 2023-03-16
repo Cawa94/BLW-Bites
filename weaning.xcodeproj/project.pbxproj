@@ -14,6 +14,12 @@
 		7316B4E729C1FDFE00BD0AB0 /* MenuDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4E629C1FDFE00BD0AB0 /* MenuDishView.swift */; };
 		7316B4E929C1FE0700BD0AB0 /* MenuDishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4E829C1FE0700BD0AB0 /* MenuDishView.xib */; };
 		7316B4EB29C202E100BD0AB0 /* MenuDishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4EA29C202E100BD0AB0 /* MenuDishViewModel.swift */; };
+		7316B4F129C2321A00BD0AB0 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4EF29C2321A00BD0AB0 /* SubscriptionViewController.swift */; };
+		7316B4F229C2321A00BD0AB0 /* SubscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4F029C2321A00BD0AB0 /* SubscriptionViewController.xib */; };
+		7316B4F429C233C100BD0AB0 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F329C233C100BD0AB0 /* Subscription.swift */; };
+		7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */; };
+		7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */; };
+		731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4EC29C2311900BD0AB0 /* StoreKitConfiguration.storekit */; };
 		7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35729A0D3D000B172AC /* HomepageViewController.swift */; };
 		7344B35A29A0D3D000B172AC /* HomepageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B35829A0D3D000B172AC /* HomepageViewController.xib */; };
 		7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */; };
@@ -96,6 +102,9 @@
 		73AE196529BC994100B2A2AE /* NavigationService+MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE196429BC994100B2A2AE /* NavigationService+MenuViewController.swift */; };
 		73AE196A29BCCC7500B2A2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE196829BCCC7500B2A2AE /* DayCollectionViewCell.swift */; };
 		73AE196B29BCCC7500B2A2AE /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AE196929BCCC7500B2A2AE /* DayCollectionViewCell.xib */; };
+		73BF82D029C33E8200835205 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82CF29C33E8200835205 /* ProductView.swift */; };
+		73BF82D229C33E8C00835205 /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF82D129C33E8C00835205 /* ProductView.xib */; };
+		73BF82D429C33F2400835205 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82D329C33F2400835205 /* ProductViewModel.swift */; };
 		73E59BCE29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */; };
 		73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */; };
 		73E59BD329AA2AF6003D7F65 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */; };
@@ -120,6 +129,12 @@
 		7316B4E629C1FDFE00BD0AB0 /* MenuDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDishView.swift; sourceTree = "<group>"; };
 		7316B4E829C1FE0700BD0AB0 /* MenuDishView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDishView.xib; sourceTree = "<group>"; };
 		7316B4EA29C202E100BD0AB0 /* MenuDishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDishViewModel.swift; sourceTree = "<group>"; };
+		7316B4EC29C2311900BD0AB0 /* StoreKitConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfiguration.storekit; sourceTree = "<group>"; };
+		7316B4EF29C2321A00BD0AB0 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		7316B4F029C2321A00BD0AB0 /* SubscriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionViewController.xib; sourceTree = "<group>"; };
+		7316B4F329C233C100BD0AB0 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
+		7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+SubscriptionViewController.swift"; sourceTree = "<group>"; };
 		7344B35729A0D3D000B172AC /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		7344B35829A0D3D000B172AC /* HomepageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageViewController.xib; sourceTree = "<group>"; };
 		7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +219,9 @@
 		73AE196429BC994100B2A2AE /* NavigationService+MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+MenuViewController.swift"; sourceTree = "<group>"; };
 		73AE196829BCCC7500B2A2AE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		73AE196929BCCC7500B2A2AE /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
+		73BF82CF29C33E8200835205 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		73BF82D129C33E8C00835205 /* ProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
+		73BF82D329C33F2400835205 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMonthsSectionTableViewCell.swift; sourceTree = "<group>"; };
 		73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodMonthsSectionTableViewCell.xib; sourceTree = "<group>"; };
 		73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -253,6 +271,17 @@
 				7316B4E829C1FE0700BD0AB0 /* MenuDishView.xib */,
 			);
 			path = MenuDishView;
+			sourceTree = "<group>";
+		};
+		7316B4EE29C231F800BD0AB0 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				7316B4EF29C2321A00BD0AB0 /* SubscriptionViewController.swift */,
+				7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */,
+				7316B4F029C2321A00BD0AB0 /* SubscriptionViewController.xib */,
+				7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		7344B35629A0D3BB00B172AC /* Homepage */ = {
@@ -312,6 +341,7 @@
 		7344B37229A0ED4500B172AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				73BF82CE29C33E6A00835205 /* ProductView */,
 				7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */,
 			);
 			path = Views;
@@ -368,6 +398,7 @@
 			children = (
 				738FB2BB2997A9BA00C286B3 /* Info.plist */,
 				738FB2CF2997B76900C286B3 /* GoogleService-Info.plist */,
+				7316B4EC29C2311900BD0AB0 /* StoreKitConfiguration.storekit */,
 				738FB2AD2997A9B700C286B3 /* AppDelegate.swift */,
 				738FB2AF2997A9B700C286B3 /* SceneDelegate.swift */,
 				7344B36129A0DD6800B172AC /* Appearance */,
@@ -397,6 +428,7 @@
 				73A0BB8729AE8B510099DB74 /* Recipe.swift */,
 				738FB2F32997D7D500C286B3 /* ShortFood.swift */,
 				73A0BB8529AE8ADE0099DB74 /* ShortRecipe.swift */,
+				7316B4F329C233C100BD0AB0 /* Subscription.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -412,6 +444,7 @@
 				738FB2C62997AB3600C286B3 /* MenuSelector */,
 				73AD68D029AFB2310054B377 /* Recipe */,
 				738FB2C52997AB2500C286B3 /* RecipesList */,
+				7316B4EE29C231F800BD0AB0 /* Subscription */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -678,6 +711,16 @@
 			path = DayCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		73BF82CE29C33E6A00835205 /* ProductView */ = {
+			isa = PBXGroup;
+			children = (
+				73BF82CF29C33E8200835205 /* ProductView.swift */,
+				73BF82D329C33F2400835205 /* ProductViewModel.swift */,
+				73BF82D129C33E8C00835205 /* ProductView.xib */,
+			);
+			path = ProductView;
+			sourceTree = "<group>";
+		};
 		73E59BCB29AA0C3C003D7F65 /* FoodMonthsSectionTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,15 +856,18 @@
 				73AD68D429AFB24A0054B377 /* RecipeViewController.xib in Resources */,
 				739A622D29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib in Resources */,
 				738FB2DC2997C41400C286B3 /* FoodListViewController.xib in Resources */,
+				731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */,
 				738FB2CA2997ABAE00C286B3 /* MainViewController.xib in Resources */,
 				73AE196129BC900F00B2A2AE /* MenuViewController.xib in Resources */,
 				73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */,
 				739A622829B65B74006FE951 /* FavoriteDefaultTableViewCell.xib in Resources */,
 				73AD68E529AFB7D20054B377 /* RecipeInfoTableViewCell.xib in Resources */,
 				738FB3052997DE8F00C286B3 /* ShortFoodCollectionViewCell.xib in Resources */,
+				73BF82D229C33E8C00835205 /* ProductView.xib in Resources */,
 				73E59BDC29AA5662003D7F65 /* SeparatorTableViewCell.xib in Resources */,
 				73AE195C29BC87D300B2A2AE /* TitleTableViewCell.xib in Resources */,
 				736579B429A23F2C0071F60E /* FoodSectionTableViewCell.xib in Resources */,
+				7316B4F229C2321A00BD0AB0 /* SubscriptionViewController.xib in Resources */,
 				7344B37129A0E76500B172AC /* Alata-Regular.ttf in Resources */,
 				7316B4E929C1FE0700BD0AB0 /* MenuDishView.xib in Resources */,
 			);
@@ -901,6 +947,7 @@
 				73E59BE629AA683B003D7F65 /* InfoSection.swift in Sources */,
 				7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */,
 				7344B36329A0DD9700B172AC /* DefaultConstants.swift in Sources */,
+				7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */,
 				738FB2EA2997CB8100C286B3 /* FirestoreService.swift in Sources */,
 				738FB2AE2997A9B700C286B3 /* AppDelegate.swift in Sources */,
 				73AD68D329AFB24A0054B377 /* RecipeViewController.swift in Sources */,
@@ -928,11 +975,15 @@
 				736718D629C1D96800736D04 /* MenuDish.swift in Sources */,
 				73E59BDE29AA5B2E003D7F65 /* AgeDictionary.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
+				7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */,
+				7316B4F429C233C100BD0AB0 /* Subscription.swift in Sources */,
 				738FB2D32997C3F000C286B3 /* MenuSelectorViewController.swift in Sources */,
 				736718D429C1D8F600736D04 /* MenuDay.swift in Sources */,
+				7316B4F129C2321A00BD0AB0 /* SubscriptionViewController.swift in Sources */,
 				739A622C29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift in Sources */,
 				738FB2E52997C9C500C286B3 /* MainControllerViewModel.swift in Sources */,
 				738FB2FA2997DAA800C286B3 /* FoodViewController.swift in Sources */,
+				73BF82D029C33E8200835205 /* ProductView.swift in Sources */,
 				7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */,
 				73AD68D829AFB2680054B377 /* NavigationService + RecipeViewController.swift in Sources */,
 				73A0BB8629AE8ADE0099DB74 /* ShortRecipe.swift in Sources */,
@@ -941,6 +992,7 @@
 				738FB2E32997C74D00C286B3 /* Optional+Extension.swift in Sources */,
 				738FB2B02997A9B700C286B3 /* SceneDelegate.swift in Sources */,
 				738FB2E72997CA2000C286B3 /* FoodListViewModel.swift in Sources */,
+				73BF82D429C33F2400835205 /* ProductViewModel.swift in Sources */,
 				738FB2C92997ABAE00C286B3 /* MainViewController.swift in Sources */,
 				73AE195B29BC87D300B2A2AE /* TitleTableViewCell.swift in Sources */,
 				738FB2EE2997D40200C286B3 /* NavigationService+ FoodListViewController.swift in Sources */,
