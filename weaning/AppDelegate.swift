@@ -17,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
+        Task {
+            do {
+                await PurchaseManager.shared.updatePurchasedProducts()
+            }
+        }
+
         return true
     }
 

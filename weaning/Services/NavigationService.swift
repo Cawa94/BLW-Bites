@@ -22,6 +22,10 @@ struct NavigationService {
         return SceneDelegate.shared.appWindow
     }
 
+    static func makeMainRootController() {
+        appWindow.changeRootController(controller: MainViewController().embedInNavigationController())
+    }
+
     static var tabNavigationController: UINavigationController? {
         return appWindow.rootViewController?.topVisibleViewController.navigationController
     }
@@ -36,6 +40,14 @@ struct NavigationService {
 
     static func push(viewController: UIViewController) {
         tabNavigationController?.pushViewController(viewController, animated: true)
+    }
+
+    static func present(viewController: UIViewController) {
+        rootNavigationController?.present(viewController, animated: true)
+    }
+
+    static func dismiss() {
+        rootNavigationController?.dismiss(animated: true)
     }
 
     static func showControllerInTabBar(controller: TabControllers) {

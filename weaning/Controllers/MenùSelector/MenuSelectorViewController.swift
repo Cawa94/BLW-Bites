@@ -18,12 +18,12 @@ class MenuSelectorViewController: UIViewController {
         super.viewDidLoad()
         mainTableView.estimatedRowHeight = 1000
         mainTableView.rowHeight = UITableView.automaticDimension
-
+        
         mainTableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "TitleTableViewCell")
         mainTableView.register(UINib(nibName: "MenuSelectorTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "MenuSelectorTableViewCell")
-
+        
         DispatchQueue.main.async {
             self.mainTableView.reloadData(completion: {
                 self.mainTableView.invalidateIntrinsicContentSize()
@@ -31,6 +31,14 @@ class MenuSelectorViewController: UIViewController {
                 self.viewDidLayoutSubviews()
             })
         }
+
+        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
+                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
+    }
+
+    @objc func handlePurchased() {
+        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
+        // HERE RELOAD THE PAGE
     }
 
     override func viewDidLayoutSubviews() {

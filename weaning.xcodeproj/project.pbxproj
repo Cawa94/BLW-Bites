@@ -39,6 +39,9 @@
 		736579B429A23F2C0071F60E /* FoodSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */; };
 		736718D429C1D8F600736D04 /* MenuDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736718D329C1D8F600736D04 /* MenuDay.swift */; };
 		736718D629C1D96800736D04 /* MenuDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736718D529C1D96800736D04 /* MenuDish.swift */; };
+		738CCF9229C8D2DC000080AE /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9129C8D2DC000080AE /* PurchaseManager.swift */; };
+		738CCF9429C8F0E3000080AE /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */; };
+		738CCF9629CA11EE000080AE /* HomepageHeaderTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */; };
 		738FB2AE2997A9B700C286B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB2AD2997A9B700C286B3 /* AppDelegate.swift */; };
 		738FB2B02997A9B700C286B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB2AF2997A9B700C286B3 /* SceneDelegate.swift */; };
 		738FB2B52997A9B700C286B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738FB2B32997A9B700C286B3 /* Main.storyboard */; };
@@ -105,6 +108,11 @@
 		73BF82D029C33E8200835205 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82CF29C33E8200835205 /* ProductView.swift */; };
 		73BF82D229C33E8C00835205 /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF82D129C33E8C00835205 /* ProductView.xib */; };
 		73BF82D429C33F2400835205 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82D329C33F2400835205 /* ProductViewModel.swift */; };
+		73CA04B629CA3C6700E60AFF /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA04B429CA3C6700E60AFF /* InfoViewController.swift */; };
+		73CA04B729CA3C6700E60AFF /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04B529CA3C6700E60AFF /* InfoViewController.xib */; };
+		73CA04B929CA3F4500E60AFF /* NavigationService+InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA04B829CA3F4500E60AFF /* NavigationService+InfoViewController.swift */; };
+		73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA04BB29CA440700E60AFF /* FoodRecipesTableViewCell.swift */; };
+		73CA04BE29CA440700E60AFF /* FoodRecipesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04BC29CA440700E60AFF /* FoodRecipesTableViewCell.xib */; };
 		73E59BCE29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */; };
 		73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */; };
 		73E59BD329AA2AF6003D7F65 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */; };
@@ -154,6 +162,9 @@
 		736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSectionTableViewCell.xib; sourceTree = "<group>"; };
 		736718D329C1D8F600736D04 /* MenuDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDay.swift; sourceTree = "<group>"; };
 		736718D529C1D96800736D04 /* MenuDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDish.swift; sourceTree = "<group>"; };
+		738CCF9129C8D2DC000080AE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
+		738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewModel.swift; sourceTree = "<group>"; };
 		738FB2AA2997A9B700C286B3 /* weaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738FB2AD2997A9B700C286B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738FB2AF2997A9B700C286B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +233,11 @@
 		73BF82CF29C33E8200835205 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		73BF82D129C33E8C00835205 /* ProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
 		73BF82D329C33F2400835205 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
+		73CA04B429CA3C6700E60AFF /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		73CA04B529CA3C6700E60AFF /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		73CA04B829CA3F4500E60AFF /* NavigationService+InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+InfoViewController.swift"; sourceTree = "<group>"; };
+		73CA04BB29CA440700E60AFF /* FoodRecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipesTableViewCell.swift; sourceTree = "<group>"; };
+		73CA04BC29CA440700E60AFF /* FoodRecipesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRecipesTableViewCell.xib; sourceTree = "<group>"; };
 		73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMonthsSectionTableViewCell.swift; sourceTree = "<group>"; };
 		73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodMonthsSectionTableViewCell.xib; sourceTree = "<group>"; };
 		73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -350,6 +366,7 @@
 		736579A129A231C40071F60E /* Food */ = {
 			isa = PBXGroup;
 			children = (
+				73CA04BA29CA43EE00E60AFF /* FoodRecipesTableViewCell */,
 				73E59BCB29AA0C3C003D7F65 /* FoodMonthsSectionTableViewCell */,
 				736579B029A23F110071F60E /* FoodSectionTableViewCell */,
 				736579AF29A23EFE0071F60E /* FoodTitleTableViewCell */,
@@ -439,6 +456,7 @@
 				738FB2F72997DA9B00C286B3 /* Food */,
 				738FB2C42997AB1F00C286B3 /* FoodList */,
 				7344B35629A0D3BB00B172AC /* Homepage */,
+				73CA04B329CA3C4A00E60AFF /* Info */,
 				738FB2C32997AB1600C286B3 /* MainController */,
 				73AE195D29BC8FC200B2A2AE /* Menu */,
 				738FB2C62997AB3600C286B3 /* MenuSelector */,
@@ -496,6 +514,7 @@
 			children = (
 				738FB2E92997CB8100C286B3 /* FirestoreService.swift */,
 				738FB2CC2997ACA700C286B3 /* NavigationService.swift */,
+				738CCF9129C8D2DC000080AE /* PurchaseManager.swift */,
 				73E90EA12998F223003EA5C0 /* StorageService.swift */,
 			);
 			path = Services;
@@ -515,6 +534,7 @@
 		738FB2DD2997C59800C286B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */,
 				738FB2E22997C74D00C286B3 /* Optional+Extension.swift */,
 				73E59BEA29AA72EE003D7F65 /* String+Extension.swift */,
 				73A0BB8B29AE8F5A0099DB74 /* UICollectionView+Extension.swift */,
@@ -593,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				739A622A29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift */,
+				738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */,
 				739A622B29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib */,
 			);
 			path = HomepageHeaderTableViewCell;
@@ -719,6 +740,25 @@
 				73BF82D129C33E8C00835205 /* ProductView.xib */,
 			);
 			path = ProductView;
+			sourceTree = "<group>";
+		};
+		73CA04B329CA3C4A00E60AFF /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04B429CA3C6700E60AFF /* InfoViewController.swift */,
+				73CA04B529CA3C6700E60AFF /* InfoViewController.xib */,
+				73CA04B829CA3F4500E60AFF /* NavigationService+InfoViewController.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		73CA04BA29CA43EE00E60AFF /* FoodRecipesTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04BB29CA440700E60AFF /* FoodRecipesTableViewCell.swift */,
+				73CA04BC29CA440700E60AFF /* FoodRecipesTableViewCell.xib */,
+			);
+			path = FoodRecipesTableViewCell;
 			sourceTree = "<group>";
 		};
 		73E59BCB29AA0C3C003D7F65 /* FoodMonthsSectionTableViewCell */ = {
@@ -867,8 +907,10 @@
 				73E59BDC29AA5662003D7F65 /* SeparatorTableViewCell.xib in Resources */,
 				73AE195C29BC87D300B2A2AE /* TitleTableViewCell.xib in Resources */,
 				736579B429A23F2C0071F60E /* FoodSectionTableViewCell.xib in Resources */,
+				73CA04BE29CA440700E60AFF /* FoodRecipesTableViewCell.xib in Resources */,
 				7316B4F229C2321A00BD0AB0 /* SubscriptionViewController.xib in Resources */,
 				7344B37129A0E76500B172AC /* Alata-Regular.ttf in Resources */,
+				73CA04B729CA3C6700E60AFF /* InfoViewController.xib in Resources */,
 				7316B4E929C1FE0700BD0AB0 /* MenuDishView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,6 +964,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738CCF9629CA11EE000080AE /* HomepageHeaderTableViewModel.swift in Sources */,
 				7316B4EB29C202E100BD0AB0 /* MenuDishViewModel.swift in Sources */,
 				738FB2F22997D6AD00C286B3 /* NavigationService + RecipesListViewController.swift in Sources */,
 				738FB2DF2997C5B000C286B3 /* UIViewController+Extension.swift in Sources */,
@@ -935,6 +978,8 @@
 				738FB2F02997D69200C286B3 /* RecipesListViewModel.swift in Sources */,
 				73AE195629BC85E000B2A2AE /* MenuSelectorTableViewCell.swift in Sources */,
 				73E59BCE29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift in Sources */,
+				738CCF9229C8D2DC000080AE /* PurchaseManager.swift in Sources */,
+				738CCF9429C8F0E3000080AE /* NotificationCenter+Extension.swift in Sources */,
 				738FB2FF2997DABD00C286B3 /* NavigationService + FoodViewController.swift in Sources */,
 				738FB2F62997D98900C286B3 /* Food.swift in Sources */,
 				73AE196A29BCCC7500B2A2AE /* DayCollectionViewCell.swift in Sources */,
@@ -943,6 +988,7 @@
 				73AE196329BC901B00B2A2AE /* MenuViewModel.swift in Sources */,
 				738FB2DB2997C41400C286B3 /* FoodListViewController.swift in Sources */,
 				7344B36529A0DD9F00B172AC /* DefaultFonts.swift in Sources */,
+				73CA04B929CA3F4500E60AFF /* NavigationService+InfoViewController.swift in Sources */,
 				738FB3072997DFB800C286B3 /* UICollectionViewCell+Extension.swift in Sources */,
 				73E59BE629AA683B003D7F65 /* InfoSection.swift in Sources */,
 				7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */,
@@ -959,6 +1005,7 @@
 				7344B36029A0DD0A00B172AC /* UIView+Extension.swift in Sources */,
 				736579B329A23F2C0071F60E /* FoodSectionTableViewCell.swift in Sources */,
 				73E59BDB29AA5662003D7F65 /* SeparatorTableViewCell.swift in Sources */,
+				73CA04B629CA3C6700E60AFF /* InfoViewController.swift in Sources */,
 				738FB2D72997C40900C286B3 /* RecipesListViewController.swift in Sources */,
 				73AE196029BC900F00B2A2AE /* MenuViewController.swift in Sources */,
 				73A0BB8829AE8B510099DB74 /* Recipe.swift in Sources */,
@@ -975,6 +1022,7 @@
 				736718D629C1D96800736D04 /* MenuDish.swift in Sources */,
 				73E59BDE29AA5B2E003D7F65 /* AgeDictionary.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
+				73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */,
 				7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */,
 				7316B4F429C233C100BD0AB0 /* Subscription.swift in Sources */,
 				738FB2D32997C3F000C286B3 /* MenuSelectorViewController.swift in Sources */,

@@ -19,6 +19,7 @@ public struct Food: Codable {
     let allergenic: Bool?
     let ageDictionary: AgeDictionary?
     let infosDictionary: FoodInfosDictionary?
+    let recipes: [ShortRecipe]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -31,6 +32,7 @@ public struct Food: Codable {
         case allergenic
         case ageDictionary = "age_dictionary"
         case infosDictionary = "infos_dictionary"
+        case recipes
     }
 
     init(data: [String: Any]) {
@@ -44,6 +46,7 @@ public struct Food: Codable {
         self.allergenic = data["allergenic"] as? Bool
         self.ageDictionary = data["age_dictionary"] as? AgeDictionary
         self.infosDictionary = data["infos_dictionary"] as? FoodInfosDictionary
+        self.recipes = data["recipes"] as? [ShortRecipe]
     }
 
 }
@@ -56,6 +59,10 @@ extension Food {
 
     var hasInfosDictionary: Bool {
         infosDictionary != nil
+    }
+
+    var hasRecipes: Bool {
+        !(recipes?.isEmpty ?? true)
     }
 
     var ageSegments: [AgeSegment] {

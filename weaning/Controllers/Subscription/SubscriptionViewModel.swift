@@ -11,11 +11,9 @@ import StoreKit
 struct SubscriptionViewModel {
 
     var subscriptions: [Subscription]
-    var products: [Product]
 
     init() {
         subscriptions = []
-        products = []
     }
 
 }

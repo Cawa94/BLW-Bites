@@ -16,6 +16,9 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
         configureAppearance()
         configureTabBar()
+
+        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
+                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
     }
 
     func configureTabBar() {
@@ -26,7 +29,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     }
 
     var mainViewControllers: [UIViewController] {
-        let homepageController = NavigationService.subscriptionViewController().embedInNavigationController()
+        let homepageController = NavigationService.homepageViewController().embedInNavigationController()
         homepageController.isNavigationBarHidden = true
         homepageController.tabBarItem =
             UITabBarItem(title: "Homepage",
@@ -54,14 +57,14 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
                          image: UIImage(named: "recipes")?.withRenderingMode(.alwaysOriginal),
                          selectedImage: UIImage(named: "")?.withRenderingMode(.alwaysOriginal))
 
-        let profileController = NavigationService.recipesListViewController().embedInNavigationController()
-        profileController.isNavigationBarHidden = true
-        profileController.tabBarItem =
-            UITabBarItem(title: "Profile",
+        let infoController = NavigationService.infoViewController().embedInNavigationController()
+        infoController.isNavigationBarHidden = true
+        infoController.tabBarItem =
+            UITabBarItem(title: "Info",
                          image: UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal),
                          selectedImage: UIImage(named: "")?.withRenderingMode(.alwaysOriginal))
 
-        return [homepageController, foodListController, menuSelectorController, recipesListController, profileController]
+        return [homepageController, foodListController, menuSelectorController, recipesListController, infoController]
     }
 
     func configureAppearance() {
@@ -71,6 +74,13 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
         UITabBar.appearance().barTintColor = .systemBackground
         UITabBar.appearance().backgroundColor = .systemBackground
+    }
+
+    @objc func handlePurchased() {
+        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
+        DispatchQueue.main.async {
+            NavigationService.makeMainRootController()
+        }
     }
 
 }

@@ -16,6 +16,7 @@ class SubscriptionViewController: UIViewController {
     @IBOutlet private weak var infosTextView: UITextView!
     @IBOutlet private weak var infosTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var productsStackView: UIStackView!
+    @IBOutlet private weak var proVersionLabel: UILabel!
 
     var viewModel: SubscriptionViewModel?
 
@@ -32,6 +33,10 @@ class SubscriptionViewController: UIViewController {
         FirestoreService.shared.database.collection("subscriptions").getDocuments() { querySnapshot, error in
             self.convertSubscriptionData(querySnapshot, error)
         }
+
+        if PurchaseManager.shared.hasUnlockedPro {
+            proVersionLabel.isHidden = false
+        }
     }
 
     func convertSubscriptionData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
@@ -42,9 +47,12 @@ class SubscriptionViewController: UIViewController {
             for document in querySnapshot!.documents {
                 self.viewModel?.subscriptions.append(.init(data: document.data()))
             }
-            Task.init {
+            Task {
                 do {
-                    try await loadProducts()
+                    try await PurchaseManager.shared.loadProducts(productIds: (viewModel?.subscriptions.compactMap { $0.id ?? "" } ?? []))
+                    for product in PurchaseManager.shared.products?.sorted(by: { $0.price < $1.price }) ?? [] {
+                        appendProduct(product)
+                    }
                 } catch {
                     debugPrint(error)
                 }
@@ -52,21 +60,28 @@ class SubscriptionViewController: UIViewController {
         }
     }
 
-    func loadProducts() async throws {
-        guard let productIds = (viewModel?.subscriptions.compactMap { $0.id })
-            else { return }
-        viewModel?.products = try await Product.products(for: productIds)
-        for product in viewModel?.products.sorted(by: { $0.price < $1.price }) ?? [] {
-            appendProduct(product)
-        }
-    }
-
     func appendProduct(_ product: Product) {
         let productView = ProductView()
         productView.configureWith(.init(product: product, tapHandler: {
-            // purchase
+            Task {
+                do {
+                    try await PurchaseManager.shared.purchase(product)
+                } catch {
+                    debugPrint(error)
+                }
+            }
         }))
         productsStackView.addArrangedSubview(productView)
+    }
+
+    @IBAction func restorePurchas() {
+        Task {
+            do {
+                try await PurchaseManager.shared.restorePurchase()
+            } catch {
+                debugPrint(error)
+            }
+        }
     }
 
 }

@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="infosTextView" destination="9bO-bn-b86" id="rKu-Rq-3O6"/>
                 <outlet property="infosTextViewHeightConstraint" destination="Xey-Dg-lnT" id="TDB-ir-m8p"/>
+                <outlet property="proVersionLabel" destination="o4p-kR-MRB" id="1ng-PG-2iM"/>
                 <outlet property="productsStackView" destination="Guk-fI-cU2" id="Rnd-0e-jTV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,10 +57,19 @@
                     <buttonConfiguration key="configuration" style="plain" title="Restore purchase">
                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="restorePurchas" destination="-1" eventType="touchUpInside" id="AT7-9U-bAE"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Get Access to All The App Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-WE-yZ3">
                     <rect key="frame" x="20" y="69" width="196.66666666666666" height="107.66666666666669"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="You got the full access!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4p-kR-MRB">
+                    <rect key="frame" x="20" y="688.33333333333337" width="353" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -71,10 +81,13 @@
                 <constraint firstItem="Njl-Nb-WZx" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" constant="20" id="Arh-XS-SJT"/>
                 <constraint firstItem="Guk-fI-cU2" firstAttribute="top" secondItem="9bO-bn-b86" secondAttribute="bottom" constant="25" id="B0x-S3-z26"/>
                 <constraint firstItem="9bO-bn-b86" firstAttribute="leading" secondItem="Njl-Nb-WZx" secondAttribute="leading" constant="20" id="BzI-y1-k6b"/>
+                <constraint firstItem="o4p-kR-MRB" firstAttribute="top" secondItem="3BP-7S-ETd" secondAttribute="bottom" constant="20" id="FV1-DG-gRN"/>
+                <constraint firstItem="o4p-kR-MRB" firstAttribute="trailing" secondItem="Guk-fI-cU2" secondAttribute="trailing" id="JEA-Rc-D8F"/>
                 <constraint firstItem="Guk-fI-cU2" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="Jxt-yh-xA9"/>
                 <constraint firstItem="9bO-bn-b86" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="bottom" constant="20" id="Req-va-yto"/>
                 <constraint firstItem="Guk-fI-cU2" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="UND-Bh-s2Q"/>
                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="fLC-hF-6xP"/>
+                <constraint firstItem="o4p-kR-MRB" firstAttribute="leading" secondItem="Guk-fI-cU2" secondAttribute="leading" id="h7O-pz-HuE"/>
                 <constraint firstItem="3BP-7S-ETd" firstAttribute="top" secondItem="Guk-fI-cU2" secondAttribute="bottom" constant="20" id="hsq-6x-P2O"/>
                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="top" secondItem="Njl-Nb-WZx" secondAttribute="top" constant="10" id="idI-jM-kmF"/>
                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="leading" secondItem="Njl-Nb-WZx" secondAttribute="leading" constant="20" id="lI7-Dg-6qZ"/>

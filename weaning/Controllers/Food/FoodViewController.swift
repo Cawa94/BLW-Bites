@@ -101,9 +101,13 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         if viewModel?.food?.hasInfosDictionary ?? false {
             numberOfSections += 1
         }
+        if viewModel?.food?.hasRecipes ?? false {
+            numberOfSections += 1
+        }
         return numberOfSections
     }
 
+    // TO DO - CHECK THE RECIPES SUGGESTED IMPLEMENTATION
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -189,6 +193,29 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return UITableViewCell()
             }
+        }
+    }
+
+    func recipesSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
+                as? SeparatorTableViewCell {
+                cell.configureWith(50)
+                return cell
+            } else {
+                return UITableViewCell()
+            }
+        case 1:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecipesTableViewCell", for: indexPath)
+                as? FoodRecipesTableViewCell, let recipes = viewModel?.food?.recipes {
+                cell.configureWith(shortRecipes: recipes)
+                return cell
+            } else {
+                return UITableViewCell()
+            }
+        default:
+            return UITableViewCell()
         }
     }
 

@@ -28,7 +28,18 @@ class HomepageViewController: UIViewController {
                                forCellReuseIdentifier: "HomepageHeaderTableViewCell")
         mainTableView.register(UINib(nibName: "FavoriteDefaultTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "FavoriteDefaultTableViewCell")
-        
+
+        getHomepageFoods()
+
+        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
+                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
+    }
+
+    @objc func handlePurchased() {
+        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
+        DispatchQueue.main.async {
+            NavigationService.dismiss()
+        }
         getHomepageFoods()
     }
 
@@ -109,6 +120,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageHeaderTableViewCell", for: indexPath)
                 as? HomepageHeaderTableViewCell {
+                cell.configureWith(.init(tapHandler: { NavigationService.present(viewController: NavigationService.subscriptionViewController()) }))
                 return cell
             } else {
                 return UITableViewCell()

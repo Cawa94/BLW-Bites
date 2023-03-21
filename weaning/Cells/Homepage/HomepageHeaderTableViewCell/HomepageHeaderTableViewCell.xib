@@ -22,18 +22,38 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="promo_banner" translatesAutoresizingMaskIntoConstraints="NO" id="nPA-iA-JKX">
-                        <rect key="frame" x="20" y="110" width="318" height="175"/>
+                        <rect key="frame" x="28.666666666666657" y="110" width="318" height="175"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="175" id="a52-aT-PHW"/>
+                            <constraint firstAttribute="width" secondItem="nPA-iA-JKX" secondAttribute="height" multiplier="318:175" id="lWu-bd-K0L"/>
+                        </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-P2-PkV">
+                        <rect key="frame" x="28.666666666666657" y="110" width="318" height="175"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                        <connections>
+                            <action selector="openSubscriptionPage" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FTh-Bu-SLS"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="nPA-iA-JKX" secondAttribute="bottom" constant="40" id="5DJ-z3-Drb"/>
                     <constraint firstItem="nPA-iA-JKX" firstAttribute="top" secondItem="0hm-iR-Tx7" secondAttribute="bottom" constant="30" id="IDw-L1-17E"/>
+                    <constraint firstItem="XZj-P2-PkV" firstAttribute="top" secondItem="nPA-iA-JKX" secondAttribute="top" id="Lgt-kM-9uJ"/>
                     <constraint firstItem="0hm-iR-Tx7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Oos-ad-8df"/>
                     <constraint firstItem="0hm-iR-Tx7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="ar0-gu-tK1"/>
                     <constraint firstItem="0hm-iR-Tx7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="cWH-WE-TNM"/>
-                    <constraint firstItem="nPA-iA-JKX" firstAttribute="leading" secondItem="0hm-iR-Tx7" secondAttribute="leading" constant="-10" id="jjx-Gm-4Fc"/>
+                    <constraint firstItem="XZj-P2-PkV" firstAttribute="bottom" secondItem="nPA-iA-JKX" secondAttribute="bottom" id="evt-AP-gQF"/>
+                    <constraint firstItem="nPA-iA-JKX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jDE-HK-ihV"/>
+                    <constraint firstItem="XZj-P2-PkV" firstAttribute="trailing" secondItem="nPA-iA-JKX" secondAttribute="trailing" id="jfV-1K-on7"/>
+                    <constraint firstItem="XZj-P2-PkV" firstAttribute="leading" secondItem="nPA-iA-JKX" secondAttribute="leading" id="s5X-H9-rtc"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomSpaceConstraint" destination="5DJ-z3-Drb" id="g7m-U8-QMO"/>
+                <outlet property="purchaseViewHeighConstraint" destination="a52-aT-PHW" id="R2M-TX-8OI"/>
+            </connections>
             <point key="canvasLocation" x="139" y="20"/>
         </tableViewCell>
     </objects>

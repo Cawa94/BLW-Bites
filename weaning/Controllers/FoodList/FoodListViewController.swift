@@ -41,6 +41,14 @@ class FoodListViewController: UIViewController {
         }
 
         getAllFoods()
+
+        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
+                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
+    }
+
+    @objc func handlePurchased() {
+        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
+        getAllFoods()
     }
 
     func getAllFoods() {
