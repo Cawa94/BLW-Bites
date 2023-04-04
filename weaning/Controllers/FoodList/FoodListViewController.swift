@@ -41,14 +41,6 @@ class FoodListViewController: UIViewController {
         }
 
         getAllFoods()
-
-        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
-                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
-    }
-
-    @objc func handlePurchased() {
-        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
-        getAllFoods()
     }
 
     func getAllFoods() {
@@ -62,7 +54,6 @@ class FoodListViewController: UIViewController {
             let category = FoodCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_foods")
                 .whereField("category", isEqualTo: category)
-                .order(by: "name")
                 .getDocuments() { querySnapshot, error in
                     self.convertFoodsData(querySnapshot, error)
             }
@@ -151,7 +142,6 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                   let shortFood = viewModel?.shortFoods[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(shortFood)
-            cell.drawCellShadow()
             return cell
         }
     }
@@ -168,7 +158,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView.tag == 0 {
             let categoryName = FoodCategory.allValues[indexPath.row].name
             let label = UILabel()
-            label.font = .regularFontOf(size: 15)
+            label.font = .regularFontOf(size: 16)
             label.text = categoryName
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
@@ -241,7 +231,6 @@ extension FoodListViewController: UISearchBarDelegate {
     func searchKeyword(_ keyword: String) {
         FirestoreService.shared.database.collection("short_foods")
             .whereField("name", isEqualTo: keyword)
-            .order(by: "name")
             .getDocuments() { querySnapshot, error in
                 if !querySnapshot!.documents.isEmpty {
                     self.convertFoodsData(querySnapshot, error)
@@ -249,7 +238,6 @@ extension FoodListViewController: UISearchBarDelegate {
                     FirestoreService.shared.database.collection("short_foods")
                         .whereField("name", isGreaterThan: keyword)
                         .whereField("name", isLessThan: "\(keyword)~")
-                        .order(by: "name")
                         .getDocuments() { querySnapshot, error in
                             self.convertFoodsData(querySnapshot, error)
                         }

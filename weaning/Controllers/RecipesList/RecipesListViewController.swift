@@ -41,14 +41,6 @@ class RecipesListViewController: UIViewController {
         }
 
         getAllRecipes()
-
-        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
-                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
-    }
-
-    @objc func handlePurchased() {
-        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
-        getAllRecipes()
     }
 
     func getAllRecipes() {
@@ -62,7 +54,6 @@ class RecipesListViewController: UIViewController {
             let category = RecipeCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_recipes")
                 .whereField("category", isEqualTo: category)
-                .order(by: "name")
                 .getDocuments() { querySnapshot, error in
                     self.convertRecipesData(querySnapshot, error)
             }
@@ -111,7 +102,6 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                   let shortRecipe = viewModel?.shortRecipes[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(shortRecipe)
-            cell.drawCellShadow()
             return cell
         }
     }
@@ -128,7 +118,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             let categoryName = RecipeCategory.allValues[indexPath.row].name
             let label = UILabel()
-            label.font = .regularFontOf(size: 15)
+            label.font = .regularFontOf(size: 16)
             label.text = categoryName
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
@@ -201,7 +191,6 @@ extension RecipesListViewController: UISearchBarDelegate {
     func searchKeyword(_ keyword: String) {
         FirestoreService.shared.database.collection("short_recipes")
             .whereField("name", isEqualTo: keyword)
-            .order(by: "name")
             .getDocuments() { querySnapshot, error in
                 if !querySnapshot!.documents.isEmpty {
                     self.convertRecipesData(querySnapshot, error)
@@ -209,7 +198,6 @@ extension RecipesListViewController: UISearchBarDelegate {
                     FirestoreService.shared.database.collection("short_recipes")
                         .whereField("name", isGreaterThan: keyword)
                         .whereField("name", isLessThan: "\(keyword)~")
-                        .order(by: "name")
                         .getDocuments() { querySnapshot, error in
                             self.convertRecipesData(querySnapshot, error)
                         }

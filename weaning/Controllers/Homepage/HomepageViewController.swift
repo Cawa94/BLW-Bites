@@ -30,17 +30,6 @@ class HomepageViewController: UIViewController {
                                forCellReuseIdentifier: "FavoriteDefaultTableViewCell")
 
         getHomepageFoods()
-
-        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
-                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
-    }
-
-    @objc func handlePurchased() {
-        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
-        DispatchQueue.main.async {
-            NavigationService.dismiss()
-        }
-        getHomepageFoods()
     }
 
     func getHomepageFoods() {

@@ -24,8 +24,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     func configureWithFoodCategory(_ foodCategory: FoodCategory, isSelected: Bool) {
         self.nameLabel.text = foodCategory.name
         self.categoryImageView.image = UIImage(named: foodCategory.imageName)
-        self.nameLabel.textColor = isSelected ? .white : .black
-        self.backgroundColor = isSelected ? .systemTeal : .white
+        self.nameLabel.textColor = isSelected ? .white : .textColor
+        self.backgroundColor = isSelected ? .mainColor : .white
 
         roundCornersSimplified(cornerRadius: frame.height/2)
     }
@@ -33,8 +33,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     func configureWithRecipeCategory(_ recipeCategory: RecipeCategory, isSelected: Bool) {
         self.nameLabel.text = recipeCategory.name
         self.categoryImageView.image = UIImage(named: recipeCategory.imageName)
-        self.nameLabel.textColor = isSelected ? .white : .black
-        self.backgroundColor = isSelected ? .systemTeal : .white
+        self.nameLabel.textColor = isSelected ? .white : .textColor
+        self.backgroundColor = isSelected ? .mainColor : .white
 
         roundCornersSimplified(cornerRadius: frame.height/2)
     }

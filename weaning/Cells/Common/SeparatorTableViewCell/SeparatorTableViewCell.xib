@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,7 +26,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="2qm-Cs-nVa"/>
                             <constraint firstAttribute="trailing" secondItem="xCs-6C-Dws" secondAttribute="trailing" constant="30" id="TgP-3t-ZHg"/>
@@ -37,6 +36,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="RjL-62-vyH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fcg-MM-RZ4"/>
                     <constraint firstItem="RjL-62-vyH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I7x-YL-Flp"/>
@@ -44,15 +44,11 @@
                     <constraint firstAttribute="trailing" secondItem="RjL-62-vyH" secondAttribute="trailing" id="YGg-QL-SfQ"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="viewHeightConstraint" destination="2qm-Cs-nVa" id="6Ro-iF-iv0"/>
             </connections>
             <point key="canvasLocation" x="139" y="20"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

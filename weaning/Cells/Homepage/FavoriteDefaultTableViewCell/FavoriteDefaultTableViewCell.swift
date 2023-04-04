@@ -52,7 +52,6 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
                   let shortFood = shortFoods?[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(shortFood)
-            cell.drawCellShadow()
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
@@ -60,7 +59,6 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
                   let shortRecipe = shortRecipes?[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(shortRecipe)
-            cell.drawCellShadow()
             return cell
         }
         
@@ -79,7 +77,8 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
         let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
         let width = columnWidth - (20 / 2)
 
-        return CGSize(width: CGFloat(width), height: ShortFoodCollectionViewCell.defaultHeight)
+        return CGSize(width: CGFloat(width),
+                      height: shortFoods != nil ? ShortFoodCollectionViewCell.defaultHeight : ShortRecipeCollectionViewCell.defaultHeight)
     }
 
     public func collectionView(_ collectionView: UICollectionView,

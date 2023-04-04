@@ -3,13 +3,14 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Alata-Regular.ttf">
-            <string>Alata-Regular</string>
+        <array key="Nunito.ttf">
+            <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
@@ -52,11 +53,22 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menù 30-days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lP2-OF-f75">
-                    <rect key="frame" x="20" y="79" width="184.66666666666666" height="37.333333333333343"/>
-                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="27"/>
+                    <rect key="frame" x="20" y="79" width="181.66666666666666" height="37"/>
+                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="27"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxQ-93-AgU">
+                    <rect key="frame" x="46" y="136" width="129.66666666666663" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Xyp-5n-1mF"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="How to use it">
+                        <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
+                        <color key="baseBackgroundColor" name="mainColor"/>
+                    </buttonConfiguration>
+                </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yM-Lt-8Ed">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
@@ -91,7 +103,7 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <color key="backgroundColor" name="mainColor"/>
                                     <constraints>
                                         <constraint firstItem="NAa-Mf-M37" firstAttribute="leading" secondItem="xcL-L2-ge8" secondAttribute="leading" id="7Ov-0D-Y2a"/>
                                         <constraint firstAttribute="height" constant="200" id="Vs3-ES-ljo"/>
@@ -101,7 +113,7 @@
                                 </view>
                                 <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-ig-dGd" customClass="ContentSizedTableView" customModule="weaning" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="300" width="393" height="950"/>
-                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    <color key="backgroundColor" name="backgroundColor1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="950" id="Z1T-rH-QCs"/>
                                     </constraints>
@@ -141,14 +153,16 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <color key="backgroundColor" name="backgroundColor1"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="1yM-Lt-8Ed" secondAttribute="trailing" id="7gc-di-46w"/>
                 <constraint firstAttribute="bottom" secondItem="1yM-Lt-8Ed" secondAttribute="bottom" id="FP2-ib-6gY"/>
                 <constraint firstItem="VQp-OQ-LO4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IpL-Re-OeL"/>
                 <constraint firstItem="lP2-OF-f75" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="KkH-Qb-GOh"/>
                 <constraint firstItem="VQp-OQ-LO4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MTh-bm-z7u"/>
+                <constraint firstItem="DxQ-93-AgU" firstAttribute="top" secondItem="lP2-OF-f75" secondAttribute="bottom" constant="20" id="Pzc-kS-3JY"/>
                 <constraint firstItem="1yM-Lt-8Ed" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aUE-c5-rZI"/>
+                <constraint firstItem="DxQ-93-AgU" firstAttribute="centerX" secondItem="lP2-OF-f75" secondAttribute="centerX" id="bXM-qa-tSV"/>
                 <constraint firstItem="1yM-Lt-8Ed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f8h-yp-9Ap"/>
                 <constraint firstItem="lP2-OF-f75" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wxV-X1-Aqk"/>
                 <constraint firstAttribute="trailing" secondItem="VQp-OQ-LO4" secondAttribute="trailing" id="zMm-3A-Nnb"/>
@@ -158,11 +172,14 @@
     </objects>
     <resources>
         <image name="7-12_months" width="626" height="417"/>
+        <namedColor name="backgroundColor1">
+            <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mainColor">
+            <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

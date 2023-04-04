@@ -44,7 +44,7 @@ extension String {
         }
 
         mutableAttributedHtmlString.addAttribute(.foregroundColor,
-                                                 value: UIColor.black,
+                                                 value: UIColor.textColor,
                                                  range: stringRange)
 
         if let textAlignment = alignment {

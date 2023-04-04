@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-JS-DUX" customClass="CustomSearchBar" customModule="weaning" customModuleProvider="target">
-                    <rect key="frame" x="10" y="15" width="430" height="56"/>
+                    <rect key="frame" x="10" y="74" width="430" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
@@ -32,8 +32,8 @@
                     </connections>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-Lb-CLe">
-                    <rect key="frame" x="0.0" y="86" width="450" height="65"/>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <rect key="frame" x="0.0" y="145" width="450" height="65"/>
+                    <color key="backgroundColor" name="backgroundColor1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="tP6-j0-sHj"/>
                     </constraints>
@@ -49,8 +49,8 @@
                     </connections>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KbN-9P-JK4">
-                    <rect key="frame" x="0.0" y="151" width="450" height="701"/>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <rect key="frame" x="0.0" y="210" width="450" height="642"/>
+                    <color key="backgroundColor" name="backgroundColor1"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DbR-jk-vpa">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -82,8 +82,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="backgroundColor1">
+            <color red="0.84313725490196079" green="0.94509803921568625" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

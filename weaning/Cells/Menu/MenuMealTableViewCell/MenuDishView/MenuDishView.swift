@@ -12,6 +12,7 @@ class MenuDishView: UIView {
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var dishImageView: UIImageView!
+    @IBOutlet private var separatorView: UIView!
 
     private var viewModel: MenuDishViewModel?
 
@@ -38,11 +39,12 @@ class MenuDishView: UIView {
         self.viewModel = viewModel
 
         nameLabel.text = viewModel.menuDish.name
+        separatorView.isHidden = viewModel.hideSeparator
+        dishImageView.roundCornersSimplified(cornerRadius: dishImageView.frame.height/2)
         guard let image = viewModel.menuDish.image
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         dishImageView.sd_setImage(with: reference, placeholderImage: nil)
-        dishImageView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
     }
 
     @IBAction func openDish() {

@@ -16,9 +16,6 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
         configureAppearance()
         configureTabBar()
-
-        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
-                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
     }
 
     func configureTabBar() {
@@ -69,18 +66,11 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
     func configureAppearance() {
         UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+            NSAttributedString.Key.foregroundColor: UIColor.textColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.systemTeal], for: .selected)
+            NSAttributedString.Key.foregroundColor: UIColor.mainColor], for: .selected)
         UITabBar.appearance().barTintColor = .systemBackground
-        UITabBar.appearance().backgroundColor = .systemBackground
-    }
-
-    @objc func handlePurchased() {
-        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
-        DispatchQueue.main.async {
-            NavigationService.makeMainRootController()
-        }
+        UITabBar.appearance().backgroundColor = .white
     }
 
 }

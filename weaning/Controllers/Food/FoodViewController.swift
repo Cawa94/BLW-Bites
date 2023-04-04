@@ -107,15 +107,26 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         return numberOfSections
     }
 
-    // TO DO - CHECK THE RECIPES SUGGESTED IMPLEMENTATION
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
         case 1:
-            return viewModel?.food?.hasAgeDictionary ?? false ? 2 : (viewModel?.food?.infoSections.count ?? 0) + 1
+            if viewModel?.food?.hasAgeDictionary ?? false {
+                return 2
+            } else if viewModel?.food?.hasInfosDictionary ?? false {
+                return (viewModel?.food?.infoSections.count ?? 0) + 1
+            } else {
+                return 2
+            }
         case 2:
-            return (viewModel?.food?.infoSections.count ?? 0) + 1
+            if viewModel?.food?.hasInfosDictionary ?? false {
+                return (viewModel?.food?.infoSections.count ?? 0) + 1
+            } else {
+                return 2
+            }
+        case 3:
+            return 2
         default:
             return 0
         }
@@ -142,11 +153,19 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if viewModel?.food?.hasAgeDictionary ?? false {
                 return ageSectionTableViewCell(tableView, cellForRowAt: indexPath)
-            } else {
+            } else if viewModel?.food?.hasInfosDictionary ?? false {
                 return infoSectionTableViewCell(tableView, cellForRowAt: indexPath)
+            } else {
+                return recipesSection(tableView, cellForRowAt: indexPath)
             }
         case 2:
-            return infoSectionTableViewCell(tableView, cellForRowAt: indexPath)
+            if viewModel?.food?.hasInfosDictionary ?? false {
+                return infoSectionTableViewCell(tableView, cellForRowAt: indexPath)
+            } else {
+                return recipesSection(tableView, cellForRowAt: indexPath)
+            }
+        case 3:
+            return recipesSection(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }

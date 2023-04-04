@@ -12,24 +12,19 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var foodImageView: UIImageView!
     @IBOutlet private weak var startingFromLabel: UILabel!
-    @IBOutlet private weak var startingFromBackground: UIView!
-    @IBOutlet private weak var startingFromWidthConstraint: NSLayoutConstraint!
 
-    static let defaultHeight: CGFloat = 200
+    static let defaultHeight: CGFloat = 250
 
     func configureWith(_ shortRecipe: ShortRecipe) {
         self.nameLabel.text = shortRecipe.name
         self.startingFromLabel.text = shortRecipe.startingFrom
-        let labelWidth = startingFromLabel.intrinsicContentSize.width + 12
-        startingFromWidthConstraint.constant = labelWidth
-        layoutIfNeeded()
+
+        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
 
         guard let image = shortRecipe.image
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
-        startingFromBackground.roundCorners(corners: [.topRight, .bottomRight],
-                                            cornerRadius: .smallCornerRadius)
     }
 
 }

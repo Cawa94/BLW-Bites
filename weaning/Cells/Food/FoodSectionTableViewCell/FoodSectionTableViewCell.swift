@@ -22,7 +22,7 @@ class FoodSectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var sectionTextViewHeightConstraint: NSLayoutConstraint!
 
     private weak var delegate: FoodSectionDelegate?
-    private var showContent = false
+    private var showContent = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,13 +33,15 @@ class FoodSectionTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        showContent = false
+        showContent = true
     }
 
     func configureWith(infoSection: InfoSection, delegate: FoodSectionDelegate) {
         self.delegate = delegate
         sectionTitleLabel.text = infoSection.title
-        sectionTextView.attributedText = infoSection.description?.htmlToAttributedString(size: 16)
+        sectionTextView.attributedText = infoSection.description?.htmlToAttributedString(size: 18)
+        sectionTextViewHeightConstraint.constant = sectionTextView.contentSize.height
+        iconImageView.image = .init(systemName: "minus")
     }
 
     @IBAction func toggleVisibility() {

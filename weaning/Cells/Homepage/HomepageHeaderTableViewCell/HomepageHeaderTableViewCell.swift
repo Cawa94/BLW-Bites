@@ -17,8 +17,8 @@ class HomepageHeaderTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        purchaseViewHeighConstraint.constant = PurchaseManager.shared.hasUnlockedPro ? 0 : 175
-        bottomSpaceConstraint.constant = PurchaseManager.shared.hasUnlockedPro ? 0 : 40
+        purchaseViewHeighConstraint.constant = 0 // PurchaseManager.shared.hasUnlockedPro ? 0 : 175
+        bottomSpaceConstraint.constant = 0 // PurchaseManager.shared.hasUnlockedPro ? 0 : 40
     }
 
     func configureWith(_ viewModel: HomepageHeaderTableViewModel) {

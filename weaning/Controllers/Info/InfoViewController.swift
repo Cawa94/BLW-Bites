@@ -14,7 +14,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ewelinaImageView.roundCornersSimplified()
+        ewelinaImageView.roundCornersSimplified(cornerRadius: ewelinaImageView.frame.height/2)
     }
 
 }

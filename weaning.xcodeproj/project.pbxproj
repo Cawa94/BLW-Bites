@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7307F67629CB60E3002E5710 /* DefaultColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307F67529CB60E3002E5710 /* DefaultColors.swift */; };
 		7316B4DD29C1E3D600BD0AB0 /* MenuMealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4DB29C1E3D600BD0AB0 /* MenuMealTableViewCell.swift */; };
 		7316B4DE29C1E3D600BD0AB0 /* MenuMealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4DC29C1E3D600BD0AB0 /* MenuMealTableViewCell.xib */; };
 		7316B4E029C1E59D00BD0AB0 /* MenuMealTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4DF29C1E59D00BD0AB0 /* MenuMealTableViewModel.swift */; };
@@ -30,7 +31,6 @@
 		7344B36A29A0E1DA00B172AC /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B36829A0E1DA00B172AC /* CategoryCollectionViewCell.swift */; };
 		7344B36B29A0E1DA00B172AC /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */; };
 		7344B36E29A0E24500B172AC /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B36D29A0E24500B172AC /* FoodCategory.swift */; };
-		7344B37129A0E76500B172AC /* Alata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7344B37029A0E76500B172AC /* Alata-Regular.ttf */; };
 		7344B37429A0ED6C00B172AC /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */; };
 		736579A429A231F70071F60E /* FoodTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736579A229A231F70071F60E /* FoodTitleTableViewCell.swift */; };
 		736579A529A231F70071F60E /* FoodTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736579A329A231F70071F60E /* FoodTitleTableViewCell.xib */; };
@@ -113,6 +113,23 @@
 		73CA04B929CA3F4500E60AFF /* NavigationService+InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA04B829CA3F4500E60AFF /* NavigationService+InfoViewController.swift */; };
 		73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA04BB29CA440700E60AFF /* FoodRecipesTableViewCell.swift */; };
 		73CA04BE29CA440700E60AFF /* FoodRecipesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04BC29CA440700E60AFF /* FoodRecipesTableViewCell.xib */; };
+		73CA04C229CB451500E60AFF /* Sunshiny.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04C129CB450D00E60AFF /* Sunshiny.ttf */; };
+		73CA04C329CB451800E60AFF /* Sunshiny-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04C029CB450D00E60AFF /* Sunshiny-Italic.ttf */; };
+		73CA04EA29CB459500E60AFF /* OpenSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04DE29CB459200E60AFF /* OpenSans-MediumItalic.ttf */; };
+		73CA04EB29CB459500E60AFF /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04DF29CB459200E60AFF /* OpenSans-SemiBold.ttf */; };
+		73CA04EC29CB459500E60AFF /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E029CB459200E60AFF /* OpenSans-Bold.ttf */; };
+		73CA04ED29CB459500E60AFF /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E129CB459300E60AFF /* OpenSans-SemiBoldItalic.ttf */; };
+		73CA04EE29CB459500E60AFF /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E229CB459300E60AFF /* OpenSans-ExtraBoldItalic.ttf */; };
+		73CA04EF29CB459500E60AFF /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E329CB459300E60AFF /* OpenSans-Medium.ttf */; };
+		73CA04F029CB459500E60AFF /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E429CB459400E60AFF /* OpenSans-LightItalic.ttf */; };
+		73CA04F129CB459500E60AFF /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E529CB459400E60AFF /* OpenSans-Regular.ttf */; };
+		73CA04F229CB459500E60AFF /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E629CB459400E60AFF /* OpenSans-BoldItalic.ttf */; };
+		73CA04F329CB459500E60AFF /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E729CB459500E60AFF /* OpenSans-Italic.ttf */; };
+		73CA04F429CB459500E60AFF /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E829CB459500E60AFF /* OpenSans-Light.ttf */; };
+		73CA04F529CB459500E60AFF /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04E929CB459500E60AFF /* OpenSans-ExtraBold.ttf */; };
+		73CA04F929CB45CD00E60AFF /* Nunito.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04F729CB45CD00E60AFF /* Nunito.ttf */; };
+		73CA04FA29CB45CD00E60AFF /* Nunito-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04F829CB45CD00E60AFF /* Nunito-Italic.ttf */; };
+		73CA04FE29CB4FC200E60AFF /* Alata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA04FD29CB4FC200E60AFF /* Alata-Regular.ttf */; };
 		73E59BCE29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */; };
 		73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */; };
 		73E59BD329AA2AF6003D7F65 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */; };
@@ -130,6 +147,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7307F67529CB60E3002E5710 /* DefaultColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColors.swift; sourceTree = "<group>"; };
 		7316B4DB29C1E3D600BD0AB0 /* MenuMealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMealTableViewCell.swift; sourceTree = "<group>"; };
 		7316B4DC29C1E3D600BD0AB0 /* MenuMealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuMealTableViewCell.xib; sourceTree = "<group>"; };
 		7316B4DF29C1E59D00BD0AB0 /* MenuMealTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuMealTableViewModel.swift; sourceTree = "<group>"; };
@@ -153,7 +171,6 @@
 		7344B36829A0E1DA00B172AC /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7344B36D29A0E24500B172AC /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
-		7344B37029A0E76500B172AC /* Alata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alata-Regular.ttf"; sourceTree = "<group>"; };
 		7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		736579A229A231F70071F60E /* FoodTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTitleTableViewCell.swift; sourceTree = "<group>"; };
 		736579A329A231F70071F60E /* FoodTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTitleTableViewCell.xib; sourceTree = "<group>"; };
@@ -238,6 +255,23 @@
 		73CA04B829CA3F4500E60AFF /* NavigationService+InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+InfoViewController.swift"; sourceTree = "<group>"; };
 		73CA04BB29CA440700E60AFF /* FoodRecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecipesTableViewCell.swift; sourceTree = "<group>"; };
 		73CA04BC29CA440700E60AFF /* FoodRecipesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodRecipesTableViewCell.xib; sourceTree = "<group>"; };
+		73CA04C029CB450D00E60AFF /* Sunshiny-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sunshiny-Italic.ttf"; sourceTree = "<group>"; };
+		73CA04C129CB450D00E60AFF /* Sunshiny.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sunshiny.ttf; sourceTree = "<group>"; };
+		73CA04DE29CB459200E60AFF /* OpenSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		73CA04DF29CB459200E60AFF /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		73CA04E029CB459200E60AFF /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		73CA04E129CB459300E60AFF /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		73CA04E229CB459300E60AFF /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		73CA04E329CB459300E60AFF /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		73CA04E429CB459400E60AFF /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		73CA04E529CB459400E60AFF /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		73CA04E629CB459400E60AFF /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		73CA04E729CB459500E60AFF /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		73CA04E829CB459500E60AFF /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		73CA04E929CB459500E60AFF /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		73CA04F729CB45CD00E60AFF /* Nunito.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Nunito.ttf; sourceTree = "<group>"; };
+		73CA04F829CB45CD00E60AFF /* Nunito-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic.ttf"; sourceTree = "<group>"; };
+		73CA04FD29CB4FC200E60AFF /* Alata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alata-Regular.ttf"; sourceTree = "<group>"; };
 		73E59BCC29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMonthsSectionTableViewCell.swift; sourceTree = "<group>"; };
 		73E59BCD29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodMonthsSectionTableViewCell.xib; sourceTree = "<group>"; };
 		73E59BD129AA2AF6003D7F65 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -314,6 +348,7 @@
 		7344B36129A0DD6800B172AC /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
+				7307F67529CB60E3002E5710 /* DefaultColors.swift */,
 				7344B36229A0DD9700B172AC /* DefaultConstants.swift */,
 				7344B36429A0DD9F00B172AC /* DefaultFonts.swift */,
 			);
@@ -349,7 +384,10 @@
 		7344B36F29A0E75A00B172AC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				7344B37029A0E76500B172AC /* Alata-Regular.ttf */,
+				73CA04FB29CB4E6C00E60AFF /* Alata */,
+				73CA04F629CB45A800E60AFF /* Nunito */,
+				73CA04DD29CB458300E60AFF /* OpenSans */,
+				73CA04BF29CB44ED00E60AFF /* Sunshiny */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -761,6 +799,51 @@
 			path = FoodRecipesTableViewCell;
 			sourceTree = "<group>";
 		};
+		73CA04BF29CB44ED00E60AFF /* Sunshiny */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04C029CB450D00E60AFF /* Sunshiny-Italic.ttf */,
+				73CA04C129CB450D00E60AFF /* Sunshiny.ttf */,
+			);
+			path = Sunshiny;
+			sourceTree = "<group>";
+		};
+		73CA04DD29CB458300E60AFF /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04E029CB459200E60AFF /* OpenSans-Bold.ttf */,
+				73CA04E629CB459400E60AFF /* OpenSans-BoldItalic.ttf */,
+				73CA04E929CB459500E60AFF /* OpenSans-ExtraBold.ttf */,
+				73CA04E229CB459300E60AFF /* OpenSans-ExtraBoldItalic.ttf */,
+				73CA04E729CB459500E60AFF /* OpenSans-Italic.ttf */,
+				73CA04E829CB459500E60AFF /* OpenSans-Light.ttf */,
+				73CA04E429CB459400E60AFF /* OpenSans-LightItalic.ttf */,
+				73CA04E329CB459300E60AFF /* OpenSans-Medium.ttf */,
+				73CA04DE29CB459200E60AFF /* OpenSans-MediumItalic.ttf */,
+				73CA04E529CB459400E60AFF /* OpenSans-Regular.ttf */,
+				73CA04DF29CB459200E60AFF /* OpenSans-SemiBold.ttf */,
+				73CA04E129CB459300E60AFF /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = OpenSans;
+			sourceTree = "<group>";
+		};
+		73CA04F629CB45A800E60AFF /* Nunito */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04F829CB45CD00E60AFF /* Nunito-Italic.ttf */,
+				73CA04F729CB45CD00E60AFF /* Nunito.ttf */,
+			);
+			path = Nunito;
+			sourceTree = "<group>";
+		};
+		73CA04FB29CB4E6C00E60AFF /* Alata */ = {
+			isa = PBXGroup;
+			children = (
+				73CA04FD29CB4FC200E60AFF /* Alata-Regular.ttf */,
+			);
+			path = Alata;
+			sourceTree = "<group>";
+		};
 		73E59BCB29AA0C3C003D7F65 /* FoodMonthsSectionTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,10 +965,14 @@
 				73E59BD429AA2AF6003D7F65 /* ImageCollectionViewCell.xib in Resources */,
 				738FB2BA2997A9BA00C286B3 /* LaunchScreen.storyboard in Resources */,
 				738FB2B72997A9BA00C286B3 /* Assets.xcassets in Resources */,
+				73CA04F929CB45CD00E60AFF /* Nunito.ttf in Resources */,
 				738FB2D42997C3F000C286B3 /* MenuSelectorViewController.xib in Resources */,
 				7316B4DE29C1E3D600BD0AB0 /* MenuMealTableViewCell.xib in Resources */,
 				7344B36B29A0E1DA00B172AC /* CategoryCollectionViewCell.xib in Resources */,
+				73CA04F429CB459500E60AFF /* OpenSans-Light.ttf in Resources */,
+				73CA04FA29CB45CD00E60AFF /* Nunito-Italic.ttf in Resources */,
 				738FB2D82997C40900C286B3 /* RecipesListViewController.xib in Resources */,
+				73CA04C329CB451800E60AFF /* Sunshiny-Italic.ttf in Resources */,
 				73AE196B29BCCC7500B2A2AE /* DayCollectionViewCell.xib in Resources */,
 				739A622229B6389C006FE951 /* RecipeFoodsTableViewCell.xib in Resources */,
 				738FB2D02997B76900C286B3 /* GoogleService-Info.plist in Resources */,
@@ -898,20 +985,32 @@
 				738FB2DC2997C41400C286B3 /* FoodListViewController.xib in Resources */,
 				731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */,
 				738FB2CA2997ABAE00C286B3 /* MainViewController.xib in Resources */,
+				73CA04EF29CB459500E60AFF /* OpenSans-Medium.ttf in Resources */,
 				73AE196129BC900F00B2A2AE /* MenuViewController.xib in Resources */,
+				73CA04F129CB459500E60AFF /* OpenSans-Regular.ttf in Resources */,
+				73CA04F329CB459500E60AFF /* OpenSans-Italic.ttf in Resources */,
 				73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */,
+				73CA04EB29CB459500E60AFF /* OpenSans-SemiBold.ttf in Resources */,
 				739A622829B65B74006FE951 /* FavoriteDefaultTableViewCell.xib in Resources */,
+				73CA04ED29CB459500E60AFF /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				73AD68E529AFB7D20054B377 /* RecipeInfoTableViewCell.xib in Resources */,
 				738FB3052997DE8F00C286B3 /* ShortFoodCollectionViewCell.xib in Resources */,
+				73CA04FE29CB4FC200E60AFF /* Alata-Regular.ttf in Resources */,
 				73BF82D229C33E8C00835205 /* ProductView.xib in Resources */,
+				73CA04EE29CB459500E60AFF /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				73CA04EA29CB459500E60AFF /* OpenSans-MediumItalic.ttf in Resources */,
 				73E59BDC29AA5662003D7F65 /* SeparatorTableViewCell.xib in Resources */,
 				73AE195C29BC87D300B2A2AE /* TitleTableViewCell.xib in Resources */,
 				736579B429A23F2C0071F60E /* FoodSectionTableViewCell.xib in Resources */,
+				73CA04C229CB451500E60AFF /* Sunshiny.ttf in Resources */,
 				73CA04BE29CA440700E60AFF /* FoodRecipesTableViewCell.xib in Resources */,
 				7316B4F229C2321A00BD0AB0 /* SubscriptionViewController.xib in Resources */,
-				7344B37129A0E76500B172AC /* Alata-Regular.ttf in Resources */,
+				73CA04F229CB459500E60AFF /* OpenSans-BoldItalic.ttf in Resources */,
+				73CA04F029CB459500E60AFF /* OpenSans-LightItalic.ttf in Resources */,
 				73CA04B729CA3C6700E60AFF /* InfoViewController.xib in Resources */,
+				73CA04F529CB459500E60AFF /* OpenSans-ExtraBold.ttf in Resources */,
 				7316B4E929C1FE0700BD0AB0 /* MenuDishView.xib in Resources */,
+				73CA04EC29CB459500E60AFF /* OpenSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1120,7 @@
 				7316B4DD29C1E3D600BD0AB0 /* MenuMealTableViewCell.swift in Sources */,
 				736718D629C1D96800736D04 /* MenuDish.swift in Sources */,
 				73E59BDE29AA5B2E003D7F65 /* AgeDictionary.swift in Sources */,
+				7307F67629CB60E3002E5710 /* DefaultColors.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
 				73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */,
 				7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */,

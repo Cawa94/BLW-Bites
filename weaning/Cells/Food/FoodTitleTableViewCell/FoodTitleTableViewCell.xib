@@ -3,12 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
+        </array>
+        <array key="Nunito.ttf">
+            <string>Nunito-Bold</string>
+            <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
@@ -22,31 +26,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7h-VM-DFK">
-                        <rect key="frame" x="30" y="25" width="225" height="52"/>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="23"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="30.000000000000014" y="25" width="206.33333333333337" height="52"/>
+                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
+                        <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+6months" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxs-lS-fl8">
-                        <rect key="frame" x="279" y="41.333333333333336" width="66" height="19.333333333333336"/>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="14"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+600months" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxs-lS-fl8">
+                        <rect key="frame" x="250.33333333333334" y="40" width="94.666666666666657" height="22"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
+                        <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PPY-mU-cUf">
                         <rect key="frame" x="25" y="97" width="325" height="155"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="155" id="d1m-ar-eQM"/>
                         </constraints>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="16"/>
+                        <color key="textColor" name="textColor"/>
+                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Fxs-lS-fl8" secondAttribute="trailing" constant="30" id="52i-vi-dVC"/>
-                    <constraint firstItem="Fxs-lS-fl8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7h-VM-DFK" secondAttribute="trailing" constant="10" id="79I-lG-6mj"/>
+                    <constraint firstItem="Fxs-lS-fl8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7h-VM-DFK" secondAttribute="trailing" id="79I-lG-6mj"/>
                     <constraint firstItem="B7h-VM-DFK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="CUS-NI-Bhh"/>
                     <constraint firstItem="PPY-mU-cUf" firstAttribute="top" secondItem="B7h-VM-DFK" secondAttribute="bottom" constant="20" id="NCv-9F-ZQD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="PPY-mU-cUf" secondAttribute="bottom" id="QV0-t5-caS"/>
@@ -54,9 +59,10 @@
                     <constraint firstItem="B7h-VM-DFK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="hkQ-4I-HSi"/>
                     <constraint firstItem="PPY-mU-cUf" firstAttribute="leading" secondItem="B7h-VM-DFK" secondAttribute="leading" constant="-5" id="oXx-oc-j8z"/>
                     <constraint firstItem="Fxs-lS-fl8" firstAttribute="trailing" secondItem="PPY-mU-cUf" secondAttribute="trailing" constant="-5" id="qcd-gB-eEC"/>
-                    <constraint firstItem="B7h-VM-DFK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="uwe-tg-drO"/>
+                    <constraint firstItem="B7h-VM-DFK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.55" id="uwe-tg-drO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="descriptionTextView" destination="PPY-mU-cUf" id="ep7-JD-BgX"/>
                 <outlet property="descriptionTextViewHeightConstraint" destination="d1m-ar-eQM" id="SvQ-xt-cO2"/>
@@ -67,11 +73,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="mainColor">
+            <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -3,12 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
+        </array>
+        <array key="Nunito.ttf">
+            <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
@@ -26,8 +30,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="hQW-g2-NbH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="20"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
+                        <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZvI-hp-lya">
@@ -46,12 +50,12 @@
                     </segmentedControl>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnj-Qa-Yce">
                         <rect key="frame" x="30" y="115" width="315" height="350"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="750" constant="350" id="fVL-uv-4gS"/>
                         </constraints>
-                        <color key="textColor" systemColor="labelColor"/>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="15"/>
+                        <color key="textColor" name="textColor"/>
+                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMC-ta-L6P">
@@ -79,7 +83,7 @@
                             <constraint firstAttribute="width" secondItem="IGa-d4-TcB" secondAttribute="height" multiplier="9:16" id="nYO-FK-qeQ"/>
                         </constraints>
                     </view>
-                    <view userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-LF-EAD">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvY-LF-EAD">
                         <rect key="frame" x="69.333333333333329" y="721" width="236.33333333333337" height="420"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -100,6 +104,7 @@
                         </connections>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ZvI-hp-lya" secondAttribute="trailing" constant="30" id="0b3-8W-lfd"/>
                     <constraint firstItem="mvY-LF-EAD" firstAttribute="trailing" secondItem="7KX-wc-nPL" secondAttribute="trailing" id="1JU-1j-NLN"/>
@@ -128,6 +133,7 @@
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="leading" secondItem="lnj-Qa-Yce" secondAttribute="leading" id="ryV-xz-yIR"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="imagesCollectionView" destination="rMC-ta-L6P" id="XS3-hI-i4H"/>
                 <outlet property="imagesCollectionViewHeightConstraint" destination="g0D-OS-sRm" id="kO6-dA-2Xu"/>
@@ -146,12 +152,12 @@
     </objects>
     <resources>
         <image name="play.fill" catalog="system" width="117" height="128"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="mainColor">
+            <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -16,7 +16,6 @@ class SubscriptionViewController: UIViewController {
     @IBOutlet private weak var infosTextView: UITextView!
     @IBOutlet private weak var infosTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var productsStackView: UIStackView!
-    @IBOutlet private weak var proVersionLabel: UILabel!
 
     var viewModel: SubscriptionViewModel?
 
@@ -32,10 +31,6 @@ class SubscriptionViewController: UIViewController {
 
         FirestoreService.shared.database.collection("subscriptions").getDocuments() { querySnapshot, error in
             self.convertSubscriptionData(querySnapshot, error)
-        }
-
-        if PurchaseManager.shared.hasUnlockedPro {
-            proVersionLabel.isHidden = false
         }
     }
 

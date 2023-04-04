@@ -22,10 +22,10 @@ class DayCollectionViewCell: UICollectionViewCell {
 
     func configureWithDay(_ dayNumber: String, isSelected: Bool) {
         numberLabel.text = dayNumber
-        numberLabel.textColor = isSelected ? .systemGreen : .white
-        dayLabel.textColor = isSelected ? .systemGreen : .white
+        numberLabel.textColor = isSelected ? .mainColor : .white
+        dayLabel.textColor = isSelected ? .mainColor : .white
 
-        backgroundColor = isSelected ? .white : .systemGreen
+        backgroundColor = isSelected ? .white : .mainColor
 
         roundCornersSimplified(cornerRadius: .smallCornerRadius)
     }

@@ -31,14 +31,6 @@ class MenuSelectorViewController: UIViewController {
                 self.viewDidLayoutSubviews()
             })
         }
-
-        NotificationCenter.default.setUniqueObserver(self, selector: #selector(handlePurchased),
-                                                     name: NSNotification.Name(rawValue: "Purchased"), object: nil)
-    }
-
-    @objc func handlePurchased() {
-        debugPrint("HANDLE PURCHASED: \(self.classForCoder)")
-        // HERE RELOAD THE PAGE
     }
 
     override func viewDidLayoutSubviews() {

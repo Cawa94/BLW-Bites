@@ -38,7 +38,6 @@ extension RecipeFoodsTableViewCell: UICollectionViewDelegate, UICollectionViewDa
               let shortFood = shortFoods?[indexPath.row]
             else { return UICollectionViewCell() }
         cell.configureWith(shortFood)
-        cell.drawCellShadow()
         return cell
     }
 
