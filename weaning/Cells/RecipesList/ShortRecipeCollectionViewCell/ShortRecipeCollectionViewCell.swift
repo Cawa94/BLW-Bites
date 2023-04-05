@@ -19,12 +19,11 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         self.nameLabel.text = shortRecipe.name
         self.startingFromLabel.text = shortRecipe.startingFrom
 
-        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
-
         guard let image = shortRecipe.image
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
+        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
     }
 
 }

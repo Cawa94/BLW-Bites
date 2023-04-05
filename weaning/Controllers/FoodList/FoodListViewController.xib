@@ -65,7 +65,7 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="backgroundColor2"/>
             <constraints>
                 <constraint firstItem="gf7-Lb-CLe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0RO-gf-2at"/>
                 <constraint firstItem="KbN-9P-JK4" firstAttribute="top" secondItem="gf7-Lb-CLe" secondAttribute="bottom" id="4G6-5y-95U"/>
@@ -84,7 +84,10 @@
     </objects>
     <resources>
         <namedColor name="backgroundColor1">
-            <color red="0.81176470588235294" green="0.89803921568627454" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="1" green="0.92549019607843142" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -59,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxQ-93-AgU">
-                    <rect key="frame" x="46" y="136" width="129.66666666666663" height="45"/>
+                    <rect key="frame" x="46" y="136" width="129.66666666666666" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Xyp-5n-1mF"/>
                     </constraints>
@@ -103,7 +104,7 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" name="mainColor"/>
+                                    <color key="backgroundColor" name="backgroundColor2"/>
                                     <constraints>
                                         <constraint firstItem="NAa-Mf-M37" firstAttribute="leading" secondItem="xcL-L2-ge8" secondAttribute="leading" id="7Ov-0D-Y2a"/>
                                         <constraint firstAttribute="height" constant="200" id="Vs3-ES-ljo"/>
@@ -112,7 +113,7 @@
                                     </constraints>
                                 </view>
                                 <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-ig-dGd" customClass="ContentSizedTableView" customModule="weaning" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="300" width="393" height="950"/>
+                                    <rect key="frame" x="0.0" y="310" width="393" height="950"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="950" id="Z1T-rH-QCs"/>
@@ -127,7 +128,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="ncY-5W-sq4" secondAttribute="trailing" id="FwJ-rj-fla"/>
-                                <constraint firstItem="nOn-ig-dGd" firstAttribute="top" secondItem="xcL-L2-ge8" secondAttribute="bottom" constant="-70" id="LiO-Z5-z7M"/>
+                                <constraint firstItem="nOn-ig-dGd" firstAttribute="top" secondItem="xcL-L2-ge8" secondAttribute="bottom" constant="-60" id="LiO-Z5-z7M"/>
                                 <constraint firstAttribute="height" constant="665" id="NJa-DE-SgD"/>
                                 <constraint firstItem="nOn-ig-dGd" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="Pea-3h-Wbt"/>
                                 <constraint firstAttribute="trailing" secondItem="xcL-L2-ge8" secondAttribute="trailing" id="b1q-kl-f2c"/>
@@ -174,6 +175,9 @@
         <image name="7-12_months" width="626" height="417"/>
         <namedColor name="backgroundColor1">
             <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="1" green="0.92549019607843142" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColor">
             <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

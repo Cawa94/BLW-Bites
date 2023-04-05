@@ -71,6 +71,7 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
             playerViewTopConstraint.constant = 30
             playerViewHeightConstraint.constant = 420
             playerViewPlaceholder.isHidden = false
+            playerViewPlaceholder.roundCornersSimplified(cornerRadius: 0, borderWidth: 1, borderColor: .mainColor)
             playerIconPlaceholder.isHidden = false
             self.videoUrl = videoUrl
             playerViewButton.isHidden = false

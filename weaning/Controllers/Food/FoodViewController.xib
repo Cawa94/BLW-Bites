@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -108,7 +107,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor2"/>
                     <constraints>
                         <constraint firstItem="1tM-Ck-haD" firstAttribute="width" secondItem="9wU-sb-ut8" secondAttribute="width" multiplier="0.68" id="4cR-sV-jh9"/>
                         <constraint firstAttribute="bottom" secondItem="1tM-Ck-haD" secondAttribute="bottom" constant="15" id="KCF-ev-QAJ"/>
@@ -129,7 +128,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="backgroundColor2"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="9yl-Or-uRs"/>
                         <constraint firstAttribute="width" secondItem="F5f-dw-MzL" secondAttribute="height" multiplier="1:1" id="GW7-Yu-ftl"/>
@@ -166,11 +165,11 @@
         <namedColor name="backgroundColor1">
             <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="1" green="0.92549019607843142" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -27,7 +27,7 @@ class DayCollectionViewCell: UICollectionViewCell {
 
         backgroundColor = isSelected ? .white : .mainColor
 
-        roundCornersSimplified(cornerRadius: .smallCornerRadius)
+        roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .mainColor)
     }
 
 }
