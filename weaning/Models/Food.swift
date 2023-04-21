@@ -65,6 +65,14 @@ extension Food {
         !(recipes?.isEmpty ?? true)
     }
 
+    var hasDescription: Bool {
+        !(description?.isEmpty ?? true)
+    }
+
+    var categoryImage: String {
+        FoodCategory.allValues.first(where: { $0.id == category ?? "" })?.imageName ?? ""
+    }
+
     var ageSegments: [AgeSegment] {
         var segments: [AgeSegment] = []
         if let first = ageDictionary?.first {

@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import AVKit
-import AVFoundation
 
 protocol FoodMonthsSectionDelegate: AnyObject {
 
@@ -22,17 +20,12 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var sectionTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imagesCollectionView: UICollectionView!
     @IBOutlet private weak var imagesCollectionViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var playerViewPlaceholder: UIView!
-    @IBOutlet private weak var playerIconPlaceholder: UIImageView!
-    @IBOutlet private weak var playerView: UIView!
     @IBOutlet private weak var playerViewButton: UIButton!
     @IBOutlet private weak var playerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var playerViewTopConstraint: NSLayoutConstraint!
 
     private weak var delegate: FoodMonthsSectionDelegate?
     private var food: Food?
-    private var player: AVPlayer?
-    private var playerViewController: AVPlayerViewController?
     private var videoUrl: URL?
 
     override func awakeFromNib() {
@@ -57,7 +50,7 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
     }
 
     func showInfosForSegment(_ index: Int) {
-        sectionTextView.text = food?.ageSegments[index].description
+        sectionTextView.attributedText = food?.ageSegments[index].description?.htmlToAttributedString(size: 18)
         sectionTextViewHeightConstraint.constant = sectionTextView.contentSize.height
         let picturesCount = food?.ageSegments[monthsSegmentControl.selectedSegmentIndex].pictures?.count ?? 0
         let numberOfItems = ((picturesCount % 2) == 0) ? picturesCount : picturesCount + 1
@@ -68,51 +61,21 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
         }
 
         if let video = food?.ageSegments[index].video, let videoUrl = URL(string: video) {
-            playerViewTopConstraint.constant = 30
-            playerViewHeightConstraint.constant = 420
-            playerViewPlaceholder.isHidden = false
-            playerViewPlaceholder.roundCornersSimplified(cornerRadius: 0, borderWidth: 1, borderColor: .mainColor)
-            playerIconPlaceholder.isHidden = false
-            self.videoUrl = videoUrl
             playerViewButton.isHidden = false
+            playerViewTopConstraint.constant = 50
+            playerViewHeightConstraint.constant = 50
+            self.videoUrl = videoUrl
         } else {
+            playerViewButton.isHidden = true
             playerViewTopConstraint.constant = 0
             playerViewHeightConstraint.constant = 0
-            playerViewPlaceholder.isHidden = true
-            playerIconPlaceholder.isHidden = true
-            self.videoUrl = nil
-            playerViewButton.isHidden = true
         }
     }
 
-    @IBAction func playVideo() {
+    @IBAction func playVideo(_ sender: Any) {
         guard let videoUrl = videoUrl
             else { return }
-        player = AVPlayer(url: videoUrl)
-        player?.isMuted = true
-        player?.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
-        playerView.subviews.filter({ $0.tag == 10 }).forEach({ $0.removeFromSuperview() })
-        playerViewController = AVPlayerViewController()
-        playerViewController?.player = self.player
-        playerViewController?.view.frame.size = self.playerView.frame.size
-        playerViewController?.view.frame.origin = .zero
-        playerViewController?.player?.play()
-        playerViewController?.view.tag = 10
-        playerView.addSubview(playerViewController?.view ?? UIView())
-        playerViewButton.isHidden = true
-    }
-
-    override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
-        if keyPath == "rate" {
-            if player?.rate ?? 0 > 0 {
-                print("video started")
-                playerViewPlaceholder.isHidden = true
-                playerIconPlaceholder.isHidden = true
-            }
-        }
+        NavigationService.present(viewController: NavigationService.videoViewController(videoUrl: videoUrl))
     }
 
 }

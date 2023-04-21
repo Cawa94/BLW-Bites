@@ -54,7 +54,7 @@
                 </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="backgroundColor2"/>
+            <color key="backgroundColor" name="backgroundColor1"/>
             <constraints>
                 <constraint firstItem="q5J-1x-Gtk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="9mm-U0-Krf"/>
                 <constraint firstItem="JpQ-hf-mhp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="NCw-R2-Pp7"/>
@@ -70,11 +70,11 @@
     </objects>
     <resources>
         <image name="ewelina" width="1573" height="1677"/>
-        <namedColor name="backgroundColor2">
-            <color red="1" green="0.92549019607843142" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="backgroundColor1">
+            <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
-            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

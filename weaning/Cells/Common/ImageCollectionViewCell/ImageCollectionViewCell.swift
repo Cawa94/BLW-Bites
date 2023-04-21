@@ -12,9 +12,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var foodImageView: UIImageView!
 
     func configureWith(_ image: String) {
-        let reference = StorageService.shared.getReferenceFor(path: image)
-        foodImageView.sd_setImage(with: reference, placeholderImage: nil)
-        foodImageView.roundCornersSimplified()
+        if !image.isEmpty {
+            let reference = StorageService.shared.getReferenceFor(path: image)
+            foodImageView.sd_setImage(with: reference, placeholderImage: nil)
+            foodImageView.roundCornersSimplified()
+        }
 
         drawShadow()
         layoutIfNeeded()

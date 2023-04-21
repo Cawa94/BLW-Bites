@@ -17,6 +17,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodViewController" customModule="weaning" customModuleProvider="target">
             <connections>
                 <outlet property="backNavigationView" destination="F5f-dw-MzL" id="OQZ-V9-xEd"/>
+                <outlet property="categoryContainerView" destination="37m-9O-tgy" id="na1-wH-Sr6"/>
+                <outlet property="categoryImageView" destination="0IZ-7D-phT" id="ogM-FV-vZr"/>
                 <outlet property="contentViewHeightConstraint" destination="grB-0b-sly" id="0m8-RD-bpB"/>
                 <outlet property="foodImageView" destination="LdI-VC-ElB" id="b53-0q-jWH"/>
                 <outlet property="foodNameLabel" destination="1tM-Ck-haD" id="QwD-xX-M2p"/>
@@ -63,7 +65,7 @@
                                 </view>
                                 <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="weaning" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="234" width="393" height="950"/>
-                                    <color key="backgroundColor" name="backgroundColor1"/>
+                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="950" id="mXw-V2-bOz"/>
                                     </constraints>
@@ -97,6 +99,22 @@
                         <outlet property="delegate" destination="-1" id="g3u-ei-qXB"/>
                     </connections>
                 </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37m-9O-tgy">
+                    <rect key="frame" x="333" y="65.333333333333329" width="40" height="40"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0IZ-7D-phT">
+                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="0IZ-7D-phT" firstAttribute="centerX" secondItem="37m-9O-tgy" secondAttribute="centerX" id="gVQ-oI-xhQ"/>
+                        <constraint firstItem="0IZ-7D-phT" firstAttribute="width" secondItem="37m-9O-tgy" secondAttribute="width" constant="-10" id="hf4-83-hMG"/>
+                        <constraint firstAttribute="width" constant="40" id="jG6-6P-jxs"/>
+                        <constraint firstItem="0IZ-7D-phT" firstAttribute="centerY" secondItem="37m-9O-tgy" secondAttribute="centerY" id="vJN-lL-gf0"/>
+                        <constraint firstItem="0IZ-7D-phT" firstAttribute="height" secondItem="37m-9O-tgy" secondAttribute="height" constant="-10" id="yTj-KS-o8p"/>
+                    </constraints>
+                </view>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wU-sb-ut8">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="114"/>
                     <subviews>
@@ -107,7 +125,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" name="backgroundColor2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="1tM-Ck-haD" firstAttribute="width" secondItem="9wU-sb-ut8" secondAttribute="width" multiplier="0.68" id="4cR-sV-jh9"/>
                         <constraint firstAttribute="bottom" secondItem="1tM-Ck-haD" secondAttribute="bottom" constant="15" id="KCF-ev-QAJ"/>
@@ -128,7 +146,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" name="backgroundColor2"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="9yl-Or-uRs"/>
                         <constraint firstAttribute="width" secondItem="F5f-dw-MzL" secondAttribute="height" multiplier="1:1" id="GW7-Yu-ftl"/>
@@ -140,7 +158,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="7QN-42-ogF"/>
-            <color key="backgroundColor" name="backgroundColor1"/>
+            <color key="backgroundColor" name="backgroundColor2"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="fT2-Y1-ZjB" secondAttribute="trailing" id="112-Os-gLb"/>
                 <constraint firstItem="LdI-VC-ElB" firstAttribute="height" secondItem="vKD-n3-PCx" secondAttribute="height" id="2vi-8t-q3i"/>
@@ -149,8 +167,11 @@
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" constant="20" id="6U2-cx-IGc"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8lS-Cm-whk"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NbN-xb-4CC"/>
+                <constraint firstItem="37m-9O-tgy" firstAttribute="width" secondItem="37m-9O-tgy" secondAttribute="height" multiplier="1:1" id="Tg9-7v-5ic"/>
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="centerY" secondItem="1tM-Ck-haD" secondAttribute="centerY" id="Ucf-0N-Ybp"/>
+                <constraint firstItem="7QN-42-ogF" firstAttribute="trailing" secondItem="37m-9O-tgy" secondAttribute="trailing" constant="20" id="VNn-zM-Kzr"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" id="Xkt-C8-g2f"/>
+                <constraint firstItem="37m-9O-tgy" firstAttribute="centerY" secondItem="F5f-dw-MzL" secondAttribute="centerY" id="aYc-fA-AD1"/>
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bio-LT-UYm"/>
                 <constraint firstAttribute="trailing" secondItem="aSN-Zg-KF4" secondAttribute="trailing" id="eqD-hW-M6E"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gXt-cb-SEA"/>
@@ -162,14 +183,11 @@
     </objects>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
-        <namedColor name="backgroundColor1">
-            <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="backgroundColor2">
-            <color red="1" green="0.92549019607843142" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColor">
-            <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

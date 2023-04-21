@@ -13,10 +13,10 @@ extension UIColor {
 
     static let backgroundColor1  = UIColor.named("backgroundColor1")
     static let backgroundColor2  = UIColor.named("backgroundColor2")
-    static let backgroundColor3  = UIColor.named("backgroundColor3")
 
     static let mainColor         = UIColor.named("mainColor")
     static let textColor         = UIColor.named("textColor")
+    static let lightTextColor    = UIColor.named("lightTextColor")
 
     private static func named(_ name: String) -> UIColor {
         return UIColor(named: name) ?? UIColor()

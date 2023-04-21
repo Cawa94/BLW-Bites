@@ -41,7 +41,7 @@ class MenuDishView: UIView {
         nameLabel.text = viewModel.menuDish.name
         separatorView.isHidden = viewModel.hideSeparator
         dishImageView.roundCornersSimplified(cornerRadius: dishImageView.frame.height/2)
-        guard let image = viewModel.menuDish.image
+        guard let image = viewModel.menuDish.image, !image.isEmpty
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         dishImageView.sd_setImage(with: reference, placeholderImage: nil)

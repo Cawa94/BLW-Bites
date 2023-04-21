@@ -15,15 +15,21 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
 
     static let defaultHeight: CGFloat = 250
 
-    func configureWith(_ shortRecipe: ShortRecipe) {
-        self.nameLabel.text = shortRecipe.name
-        self.startingFromLabel.text = shortRecipe.startingFrom
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
-        guard let image = shortRecipe.image
+        foodImageView.image = nil
+    }
+
+    func configureWith(_ shortRecipe: ShortRecipe) {
+        nameLabel.text = shortRecipe.name
+        startingFromLabel.text = shortRecipe.startingFrom
+        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
+
+        guard let image = shortRecipe.image, !image.isEmpty
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
-        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
     }
 
 }

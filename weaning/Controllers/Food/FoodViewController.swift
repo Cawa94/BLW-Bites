@@ -22,6 +22,8 @@ class FoodViewController: UIViewController {
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var categoryContainerView: UIView!
+    @IBOutlet private weak var categoryImageView: UIImageView!
 
     var viewModel: FoodViewModel?
 
@@ -48,6 +50,7 @@ class FoodViewController: UIViewController {
                                forCellReuseIdentifier: "SeparatorTableViewCell")
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
+        categoryContainerView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
 
         FirestoreService.shared.database.document("foods/\(viewModel?.foodId ?? "")").getDocument(as: Food.self) { result in
             switch result {
@@ -61,15 +64,6 @@ class FoodViewController: UIViewController {
     }
 
     func configurePage() {
-        guard let food = viewModel?.food
-            else { return }
-        foodNameLabel.text = food.name
-
-        guard let image = food.image
-            else { return }
-        let reference = StorageService.shared.getReferenceFor(path: image)
-        foodImageView.sd_setImage(with: reference, placeholderImage: nil)
-
         DispatchQueue.main.async {
             self.mainTableView.reloadData(completion: {
                 self.mainTableView.invalidateIntrinsicContentSize()
@@ -77,6 +71,14 @@ class FoodViewController: UIViewController {
                 self.viewDidLayoutSubviews()
             })
         }
+
+        foodNameLabel.text = viewModel?.food?.name
+        categoryImageView.image = UIImage(named: viewModel?.food?.categoryImage ?? "")
+
+        guard let image = viewModel?.food?.image, !image.isEmpty
+            else { return }
+        let reference = StorageService.shared.getReferenceFor(path: image)
+        foodImageView.sd_setImage(with: reference, placeholderImage: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -113,11 +115,15 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         case 1:
             if viewModel?.food?.hasAgeDictionary ?? false {
-                return 2
+                return viewModel?.food?.hasDescription ?? false ? 2 : 1
             } else if viewModel?.food?.hasInfosDictionary ?? false {
-                return (viewModel?.food?.infoSections.count ?? 0) + 1
+                if viewModel?.food?.hasDescription ?? false {
+                    return (viewModel?.food?.infoSections.count ?? 0) + 2
+                } else {
+                    return (viewModel?.food?.infoSections.count ?? 0) + 1
+                }
             } else {
-                return 2
+                return viewModel?.food?.hasDescription ?? false ? 2 : 1
             }
         case 2:
             if viewModel?.food?.hasInfosDictionary ?? false {
@@ -152,11 +158,11 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             if viewModel?.food?.hasAgeDictionary ?? false {
-                return ageSectionTableViewCell(tableView, cellForRowAt: indexPath)
+                return ageSectionTableViewCell(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.food?.hasDescription ?? false)
             } else if viewModel?.food?.hasInfosDictionary ?? false {
-                return infoSectionTableViewCell(tableView, cellForRowAt: indexPath)
+                return infoSectionTableViewCell(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.food?.hasDescription ?? false)
             } else {
-                return recipesSection(tableView, cellForRowAt: indexPath)
+                return recipesSection(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.food?.hasDescription ?? false)
             }
         case 2:
             if viewModel?.food?.hasInfosDictionary ?? false {
@@ -171,12 +177,16 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func ageSectionTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func ageSectionTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "FoodMonthsSectionTableViewCell", for: indexPath)
+                as? FoodMonthsSectionTableViewCell, let food = viewModel?.food {
+                cell.configureWith(food: food, delegate: self)
                 return cell
             } else {
                 return UITableViewCell()
@@ -194,12 +204,16 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func infoSectionTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func infoSectionTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "FoodSectionTableViewCell", for: indexPath)
+                as? FoodSectionTableViewCell, let food = viewModel?.food {
+                cell.configureWith(infoSection: food.infoSections[indexPath.row - 1], delegate: self)
                 return cell
             } else {
                 return UITableViewCell()
@@ -215,12 +229,16 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func recipesSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func recipesSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecipesTableViewCell", for: indexPath)
+                as? FoodRecipesTableViewCell, let recipes = viewModel?.food?.recipes {
+                cell.configureWith(shortRecipes: recipes)
                 return cell
             } else {
                 return UITableViewCell()

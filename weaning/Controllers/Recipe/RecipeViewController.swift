@@ -62,15 +62,6 @@ class RecipeViewController: UIViewController {
     }
 
     func configurePage() {
-        guard let recipe = viewModel?.recipe
-            else { return }
-        recipeNameLabel.text = recipe.name
-
-        guard let image = recipe.image
-            else { return }
-        let reference = StorageService.shared.getReferenceFor(path: image)
-        recipeImageView.sd_setImage(with: reference, placeholderImage: nil)
-
         DispatchQueue.main.async {
             self.mainTableView.reloadData(completion: {
                 self.mainTableView.invalidateIntrinsicContentSize()
@@ -78,6 +69,13 @@ class RecipeViewController: UIViewController {
                 self.viewDidLayoutSubviews()
             })
         }
+
+        recipeNameLabel.text = viewModel?.recipe?.name
+
+        guard let image = viewModel?.recipe?.image, !image.isEmpty
+            else { return }
+        let reference = StorageService.shared.getReferenceFor(path: image)
+        recipeImageView.sd_setImage(with: reference, placeholderImage: nil)
     }
 
     override func viewDidLayoutSubviews() {

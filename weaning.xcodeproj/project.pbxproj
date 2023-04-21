@@ -80,6 +80,10 @@
 		739A622829B65B74006FE951 /* FavoriteDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739A622629B65B74006FE951 /* FavoriteDefaultTableViewCell.xib */; };
 		739A622C29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739A622A29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift */; };
 		739A622D29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739A622B29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib */; };
+		739E91FA29F2E793009BFF34 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E91F829F2E793009BFF34 /* VideoViewController.swift */; };
+		739E91FB29F2E793009BFF34 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739E91F929F2E793009BFF34 /* VideoViewController.xib */; };
+		739E91FD29F2E7A4009BFF34 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E91FC29F2E7A4009BFF34 /* VideoViewModel.swift */; };
+		739E91FF29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739E91FE29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift */; };
 		73A0BB8629AE8ADE0099DB74 /* ShortRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A0BB8529AE8ADE0099DB74 /* ShortRecipe.swift */; };
 		73A0BB8829AE8B510099DB74 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A0BB8729AE8B510099DB74 /* Recipe.swift */; };
 		73A0BB8A29AE8CA80099DB74 /* RecipeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A0BB8929AE8CA80099DB74 /* RecipeCategory.swift */; };
@@ -222,6 +226,10 @@
 		739A622629B65B74006FE951 /* FavoriteDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteDefaultTableViewCell.xib; sourceTree = "<group>"; };
 		739A622A29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		739A622B29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		739E91F829F2E793009BFF34 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		739E91F929F2E793009BFF34 /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		739E91FC29F2E7A4009BFF34 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		739E91FE29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+VideoViewController.swift"; sourceTree = "<group>"; };
 		73A0BB8529AE8ADE0099DB74 /* ShortRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortRecipe.swift; sourceTree = "<group>"; };
 		73A0BB8729AE8B510099DB74 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		73A0BB8929AE8CA80099DB74 /* RecipeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategory.swift; sourceTree = "<group>"; };
@@ -501,6 +509,7 @@
 				73AD68D029AFB2310054B377 /* Recipe */,
 				738FB2C52997AB2500C286B3 /* RecipesList */,
 				7316B4EE29C231F800BD0AB0 /* Subscription */,
+				739E91F729F2E6D7009BFF34 /* Video */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -655,6 +664,17 @@
 				739A622B29B65B8F006FE951 /* HomepageHeaderTableViewCell.xib */,
 			);
 			path = HomepageHeaderTableViewCell;
+			sourceTree = "<group>";
+		};
+		739E91F729F2E6D7009BFF34 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				739E91F829F2E793009BFF34 /* VideoViewController.swift */,
+				739E91FC29F2E7A4009BFF34 /* VideoViewModel.swift */,
+				739E91F929F2E793009BFF34 /* VideoViewController.xib */,
+				739E91FE29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		73AD68CA29AFA7CA0054B377 /* RecipesList */ = {
@@ -966,6 +986,7 @@
 				738FB2BA2997A9BA00C286B3 /* LaunchScreen.storyboard in Resources */,
 				738FB2B72997A9BA00C286B3 /* Assets.xcassets in Resources */,
 				73CA04F929CB45CD00E60AFF /* Nunito.ttf in Resources */,
+				739E91FB29F2E793009BFF34 /* VideoViewController.xib in Resources */,
 				738FB2D42997C3F000C286B3 /* MenuSelectorViewController.xib in Resources */,
 				7316B4DE29C1E3D600BD0AB0 /* MenuMealTableViewCell.xib in Resources */,
 				7344B36B29A0E1DA00B172AC /* CategoryCollectionViewCell.xib in Resources */,
@@ -1071,6 +1092,7 @@
 				738FB2F42997D7D500C286B3 /* ShortFood.swift in Sources */,
 				738FB3042997DE8F00C286B3 /* ShortFoodCollectionViewCell.swift in Sources */,
 				7316B4E429C1EC0300BD0AB0 /* MenuMeal.swift in Sources */,
+				739E91FA29F2E793009BFF34 /* VideoViewController.swift in Sources */,
 				73A0BB8A29AE8CA80099DB74 /* RecipeCategory.swift in Sources */,
 				738FB2CD2997ACA700C286B3 /* NavigationService.swift in Sources */,
 				7344B35E29A0D42700B172AC /* NavigationService+HomepageViewController.swift in Sources */,
@@ -1082,6 +1104,7 @@
 				738FB2FF2997DABD00C286B3 /* NavigationService + FoodViewController.swift in Sources */,
 				738FB2F62997D98900C286B3 /* Food.swift in Sources */,
 				73AE196A29BCCC7500B2A2AE /* DayCollectionViewCell.swift in Sources */,
+				739E91FD29F2E7A4009BFF34 /* VideoViewModel.swift in Sources */,
 				73AD68D629AFB2550054B377 /* RecipeViewModel.swift in Sources */,
 				73AD68DF29AFB6CB0054B377 /* RecipeTitleTableViewCell.swift in Sources */,
 				73AE196329BC901B00B2A2AE /* MenuViewModel.swift in Sources */,
@@ -1122,6 +1145,7 @@
 				73E59BDE29AA5B2E003D7F65 /* AgeDictionary.swift in Sources */,
 				7307F67629CB60E3002E5710 /* DefaultColors.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
+				739E91FF29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift in Sources */,
 				73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */,
 				7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */,
 				7316B4F429C233C100BD0AB0 /* Subscription.swift in Sources */,
