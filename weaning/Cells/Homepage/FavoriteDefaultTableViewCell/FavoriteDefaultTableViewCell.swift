@@ -21,7 +21,7 @@ class FavoriteDefaultTableViewCell: UITableViewCell {
                        isFavorites: Bool) {
         self.shortFoods = shortFoods
         self.shortRecipes = shortRecipes
-        self.titleLabel.text = shortFoods != nil ? "Popular Foods" : "Popular Recipes"
+        self.titleLabel.text = shortFoods != nil ? "Miesięczna darmowa żywność" : "Miesięczne darmowe przepisy"
 
         mainCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
@@ -94,10 +94,17 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let shortFood = shortFoods?[indexPath.row], let id = shortFood.id
-            else { return }
-        let foodController = NavigationService.foodViewController(foodId: id)
-        NavigationService.push(viewController: foodController)
+        if shortFoods != nil {
+            guard let shortFood = shortFoods?[indexPath.row], let id = shortFood.id
+                else { return }
+            let foodController = NavigationService.foodViewController(foodId: id)
+            NavigationService.push(viewController: foodController)
+        } else {
+            guard let shortRecipe = shortRecipes?[indexPath.row], let id = shortRecipe.id
+                else { return }
+            let recipeController = NavigationService.recipeViewController(recipeId: id)
+            NavigationService.push(viewController: recipeController)
+        }
     }
 
 }

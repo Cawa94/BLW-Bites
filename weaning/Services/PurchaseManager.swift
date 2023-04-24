@@ -72,7 +72,6 @@ class PurchaseManager: ObservableObject {
             guard case .verified(let transaction) = result else {
                 continue
             }
-
             if transaction.revocationDate == nil {
                 self.purchasedProductIDs.insert(transaction.productID)
             } else {

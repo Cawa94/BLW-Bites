@@ -15,8 +15,6 @@ public struct Food: Codable {
     let description: String?
     let category: String?
     let startingFrom: String?
-    let riskChoking: Bool?
-    let allergenic: Bool?
     let ageDictionary: AgeDictionary?
     let infosDictionary: FoodInfosDictionary?
     let recipes: [ShortRecipe]?
@@ -28,8 +26,6 @@ public struct Food: Codable {
         case description
         case category
         case startingFrom = "starting_from"
-        case riskChoking = "risk_choking"
-        case allergenic
         case ageDictionary = "age_dictionary"
         case infosDictionary = "infos_dictionary"
         case recipes
@@ -42,8 +38,6 @@ public struct Food: Codable {
         self.description = data["description"] as? String
         self.category = data["category"] as? String
         self.startingFrom = data["starting_from"] as? String
-        self.riskChoking = data["risk_choking"] as? Bool
-        self.allergenic = data["allergenic"] as? Bool
         self.ageDictionary = data["age_dictionary"] as? AgeDictionary
         self.infosDictionary = data["infos_dictionary"] as? FoodInfosDictionary
         self.recipes = data["recipes"] as? [ShortRecipe]

@@ -14,7 +14,7 @@ extension UIFont {
     }
 
     static func titleFontOf(size: CGFloat) -> UIFont {
-        return fontWith(name: "Alata-Regular", size: size)
+        return fontWith(name: "Nunito-Bold", size: size)
     }
 
     private static func fontWith(name: String, size: CGFloat) -> UIFont {

@@ -15,6 +15,7 @@ public struct Recipe: Codable {
     let description: String?
     let category: [String]?
     let startingFrom: String?
+    let ingredientsTitle: String?
     let ingredients: [String]?
     let steps: [String]?
     let tips: String?
@@ -27,6 +28,7 @@ public struct Recipe: Codable {
         case description
         case category
         case startingFrom = "starting_from"
+        case ingredientsTitle = "ingredients_title"
         case ingredients
         case steps
         case tips
@@ -40,6 +42,7 @@ public struct Recipe: Codable {
         self.description = data["description"] as? String
         self.category = data["category"] as? [String]
         self.startingFrom = data["starting_from"] as? String
+        self.ingredientsTitle = data["ingredients_title"] as? String
         self.ingredients = data["ingredients"] as? [String]
         self.steps = data["steps_dictionary"] as? [String]
         self.tips = data["tips"] as? String
@@ -66,19 +69,23 @@ extension Recipe {
         !(foods?.isEmpty ?? true)
     }
 
+    var hasDescription: Bool {
+        !(description?.isEmpty ?? true)
+    }
+
     var ingredientsDescription: String {
         var description = ""
         for ingredient in ingredients ?? [] {
             description += "• \(ingredient)\n"
         }
-        description = String(description.dropLast(2))
+        description = String(description.dropLast(1))
         return description
     }
 
     var stepsDescription: String {
         var description = ""
         for step in (steps ?? []).enumerated() {
-            description += "\(step.offset + 1). \(step.element)\n"
+            description += "\(step.offset + 1). \(step.element)\n\n"
         }
         description = String(description.dropLast(2))
         return description

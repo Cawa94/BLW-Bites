@@ -33,13 +33,13 @@ class HomepageViewController: UIViewController {
     }
 
     func getHomepageFoods() {
-        FirestoreService.shared.database.collection("short_foods").limit(to: 5).getDocuments() { querySnapshot, error in
+        FirestoreService.shared.database.collection("short_foods").whereField("is_free", isEqualTo: true).getDocuments() { querySnapshot, error in
             self.convertFoodsData(querySnapshot, error)
         }
     }
 
     func getHomepageRecipes() {
-        FirestoreService.shared.database.collection("short_recipes").limit(to: 5).getDocuments() { querySnapshot, error in
+        FirestoreService.shared.database.collection("short_recipes").whereField("is_free", isEqualTo: true).getDocuments() { querySnapshot, error in
             self.convertRecipesData(querySnapshot, error)
         }
     }

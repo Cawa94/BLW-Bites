@@ -34,7 +34,7 @@ class RecipesListViewController: UIViewController {
                                           forCellWithReuseIdentifier:"CategoryCollectionViewCell")
         recipesCollectionView.register(UINib(nibName:"ShortRecipeCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier:"ShortRecipeCollectionViewCell")
-        recipeSearchBar.placeholder = "Search recipe"
+        recipeSearchBar.placeholder = "Wyszukaj przepis"
 
         DispatchQueue.main.async {
             self.categoriesCollectionView.reloadData()
@@ -53,7 +53,7 @@ class RecipesListViewController: UIViewController {
         if let categorySelected = viewModel?.categorySelected {
             let category = RecipeCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_recipes")
-                .whereField("category", isEqualTo: category)
+                .whereField("category", arrayContains: category)
                 .getDocuments() { querySnapshot, error in
                     self.convertRecipesData(querySnapshot, error)
             }
@@ -118,7 +118,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             let categoryName = RecipeCategory.allValues[indexPath.row].name
             let label = UILabel()
-            label.font = .regularFontOf(size: 16)
+            label.font = .titleFontOf(size: 16)
             label.text = categoryName
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
@@ -163,8 +163,12 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             guard let shortRecipe = viewModel?.shortRecipes[indexPath.row], let id = shortRecipe.id
                 else { return }
-            let recipeController = NavigationService.recipeViewController(recipeId: id)
-            NavigationService.push(viewController: recipeController)
+            if shortRecipe.isFree ?? false || PurchaseManager.shared.hasUnlockedPro {
+                let recipeController = NavigationService.recipeViewController(recipeId: id)
+                NavigationService.push(viewController: recipeController)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            }
         }
     }
 

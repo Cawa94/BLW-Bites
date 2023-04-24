@@ -12,8 +12,24 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var foodImageView: UIImageView!
     @IBOutlet private weak var startingFromLabel: UILabel!
+    @IBOutlet private weak var premiumImageView: UIImageView!
+
+    var testPictures: [String] =
+    [
+        "gs://app-svezzamento.appspot.com/recipes/chicken_burgers/stock-photo-fast-food-delicious-chicken-hamburger-2289673301.jpg",
+        "gs://app-svezzamento.appspot.com/recipes/couscous_and_avocado_balls/stock-photo-healthy-salad-with-couscous-sun-dried-tomato-avocado-arugula-and-parmesan-cheese-610319780.jpg",
+        "gs://app-svezzamento.appspot.com/recipes/hummus_made_from_chickpeas/stock-photo-classic-hummus-with-parsley-on-the-plate-and-pita-bread-horizontal-top-view-282976058.jpg",
+        "gs://app-svezzamento.appspot.com/recipes/oatmeal_with_pumpkin_and_cinnamon/stock-photo-healthy-inside-healthy-natural-nutritious-being-in-the-plate-and-preparing-for-being-taking-1040799652.jpg",
+        "gs://app-svezzamento.appspot.com/recipes/pasta_with_carrot_pesto/stock-photo-pasta-spaghetti-with-pesto-sauce-and-fresh-basil-leaves-in-grey-bowl-light-grey-background-top-1969988881.jpg"
+    ]
 
     static let defaultHeight: CGFloat = 250
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -24,12 +40,26 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     func configureWith(_ shortRecipe: ShortRecipe) {
         nameLabel.text = shortRecipe.name
         startingFromLabel.text = shortRecipe.startingFrom
-        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
+        premiumImageView.isHidden = shortRecipe.isFree ?? false || PurchaseManager.shared.hasUnlockedPro
 
         guard let image = shortRecipe.image, !image.isEmpty
-            else { return }
+            // else { return }
+            else {
+                // FOR TESTING ONLY
+                let reference = StorageService.shared.getReferenceFor(path: testPictures.randomElement() ?? "")
+                foodImageView.sd_setImage(with: reference, placeholderImage: nil, completion: { image, error, type, url in
+                    if !(shortRecipe.isFree ?? false) && !PurchaseManager.shared.hasUnlockedPro {
+                        self.foodImageView.image = image?.grayscaled
+                    }
+                })
+                return
+            }
         let reference = StorageService.shared.getReferenceFor(path: image)
-        foodImageView.sd_setImage(with: reference, placeholderImage: nil)
+        foodImageView.sd_setImage(with: reference, placeholderImage: nil, completion: { image, error, type, url in
+            if !(shortRecipe.isFree ?? false) && !PurchaseManager.shared.hasUnlockedPro {
+                self.foodImageView.image = image?.grayscaled
+            }
+        })
     }
 
 }

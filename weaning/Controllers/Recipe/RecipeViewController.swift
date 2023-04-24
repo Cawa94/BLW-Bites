@@ -113,6 +113,8 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case 0:
             return 1
+        case 1:
+            return viewModel?.recipe?.hasDescription ?? false ? 2 : 1
         default:
             return 2
         }
@@ -138,13 +140,13 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             if viewModel?.recipe?.hasIngredients ?? false {
-                return ingredientsSection(tableView, cellForRowAt: indexPath)
+                return ingredientsSection(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.recipe?.hasDescription ?? false)
             } else if viewModel?.recipe?.hasSteps ?? false {
-                return stepsSection(tableView, cellForRowAt: indexPath)
+                return stepsSection(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.recipe?.hasDescription ?? false)
             } else if viewModel?.recipe?.hasTips ?? false {
-                return tipsSection(tableView, cellForRowAt: indexPath)
+                return tipsSection(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.recipe?.hasDescription ?? false)
             } else {
-                return foodsSection(tableView, cellForRowAt: indexPath)
+                return foodsSection(tableView, cellForRowAt: indexPath, showSeparator: viewModel?.recipe?.hasDescription ?? false)
             }
         case 2:
             if viewModel?.recipe?.hasSteps ?? false {
@@ -167,12 +169,16 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func ingredientsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func ingredientsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
+                as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
+                cell.configureWith(title: recipe.ingredientsTitle ?? "Składniki", text: recipe.ingredientsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -180,7 +186,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: "Ingredients", text: recipe.ingredientsDescription)
+                cell.configureWith(title: recipe.ingredientsTitle ?? "Składniki", text: recipe.ingredientsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -190,12 +196,16 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func stepsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func stepsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
+                as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
+                cell.configureWith(title: "Przygotowanie", text: recipe.stepsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -203,7 +213,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: "Procedure", text: recipe.stepsDescription)
+                cell.configureWith(title: "Przygotowanie", text: recipe.stepsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -213,12 +223,16 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func tipsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tipsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
+                as? RecipeInfoTableViewCell, let tips = viewModel?.recipe?.tips {
+                cell.configureWith(title: "Tips", text: tips)
                 return cell
             } else {
                 return UITableViewCell()
@@ -236,12 +250,16 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    func foodsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func foodsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, showSeparator: Bool = true) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SeparatorTableViewCell", for: indexPath)
-                as? SeparatorTableViewCell {
+                as? SeparatorTableViewCell, showSeparator {
                 cell.configureWith(50)
+                return cell
+            } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeFoodsTableViewCell", for: indexPath)
+                as? RecipeFoodsTableViewCell, let foods = viewModel?.recipe?.foods {
+                cell.configureWith(shortFoods: foods)
                 return cell
             } else {
                 return UITableViewCell()

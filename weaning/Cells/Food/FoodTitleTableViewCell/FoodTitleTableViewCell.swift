@@ -20,7 +20,7 @@ class FoodTitleTableViewCell: UITableViewCell {
         startingFromLabel.text = food.startingFrom
         descriptionTextView.attributedText = food.description?.htmlToAttributedString(size: 18)
         descriptionTopConstraint.constant = food.hasDescription ? 20 : 0
-        descriptionTextViewHeightConstraint.constant = descriptionTextView.contentSize.height
+        descriptionTextViewHeightConstraint.constant = food.hasDescription ? descriptionTextView.contentSize.height : 0
     }
 
 }

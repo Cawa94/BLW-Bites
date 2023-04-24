@@ -34,7 +34,7 @@ class FoodListViewController: UIViewController {
                                           forCellWithReuseIdentifier:"CategoryCollectionViewCell")
         foodsCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
-        foodSearchBar.placeholder = "Search food"
+        foodSearchBar.placeholder = "Wyszukaj żywność"
 
         DispatchQueue.main.async {
             self.categoriesCollectionView.reloadData()
@@ -158,7 +158,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView.tag == 0 {
             let categoryName = FoodCategory.allValues[indexPath.row].name
             let label = UILabel()
-            label.font = .regularFontOf(size: 16)
+            label.font = .titleFontOf(size: 16)
             label.text = categoryName
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
@@ -203,8 +203,12 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             guard let shortFood = viewModel?.shortFoods[indexPath.row], let id = shortFood.id
                 else { return }
-            let foodController = NavigationService.foodViewController(foodId: id)
-            NavigationService.push(viewController: foodController)
+            if shortFood.isFree ?? false || PurchaseManager.shared.hasUnlockedPro {
+                let foodController = NavigationService.foodViewController(foodId: id)
+                NavigationService.push(viewController: foodController)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            }
         }
     }
 

@@ -14,9 +14,7 @@ public struct ShortFood: Codable {
     let image: String?
     let category: String?
     let startingFrom: String?
-    let riskChoking: Bool?
-    let allergenic: Bool?
-    let richIn: [String]?
+    let isFree: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -24,9 +22,7 @@ public struct ShortFood: Codable {
         case image
         case category
         case startingFrom = "starting_from"
-        case riskChoking = "risk_choking"
-        case allergenic
-        case richIn = "rich_in"
+        case isFree = "is_free"
     }
 
     init(data: [String: Any]) {
@@ -35,9 +31,7 @@ public struct ShortFood: Codable {
         self.image = data["image"] as? String
         self.category = data["category"] as? String
         self.startingFrom = data["starting_from"] as? String
-        self.riskChoking = data["risk_choking"] as? Bool
-        self.allergenic = data["allergenic"] as? Bool
-        self.richIn = data["rich_in"] as? [String]
+        self.isFree = data["is_free"] as? Bool
     }
 
 }
