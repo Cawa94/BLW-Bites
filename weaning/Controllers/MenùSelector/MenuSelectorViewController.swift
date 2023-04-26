@@ -69,7 +69,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath)
                 as? TitleTableViewCell {
-                cell.configureWith("What will your baby eat today?")
+                cell.configureWith("MENU_SELECTOR_TITLE".localized())
                 return cell
             } else {
                 return UITableViewCell()
@@ -86,12 +86,13 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)
                 as? MenuSelectorTableViewCell {
-                let viewModel = MenuSelectorTableViewModel.init(image: "vegetable",
-                                                                title: "Menù first 30-days",
-                                                                subtitle: "A very simple and usefull menù to introduce the first aliments into your kid and get him used to solid foods",
+                let viewModel = MenuSelectorTableViewModel.init(image: "30_days_icon",
+                                                                title: "MENU_30_DAYS".localized(),
+                                                                subtitle: "MENU_30_DAYS_DESCRIPTION".localized(),
+                                                                isPremium: false,
                                                                 tapHandler: {
-                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "30_days"))
-                   })
+                    self.openMenuWith(id: "30_days", name: "MENU_30_DAYS".localized(), isPremium: false)
+                })
                 cell.configureWith(viewModel)
                 return cell
             } else {
@@ -100,12 +101,13 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)
                 as? MenuSelectorTableViewCell {
-                let viewModel = MenuSelectorTableViewModel.init(image: "fruit",
-                                                                title: "Menù 7-12 months",
-                                                                subtitle: "A more complex and advanced menù with a variety of tasteful recipes adapt for all the family",
+                let viewModel = MenuSelectorTableViewModel.init(image: "7-12_months_icon",
+                                                                title: "MENU_7-12_MONTHS".localized(),
+                                                                subtitle: "MENU_7-12_MONTHS_DESCRIPTION".localized(),
+                                                                isPremium: true,
                                                                 tapHandler: {
-                       NavigationService.push(viewController: NavigationService.menuViewController(menuId: "30_days"))
-                   })
+                    self.openMenuWith(id: "7-12_months", name: "MENU_7-12_MONTHS".localized(), isPremium: true)
+                })
                 cell.configureWith(viewModel)
                 return cell
             } else {
@@ -113,6 +115,15 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
             }
         default:
             return UITableViewCell()
+        }
+    }
+
+    func openMenuWith(id: String, name: String, isPremium: Bool) {
+        if PurchaseManager.shared.hasUnlockedPro || !isPremium {
+            NavigationService.push(viewController: NavigationService.menuViewController(menuId: id,
+                                                                                        menuName: name))
+        } else {
+            NavigationService.present(viewController: NavigationService.subscriptionViewController())
         }
     }
 

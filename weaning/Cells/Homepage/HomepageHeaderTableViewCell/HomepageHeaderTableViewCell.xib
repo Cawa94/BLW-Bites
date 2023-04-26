@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,10 +23,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Let's find your healthy food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-iR-Tx7">
-                        <rect key="frame" x="30" y="20" width="225" height="80"/>
+                        <rect key="frame" x="30" y="20" width="281.33333333333331" height="80"/>
                         <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="26"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="HOME_TITLE"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="promo_banner" translatesAutoresizingMaskIntoConstraints="NO" id="nPA-iA-JKX">
                         <rect key="frame" x="28.666666666666657" y="125" width="318" height="175"/>
@@ -42,13 +46,6 @@
                             <action selector="openSubscriptionPage" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FTh-Bu-SLS"/>
                         </connections>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fruit" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-2i-c2P">
-                        <rect key="frame" x="275" y="30" width="60" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="l0o-yD-sNL"/>
-                            <constraint firstAttribute="width" secondItem="IM9-2i-c2P" secondAttribute="height" multiplier="1:1" id="zCV-XG-nzT"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -56,14 +53,12 @@
                     <constraint firstItem="nPA-iA-JKX" firstAttribute="top" secondItem="0hm-iR-Tx7" secondAttribute="bottom" constant="25" id="IDw-L1-17E"/>
                     <constraint firstItem="XZj-P2-PkV" firstAttribute="top" secondItem="nPA-iA-JKX" secondAttribute="top" id="Lgt-kM-9uJ"/>
                     <constraint firstItem="0hm-iR-Tx7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Oos-ad-8df"/>
-                    <constraint firstItem="0hm-iR-Tx7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="ar0-gu-tK1"/>
+                    <constraint firstItem="0hm-iR-Tx7" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="ar0-gu-tK1"/>
                     <constraint firstItem="0hm-iR-Tx7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="cWH-WE-TNM"/>
                     <constraint firstItem="XZj-P2-PkV" firstAttribute="bottom" secondItem="nPA-iA-JKX" secondAttribute="bottom" id="evt-AP-gQF"/>
                     <constraint firstItem="nPA-iA-JKX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jDE-HK-ihV"/>
                     <constraint firstItem="XZj-P2-PkV" firstAttribute="trailing" secondItem="nPA-iA-JKX" secondAttribute="trailing" id="jfV-1K-on7"/>
                     <constraint firstItem="XZj-P2-PkV" firstAttribute="leading" secondItem="nPA-iA-JKX" secondAttribute="leading" id="s5X-H9-rtc"/>
-                    <constraint firstItem="IM9-2i-c2P" firstAttribute="leading" secondItem="0hm-iR-Tx7" secondAttribute="trailing" constant="20" id="sj9-ku-dFG"/>
-                    <constraint firstItem="IM9-2i-c2P" firstAttribute="centerY" secondItem="0hm-iR-Tx7" secondAttribute="centerY" id="uwA-c8-mSw"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,10 +70,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="fruit" width="24" height="24"/>
         <image name="promo_banner" width="318" height="156"/>
         <namedColor name="textColor">
-            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

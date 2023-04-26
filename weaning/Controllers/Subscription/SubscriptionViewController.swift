@@ -22,11 +22,6 @@ class SubscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        infosTextView.text = """
-        • Access to all the foods
-        • Access to all the recipes
-        • Access to all the menus
-        """
         infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
 
         FirestoreService.shared.database.collection("subscriptions").getDocuments() { querySnapshot, error in

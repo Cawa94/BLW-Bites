@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,8 +12,8 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
-        <array key="Nunito.ttf">
-            <string>Nunito-ExtraBold</string>
+        <array key="Sunshiny.ttf">
+            <string>Sunshiny</string>
         </array>
     </customFonts>
     <objects>
@@ -36,10 +37,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Get Access to All The App Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-WE-yZ3">
-                    <rect key="frame" x="20" y="10" width="196.66666666666666" height="165"/>
-                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="30"/>
+                    <rect key="frame" x="19.999999999999986" y="10" width="235.66666666666663" height="165"/>
+                    <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="26"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_TITLE"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-bn-b86">
                     <rect key="frame" x="20" y="195" width="353" height="150"/>
@@ -51,6 +55,9 @@
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_DESCRIPTION"/>
+                    </userDefinedRuntimeAttributes>
                 </textView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-fI-cU2">
                     <rect key="frame" x="20" y="370" width="353" height="220"/>
@@ -58,13 +65,16 @@
                         <constraint firstAttribute="height" constant="220" id="gRP-be-HE1"/>
                     </constraints>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BP-7S-ETd">
-                    <rect key="frame" x="118" y="610" width="157" height="33.333333333333371"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BP-7S-ETd">
+                    <rect key="frame" x="119.66666666666667" y="610" width="153.66666666666663" height="36"/>
                     <color key="tintColor" name="mainColor"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Restore purchase">
-                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Przywrócić zakup">
+                        <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                     </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_RESTORE_PURCHASE"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="restorePurchas" destination="-1" eventType="touchUpInside" id="AT7-9U-bAE"/>
                     </connections>
@@ -80,7 +90,7 @@
                 <constraint firstItem="Guk-fI-cU2" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="Jxt-yh-xA9"/>
                 <constraint firstItem="9bO-bn-b86" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="bottom" constant="20" id="Req-va-yto"/>
                 <constraint firstItem="Guk-fI-cU2" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="UND-Bh-s2Q"/>
-                <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="fLC-hF-6xP"/>
+                <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="fLC-hF-6xP"/>
                 <constraint firstItem="3BP-7S-ETd" firstAttribute="top" secondItem="Guk-fI-cU2" secondAttribute="bottom" constant="20" id="hsq-6x-P2O"/>
                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="idI-jM-kmF"/>
                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="lI7-Dg-6qZ"/>
@@ -95,10 +105,10 @@
     <resources>
         <image name="30_days" width="626" height="352"/>
         <namedColor name="backgroundColor1">
-            <color red="0.88627450980392153" green="0.98039215686274506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="mainColor">
-            <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -33,6 +33,9 @@
                     <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="28"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_TITLE"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ewelina" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Qq-bI6">
                     <rect key="frame" x="126.66666666666669" y="158.33333333333334" width="140" height="140.00000000000003"/>
@@ -51,6 +54,9 @@
                     <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_DESCRIPTION"/>
+                    </userDefinedRuntimeAttributes>
                 </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

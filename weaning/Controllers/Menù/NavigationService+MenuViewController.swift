@@ -9,10 +9,10 @@ import Foundation
 
 extension NavigationService {
 
-    static func menuViewController(menuId: String) -> MenuViewController {
+    static func menuViewController(menuId: String, menuName: String) -> MenuViewController {
         let controller = MenuViewController(nibName: MenuViewController.xibName,
                                             bundle: nil)
-        controller.viewModel = MenuViewModel(menuId: menuId)
+        controller.viewModel = MenuViewModel(menuId: menuId, menuName: menuName)
         return controller
     }
 

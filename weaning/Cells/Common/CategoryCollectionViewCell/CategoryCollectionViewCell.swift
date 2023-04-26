@@ -27,7 +27,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
 
-        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: .mainColor)
+        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 0.5, borderColor: .mainColor)
     }
 
     func configureWithRecipeCategory(_ recipeCategory: RecipeCategory, isSelected: Bool) {
@@ -36,7 +36,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
 
-        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: .mainColor)
+        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 0.5, borderColor: .mainColor)
     }
 
 }

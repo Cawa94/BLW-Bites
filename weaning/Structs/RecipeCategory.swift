@@ -14,10 +14,10 @@ struct RecipeCategory {
     let imageName: String
 
     static let allValues: [RecipeCategory] = [
-        .init(id: "breakfast", name: "Śniadania", imageName: "breakfast"),
-        .init(id: "lunch", name: "Obiady", imageName: "lunch"),
-        .init(id: "snack", name: "Podwieczorek", imageName: "snack"),
-        .init(id: "dinner", name: "Kolacje", imageName: "dinner"),
+        .init(id: "breakfast", name: "RECIPE_CATEGORY_BREAKFAST".localized(), imageName: "breakfast"),
+        .init(id: "lunch", name: "RECIPE_CATEGORY_LUNCH".localized(), imageName: "lunch"),
+        .init(id: "snack", name: "RECIPE_CATEGORY_SNACK".localized(), imageName: "snack"),
+        .init(id: "dinner", name: "RECIPE_CATEGORY_DINNER".localized(), imageName: "dinner"),
     ]
 
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HCVimeoVideoExtractor
 
 protocol FoodMonthsSectionDelegate: AnyObject {
 
@@ -60,7 +61,7 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
             self.imagesCollectionView.reloadData()
         }
 
-        if let video = food?.ageSegments[index].video, let videoUrl = URL(string: video) {
+        if let video = food?.video, let videoUrl = URL(string: video) {
             playerViewButton.isHidden = false
             playerViewTopConstraint.constant = 50
             playerViewHeightConstraint.constant = 50
@@ -75,7 +76,23 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
     @IBAction func playVideo(_ sender: Any) {
         guard let videoUrl = videoUrl
             else { return }
-        NavigationService.present(viewController: NavigationService.videoViewController(videoUrl: videoUrl))
+        HCVimeoVideoExtractor.fetchVideoURLFrom(url: videoUrl, completion: { ( video:HCVimeoVideo?, error:Error?) -> Void in
+            if let err = error {
+               print("Error = \(err.localizedDescription)")
+               return
+            }
+
+            guard let vid = video else {
+                print("Invalid video object")
+                return
+            }
+
+            DispatchQueue.main.async {
+                if let vimeoQualityUrl = vid.videoURL[.qualityUnknown] {
+                    NavigationService.present(viewController: NavigationService.videoViewController(videoUrl: vimeoQualityUrl))
+                }
+            }
+        })
     }
 
 }

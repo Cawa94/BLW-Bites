@@ -12,6 +12,7 @@ public struct Food: Codable {
     let id: String?
     let name: String?
     let image: String?
+    let video: String?
     let description: String?
     let category: String?
     let startingFrom: String?
@@ -23,6 +24,7 @@ public struct Food: Codable {
         case id
         case name
         case image
+        case video
         case description
         case category
         case startingFrom = "starting_from"
@@ -35,6 +37,7 @@ public struct Food: Codable {
         self.id = data["id"] as? String
         self.name = data["name"] as? String
         self.image = data["image"] as? String
+        self.video = data["video"] as? String
         self.description = data["description"] as? String
         self.category = data["category"] as? String
         self.startingFrom = data["starting_from"] as? String
@@ -56,7 +59,7 @@ extension Food {
     }
 
     var hasRecipes: Bool {
-        !(recipes?.isEmpty ?? true)
+        false // !(recipes?.isEmpty ?? true)
     }
 
     var hasDescription: Bool {
@@ -77,9 +80,6 @@ extension Food {
         }
         if let third = ageDictionary?.third {
             segments.append(third)
-        }
-        if let fourth = ageDictionary?.fourth {
-            segments.append(fourth)
         }
         return segments
     }

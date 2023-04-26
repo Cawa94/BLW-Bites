@@ -14,17 +14,17 @@ struct FoodCategory {
     let imageName: String
 
     static let allValues: [FoodCategory] = [
-        .init(id: "fruit", name: "Owoce", imageName: "fruit"),
-        .init(id: "vegetable", name: "Warzywa", imageName: "vegetable"),
-        .init(id: "meat", name: "Mięso", imageName: "meat"),
-        .init(id: "fish", name: "Fish", imageName: "fish"),
-        .init(id: "cereals", name: "Ryby", imageName: ""),
-        .init(id: "cheese", name: "Ser", imageName: ""),
-        .init(id: "seeds", name: "Nasiona", imageName: ""),
-        .init(id: "legumes", name: "Jarzyny strączkowe", imageName: ""),
-        .init(id: "egg", name: "Jajko", imageName: ""),
-        .init(id: "sugar", name: "Cukier", imageName: ""),
-        .init(id: "avoid", name: "Unikać", imageName: "")
+        .init(id: "fruit", name: "FOOD_CATEGORY_FRUIT".localized(), imageName: "fruit"),
+        .init(id: "vegetable", name: "FOOD_CATEGORY_VEGETABLE".localized(), imageName: "vegetable"),
+        .init(id: "meat", name: "FOOD_CATEGORY_MEAT".localized(), imageName: "meat"),
+        .init(id: "fish", name: "FOOD_CATEGORY_FISH".localized(), imageName: "fish"),
+        .init(id: "cereals", name: "FOOD_CATEGORY_CEREALS".localized(), imageName: "cereals"),
+        .init(id: "cheese", name: "FOOD_CATEGORY_CHEESE".localized(), imageName: "cheese"),
+        .init(id: "seeds", name: "FOOD_CATEGORY_SEEDS".localized(), imageName: "seeds"),
+        .init(id: "legumes", name: "FOOD_CATEGORY_LEGUMES".localized(), imageName: "legumes"),
+        .init(id: "egg", name: "FOOD_CATEGORY_EGG".localized(), imageName: "egg"),
+        .init(id: "sugar", name: "FOOD_CATEGORY_SUGAR".localized(), imageName: "sugar"),
+        .init(id: "avoid", name: "FOOD_CATEGORY_AVOID".localized(), imageName: "avoid")
     ]
 
 }

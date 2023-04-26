@@ -21,10 +21,14 @@ class MenuViewController: UIViewController {
     @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private weak var backNavigationView: UIView!
     @IBOutlet private weak var menuImageView: UIImageView!
+    @IBOutlet private weak var instructionTextView: UITextView!
+    @IBOutlet private weak var instructionTextViewHeightconstraint: NSLayoutConstraint!
     @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
+
+    private var freeMenuDays = 3
 
     var viewModel: MenuViewModel?
 
@@ -46,6 +50,7 @@ class MenuViewController: UIViewController {
         daysCollectionView.register(UINib(nibName:"DayCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"DayCollectionViewCell")
 
+        menuNameLabel.text = viewModel?.menuName
         // backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
 
         FirestoreService.shared.database
@@ -76,10 +81,13 @@ class MenuViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
+        instructionTextViewHeightconstraint.constant = instructionTextView.contentSize.height
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
         contentViewHeightConstraint.constant = imageViewHeightConstraint.constant
             + collectionViewHeightConstraint.constant
             + tableViewHeightConstraint.constant
+            + 20
+            + instructionTextViewHeightconstraint.constant
         daysCollectionViewBackground.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
         mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
@@ -133,7 +141,9 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCollectionViewCell",
                                                             for: indexPath) as? DayCollectionViewCell
             else { return UICollectionViewCell() }
-        cell.configureWithDay("\(indexPath.row + 1)", isSelected: viewModel?.selectedRow == indexPath.row)
+        cell.configureWithDay("\(indexPath.row + 1)",
+                              isSelected: viewModel?.selectedRow == indexPath.row,
+                              isPremium: indexPath.row >= freeMenuDays)
         return cell
     }
 
@@ -146,13 +156,14 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: DayCollectionViewCell.defaultHeight)
+        return CGSize(width: DayCollectionViewCell.defaultHeight,
+                      height: DayCollectionViewCell.defaultHeight)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 10, left: 30, bottom: 20, right: 30)
+        return .init(top: 20, left: 30, bottom: 20, right: 30)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
@@ -162,15 +173,19 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel?.selectedRow = indexPath.row
-
-        DispatchQueue.main.async {
-            self.daysCollectionView.reloadData()
-            self.mainTableView.reloadData(completion: {
-                self.mainTableView.invalidateIntrinsicContentSize()
-                self.mainTableView.layoutIfNeeded()
-                self.viewDidLayoutSubviews()
-            })
+        if PurchaseManager.shared.hasUnlockedPro || indexPath.row < freeMenuDays {
+            viewModel?.selectedRow = indexPath.row
+            
+            DispatchQueue.main.async {
+                self.daysCollectionView.reloadData()
+                self.mainTableView.reloadData(completion: {
+                    self.mainTableView.invalidateIntrinsicContentSize()
+                    self.mainTableView.layoutIfNeeded()
+                    self.viewDidLayoutSubviews()
+                })
+            }
+        } else {
+            NavigationService.present(viewController: NavigationService.subscriptionViewController())
         }
     }
 

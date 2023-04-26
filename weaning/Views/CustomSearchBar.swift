@@ -24,7 +24,7 @@ final class CustomSearchBar: UISearchBar {
     func configureAppearance() {
         self.searchTextField.backgroundColor = .clear
         self.searchTextField.font = .regularFontOf(size: 16)
-        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1.0, borderColor: .lightGray)
+        roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 0.5, borderColor: .lightGray)
     }
 
 }

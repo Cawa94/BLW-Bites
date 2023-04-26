@@ -13,6 +13,7 @@ class MenuSelectorTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var mainImageView: UIImageView!
+    @IBOutlet private weak var premiumImageView: UIImageView!
 
     private var viewModel: MenuSelectorTableViewModel?
 
@@ -22,9 +23,9 @@ class MenuSelectorTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         mainImageView.image = UIImage(named: viewModel.image)
+        premiumImageView.isHidden = !(viewModel.isPremium) || PurchaseManager.shared.hasUnlockedPro
 
         contentContainerView.drawShadow()
-        // layoutIfNeeded()
     }
 
     @IBAction func openMenu() {

@@ -63,6 +63,10 @@ extension String {
         return NSRange(stringRange, in: self)
     }
 
+    func localized() -> String {
+        NSLocalizedString(self, comment: self)
+    }
+
 }
 
 extension NSAttributedString {

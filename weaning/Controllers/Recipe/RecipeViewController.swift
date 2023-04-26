@@ -178,7 +178,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: recipe.ingredientsTitle ?? "Składniki", text: recipe.ingredientsDescription)
+                cell.configureWith(title: recipe.ingredientsTitle ?? "RECIPE_INGREDIENTS".localized(), text: recipe.ingredientsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -186,7 +186,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: recipe.ingredientsTitle ?? "Składniki", text: recipe.ingredientsDescription)
+                cell.configureWith(title: recipe.ingredientsTitle ?? "RECIPE_INGREDIENTS".localized(), text: recipe.ingredientsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -205,7 +205,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: "Przygotowanie", text: recipe.stepsDescription)
+                cell.configureWith(title: "RECIPE_PREPARATION".localized(), text: recipe.stepsDescription)
                 return cell
             } else {
                 return UITableViewCell()
@@ -213,7 +213,7 @@ extension RecipeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeInfoTableViewCell", for: indexPath)
                 as? RecipeInfoTableViewCell, let recipe = viewModel?.recipe {
-                cell.configureWith(title: "Przygotowanie", text: recipe.stepsDescription)
+                cell.configureWith(title: "RECIPE_PREPARATION".localized(), text: recipe.stepsDescription)
                 return cell
             } else {
                 return UITableViewCell()

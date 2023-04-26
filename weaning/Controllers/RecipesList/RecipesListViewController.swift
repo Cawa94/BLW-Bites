@@ -34,7 +34,7 @@ class RecipesListViewController: UIViewController {
                                           forCellWithReuseIdentifier:"CategoryCollectionViewCell")
         recipesCollectionView.register(UINib(nibName:"ShortRecipeCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier:"ShortRecipeCollectionViewCell")
-        recipeSearchBar.placeholder = "Wyszukaj przepis"
+        recipeSearchBar.placeholder = "RECIPE_LIST_SEARCH".localized()
 
         DispatchQueue.main.async {
             self.categoriesCollectionView.reloadData()
@@ -101,7 +101,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                                                                 for: indexPath) as? ShortRecipeCollectionViewCell,
                   let shortRecipe = viewModel?.shortRecipes[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortRecipe)
+            cell.configureWith(shortRecipe, imageCornerRadius: 157/2)
             return cell
         }
     }

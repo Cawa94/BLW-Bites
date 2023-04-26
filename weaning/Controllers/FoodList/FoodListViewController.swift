@@ -34,7 +34,7 @@ class FoodListViewController: UIViewController {
                                           forCellWithReuseIdentifier:"CategoryCollectionViewCell")
         foodsCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                      forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
-        foodSearchBar.placeholder = "Wyszukaj żywność"
+        foodSearchBar.placeholder = "FOOD_LIST_SEARCH".localized()
 
         DispatchQueue.main.async {
             self.categoriesCollectionView.reloadData()
@@ -141,7 +141,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                                                                 for: indexPath) as? ShortFoodCollectionViewCell,
                   let shortFood = viewModel?.shortFoods[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortFood)
+            cell.configureWith(shortFood, imageCornerRadius: 157/2)
             return cell
         }
     }
@@ -166,7 +166,6 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
             let leftInset = 20
             let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
             let width = columnWidth - (20 / 2)
-
             return CGSize(width: CGFloat(width), height: ShortFoodCollectionViewCell.defaultHeight)
         }
     }

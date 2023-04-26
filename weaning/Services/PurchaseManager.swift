@@ -41,7 +41,9 @@ class PurchaseManager: ObservableObject {
                 debugPrint("ALL GOOD")
                 await transaction.finish()
                 await self.updatePurchasedProducts()
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Purchased"), object: nil)
+                DispatchQueue.main.async {
+                    NavigationService.makeMainRootController()
+                }
             case .unverified(_, _):
                 // Handle unverified transactions based
                 // on your business model.

@@ -66,7 +66,7 @@ extension Recipe {
     }
 
     var hasFoods: Bool {
-        !(foods?.isEmpty ?? true)
+        false // !(foods?.isEmpty ?? true)
     }
 
     var hasDescription: Bool {

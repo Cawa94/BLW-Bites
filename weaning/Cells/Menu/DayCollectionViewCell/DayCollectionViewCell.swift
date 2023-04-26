@@ -10,24 +10,24 @@ import UIKit
 class DayCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var numberLabel: UILabel!
-    @IBOutlet private weak var dayLabel: UILabel!
+    @IBOutlet private weak var circleView: UIView!
+    @IBOutlet private weak var premiumImageView: UIImageView!
 
-    static let defaultHeight: CGFloat = 85
+    static let defaultHeight: CGFloat = 55
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        backgroundColor = .green
+        circleView.backgroundColor = .mainColor
     }
 
-    func configureWithDay(_ dayNumber: String, isSelected: Bool) {
+    func configureWithDay(_ dayNumber: String, isSelected: Bool, isPremium: Bool) {
         numberLabel.text = dayNumber
         numberLabel.textColor = isSelected ? .mainColor : .white
-        dayLabel.textColor = isSelected ? .mainColor : .white
+        premiumImageView.isHidden = !(isPremium) || PurchaseManager.shared.hasUnlockedPro
 
-        backgroundColor = isSelected ? .white : .mainColor
-
-        roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .mainColor)
+        circleView.backgroundColor = isSelected ? .white : .mainColor
+        circleView.roundCornersSimplified(cornerRadius: DayCollectionViewCell.defaultHeight/2, borderWidth: 1, borderColor: .mainColor)
     }
 
 }

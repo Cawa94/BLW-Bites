@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,19 +36,19 @@
                                     <constraint firstAttribute="width" constant="70" id="cWw-tM-2ga"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Menù 30-days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-wG-psk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Menù first 30-days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-wG-psk">
                                 <rect key="frame" x="15" y="115.00000000000001" width="323" height="31.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knn-mC-OTV">
-                                <rect key="frame" x="91" y="243" width="171" height="45"/>
+                                <rect key="frame" x="113.66666666666666" y="243" width="126" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="5yh-sr-SC1"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Discover the menù">
+                                <buttonConfiguration key="configuration" style="filled" title="Odkryj menu">
                                     <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="17"/>
                                     <color key="baseBackgroundColor" name="mainColor"/>
                                 </buttonConfiguration>
@@ -61,6 +62,13 @@
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="eV3-k5-4ue">
+                                <rect key="frame" x="219.66666666666666" y="223" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="kBf-9n-x70"/>
+                                    <constraint firstAttribute="width" secondItem="eV3-k5-4ue" secondAttribute="height" multiplier="1:1" id="mkx-Dc-htH"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -68,11 +76,13 @@
                             <constraint firstItem="xC7-xc-iB6" firstAttribute="centerX" secondItem="YGa-8l-83k" secondAttribute="centerX" id="4Gt-Rz-xzg"/>
                             <constraint firstItem="VDY-wG-psk" firstAttribute="top" secondItem="xC7-xc-iB6" secondAttribute="bottom" constant="20" id="6i7-GK-3V4"/>
                             <constraint firstItem="8Ef-n9-iRy" firstAttribute="trailing" secondItem="VDY-wG-psk" secondAttribute="trailing" id="993-ab-GwC"/>
+                            <constraint firstItem="eV3-k5-4ue" firstAttribute="trailing" secondItem="Knn-mC-OTV" secondAttribute="trailing" constant="15" id="DfS-3A-9KV"/>
                             <constraint firstItem="8Ef-n9-iRy" firstAttribute="leading" secondItem="VDY-wG-psk" secondAttribute="leading" id="G50-UZ-cM9"/>
                             <constraint firstItem="VDY-wG-psk" firstAttribute="leading" secondItem="YGa-8l-83k" secondAttribute="leading" constant="15" id="SIh-Ia-zTb"/>
                             <constraint firstAttribute="trailing" secondItem="VDY-wG-psk" secondAttribute="trailing" constant="15" id="UtL-jR-3yv"/>
                             <constraint firstItem="8Ef-n9-iRy" firstAttribute="top" secondItem="VDY-wG-psk" secondAttribute="bottom" constant="10" id="jmg-4G-gul"/>
                             <constraint firstAttribute="bottom" secondItem="Knn-mC-OTV" secondAttribute="bottom" constant="30" id="rby-Hy-x8Y"/>
+                            <constraint firstItem="eV3-k5-4ue" firstAttribute="top" secondItem="Knn-mC-OTV" secondAttribute="top" constant="-20" id="wg2-XT-N3e"/>
                             <constraint firstItem="Knn-mC-OTV" firstAttribute="centerX" secondItem="YGa-8l-83k" secondAttribute="centerX" id="xfK-D9-JMy"/>
                             <constraint firstItem="xC7-xc-iB6" firstAttribute="top" secondItem="YGa-8l-83k" secondAttribute="top" constant="25" id="z6c-WQ-bBL"/>
                         </constraints>
@@ -90,6 +100,7 @@
             <connections>
                 <outlet property="contentContainerView" destination="YGa-8l-83k" id="aW1-7a-5O4"/>
                 <outlet property="mainImageView" destination="xC7-xc-iB6" id="v3T-Qd-9KP"/>
+                <outlet property="premiumImageView" destination="eV3-k5-4ue" id="Yas-vr-4UY"/>
                 <outlet property="subtitleLabel" destination="8Ef-n9-iRy" id="cj6-ZQ-TGl"/>
                 <outlet property="titleLabel" destination="VDY-wG-psk" id="QkZ-Th-xDP"/>
             </connections>
@@ -97,12 +108,13 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="vegetable" width="24" height="24"/>
+        <image name="lock" width="128" height="128"/>
+        <image name="vegetable" width="128" height="128"/>
         <namedColor name="mainColor">
             <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
-            <color red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

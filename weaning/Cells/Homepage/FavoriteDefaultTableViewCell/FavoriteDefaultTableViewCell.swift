@@ -21,7 +21,7 @@ class FavoriteDefaultTableViewCell: UITableViewCell {
                        isFavorites: Bool) {
         self.shortFoods = shortFoods
         self.shortRecipes = shortRecipes
-        self.titleLabel.text = shortFoods != nil ? "Miesięczna darmowa żywność" : "Miesięczne darmowe przepisy"
+        self.titleLabel.text = (shortFoods != nil ? "HOME_FREE_FOODS" : "HOME_FREE_RECIPES").localized()
 
         mainCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
@@ -51,14 +51,14 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
                                                                 for: indexPath) as? ShortFoodCollectionViewCell,
                   let shortFood = shortFoods?[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortFood)
+            cell.configureWith(shortFood, imageCornerRadius: 147/2)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
                                                                 for: indexPath) as? ShortRecipeCollectionViewCell,
                   let shortRecipe = shortRecipes?[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortRecipe)
+            cell.configureWith(shortRecipe, imageCornerRadius: 147/2)
             return cell
         }
         
@@ -76,7 +76,6 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
         let leftInset = 30
         let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
         let width = columnWidth - (20 / 2)
-
         return CGSize(width: CGFloat(width),
                       height: shortFoods != nil ? ShortFoodCollectionViewCell.defaultHeight : ShortRecipeCollectionViewCell.defaultHeight)
     }

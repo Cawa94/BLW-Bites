@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "30_days_icon.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

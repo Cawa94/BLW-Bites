@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  weaning
+
+  Created by Yuri Cavallin on 26/4/23.
+  
+*/
+
+"MAIN_START" = "Start";
+"MAIN_FOOD" = "Żywność";
+"MAIN_MENU" = "Menu";
+"MAIN_RECIPES" = "Przepisy";
+"MAIN_INFO" = "Info";
+
+"HOME_TITLE" = "Zdrowa żywność dla dziecka i rodziny";
+"HOME_FREE_FOODS" = "Miesięczna darmowa żywność";
+"HOME_FREE_RECIPES" = "Miesięczne darmowe przepisy";
+
+"FOOD_CATEGORY_FRUIT" = "Owoce";
+"FOOD_CATEGORY_VEGETABLE" = "Warzywa";
+"FOOD_CATEGORY_MEAT" = "Mięso";
+"FOOD_CATEGORY_FISH" = "Ryby";
+"FOOD_CATEGORY_CEREALS" = "Zboża";
+"FOOD_CATEGORY_CHEESE" = "Ser";
+"FOOD_CATEGORY_SEEDS" = "Nasiona";
+"FOOD_CATEGORY_LEGUMES" = "Jarzyny strączkowe";
+"FOOD_CATEGORY_EGG" = "Jajko";
+"FOOD_CATEGORY_SUGAR" = "Cukier";
+"FOOD_CATEGORY_AVOID" = "Unikać";
+
+"FOOD_LIST_SEARCH" = "Wyszukaj żywność";
+
+"FOOD_RECIPES_SUGGESTED" = "Proponowane przepisy";
+"FOOD_HOW_TO_PROPOSE" = "Jak proponować";
+"FOOD_PLAY_VIDEO" = "Odtworzyć film";
+
+"MENU_SELECTOR_TITLE" = "Co dziś będzie jadło Twoje dziecko?";
+
+"MENU_30_DAYS" = "Menù pierwsze 30 dni";
+"MENU_30_DAYS_DESCRIPTION" = "Bardzo proste i użyteczne menu, aby wprowadzić pierwsze pokarmy i przyzwyczaić dziecko do stałego pokarmu";
+"MENU_DISCOVER_BUTTON" = "Odkryj menu";
+"MENU_7-12_MONTHS" = "Menù 7-12 miesięcy";
+"MENU_7-12_MONTHS_DESCRIPTION" = "Bardziej złożone i zaawansowane menu z wieloma smacznymi przepisami dostosowanymi dla całej rodziny";
+
+"RECIPE_CATEGORY_BREAKFAST" = "Śniadania";
+"RECIPE_CATEGORY_LUNCH" = "Obiady";
+"RECIPE_CATEGORY_SNACK" = "Podwieczorek";
+"RECIPE_CATEGORY_DINNER" = "Kolacje";
+
+"RECIPE_LIST_SEARCH" = "Wyszukaj przepis";
+
+"RECIPE_INGREDIENTS" = "Składniki";
+"RECIPE_PREPARATION" = "Przygotowanie";
+"RECIPE_FOODS_INCLUDED" = "Żywność włączona";
+
+"INFO_TITLE" = "Poznaj swojego dietetyka rodzinnego";
+"INFO_DESCRIPTION" = "Wszystkie treści do aplikacji pochodzą od Eweliny, która jest dietetyczką i możecie ją śledzić na Instagramie. W razie jakichkolwiek wątpliwości lub pytań możecie się ze mną skontaktować pod adresem ewelina.happymamas@gmail.com.";
+
+"SUBSCRIPTION_TITLE" = "Uzyskaj dostęp do całej zawartości aplikacji";
+"SUBSCRIPTION_DESCRIPTION" = "• Dostęp do wszystkich potraw\n• Dostęp do wszystkich przepisów\n• Dostęp do wszystkich menu";
+"SUBSCRIPTION_RESTORE_PURCHASE" = "Przywrócić zakup";

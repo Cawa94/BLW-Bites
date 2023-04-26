@@ -12,7 +12,6 @@ import UIKit
 extension UIColor {
 
     static let backgroundColor1  = UIColor.named("backgroundColor1")
-    static let backgroundColor2  = UIColor.named("backgroundColor2")
 
     static let mainColor         = UIColor.named("mainColor")
     static let textColor         = UIColor.named("textColor")

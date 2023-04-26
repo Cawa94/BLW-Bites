@@ -34,22 +34,17 @@ class ShortFoodCollectionViewCell: UICollectionViewCell {
 
     static let defaultHeight: CGFloat = 250
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        foodImageView.roundCornersSimplified(cornerRadius: foodImageView.frame.height/2, borderWidth: 4, borderColor: .white)
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
 
         foodImageView.image = nil
     }
 
-    func configureWith(_ shortFood: ShortFood) {
+    func configureWith(_ shortFood: ShortFood, imageCornerRadius: CGFloat) {
         nameLabel.text = shortFood.name
         startingFromLabel.text = shortFood.startingFrom
         premiumImageView.isHidden = shortFood.isFree ?? false || PurchaseManager.shared.hasUnlockedPro
+        foodImageView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
 
         guard let image = shortFood.image, !image.isEmpty
             // else { return }
