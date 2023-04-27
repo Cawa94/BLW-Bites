@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "738FB2A92997A9B700C286B3"
-               BuildableName = "weaning.app"
+               BuildableName = "Weaning.app"
                BlueprintName = "weaning"
                ReferencedContainer = "container:weaning.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "738FB2A92997A9B700C286B3"
-            BuildableName = "weaning.app"
+            BuildableName = "Weaning.app"
             BlueprintName = "weaning"
             ReferencedContainer = "container:weaning.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "738FB2A92997A9B700C286B3"
-            BuildableName = "weaning.app"
+            BuildableName = "Weaning.app"
             BlueprintName = "weaning"
             ReferencedContainer = "container:weaning.xcodeproj">
          </BuildableReference>

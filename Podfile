@@ -11,6 +11,8 @@ target 'weaning' do
   pod 'FirebaseStorageUI'
   pod 'FirebaseFirestoreSwift'
   pod 'HCVimeoVideoExtractor'
+  pod 'ImageViewer.swift'
+  pod 'ImageScrollView'
 
   platform :ios, '12.0' # set IPHONEOS_DEPLOYMENT_TARGET for the pods project
   post_install do |installer|

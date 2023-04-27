@@ -178,7 +178,7 @@
 		738CCF9129C8D2DC000080AE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewModel.swift; sourceTree = "<group>"; };
-		738FB2AA2997A9B700C286B3 /* weaning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weaning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		738FB2AA2997A9B700C286B3 /* Test Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Build.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		738FB2AD2997A9B700C286B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738FB2AF2997A9B700C286B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		738FB2B42997A9B700C286B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -434,7 +434,7 @@
 		738FB2AB2997A9B700C286B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				738FB2AA2997A9B700C286B3 /* weaning.app */,
+				738FB2AA2997A9B700C286B3 /* Test Build.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -906,7 +906,7 @@
 			);
 			name = weaning;
 			productName = weaning;
-			productReference = 738FB2AA2997A9B700C286B3 /* weaning.app */;
+			productReference = 738FB2AA2997A9B700C286B3 /* Test Build.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1302,8 +1302,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = es.yuricavallin.weaning;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = es.yuricavallin.testweaning;
+				PRODUCT_NAME = "Test Build";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1333,7 +1333,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = es.yuricavallin.weaning;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Weaning;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
