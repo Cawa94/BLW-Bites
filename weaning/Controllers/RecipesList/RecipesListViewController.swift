@@ -18,6 +18,7 @@ class RecipesListViewController: UIViewController {
     @IBOutlet private weak var recipeSearchBar: CustomSearchBar!
 
     var viewModel: RecipesListViewModel?
+    private var hasSearched = false
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,6 +42,8 @@ class RecipesListViewController: UIViewController {
         }
 
         getAllRecipes()
+
+        hideKeyboardWhenTappedAround()
     }
 
     func getAllRecipes() {
@@ -50,6 +53,7 @@ class RecipesListViewController: UIViewController {
     }
 
     func getFilteredRecipes() {
+        hasSearched = false
         if let categorySelected = viewModel?.categorySelected {
             let category = RecipeCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_recipes")
@@ -180,6 +184,22 @@ extension RecipesListViewController: UISearchBarDelegate {
         getFilteredRecipes()
     }
 
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text?.isEmpty ?? true && hasSearched {
+            getFilteredRecipes()
+        }
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let keyword = searchBar.text?.capitalized
+            else { return }
+        if !keyword.isEmpty {
+            searchKeyword(keyword)
+        } else if hasSearched {
+            getFilteredRecipes()
+        }
+    }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
 
@@ -187,12 +207,13 @@ extension RecipesListViewController: UISearchBarDelegate {
             else { return }
         if !keyword.isEmpty {
             searchKeyword(keyword)
-        } else {
+        } else if hasSearched {
             getFilteredRecipes()
         }
     }
 
     func searchKeyword(_ keyword: String) {
+        hasSearched = true
         FirestoreService.shared.database.collection("short_recipes")
             .whereField("name", isEqualTo: keyword)
             .getDocuments() { querySnapshot, error in

@@ -7,13 +7,20 @@
 
 import UIKit
 import FirebaseCore
-import FirebaseFirestore
+import FirebaseAppCheck
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let providerFactory = AppCheckProviderService()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+
+        // To retrieve debug token for App Check on simulators
+        // let providerFactory = AppCheckDebugProviderFactory()
+        // AppCheck.setAppCheckProviderFactory(providerFactory)
 
         FirebaseApp.configure()
 

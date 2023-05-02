@@ -18,6 +18,7 @@ class FoodListViewController: UIViewController {
     @IBOutlet private weak var foodSearchBar: CustomSearchBar!
 
     var viewModel: FoodListViewModel?
+    private var hasSearched = false
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -41,6 +42,8 @@ class FoodListViewController: UIViewController {
         }
 
         getAllFoods()
+
+        hideKeyboardWhenTappedAround()
     }
 
     func getAllFoods() {
@@ -50,6 +53,7 @@ class FoodListViewController: UIViewController {
     }
 
     func getFilteredFoods() {
+        hasSearched = false
         if let categorySelected = viewModel?.categorySelected {
             let category = FoodCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_foods")
@@ -202,7 +206,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             guard let shortFood = viewModel?.shortFoods[indexPath.row], let id = shortFood.id
                 else { return }
-            if shortFood.isFree ?? false || PurchaseManager.shared.hasUnlockedPro {
+            if shortFood.isFree || PurchaseManager.shared.hasUnlockedPro {
                 let foodController = NavigationService.foodViewController(foodId: id)
                 NavigationService.push(viewController: foodController)
             } else {
@@ -219,6 +223,22 @@ extension FoodListViewController: UISearchBarDelegate {
         getFilteredFoods()
     }
 
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text?.isEmpty ?? true && hasSearched {
+            getFilteredFoods()
+        }
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let keyword = searchBar.text?.capitalized
+            else { return }
+        if !keyword.isEmpty {
+            searchKeyword(keyword)
+        } else if hasSearched {
+            getFilteredFoods()
+        }
+    }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
 
@@ -226,12 +246,13 @@ extension FoodListViewController: UISearchBarDelegate {
             else { return }
         if !keyword.isEmpty {
             searchKeyword(keyword)
-        } else {
+        } else if hasSearched {
             getFilteredFoods()
         }
     }
 
     func searchKeyword(_ keyword: String) {
+        hasSearched = true
         FirestoreService.shared.database.collection("short_foods")
             .whereField("name", isEqualTo: keyword)
             .getDocuments() { querySnapshot, error in

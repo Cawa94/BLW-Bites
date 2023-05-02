@@ -22,8 +22,8 @@ class FoodViewController: UIViewController {
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var categoryContainerView: UIView!
-    @IBOutlet private weak var categoryImageView: UIImageView!
+    @IBOutlet private weak var newView: UIView!
+    @IBOutlet private weak var seasonalView: UIView!
 
     var viewModel: FoodViewModel?
 
@@ -50,7 +50,8 @@ class FoodViewController: UIViewController {
                                forCellReuseIdentifier: "SeparatorTableViewCell")
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
-        categoryContainerView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
+        newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
+        seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
 
         FirestoreService.shared.database.document("foods/\(viewModel?.foodId ?? "")").getDocument(as: Food.self) { result in
             switch result {
@@ -73,7 +74,8 @@ class FoodViewController: UIViewController {
         }
 
         foodNameLabel.text = viewModel?.food?.name
-        categoryImageView.image = UIImage(named: viewModel?.food?.categoryImage ?? "")
+        newView.isHidden = !(viewModel?.food?.isNew ?? false)
+        seasonalView.isHidden = !(viewModel?.food?.isSeasonal ?? false)
 
         guard let image = viewModel?.food?.image, !image.isEmpty
             else { return }

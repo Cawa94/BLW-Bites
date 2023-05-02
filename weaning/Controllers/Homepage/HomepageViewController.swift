@@ -26,20 +26,20 @@ class HomepageViewController: UIViewController {
         mainTableView.rowHeight = UITableView.automaticDimension
         mainTableView.register(UINib(nibName: "HomepageHeaderTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "HomepageHeaderTableViewCell")
-        mainTableView.register(UINib(nibName: "FavoriteDefaultTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "FavoriteDefaultTableViewCell")
+        mainTableView.register(UINib(nibName: "HomepageElementsTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "HomepageElementsTableViewCell")
 
         getHomepageFoods()
     }
 
     func getHomepageFoods() {
-        FirestoreService.shared.database.collection("short_foods").whereField("is_free", isEqualTo: true).getDocuments() { querySnapshot, error in
+        FirestoreService.shared.database.collection("short_foods").whereField("properties", arrayContainsAny: ["free", "seasonal", "new"]).getDocuments() { querySnapshot, error in
             self.convertFoodsData(querySnapshot, error)
         }
     }
 
     func getHomepageRecipes() {
-        FirestoreService.shared.database.collection("short_recipes").whereField("is_free", isEqualTo: true).getDocuments() { querySnapshot, error in
+        FirestoreService.shared.database.collection("short_recipes").whereField("properties", arrayContainsAny: ["free", "seasonal", "new"]).getDocuments() { querySnapshot, error in
             self.convertRecipesData(querySnapshot, error)
         }
     }
@@ -48,9 +48,9 @@ class HomepageViewController: UIViewController {
         if let error = error {
             print("Error getting documents: \(error)")
         } else {
-            self.viewModel?.shortFoods.removeAll()
+            self.viewModel?.homepageFoods.removeAll()
             for document in querySnapshot!.documents {
-                self.viewModel?.shortFoods.append(.init(data: document.data()))
+                self.viewModel?.homepageFoods.append(.init(data: document.data()))
             }
             self.getHomepageRecipes()
         }
@@ -60,9 +60,9 @@ class HomepageViewController: UIViewController {
         if let error = error {
             print("Error getting documents: \(error)")
         } else {
-            self.viewModel?.shortRecipes.removeAll()
+            self.viewModel?.homepageRecipes.removeAll()
             for document in querySnapshot!.documents {
-                self.viewModel?.shortRecipes.append(.init(data: document.data()))
+                self.viewModel?.homepageRecipes.append(.init(data: document.data()))
             }
             DispatchQueue.main.async {
                 self.mainTableView.reloadData(completion: {
@@ -82,7 +82,7 @@ class HomepageViewController: UIViewController {
 }
 
 extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -92,7 +92,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         default:
-            return 2
+            return 4
         }
     }
 
@@ -115,18 +115,78 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
         case 1:
-            return favoritesDefaultSection(tableView, cellForRowAt: indexPath)
+            return PurchaseManager.shared.hasUnlockedPro
+                ? homepageElementsSection(tableView, cellForRowAt: indexPath)
+                : freeHomepageElementsSection(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }
     }
 
-    func favoritesDefaultSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteDefaultTableViewCell", for: indexPath)
-            as? FavoriteDefaultTableViewCell {
-            cell.configureWith(shortFoods: indexPath.row == 0 ? viewModel?.shortFoods : nil,
-                               shortRecipes: indexPath.row == 1 ? viewModel?.shortRecipes : nil,
-                               isFavorites: false)
+    func homepageElementsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            return newCell(tableView, cellForRowAt: indexPath)
+        case 1:
+            return seasonalCell(tableView, cellForRowAt: indexPath)
+        case 2:
+            return freeFoodCell(tableView, cellForRowAt: indexPath)
+        case 3:
+            return freeRecipesCell(tableView, cellForRowAt: indexPath)
+        default:
+            return UITableViewCell()
+        }
+    }
+
+    func freeHomepageElementsSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            return freeFoodCell(tableView, cellForRowAt: indexPath)
+        case 1:
+            return freeRecipesCell(tableView, cellForRowAt: indexPath)
+        case 2:
+            return newCell(tableView, cellForRowAt: indexPath)
+        case 3:
+            return seasonalCell(tableView, cellForRowAt: indexPath)
+        default:
+            return UITableViewCell()
+        }
+    }
+
+    func seasonalCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
+            as? HomepageElementsTableViewCell {
+            cell.configureWith(shortFoods: viewModel?.seasonalFoods, shortRecipes: viewModel?.seasonalRecipes, title: "HOME_SEASONAL".localized())
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func newCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
+            as? HomepageElementsTableViewCell {
+            cell.configureWith(shortFoods: viewModel?.newFoods, shortRecipes: viewModel?.newRecipes, title: "HOME_NEW_ENTRY".localized())
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func freeFoodCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
+            as? HomepageElementsTableViewCell {
+            cell.configureWith(shortFoods: viewModel?.freeFoods, shortRecipes: nil, title: "HOME_FREE_FOODS".localized())
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func freeRecipesCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
+            as? HomepageElementsTableViewCell {
+            cell.configureWith(shortFoods: nil, shortRecipes: viewModel?.freeRecipes, title: "HOME_FREE_RECIPES".localized())
             return cell
         } else {
             return UITableViewCell()

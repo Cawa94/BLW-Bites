@@ -10,6 +10,7 @@ target 'weaning' do
   pod 'FirebaseStorage'
   pod 'FirebaseStorageUI'
   pod 'FirebaseFirestoreSwift'
+  pod 'FirebaseAppCheck'
   pod 'HCVimeoVideoExtractor'
   pod 'ImageViewer.swift'
   pod 'ImageScrollView'

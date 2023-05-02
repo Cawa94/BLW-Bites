@@ -22,6 +22,8 @@ class RecipeViewController: UIViewController {
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var newView: UIView!
+    @IBOutlet private weak var seasonalView: UIView!
 
     var viewModel: RecipeViewModel?
     private var blurEffectView: UIVisualEffectView?
@@ -49,6 +51,8 @@ class RecipeViewController: UIViewController {
                                forCellReuseIdentifier: "SeparatorTableViewCell")
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
+        newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
+        seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
 
         FirestoreService.shared.database.document("recipes/\(viewModel?.recipeId ?? "")").getDocument(as: Recipe.self) { result in
             switch result {
@@ -71,11 +75,14 @@ class RecipeViewController: UIViewController {
         }
 
         recipeNameLabel.text = viewModel?.recipe?.name
+        newView.isHidden = !(viewModel?.recipe?.isNew ?? false)
+        seasonalView.isHidden = !(viewModel?.recipe?.isSeasonal ?? false)
 
         guard let image = viewModel?.recipe?.image, !image.isEmpty
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         recipeImageView.sd_setImage(with: reference, placeholderImage: nil)
+        recipeImageView.contentMode = .scaleAspectFill
     }
 
     override func viewDidLayoutSubviews() {

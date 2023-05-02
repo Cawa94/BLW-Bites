@@ -18,7 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="813" id="KGk-i7-Jjw" customClass="FoodMonthsSectionTableViewCell" customModule="weaning" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="813" id="KGk-i7-Jjw" customClass="FoodMonthsSectionTableViewCell" customModule="Test_Build" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -51,7 +51,7 @@
                             <action selector="selectMonth:" destination="KGk-i7-Jjw" eventType="valueChanged" id="bPt-0W-pVL"/>
                         </connections>
                     </segmentedControl>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnj-Qa-Yce">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnj-Qa-Yce">
                         <rect key="frame" x="30" y="115" width="315" height="350"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -61,11 +61,11 @@
                         <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMC-ta-L6P">
-                        <rect key="frame" x="30" y="485" width="315" height="206"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMC-ta-L6P">
+                        <rect key="frame" x="30" y="485.00000000000006" width="315" height="174.66666666666669"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" constant="206" id="g0D-OS-sRm"/>
+                            <constraint firstAttribute="height" priority="250" constant="206" id="g0D-OS-sRm"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pEf-sW-QF2">
                             <size key="itemSize" width="150" height="150"/>
@@ -96,11 +96,21 @@
                             <action selector="playVideo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uxO-y9-9sB"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap an image to expand " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFx-cH-qpE">
+                        <rect key="frame" x="30" y="679.66666666666663" width="315" height="19.333333333333371"/>
+                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="14"/>
+                        <color key="textColor" name="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_TAP_TO_EXPAND"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ZvI-hp-lya" secondAttribute="trailing" constant="30" id="0b3-8W-lfd"/>
                     <constraint firstItem="lnj-Qa-Yce" firstAttribute="top" secondItem="ZvI-hp-lya" secondAttribute="bottom" constant="15" id="7v8-EO-8UV"/>
+                    <constraint firstItem="XOe-Ch-8M7" firstAttribute="top" secondItem="bFx-cH-qpE" secondAttribute="bottom" constant="40" id="OL0-SU-Bvh"/>
                     <constraint firstItem="fma-h9-dQh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Qci-4u-Aea"/>
                     <constraint firstItem="ZvI-hp-lya" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="RJJ-Xk-6IG"/>
                     <constraint firstAttribute="trailing" secondItem="fma-h9-dQh" secondAttribute="trailing" constant="30" id="Syw-1W-733"/>
@@ -109,11 +119,13 @@
                     <constraint firstItem="lnj-Qa-Yce" firstAttribute="trailing" secondItem="ZvI-hp-lya" secondAttribute="trailing" id="ags-nt-ZOJ"/>
                     <constraint firstItem="fma-h9-dQh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cHL-fF-129"/>
                     <constraint firstAttribute="bottomMargin" secondItem="XOe-Ch-8M7" secondAttribute="bottom" constant="20" id="cL7-0r-giW"/>
+                    <constraint firstItem="bFx-cH-qpE" firstAttribute="top" secondItem="rMC-ta-L6P" secondAttribute="bottom" constant="20" id="dqo-Fp-RsO"/>
+                    <constraint firstItem="bFx-cH-qpE" firstAttribute="trailing" secondItem="rMC-ta-L6P" secondAttribute="trailing" id="o7c-gC-SAN"/>
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="trailing" secondItem="lnj-Qa-Yce" secondAttribute="trailing" id="qLz-az-qzy"/>
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="top" secondItem="lnj-Qa-Yce" secondAttribute="bottom" constant="20" id="qer-4q-zeA"/>
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="leading" secondItem="lnj-Qa-Yce" secondAttribute="leading" id="ryV-xz-yIR"/>
+                    <constraint firstItem="bFx-cH-qpE" firstAttribute="leading" secondItem="rMC-ta-L6P" secondAttribute="leading" id="s38-4I-6UD"/>
                     <constraint firstItem="XOe-Ch-8M7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tF3-Hd-ZEK"/>
-                    <constraint firstItem="XOe-Ch-8M7" firstAttribute="top" secondItem="rMC-ta-L6P" secondAttribute="bottom" constant="50" id="tNF-x6-JiC"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,7 +135,7 @@
                 <outlet property="monthsSegmentControl" destination="ZvI-hp-lya" id="5kL-OE-v5e"/>
                 <outlet property="playerViewButton" destination="XOe-Ch-8M7" id="UJc-xk-UZt"/>
                 <outlet property="playerViewHeightConstraint" destination="ctS-T3-nQc" id="yXG-is-I6A"/>
-                <outlet property="playerViewTopConstraint" destination="tNF-x6-JiC" id="dpz-Ic-YmD"/>
+                <outlet property="playerViewTopConstraint" destination="OL0-SU-Bvh" id="pZu-fR-XUz"/>
                 <outlet property="sectionTextView" destination="lnj-Qa-Yce" id="PKK-BK-3BW"/>
                 <outlet property="sectionTextViewHeightConstraint" destination="fVL-uv-4gS" id="3wG-NP-OZv"/>
             </connections>
@@ -136,6 +148,9 @@
         </namedColor>
         <namedColor name="mainColor">
             <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

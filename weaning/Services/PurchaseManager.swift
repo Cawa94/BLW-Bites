@@ -66,11 +66,11 @@ class PurchaseManager: ObservableObject {
     }
 
     var hasUnlockedPro: Bool {
-        #if DEBUG
+        /*#if DEBUG
             return true
-        #else
+        #else*/
             return !self.purchasedProductIDs.isEmpty
-        #endif
+        //#endif
     }
 
     func updatePurchasedProducts() async {

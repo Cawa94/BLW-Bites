@@ -1,5 +1,5 @@
 //
-//  FavoriteDefaultTableViewCell.swift
+//  HomepageElementsTableViewCell.swift
 //  weaning
 //
 //  Created by Yuri Cavallin on 6/3/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteDefaultTableViewCell: UITableViewCell {
+class HomepageElementsTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainCollectionView: UICollectionView!
@@ -15,18 +15,29 @@ class FavoriteDefaultTableViewCell: UITableViewCell {
 
     var shortFoods: [ShortFood]?
     var shortRecipes: [ShortRecipe]?
+    var mergedContent: [FoodOrRecipe] = []
 
     func configureWith(shortFoods: [ShortFood]? = nil,
                        shortRecipes: [ShortRecipe]? = nil,
-                       isFavorites: Bool) {
+                       title: String) {
         self.shortFoods = shortFoods
         self.shortRecipes = shortRecipes
-        self.titleLabel.text = (shortFoods != nil ? "HOME_FREE_FOODS" : "HOME_FREE_RECIPES").localized()
+        self.titleLabel.text = title
 
         mainCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
         mainCollectionView.register(UINib(nibName:"ShortRecipeCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortRecipeCollectionViewCell")
+
+        for food in shortFoods ?? [] {
+            mergedContent.append(FoodOrRecipe.initFromFood(food))
+        }
+
+        for recipe in shortRecipes ?? [] {
+            mergedContent.append(FoodOrRecipe.initFromRecipe(recipe))
+        }
+
+        mergedContent.shuffle()
 
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
@@ -35,33 +46,28 @@ class FavoriteDefaultTableViewCell: UITableViewCell {
 
 }
 
-extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if shortFoods != nil {
-            return shortFoods?.count ?? 0
-        } else {
-            return shortRecipes?.count ?? 0
-        }
+        mergedContent.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if shortFoods != nil {
+        if mergedContent[indexPath.row].isFood ?? false {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortFoodCollectionViewCell",
-                                                                for: indexPath) as? ShortFoodCollectionViewCell,
-                  let shortFood = shortFoods?[indexPath.row]
+                                                                for: indexPath) as? ShortFoodCollectionViewCell
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortFood, imageCornerRadius: 147/2)
+            let shortFood = mergedContent[indexPath.row].initFood()
+            cell.configureWith(shortFood, imageCornerRadius: 142/2)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
-                                                                for: indexPath) as? ShortRecipeCollectionViewCell,
-                  let shortRecipe = shortRecipes?[indexPath.row]
+                                                                for: indexPath) as? ShortRecipeCollectionViewCell
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortRecipe, imageCornerRadius: 147/2)
+            let shortRecipe = mergedContent[indexPath.row].initRecipe()
+            cell.configureWith(shortRecipe, imageCornerRadius: 142/2)
             return cell
         }
-        
     }
 
     public func collectionView(_ collectionView: UICollectionView,
@@ -75,31 +81,31 @@ extension FavoriteDefaultTableViewCell: UICollectionViewDelegate, UICollectionVi
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
         let leftInset = 30
         let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
-        let width = columnWidth - (20 / 2)
+        let width = columnWidth - (15)
         return CGSize(width: CGFloat(width),
-                      height: shortFoods != nil ? ShortFoodCollectionViewCell.defaultHeight : ShortRecipeCollectionViewCell.defaultHeight)
+                      height: ShortFoodCollectionViewCell.defaultHeight)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 10, left: 30, bottom: 10, right: 30)
+        return .init(top: 0, left: 30, bottom: 0, right: 30)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 15
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if shortFoods != nil {
-            guard let shortFood = shortFoods?[indexPath.row], let id = shortFood.id
+        if mergedContent[indexPath.row].isFood ?? false {
+            guard let id = mergedContent[indexPath.row].id
                 else { return }
             let foodController = NavigationService.foodViewController(foodId: id)
             NavigationService.push(viewController: foodController)
         } else {
-            guard let shortRecipe = shortRecipes?[indexPath.row], let id = shortRecipe.id
+            guard let id = mergedContent[indexPath.row].id
                 else { return }
             let recipeController = NavigationService.recipeViewController(recipeId: id)
             NavigationService.push(viewController: recipeController)

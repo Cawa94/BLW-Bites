@@ -7,12 +7,36 @@
 
 struct HomepageViewModel {
 
-    var shortFoods: [ShortFood]
-    var shortRecipes: [ShortRecipe]
+    var homepageFoods: [ShortFood]
+    var homepageRecipes: [ShortRecipe]
 
     init() {
-        shortFoods = []
-        shortRecipes = []
+        homepageFoods = []
+        homepageRecipes = []
+    }
+
+    var freeFoods: [ShortFood] {
+        homepageFoods.filter { $0.isFree }
+    }
+
+    var freeRecipes: [ShortRecipe] {
+        homepageRecipes.filter { $0.isFree }
+    }
+
+    var seasonalFoods: [ShortFood] {
+        homepageFoods.filter { $0.isSeasonal }
+    }
+    
+    var seasonalRecipes: [ShortRecipe] {
+        homepageRecipes.filter { $0.isSeasonal }
+    }
+    
+    var newFoods: [ShortFood] {
+        homepageFoods.filter { $0.isNew }
+    }
+
+    var newRecipes: [ShortRecipe] {
+        homepageRecipes.filter { $0.isNew }
     }
 
 }

@@ -31,7 +31,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         let imageView = sender.view as! UIImageView
         let imageScrollView = ImageScrollView()
         imageScrollView.setup()
-        imageScrollView.backgroundColor = .white
+        imageScrollView.backgroundColor = .black.withAlphaComponent(1)
         imageScrollView.display(image: imageView.image ?? UIImage())
         imageScrollView.frame = UIScreen.main.bounds
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))

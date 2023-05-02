@@ -20,6 +20,7 @@ public struct Recipe: Codable {
     let steps: [String]?
     let tips: String?
     let foods: [ShortFood]?
+    let properties: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -33,6 +34,7 @@ public struct Recipe: Codable {
         case steps
         case tips
         case foods
+        case properties
     }
 
     init(data: [String: Any]) {
@@ -47,6 +49,7 @@ public struct Recipe: Codable {
         self.steps = data["steps_dictionary"] as? [String]
         self.tips = data["tips"] as? String
         self.foods = data["foods"] as? [ShortFood]
+        self.properties = data["properties"] as? [String]
     }
 
 }
@@ -71,6 +74,18 @@ extension Recipe {
 
     var hasDescription: Bool {
         !(description?.isEmpty ?? true)
+    }
+
+    var isFree: Bool {
+        properties?.contains(where: { $0 == "free" }) ?? false
+    }
+
+    var isNew: Bool {
+        properties?.contains(where: { $0 == "new" }) ?? false
+    }
+
+    var isSeasonal: Bool {
+        properties?.contains(where: { $0 == "seasonal" }) ?? false
     }
 
     var ingredientsDescription: String {

@@ -10,11 +10,12 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Nunito.ttf">
+            <string>Nunito-Black</string>
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeViewController" customModule="weaning" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="backNavigationView" destination="3lf-vZ-VBw" id="Xpk-xi-fa3"/>
                 <outlet property="contentViewHeightConstraint" destination="grB-0b-sly" id="0m8-RD-bpB"/>
@@ -23,8 +24,10 @@
                 <outlet property="mainScrollView" destination="aSN-Zg-KF4" id="DJK-ir-f24"/>
                 <outlet property="mainTableView" destination="P2l-bz-G41" id="Fbc-pv-0be"/>
                 <outlet property="navigationView" destination="5U7-XI-WfZ" id="PlF-Oi-fSl"/>
+                <outlet property="newView" destination="Qog-8c-0xy" id="Kel-Hv-PhD"/>
                 <outlet property="recipeImageView" destination="LdI-VC-ElB" id="lmu-If-c6S"/>
                 <outlet property="recipeNameLabel" destination="cK1-dR-a5b" id="OJM-mZ-pMT"/>
+                <outlet property="seasonalView" destination="Rlp-na-hCa" id="O2d-dt-1Ge"/>
                 <outlet property="tableViewHeightConstraint" destination="mXw-V2-bOz" id="DDz-Uh-hq5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -37,18 +40,59 @@
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT2-Y1-ZjB">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="279"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LdI-VC-ElB">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LdI-VC-ElB">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="279"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="279" id="pBs-ob-YyY"/>
                             </constraints>
                         </imageView>
                     </subviews>
+                    <color key="backgroundColor" red="0.94509803921568625" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="LdI-VC-ElB" firstAttribute="leading" secondItem="fT2-Y1-ZjB" secondAttribute="leading" id="2Jm-XR-fiy"/>
                         <constraint firstAttribute="bottom" secondItem="LdI-VC-ElB" secondAttribute="bottom" id="f2S-kp-bLs"/>
                         <constraint firstItem="LdI-VC-ElB" firstAttribute="top" secondItem="fT2-Y1-ZjB" secondAttribute="top" id="fkF-u0-smb"/>
                         <constraint firstAttribute="trailing" secondItem="LdI-VC-ElB" secondAttribute="trailing" id="k3h-2d-Sql"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qog-8c-0xy">
+                    <rect key="frame" x="17.333333333333332" y="239.00000000000003" width="45.333333333333343" height="45.333333333333343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOWY" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwL-3a-ode">
+                            <rect key="frame" x="6" y="16" width="33.333333333333336" height="13.666666666666664"/>
+                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="10"/>
+                            <color key="textColor" name="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_NEW"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="mainColor"/>
+                    <constraints>
+                        <constraint firstItem="YwL-3a-ode" firstAttribute="centerY" secondItem="Qog-8c-0xy" secondAttribute="centerY" id="Ust-r0-VgL"/>
+                        <constraint firstItem="YwL-3a-ode" firstAttribute="centerX" secondItem="Qog-8c-0xy" secondAttribute="centerX" id="c6p-x9-TFt"/>
+                        <constraint firstItem="YwL-3a-ode" firstAttribute="width" secondItem="Qog-8c-0xy" secondAttribute="width" constant="-12" id="fcU-tg-DGL"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rlp-na-hCa">
+                    <rect key="frame" x="285" y="239.00000000000003" width="88" height="45.333333333333343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sezonowy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3O-gA-ffM">
+                            <rect key="frame" x="10" y="12.999999999999998" width="68" height="19.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="14"/>
+                            <color key="textColor" name="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_SEASONAL"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="mainColor"/>
+                    <constraints>
+                        <constraint firstItem="H3O-gA-ffM" firstAttribute="centerY" secondItem="Rlp-na-hCa" secondAttribute="centerY" id="Ioi-fa-W51"/>
+                        <constraint firstItem="H3O-gA-ffM" firstAttribute="centerX" secondItem="Rlp-na-hCa" secondAttribute="centerX" id="Z52-xZ-2Ks"/>
+                        <constraint firstItem="H3O-gA-ffM" firstAttribute="width" secondItem="Rlp-na-hCa" secondAttribute="width" constant="-20" id="kCj-s4-WbU"/>
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-Zg-KF4">
@@ -61,7 +105,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="279"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="weaning" customModuleProvider="target">
+                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="Test_Build" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="234" width="393" height="950"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -146,22 +190,32 @@
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="31B-2n-dlc"/>
                 <constraint firstAttribute="bottom" secondItem="aSN-Zg-KF4" secondAttribute="bottom" id="3Up-gw-tEP"/>
                 <constraint firstItem="7QN-42-ogF" firstAttribute="top" secondItem="5U7-XI-WfZ" secondAttribute="bottom" constant="-70" id="3jh-P1-cFK"/>
+                <constraint firstItem="Rlp-na-hCa" firstAttribute="centerY" secondItem="Qog-8c-0xy" secondAttribute="centerY" id="8Th-ZH-0AJ"/>
+                <constraint firstItem="Qog-8c-0xy" firstAttribute="top" secondItem="5U7-XI-WfZ" secondAttribute="bottom" constant="110" id="8VV-mN-TcJ"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8lS-Cm-whk"/>
                 <constraint firstItem="3lf-vZ-VBw" firstAttribute="centerY" secondItem="cK1-dR-a5b" secondAttribute="centerY" id="J9F-CJ-mkY"/>
+                <constraint firstItem="Qog-8c-0xy" firstAttribute="centerX" secondItem="3lf-vZ-VBw" secondAttribute="centerX" id="LJK-zE-NGb"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NbN-xb-4CC"/>
                 <constraint firstItem="5U7-XI-WfZ" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" id="SZZ-i9-dQq"/>
+                <constraint firstItem="Qog-8c-0xy" firstAttribute="width" secondItem="Qog-8c-0xy" secondAttribute="height" multiplier="1:1" id="TFn-W8-U1J"/>
+                <constraint firstItem="Rlp-na-hCa" firstAttribute="height" secondItem="Qog-8c-0xy" secondAttribute="height" id="YHu-ZD-NKP"/>
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bio-LT-UYm"/>
                 <constraint firstItem="3lf-vZ-VBw" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" constant="20" id="dQa-va-Dvt"/>
                 <constraint firstAttribute="trailing" secondItem="aSN-Zg-KF4" secondAttribute="trailing" id="eqD-hW-M6E"/>
                 <constraint firstItem="5U7-XI-WfZ" firstAttribute="trailing" secondItem="7QN-42-ogF" secondAttribute="trailing" id="hHX-Ur-VeF"/>
                 <constraint firstItem="5U7-XI-WfZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jdt-7j-wB9"/>
                 <constraint firstItem="3lf-vZ-VBw" firstAttribute="width" secondItem="3lf-vZ-VBw" secondAttribute="height" multiplier="1:1" id="oKn-CP-oD1"/>
+                <constraint firstItem="7QN-42-ogF" firstAttribute="trailing" secondItem="Rlp-na-hCa" secondAttribute="trailing" constant="20" id="re3-f8-3sb"/>
             </constraints>
             <point key="canvasLocation" x="12.977099236641221" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="recipe_placeholder" width="512" height="512"/>
+        <namedColor name="lightTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

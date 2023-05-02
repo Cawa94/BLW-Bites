@@ -6,16 +6,6 @@
   
 */
 
-"MAIN_START" = "Start";
-"MAIN_FOOD" = "Żywność";
-"MAIN_MENU" = "Menu";
-"MAIN_RECIPES" = "Przepisy";
-"MAIN_INFO" = "Info";
-
-"HOME_TITLE" = "Zdrowa żywność dla dziecka i rodziny";
-"HOME_FREE_FOODS" = "Miesięczna darmowa żywność";
-"HOME_FREE_RECIPES" = "Miesięczne darmowe przepisy";
-
 "FOOD_CATEGORY_FRUIT" = "Owoce";
 "FOOD_CATEGORY_VEGETABLE" = "Warzywa";
 "FOOD_CATEGORY_MEAT" = "Mięso";
@@ -33,6 +23,25 @@
 "FOOD_RECIPES_SUGGESTED" = "Proponowane przepisy";
 "FOOD_HOW_TO_PROPOSE" = "Jak proponować";
 "FOOD_PLAY_VIDEO" = "Odtworzyć film";
+"FOOD_TAP_TO_EXPAND" = "Stuknij obraz, aby zobaczyć go na pełnym ekranie";
+
+"GLOBAL_NEW" = "NOWY";
+"GLOBAL_SEASONAL" = "Sezonowy";
+
+"HOME_TITLE" = "Zdrowa żywność dla dziecka i rodziny";
+"HOME_SEASONAL" = "Sezonowe potrawy i przepisy";
+"HOME_NEW_ENTRY" = "W tym miesiącu nowy wpis";
+"HOME_FREE_FOODS" = "Miesięczna darmowa żywność";
+"HOME_FREE_RECIPES" = "Miesięczne darmowe przepisy";
+
+"INFO_TITLE" = "Poznaj swojego dietetyka rodzinnego";
+"INFO_DESCRIPTION" = "Wszystkie treści do aplikacji pochodzą od Eweliny, która jest dietetyczką i możecie ją śledzić na Instagramie. W razie jakichkolwiek wątpliwości lub pytań możecie się ze mną skontaktować pod adresem ewelina.happymamas@gmail.com.";
+
+"MAIN_START" = "Start";
+"MAIN_FOOD" = "Żywność";
+"MAIN_MENU" = "Menu";
+"MAIN_RECIPES" = "Przepisy";
+"MAIN_INFO" = "Info";
 
 "MENU_SELECTOR_TITLE" = "Co dziś będzie jadło Twoje dziecko?";
 
@@ -52,9 +61,6 @@
 "RECIPE_INGREDIENTS" = "Składniki";
 "RECIPE_PREPARATION" = "Przygotowanie";
 "RECIPE_FOODS_INCLUDED" = "Żywność włączona";
-
-"INFO_TITLE" = "Poznaj swojego dietetyka rodzinnego";
-"INFO_DESCRIPTION" = "Wszystkie treści do aplikacji pochodzą od Eweliny, która jest dietetyczką i możecie ją śledzić na Instagramie. W razie jakichkolwiek wątpliwości lub pytań możecie się ze mną skontaktować pod adresem ewelina.happymamas@gmail.com.";
 
 "SUBSCRIPTION_TITLE" = "Uzyskaj dostęp do całej zawartości aplikacji";
 "SUBSCRIPTION_DESCRIPTION" = "• Dostęp do wszystkich potraw\n• Dostęp do wszystkich przepisów\n• Dostęp do wszystkich menu";

@@ -51,8 +51,8 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         recipesListController.isNavigationBarHidden = true
         recipesListController.tabBarItem =
             UITabBarItem(title: "Przepisy",
-                         image: UIImage(systemName: "birthday.cake")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
-                         selectedImage: UIImage(systemName: "birthday.cake.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
+                         image: UIImage(systemName: "fork.knife")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
+                         selectedImage: UIImage(systemName: "fork.knife")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
 
         let infoController = NavigationService.infoViewController().embedInNavigationController()
         infoController.isNavigationBarHidden = true

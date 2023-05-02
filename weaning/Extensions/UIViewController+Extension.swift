@@ -55,4 +55,15 @@ public extension UIViewController {
         return navController
     }
 
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+
 }

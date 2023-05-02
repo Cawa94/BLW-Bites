@@ -10,15 +10,14 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Nunito.ttf">
+            <string>Nunito-Black</string>
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodViewController" customModule="weaning" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="backNavigationView" destination="F5f-dw-MzL" id="OQZ-V9-xEd"/>
-                <outlet property="categoryContainerView" destination="37m-9O-tgy" id="na1-wH-Sr6"/>
-                <outlet property="categoryImageView" destination="0IZ-7D-phT" id="ogM-FV-vZr"/>
                 <outlet property="contentViewHeightConstraint" destination="grB-0b-sly" id="0m8-RD-bpB"/>
                 <outlet property="foodImageView" destination="LdI-VC-ElB" id="b53-0q-jWH"/>
                 <outlet property="foodNameLabel" destination="1tM-Ck-haD" id="QwD-xX-M2p"/>
@@ -27,6 +26,8 @@
                 <outlet property="mainScrollView" destination="aSN-Zg-KF4" id="DJK-ir-f24"/>
                 <outlet property="mainTableView" destination="P2l-bz-G41" id="Fbc-pv-0be"/>
                 <outlet property="navigationView" destination="9wU-sb-ut8" id="YgP-sw-C4S"/>
+                <outlet property="newView" destination="o78-e2-WCT" id="FNT-Be-epv"/>
+                <outlet property="seasonalView" destination="hc9-K8-F9i" id="7bM-az-J5y"/>
                 <outlet property="tableViewHeightConstraint" destination="mXw-V2-bOz" id="DDz-Uh-hq5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -53,6 +54,47 @@
                         <constraint firstAttribute="trailing" secondItem="LdI-VC-ElB" secondAttribute="trailing" id="k3h-2d-Sql"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o78-e2-WCT">
+                    <rect key="frame" x="17.333333333333332" y="234.00000000000003" width="45.333333333333343" height="45.333333333333343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOWY" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKJ-O2-nU9">
+                            <rect key="frame" x="6" y="16" width="33.333333333333336" height="13.666666666666664"/>
+                            <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="10"/>
+                            <color key="textColor" name="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_NEW"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="mainColor"/>
+                    <constraints>
+                        <constraint firstItem="wKJ-O2-nU9" firstAttribute="centerX" secondItem="o78-e2-WCT" secondAttribute="centerX" id="DK2-79-imJ"/>
+                        <constraint firstItem="wKJ-O2-nU9" firstAttribute="width" secondItem="o78-e2-WCT" secondAttribute="width" constant="-12" id="T28-iT-rIv"/>
+                        <constraint firstAttribute="width" secondItem="o78-e2-WCT" secondAttribute="height" multiplier="1:1" id="VK9-Cb-IeL"/>
+                        <constraint firstItem="wKJ-O2-nU9" firstAttribute="centerY" secondItem="o78-e2-WCT" secondAttribute="centerY" id="ZZN-QG-Gnb"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hc9-K8-F9i">
+                    <rect key="frame" x="285" y="234.00000000000003" width="88" height="45.333333333333343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sezonowy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCL-mH-lmD">
+                            <rect key="frame" x="10" y="12.999999999999998" width="68" height="19.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="14"/>
+                            <color key="textColor" name="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_SEASONAL"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="mainColor"/>
+                    <constraints>
+                        <constraint firstItem="bCL-mH-lmD" firstAttribute="centerY" secondItem="hc9-K8-F9i" secondAttribute="centerY" id="VMC-Dl-1KK"/>
+                        <constraint firstItem="bCL-mH-lmD" firstAttribute="width" secondItem="hc9-K8-F9i" secondAttribute="width" constant="-20" id="pvh-fX-HUG"/>
+                        <constraint firstItem="bCL-mH-lmD" firstAttribute="centerX" secondItem="hc9-K8-F9i" secondAttribute="centerX" id="vTD-ar-f5N"/>
+                    </constraints>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSN-Zg-KF4">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
@@ -63,7 +105,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="279"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="weaning" customModuleProvider="target">
+                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="Test_Build" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="234" width="393" height="950"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -99,22 +141,6 @@
                         <outlet property="delegate" destination="-1" id="g3u-ei-qXB"/>
                     </connections>
                 </scrollView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37m-9O-tgy">
-                    <rect key="frame" x="333" y="65.333333333333329" width="40" height="40"/>
-                    <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0IZ-7D-phT">
-                            <rect key="frame" x="5" y="5" width="30" height="30"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="0IZ-7D-phT" firstAttribute="centerX" secondItem="37m-9O-tgy" secondAttribute="centerX" id="gVQ-oI-xhQ"/>
-                        <constraint firstItem="0IZ-7D-phT" firstAttribute="width" secondItem="37m-9O-tgy" secondAttribute="width" constant="-10" id="hf4-83-hMG"/>
-                        <constraint firstAttribute="width" constant="40" id="jG6-6P-jxs"/>
-                        <constraint firstItem="0IZ-7D-phT" firstAttribute="centerY" secondItem="37m-9O-tgy" secondAttribute="centerY" id="vJN-lL-gf0"/>
-                        <constraint firstItem="0IZ-7D-phT" firstAttribute="height" secondItem="37m-9O-tgy" secondAttribute="height" constant="-10" id="yTj-KS-o8p"/>
-                    </constraints>
-                </view>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9wU-sb-ut8">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="114"/>
                     <subviews>
@@ -161,20 +187,22 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="fT2-Y1-ZjB" secondAttribute="trailing" id="112-Os-gLb"/>
+                <constraint firstItem="7QN-42-ogF" firstAttribute="trailing" secondItem="hc9-K8-F9i" secondAttribute="trailing" constant="20" id="1Id-YD-8Hg"/>
                 <constraint firstItem="LdI-VC-ElB" firstAttribute="height" secondItem="vKD-n3-PCx" secondAttribute="height" id="2vi-8t-q3i"/>
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="31B-2n-dlc"/>
                 <constraint firstAttribute="bottom" secondItem="aSN-Zg-KF4" secondAttribute="bottom" id="3Up-gw-tEP"/>
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" constant="20" id="6U2-cx-IGc"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8lS-Cm-whk"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NbN-xb-4CC"/>
-                <constraint firstItem="37m-9O-tgy" firstAttribute="width" secondItem="37m-9O-tgy" secondAttribute="height" multiplier="1:1" id="Tg9-7v-5ic"/>
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="centerY" secondItem="1tM-Ck-haD" secondAttribute="centerY" id="Ucf-0N-Ybp"/>
-                <constraint firstItem="7QN-42-ogF" firstAttribute="trailing" secondItem="37m-9O-tgy" secondAttribute="trailing" constant="20" id="VNn-zM-Kzr"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" id="Xkt-C8-g2f"/>
-                <constraint firstItem="37m-9O-tgy" firstAttribute="centerY" secondItem="F5f-dw-MzL" secondAttribute="centerY" id="aYc-fA-AD1"/>
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bio-LT-UYm"/>
+                <constraint firstItem="o78-e2-WCT" firstAttribute="top" secondItem="9wU-sb-ut8" secondAttribute="bottom" constant="120" id="bqF-RG-gPQ"/>
                 <constraint firstAttribute="trailing" secondItem="aSN-Zg-KF4" secondAttribute="trailing" id="eqD-hW-M6E"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gXt-cb-SEA"/>
+                <constraint firstItem="hc9-K8-F9i" firstAttribute="height" secondItem="o78-e2-WCT" secondAttribute="height" id="iR0-zA-p3y"/>
+                <constraint firstItem="hc9-K8-F9i" firstAttribute="centerY" secondItem="o78-e2-WCT" secondAttribute="centerY" id="ncq-m2-2x8"/>
+                <constraint firstItem="o78-e2-WCT" firstAttribute="centerX" secondItem="F5f-dw-MzL" secondAttribute="centerX" id="sCu-Ey-tWm"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="trailing" secondItem="7QN-42-ogF" secondAttribute="trailing" id="sT6-2d-Ge3"/>
                 <constraint firstItem="7QN-42-ogF" firstAttribute="top" secondItem="9wU-sb-ut8" secondAttribute="bottom" constant="-55" id="wx3-dW-Cw9"/>
             </constraints>
@@ -183,6 +211,9 @@
     </objects>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <namedColor name="lightTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

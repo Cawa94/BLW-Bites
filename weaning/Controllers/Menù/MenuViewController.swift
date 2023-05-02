@@ -19,6 +19,7 @@ class MenuViewController: UIViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var menuNameLabel: UILabel!
     @IBOutlet private weak var navigationView: UIView!
+    @IBOutlet private weak var navigationTitleLabel: UILabel!
     @IBOutlet private weak var backNavigationView: UIView!
     @IBOutlet private weak var menuImageView: UIImageView!
     @IBOutlet private weak var instructionTextView: UITextView!
@@ -51,7 +52,8 @@ class MenuViewController: UIViewController {
                                     forCellWithReuseIdentifier:"DayCollectionViewCell")
 
         menuNameLabel.text = viewModel?.menuName
-        // backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
+        navigationTitleLabel.text = viewModel?.menuName
+        backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
 
         FirestoreService.shared.database
             .collection("menus")
@@ -186,6 +188,21 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         } else {
             NavigationService.present(viewController: NavigationService.subscriptionViewController())
+        }
+    }
+
+}
+
+extension MenuViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        let startShowingHeader = CGFloat(160)
+
+        if offset >= startShowingHeader { // after top bar blocked, start showing label
+            navigationView.alpha = min (1.0, (offset - startShowingHeader)/50)
+        } else {
+            navigationView?.alpha = 0.0
         }
     }
 
