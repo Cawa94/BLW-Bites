@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodListViewController" customModule="weaning" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodListViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="categoriesCollectionView" destination="gf7-Lb-CLe" id="Rhu-FO-x1D"/>
                 <outlet property="categoriesHeightConstraint" destination="tP6-j0-sHj" id="3iP-4e-ZJY"/>
@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="450" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-JS-DUX" customClass="CustomSearchBar" customModule="weaning" customModuleProvider="target">
+                <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-JS-DUX" customClass="CustomSearchBar" customModule="Test_Build" customModuleProvider="target">
                     <rect key="frame" x="10" y="74" width="430" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,7 +34,7 @@
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-Lb-CLe">
                     <rect key="frame" x="0.0" y="145" width="450" height="65"/>
-                    <color key="backgroundColor" name="backgroundColor1"/>
+                    <color key="backgroundColor" name="backgroundColor2"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="65" id="tP6-j0-sHj"/>
                     </constraints>
@@ -51,7 +51,7 @@
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KbN-9P-JK4">
                     <rect key="frame" x="0.0" y="210" width="450" height="642"/>
-                    <color key="backgroundColor" name="backgroundColor1"/>
+                    <color key="backgroundColor" name="backgroundColor2"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DbR-jk-vpa">
                         <size key="itemSize" width="160" height="160"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -65,7 +65,7 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" name="backgroundColor1"/>
             <constraints>
                 <constraint firstItem="gf7-Lb-CLe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0RO-gf-2at"/>
                 <constraint firstItem="KbN-9P-JK4" firstAttribute="top" secondItem="gf7-Lb-CLe" secondAttribute="bottom" id="4G6-5y-95U"/>
@@ -85,6 +85,9 @@
     <resources>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundColor2">
+            <color red="0.792156862745098" green="0.87450980392156863" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

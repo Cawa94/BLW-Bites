@@ -100,15 +100,23 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if mergedContent[indexPath.row].isFood ?? false {
-            guard let id = mergedContent[indexPath.row].id
+            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree
                 else { return }
-            let foodController = NavigationService.foodViewController(foodId: id)
-            NavigationService.push(viewController: foodController)
+            if isFree || PurchaseManager.shared.hasUnlockedPro {
+                let foodController = NavigationService.foodViewController(foodId: id)
+                NavigationService.push(viewController: foodController)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            }
         } else {
-            guard let id = mergedContent[indexPath.row].id
+            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree
                 else { return }
-            let recipeController = NavigationService.recipeViewController(recipeId: id)
-            NavigationService.push(viewController: recipeController)
+            if isFree || PurchaseManager.shared.hasUnlockedPro {
+                let recipeController = NavigationService.recipeViewController(recipeId: id)
+                NavigationService.push(viewController: recipeController)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            }
         }
     }
 

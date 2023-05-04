@@ -33,7 +33,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         nameLabel.text = shortRecipe.name
         startingFromLabel.text = shortRecipe.startingFrom
         premiumImageView.isHidden = shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro
-        imageContainerView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
+        imageContainerView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 2, borderColor: .mainColor)
         unavailableView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         newView.isHidden = !shortRecipe.isNew

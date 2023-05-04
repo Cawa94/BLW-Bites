@@ -16,13 +16,14 @@ struct FoodOrRecipe {
     let startingFrom: String?
     let properties: [String]?
     let isFood: Bool?
+    let isFree: Bool?
 
     static func initFromFood(_ shortFood: ShortFood) -> FoodOrRecipe {
-        return .init(id: shortFood.id, name: shortFood.name, image: shortFood.image, category: shortFood.category, startingFrom: shortFood.startingFrom, properties: shortFood.properties, isFood: true)
+        return .init(id: shortFood.id, name: shortFood.name, image: shortFood.image, category: shortFood.category, startingFrom: shortFood.startingFrom, properties: shortFood.properties, isFood: true, isFree: shortFood.isFree)
     }
 
     static func initFromRecipe(_ shortRecipe: ShortRecipe) -> FoodOrRecipe {
-        return .init(id: shortRecipe.id, name: shortRecipe.name, image: shortRecipe.image, category: nil, startingFrom: shortRecipe.startingFrom, properties: shortRecipe.properties, isFood: false)
+        return .init(id: shortRecipe.id, name: shortRecipe.name, image: shortRecipe.image, category: nil, startingFrom: shortRecipe.startingFrom, properties: shortRecipe.properties, isFood: false, isFree: shortRecipe.isFree)
     }
 
     func initFood() -> ShortFood {

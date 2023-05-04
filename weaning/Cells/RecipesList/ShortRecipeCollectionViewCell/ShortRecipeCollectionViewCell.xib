@@ -75,7 +75,7 @@
                             <constraint firstAttribute="bottom" secondItem="q0y-QM-hDN" secondAttribute="bottom" id="yeN-ar-TMq"/>
                         </constraints>
                     </view>
-                    <view hidden="YES" alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-Fe-2Sx">
+                    <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-Fe-2Sx">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="162"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>

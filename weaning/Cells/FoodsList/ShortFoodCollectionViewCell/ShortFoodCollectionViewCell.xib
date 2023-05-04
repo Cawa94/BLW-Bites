@@ -12,7 +12,6 @@
         <array key="Nunito.ttf">
             <string>Nunito-Black</string>
             <string>Nunito-Bold</string>
-            <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
@@ -46,8 +45,8 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sezonowy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNr-xg-HPQ">
-                                        <rect key="frame" x="44.666666666666657" y="6" width="68" height="19.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="14"/>
+                                        <rect key="frame" x="44" y="6" width="69" height="19.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="14"/>
                                         <color key="textColor" name="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -79,11 +78,11 @@
                             <constraint firstItem="q0y-QM-hDN" firstAttribute="top" secondItem="gsa-S5-qpm" secondAttribute="top" id="sWo-kY-M1O"/>
                         </constraints>
                     </view>
-                    <view hidden="YES" alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guN-Re-EI9">
+                    <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guN-Re-EI9">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="backgroundColor1"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cef-PR-4zo">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cef-PR-4zo">
                         <rect key="frame" x="0.0" y="167" width="157" height="24.666666666666657"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                         <color key="textColor" name="textColor"/>
@@ -162,6 +161,9 @@
     </objects>
     <resources>
         <image name="lock" width="128" height="128"/>
+        <namedColor name="backgroundColor1">
+            <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lightTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

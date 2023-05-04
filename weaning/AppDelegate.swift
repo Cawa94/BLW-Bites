@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Task {
             do {
                 await PurchaseManager.shared.updatePurchasedProducts()
+                NavigationService.makeMainRootController()
             }
         }
 

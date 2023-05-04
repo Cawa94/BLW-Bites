@@ -62,7 +62,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMC-ta-L6P">
-                        <rect key="frame" x="30" y="485.00000000000006" width="315" height="174.66666666666669"/>
+                        <rect key="frame" x="30" y="465.00000000000006" width="315" height="194.66666666666669"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="206" id="g0D-OS-sRm"/>
@@ -122,7 +122,7 @@
                     <constraint firstItem="bFx-cH-qpE" firstAttribute="top" secondItem="rMC-ta-L6P" secondAttribute="bottom" constant="20" id="dqo-Fp-RsO"/>
                     <constraint firstItem="bFx-cH-qpE" firstAttribute="trailing" secondItem="rMC-ta-L6P" secondAttribute="trailing" id="o7c-gC-SAN"/>
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="trailing" secondItem="lnj-Qa-Yce" secondAttribute="trailing" id="qLz-az-qzy"/>
-                    <constraint firstItem="rMC-ta-L6P" firstAttribute="top" secondItem="lnj-Qa-Yce" secondAttribute="bottom" constant="20" id="qer-4q-zeA"/>
+                    <constraint firstItem="rMC-ta-L6P" firstAttribute="top" secondItem="lnj-Qa-Yce" secondAttribute="bottom" id="qer-4q-zeA"/>
                     <constraint firstItem="rMC-ta-L6P" firstAttribute="leading" secondItem="lnj-Qa-Yce" secondAttribute="leading" id="ryV-xz-yIR"/>
                     <constraint firstItem="bFx-cH-qpE" firstAttribute="leading" secondItem="rMC-ta-L6P" secondAttribute="leading" id="s38-4I-6UD"/>
                     <constraint firstItem="XOe-Ch-8M7" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tF3-Hd-ZEK"/>

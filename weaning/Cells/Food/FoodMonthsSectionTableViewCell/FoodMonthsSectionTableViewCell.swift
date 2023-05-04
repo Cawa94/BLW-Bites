@@ -88,7 +88,7 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
             }
 
             DispatchQueue.main.async {
-                if let vimeoQualityUrl = vid.videoURL[.qualityUnknown] {
+                if let vimeoQualityUrl = vid.videoURL[.quality1080p] {
                     NavigationService.present(viewController: NavigationService.videoViewController(videoUrl: vimeoQualityUrl))
                 }
             }
@@ -121,13 +121,13 @@ extension FoodMonthsSectionTableViewCell: UICollectionViewDelegate, UICollection
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 145, height: 145)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 10, left: 0, bottom: 10, right: 0)
+        return .init(top: 10, left: 5, bottom: 10, right: 5)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
