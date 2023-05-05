@@ -18,7 +18,11 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var newView: UIView!
     @IBOutlet private weak var seasonalView: UIView!
 
-    static let defaultHeight: CGFloat = 250
+    static let defaultHeight: CGFloat = 270
+
+    public var publicImageView: UIImageView {
+        foodImageView
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -33,7 +37,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         nameLabel.text = shortRecipe.name
         startingFromLabel.text = shortRecipe.startingFrom
         premiumImageView.isHidden = shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro
-        imageContainerView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 2, borderColor: .mainColor)
+        imageContainerView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         unavailableView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         newView.isHidden = !shortRecipe.isNew

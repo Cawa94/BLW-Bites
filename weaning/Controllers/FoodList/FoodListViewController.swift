@@ -17,6 +17,7 @@ class FoodListViewController: UIViewController {
     @IBOutlet private weak var foodsCollectionView: UICollectionView!
     @IBOutlet private weak var foodSearchBar: CustomSearchBar!
 
+    var selectedIndexPath: IndexPath?
     var viewModel: FoodListViewModel?
     private var hasSearched = false
 
@@ -208,7 +209,11 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                 else { return }
             if shortFood.isFree || PurchaseManager.shared.hasUnlockedPro {
                 let foodController = NavigationService.foodViewController(foodId: id)
-                NavigationService.push(viewController: foodController)
+                if let cell = foodsCollectionView?.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell {
+                    let image = cell.publicImageView.image
+                    self.selectedIndexPath = indexPath  // <<== INSERT THIS
+                    NavigationService.push(viewController: foodController)
+                }
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
@@ -285,6 +290,22 @@ extension FoodListViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+}
+
+extension FoodListViewController : ZoomingViewController {
+
+    func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+        return nil
+    }
+
+    func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+        if let indexPath = selectedIndexPath, let cell = foodsCollectionView?.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell {
+            return cell.publicImageView
+        } else {
+            return nil
+        }
     }
 
 }

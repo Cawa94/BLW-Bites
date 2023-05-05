@@ -16,6 +16,8 @@ struct NavigationService {
         case menuSelector = 2
     }
 
+    static let zoomNavigation = ZoomTransitioningDelegate()
+
     init() {}
 
     static var appWindow: UIWindow {
@@ -39,14 +41,17 @@ struct NavigationService {
     }
 
     static func push(viewController: UIViewController) {
+        tabNavigationController?.delegate = zoomNavigation
         tabNavigationController?.pushViewController(viewController, animated: true)
     }
 
     static func present(viewController: UIViewController) {
+        rootNavigationController?.delegate = zoomNavigation
         rootNavigationController?.present(viewController, animated: true)
     }
 
     static func dismiss() {
+        rootNavigationController?.delegate = zoomNavigation
         rootNavigationController?.dismiss(animated: true)
     }
 
@@ -55,7 +60,19 @@ struct NavigationService {
     }
 
     static func popViewController() {
+        tabNavigationController?.delegate = zoomNavigation
         tabNavigationController?.popViewController(animated: true)
+    }
+
+}
+
+extension NavigationService {
+
+    static func profileViewController() -> HomepageViewController {
+        let controller = HomepageViewController(nibName: HomepageViewController.xibName,
+                                                bundle: nil)
+        controller.viewModel = HomepageViewModel()
+        return controller
     }
 
 }

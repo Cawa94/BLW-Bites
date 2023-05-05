@@ -17,6 +17,7 @@ class RecipesListViewController: UIViewController {
     @IBOutlet private weak var recipesCollectionView: UICollectionView!
     @IBOutlet private weak var recipeSearchBar: CustomSearchBar!
 
+    var selectedIndexPath: IndexPath?
     var viewModel: RecipesListViewModel?
     private var hasSearched = false
 
@@ -110,6 +111,16 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         }
     }
 
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView.tag == 0 {
+            return 10
+        } else {
+            return 5
+        }
+    }
+
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -127,9 +138,9 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
         } else {
-            let leftInset = 20
+            let leftInset = 10
             let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
-            let width = columnWidth - (20 / 2)
+            let width = columnWidth - 5
 
             return CGSize(width: CGFloat(width), height: ShortRecipeCollectionViewCell.defaultHeight)
         }
@@ -141,7 +152,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             return .init(top: 10, left: 10, bottom: 10, right: 10)
         } else {
-            return .init(top: 10, left: 20, bottom: 10, right: 20)
+            return .init(top: 10, left: 10, bottom: 10, right: 10)
         }
     }
 
@@ -151,7 +162,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             return 0
         } else {
-            return 20
+            return 0
         }
     }
 
@@ -167,8 +178,9 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             guard let shortRecipe = viewModel?.shortRecipes[indexPath.row], let id = shortRecipe.id
                 else { return }
-            if shortRecipe.isFree ?? false || PurchaseManager.shared.hasUnlockedPro {
+            if shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro {
                 let recipeController = NavigationService.recipeViewController(recipeId: id)
+                self.selectedIndexPath = indexPath
                 NavigationService.push(viewController: recipeController)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
@@ -246,6 +258,22 @@ extension RecipesListViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+}
+
+extension RecipesListViewController : ZoomingViewController {
+
+    func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+        return nil
+    }
+
+    func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+        if let indexPath = selectedIndexPath, let cell = recipesCollectionView?.cellForItem(at: indexPath) as? ShortRecipeCollectionViewCell {
+            return cell.publicImageView
+        } else {
+            return nil
+        }
     }
 
 }

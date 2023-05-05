@@ -53,6 +53,10 @@ class RecipeViewController: UIViewController {
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         FirestoreService.shared.database.document("recipes/\(viewModel?.recipeId ?? "")").getDocument(as: Recipe.self) { result in
             switch result {
@@ -312,6 +316,18 @@ extension RecipeViewController: UIScrollViewDelegate {
             navigationView?.alpha = 0.0
         }
         headerView.layer.transform = headerTransform
+    }
+
+}
+
+extension RecipeViewController : ZoomingViewController {
+
+    func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+        return nil
+    }
+
+    func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+        return recipeImageView
     }
 
 }

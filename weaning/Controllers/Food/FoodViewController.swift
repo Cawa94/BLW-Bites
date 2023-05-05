@@ -52,7 +52,11 @@ class FoodViewController: UIViewController {
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
+    }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         FirestoreService.shared.database.document("foods/\(viewModel?.foodId ?? "")").getDocument(as: Food.self) { result in
             switch result {
             case .success(let food):
@@ -86,7 +90,7 @@ class FoodViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
         contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant
-        mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
+        foodImageView.roundCorners(corners: [.bottomLeft, .bottomRight], cornerRadius: 157/2)
     }
 
     @IBAction func dimissPage() {
@@ -302,6 +306,18 @@ extension FoodViewController: UIScrollViewDelegate {
             navigationView?.alpha = 0.0
         }
         headerView.layer.transform = headerTransform
+    }
+
+}
+
+extension FoodViewController : ZoomingViewController {
+
+    func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+        return nil
+    }
+
+    func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+        return foodImageView
     }
 
 }

@@ -1,8 +1,8 @@
 //
-//  HomepageViewController.swift
+//  ProfileViewController.swift
 //  weaning
 //
-//  Created by Yuri Cavallin on 18/2/23.
+//  Created by Yuri Cavallin on 5/5/23.
 //
 
 import UIKit
@@ -10,26 +10,28 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class HomepageViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var mainScrollView: UIScrollView!
     @IBOutlet private weak var mainTableView: ContentSizedTableView!
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var recipesCollectionView: UICollectionView!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
-
+/*
     var selectedCellIndexPath: IndexPath?
     var selectedElementIndexPath: IndexPath?
-    var viewModel: HomepageViewModel?
+    var viewModel: ProfileViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mainTableView.estimatedRowHeight = 1000
         mainTableView.rowHeight = UITableView.automaticDimension
-        mainTableView.register(UINib(nibName: "HomepageHeaderTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "HomepageHeaderTableViewCell")
         mainTableView.register(UINib(nibName: "HomepageElementsTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "HomepageElementsTableViewCell")
+        recipesCollectionView.register(UINib(nibName:"ShortRecipeCollectionViewCell", bundle: nil),
+                                     forCellWithReuseIdentifier:"ShortRecipeCollectionViewCell")
 
         getHomepageFoods()
     }
@@ -83,7 +85,7 @@ class HomepageViewController: UIViewController {
 
 }
 
-extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         2
@@ -201,7 +203,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension HomepageViewController: HomepageElementsDelegate {
+extension ProfileViewController: HomepageElementsDelegate {
 
     func selectedElement(foodId: String?, recipeId: String?, elementIndexPath: IndexPath, cellIndexPath: IndexPath) {
         self.selectedElementIndexPath = elementIndexPath
@@ -217,7 +219,7 @@ extension HomepageViewController: HomepageElementsDelegate {
 
 }
 
-extension HomepageViewController: ZoomingViewController {
+extension ProfileViewController: ZoomingViewController {
 
     func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
         return nil
@@ -238,5 +240,5 @@ extension HomepageViewController: ZoomingViewController {
             return nil
         }
     }
-
+*/
 }

@@ -21,6 +21,10 @@ class ShortFoodCollectionViewCell: UICollectionViewCell {
 
     static let defaultHeight: CGFloat = 230
 
+    public var publicImageView: UIImageView {
+        foodImageView
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
 

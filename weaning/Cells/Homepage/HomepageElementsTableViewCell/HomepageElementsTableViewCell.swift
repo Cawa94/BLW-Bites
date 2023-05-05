@@ -7,19 +7,36 @@
 
 import UIKit
 
+protocol HomepageElementsDelegate: AnyObject {
+
+    func selectedElement(foodId: String?, recipeId: String?,
+                         elementIndexPath: IndexPath, cellIndexPath: IndexPath)
+
+}
+
 class HomepageElementsTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var mainCollectionView: UICollectionView!
     @IBOutlet private weak var mainCollectionViewHeightConstraint: NSLayoutConstraint!
 
+    public var publicCollectionView: UICollectionView {
+        mainCollectionView
+    }
+
+    private weak var delegate: HomepageElementsDelegate?
     var shortFoods: [ShortFood]?
     var shortRecipes: [ShortRecipe]?
     var mergedContent: [FoodOrRecipe] = []
+    var indexPath: IndexPath?
 
     func configureWith(shortFoods: [ShortFood]? = nil,
                        shortRecipes: [ShortRecipe]? = nil,
-                       title: String) {
+                       title: String,
+                       indexPath: IndexPath,
+                       delegate: HomepageElementsDelegate) {
+        self.indexPath = indexPath
+        self.delegate = delegate
         self.shortFoods = shortFoods
         self.shortRecipes = shortRecipes
         self.titleLabel.text = title
@@ -100,20 +117,18 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if mergedContent[indexPath.row].isFood ?? false {
-            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree
+            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree, let cellIndexPath = self.indexPath
                 else { return }
             if isFree || PurchaseManager.shared.hasUnlockedPro {
-                let foodController = NavigationService.foodViewController(foodId: id)
-                NavigationService.push(viewController: foodController)
+                delegate?.selectedElement(foodId: id, recipeId: nil, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
         } else {
-            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree
+            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree, let cellIndexPath = self.indexPath
                 else { return }
             if isFree || PurchaseManager.shared.hasUnlockedPro {
-                let recipeController = NavigationService.recipeViewController(recipeId: id)
-                NavigationService.push(viewController: recipeController)
+                delegate?.selectedElement(foodId: nil, recipeId: id, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
