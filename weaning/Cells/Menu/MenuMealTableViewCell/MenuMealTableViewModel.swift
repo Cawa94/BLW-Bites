@@ -11,5 +11,7 @@ struct MenuMealTableViewModel {
 
     let title: String
     let dishes: [MenuDish]
+    let indexPath: IndexPath
+    let delegate: MenuMealDelegate
 
 }

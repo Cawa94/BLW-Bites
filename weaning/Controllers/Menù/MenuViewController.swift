@@ -17,7 +17,6 @@ class MenuViewController: UIViewController {
     @IBOutlet private weak var daysCollectionView: UICollectionView!
     @IBOutlet private weak var daysCollectionViewBackground: UIView!
     @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var menuNameLabel: UILabel!
     @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private weak var navigationTitleLabel: UILabel!
     @IBOutlet private weak var backNavigationView: UIView!
@@ -29,8 +28,10 @@ class MenuViewController: UIViewController {
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
 
-    private var freeMenuDays = 3
+    private var freeMenuDays = 10
 
+    var selectedCellIndexPath: IndexPath?
+    var selectedStackViewDishTag: Int?
     var viewModel: MenuViewModel?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -51,13 +52,13 @@ class MenuViewController: UIViewController {
         daysCollectionView.register(UINib(nibName:"DayCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"DayCollectionViewCell")
 
-        menuNameLabel.text = viewModel?.menuName
         navigationTitleLabel.text = viewModel?.menuName
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
+        imageViewHeightConstraint.constant = viewModel?.menuId != "30_days" ? 230 : 350
 
         FirestoreService.shared.database
             .collection("menus")
-            .document("30_days")
+            .document(viewModel?.menuId ?? "")
             .collection("menu")
             .getDocuments() { querySnapshot, error in
                 self.convertMenuData(querySnapshot, error)
@@ -72,6 +73,7 @@ class MenuViewController: UIViewController {
                 self.viewModel?.menuDays?.append(.init(data: document.data()))
             }
             DispatchQueue.main.async {
+                self.updateDayPicture(withAnimation: false)
                 self.daysCollectionView.reloadData()
                 self.mainTableView.reloadData(completion: {
                     self.mainTableView.invalidateIntrinsicContentSize()
@@ -79,6 +81,23 @@ class MenuViewController: UIViewController {
                     self.viewDidLayoutSubviews()
                 })
             }
+        }
+    }
+
+    func updateDayPicture(withAnimation: Bool = true) {
+        guard let image = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].dayPicture
+            else { return }
+        let reference = StorageService.shared.getReferenceFor(path: image)
+        if withAnimation {
+            self.menuImageView.sd_setImage(with: reference, placeholderImage: self.menuImageView.image, completion: { image, _, _, _ in
+                UIView.transition(with: self.menuImageView,
+                                  duration: 0.30,
+                                  options: .transitionCrossDissolve,
+                                  animations: { self.menuImageView.image = image },
+                                  completion: nil)
+            })
+        } else {
+            self.menuImageView.sd_setImage(with: reference, placeholderImage: nil)
         }
     }
 
@@ -124,7 +143,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuMealTableViewCell", for: indexPath)
             as? MenuMealTableViewCell, let meal = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].meals[indexPath.section] {
             cell.configureWith(.init(title: meal.category ?? "",
-                                     dishes: meal.dishes ?? []))
+                                     dishes: meal.dishes ?? [],
+                                     indexPath: indexPath,
+                                     delegate: self))
             return cell
         } else {
             return UITableViewCell()
@@ -179,6 +200,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             viewModel?.selectedRow = indexPath.row
             
             DispatchQueue.main.async {
+                self.updateDayPicture()
                 self.daysCollectionView.reloadData()
                 self.mainTableView.reloadData(completion: {
                     self.mainTableView.invalidateIntrinsicContentSize()
@@ -197,12 +219,64 @@ extension MenuViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        let startShowingHeader = CGFloat(160)
+        if scrollView.contentOffset.y != 0 {
+            let startShowingHeader = CGFloat(160)
+            var headerTransform = CATransform3DIdentity
+            
+            if offset < 0 {
+                // PULL DOWN -----------------
+                let headerScaleFactor: CGFloat = -(offset) / headerView.bounds.height
+                let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor))
+                                           - headerView.bounds.height)/2.0
+                
+                headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+                headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 90)
+            }
+            
+            if offset >= startShowingHeader { // after top bar blocked, start showing label
+                navigationView.alpha = min (1.0, (offset - startShowingHeader)/50)
+            } else {
+                navigationView?.alpha = 0.0
+            }
+            headerView.layer.transform = headerTransform
+        }
+    }
 
-        if offset >= startShowingHeader { // after top bar blocked, start showing label
-            navigationView.alpha = min (1.0, (offset - startShowingHeader)/50)
+}
+
+extension MenuViewController: MenuMealDelegate {
+
+    func selectedElement(foodId: String?, recipeId: String?, cellIndexPath: IndexPath, stackViewDishTag: Int) {
+        self.selectedStackViewDishTag = stackViewDishTag
+        self.selectedCellIndexPath = cellIndexPath
+        if let foodId = foodId {
+            let foodController = NavigationService.foodViewController(foodId: foodId)
+            NavigationService.push(viewController: foodController)
+        } else if let recipeId = recipeId {
+            let recipeController = NavigationService.recipeViewController(recipeId: recipeId)
+            NavigationService.push(viewController: recipeController)
+        }
+    }
+
+}
+
+extension MenuViewController: ZoomingViewController {
+
+    func zoomingBackgroundView(for transition: ZoomTransitioningDelegate) -> UIView? {
+        return nil
+    }
+
+    func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
+        if let selectedCellIndexPath = selectedCellIndexPath,
+           let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? MenuMealTableViewCell,
+           let selectedStackViewDishTag = selectedStackViewDishTag {
+            if let dishView = elementsCell.publicStackView.subviews.first(where: { $0.tag == selectedStackViewDishTag }) as? MenuDishView {
+                return dishView.publicImageView
+            } else {
+                return nil
+            }
         } else {
-            navigationView?.alpha = 0.0
+            return nil
         }
     }
 

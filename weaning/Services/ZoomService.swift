@@ -135,8 +135,8 @@ extension ZoomTransitioningDelegate : UIViewControllerAnimatedTransitioning {
             postTransitionState = .initial
             // to fit into the green border
             backgroundImageView.frame = !isRecipe
-                ? .init(x: backgroundImageView.frame.origin.x + 2, y: backgroundImageView.frame.origin.y + 2,
-                        width: backgroundImageView.frame.width - 4, height: backgroundImageView.frame.height - 4)
+                ? .init(x: backgroundImageView.frame.origin.x + 1.5, y: backgroundImageView.frame.origin.y + 1.5,
+                        width: backgroundImageView.frame.width - 3, height: backgroundImageView.frame.height - 3)
                 : .init(x: backgroundImageView.frame.origin.x, y: backgroundImageView.frame.origin.y,
                         width: backgroundImageView.frame.width, height: backgroundImageView.frame.height)
             containerView.addSubview(backgroundViewController.view)

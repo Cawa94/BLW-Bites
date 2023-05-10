@@ -13,12 +13,18 @@ public struct MenuDay: Codable {
     let breakfast: MenuMeal?
     let lunch: MenuMeal?
     let dinner: MenuMeal?
+    let firstSnack: MenuMeal?
+    let secondSnack: MenuMeal?
+    let dayPicture: String?
 
     enum CodingKeys: String, CodingKey {
         case anytime
         case breakfast
         case lunch
         case dinner
+        case firstSnack = "first_snack"
+        case secondSnack = "second_snack"
+        case dayPicture = "day_picture"
     }
 
     init(data: [String: Any]) {
@@ -26,6 +32,9 @@ public struct MenuDay: Codable {
         self.breakfast = data["breakfast"] != nil ? MenuMeal(data: data["breakfast"] as? [String : Any] ?? [:]) : nil
         self.lunch = data["lunch"] != nil ? MenuMeal(data: data["lunch"] as? [String : Any] ?? [:]) : nil
         self.dinner = data["dinner"] != nil ? MenuMeal(data: data["dinner"] as? [String : Any] ?? [:]) : nil
+        self.firstSnack = data["first_snack"] != nil ? MenuMeal(data: data["first_snack"] as? [String : Any] ?? [:]) : nil
+        self.secondSnack = data["second_snack"] != nil ? MenuMeal(data: data["second_snack"] as? [String : Any] ?? [:]) : nil
+        self.dayPicture = data["day_picture"] as? String
     }
 
 }
@@ -40,8 +49,14 @@ extension MenuDay {
         if let breakfast = breakfast {
             tempMeals.append(breakfast)
         }
+        if let firstSnack = firstSnack {
+            tempMeals.append(firstSnack)
+        }
         if let lunch = lunch {
             tempMeals.append(lunch)
+        }
+        if let secondSnack = secondSnack {
+            tempMeals.append(secondSnack)
         }
         if let dinner = dinner {
             tempMeals.append(dinner)

@@ -5,9 +5,9 @@
 //  Created by Yuri Cavallin on 15/3/23.
 //
 
-private extension CGFloat {
+protocol MenuMealDelegate: AnyObject {
 
-    static let adjustmentHeight: CGFloat = 30
+    func selectedElement(foodId: String?, recipeId: String?, cellIndexPath: IndexPath, stackViewDishTag: Int)
 
 }
 
@@ -19,7 +19,12 @@ class MenuMealTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dishesStackView: UIStackView!
 
+    private weak var delegate: MenuMealDelegate?
     private var viewModel: MenuMealTableViewModel?
+
+    public var publicStackView: UIStackView {
+        dishesStackView
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -34,21 +39,25 @@ class MenuMealTableViewCell: UITableViewCell {
         self.viewModel = viewModel
 
         titleLabel.text = viewModel.title
+        self.delegate = viewModel.delegate
 
         for dish in viewModel.dishes.enumerated() {
-            appendDish(dish.element, hideSeparator: dish.offset == viewModel.dishes.count - 1)
+            appendDish(dish.element, hideSeparator: dish.offset == viewModel.dishes.count - 1, tag: dish.offset)
         }
 
         contentContainerView.drawShadow()
     }
 
-    func appendDish(_ menuDish: MenuDish, hideSeparator: Bool) {
+    func appendDish(_ menuDish: MenuDish, hideSeparator: Bool, tag: Int) {
         let dishView = MenuDishView()
+        dishView.tag = tag
         dishView.configureWith(.init(menuDish: menuDish, hideSeparator: hideSeparator, tapHandler: {
-            if menuDish.isFood ?? false, let foodId = menuDish.id {
-                NavigationService.push(viewController: NavigationService.foodViewController(foodId: foodId))
-            } else if let recipeId = menuDish.id {
-                NavigationService.push(viewController: NavigationService.recipeViewController(recipeId: recipeId))
+            guard let cellIndexPath = self.viewModel?.indexPath
+                else { return }
+            if menuDish.isFood ?? false {
+                self.delegate?.selectedElement(foodId: menuDish.id, recipeId: nil, cellIndexPath: cellIndexPath, stackViewDishTag: tag)
+            } else {
+                self.delegate?.selectedElement(foodId: nil, recipeId: menuDish.id, cellIndexPath: cellIndexPath, stackViewDishTag: tag)
             }
         }))
         dishesStackView.addArrangedSubview(dishView)

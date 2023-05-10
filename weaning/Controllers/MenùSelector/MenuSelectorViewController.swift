@@ -106,7 +106,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                                                                 subtitle: "MENU_7-12_MONTHS_DESCRIPTION".localized(),
                                                                 isPremium: true,
                                                                 tapHandler: {
-                    self.openMenuWith(id: "7-12_months", name: "MENU_7-12_MONTHS".localized(), isPremium: true)
+                    self.openMenuWith(id: "7_12_even", name: "MENU_7-12_MONTHS".localized(), isPremium: true)
                 })
                 cell.configureWith(viewModel)
                 return cell

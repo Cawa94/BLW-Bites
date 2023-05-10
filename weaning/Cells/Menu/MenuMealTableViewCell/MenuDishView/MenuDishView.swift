@@ -16,6 +16,10 @@ class MenuDishView: UIView {
 
     private var viewModel: MenuDishViewModel?
 
+    public var publicImageView: UIImageView {
+        dishImageView
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -40,7 +44,7 @@ class MenuDishView: UIView {
 
         nameLabel.text = viewModel.menuDish.name
         separatorView.isHidden = viewModel.hideSeparator
-        dishImageView.roundCornersSimplified(cornerRadius: dishImageView.frame.height/2)
+        dishImageView.roundCornersSimplified(cornerRadius: viewModel.menuDish.isFood ?? false ? dishImageView.frame.height/2 : .smallCornerRadius)
         guard let image = viewModel.menuDish.image, !image.isEmpty
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)

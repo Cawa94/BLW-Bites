@@ -33,18 +33,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yue-p7-mOY">
-                                <rect key="frame" x="0.0" y="145" width="180" height="35"/>
+                                <rect key="frame" x="96.666666666666686" y="145" width="78.333333333333314" height="30"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVt-Hm-bgk">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="2"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="FtT-rU-3o2"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sezonowy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0W-mx-IYP">
-                                        <rect key="frame" x="56" y="7.9999999999999982" width="68" height="19.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="14"/>
+                                        <rect key="frame" x="7.6666666666666607" y="6" width="63.333333333333343" height="18"/>
+                                        <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="13"/>
                                         <color key="textColor" name="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -54,24 +47,21 @@
                                 </subviews>
                                 <color key="backgroundColor" name="mainColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="1DR-0t-yrB"/>
+                                    <constraint firstAttribute="height" constant="30" id="1DR-0t-yrB"/>
                                     <constraint firstItem="t0W-mx-IYP" firstAttribute="centerX" secondItem="Yue-p7-mOY" secondAttribute="centerX" id="1ad-tL-0Ia"/>
-                                    <constraint firstItem="DVt-Hm-bgk" firstAttribute="top" secondItem="Yue-p7-mOY" secondAttribute="top" id="8n2-Bo-fhx"/>
-                                    <constraint firstAttribute="trailing" secondItem="DVt-Hm-bgk" secondAttribute="trailing" id="8rH-Ts-ZxN"/>
-                                    <constraint firstItem="DVt-Hm-bgk" firstAttribute="leading" secondItem="Yue-p7-mOY" secondAttribute="leading" id="KW7-wV-UyU"/>
+                                    <constraint firstItem="t0W-mx-IYP" firstAttribute="width" secondItem="Yue-p7-mOY" secondAttribute="width" constant="-15" id="Qzd-Qn-6IG"/>
                                     <constraint firstItem="t0W-mx-IYP" firstAttribute="centerY" secondItem="Yue-p7-mOY" secondAttribute="centerY" id="lRv-Gd-o2I"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Yue-p7-mOY" firstAttribute="leading" secondItem="UcB-dh-4yK" secondAttribute="leading" id="5VV-cU-NWG"/>
                             <constraint firstItem="q0y-QM-hDN" firstAttribute="leading" secondItem="UcB-dh-4yK" secondAttribute="leading" id="Lfa-y3-Qgw"/>
+                            <constraint firstAttribute="bottom" secondItem="Yue-p7-mOY" secondAttribute="bottom" constant="5" id="PBt-dm-brM"/>
                             <constraint firstItem="q0y-QM-hDN" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="top" id="S8J-7c-wyL"/>
                             <constraint firstAttribute="width" secondItem="UcB-dh-4yK" secondAttribute="height" multiplier="1:1" id="ayh-Zq-732"/>
                             <constraint firstAttribute="trailing" secondItem="q0y-QM-hDN" secondAttribute="trailing" id="dN2-3P-uie"/>
-                            <constraint firstAttribute="bottom" secondItem="Yue-p7-mOY" secondAttribute="bottom" id="dPm-x7-8h6"/>
-                            <constraint firstAttribute="trailing" secondItem="Yue-p7-mOY" secondAttribute="trailing" id="wix-gg-Kxx"/>
+                            <constraint firstAttribute="trailing" secondItem="Yue-p7-mOY" secondAttribute="trailing" constant="5" id="wix-gg-Kxx"/>
                             <constraint firstAttribute="bottom" secondItem="q0y-QM-hDN" secondAttribute="bottom" id="yeN-ar-TMq"/>
                         </constraints>
                     </view>
@@ -80,13 +70,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here goes a long recipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cef-PR-4zo">
-                        <rect key="frame" x="0.0" y="185" width="180" height="49.333333333333343"/>
-                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                        <rect key="frame" x="5" y="185" width="170" height="43.666666666666657"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+600months" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-Nq-XMc">
-                        <rect key="frame" x="0.0" y="239.33333333333334" width="180" height="19.333333333333343"/>
+                        <rect key="frame" x="0.0" y="233.66666666666666" width="180" height="19.333333333333343"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                         <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
@@ -131,11 +121,11 @@
                 <constraint firstAttribute="trailing" secondItem="f2m-Nq-XMc" secondAttribute="trailing" id="J7m-PD-ZpP"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LtE-oD-fWR"/>
                 <constraint firstItem="n94-6u-E8L" firstAttribute="width" secondItem="n94-6u-E8L" secondAttribute="height" multiplier="1:1" id="ZGD-HR-bML"/>
-                <constraint firstItem="cef-PR-4zo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ex3-ai-op7"/>
+                <constraint firstItem="cef-PR-4zo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ex3-ai-op7"/>
                 <constraint firstItem="2tY-CQ-M1q" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="top" constant="5" id="h1k-PY-MLo"/>
                 <constraint firstAttribute="trailing" secondItem="Txp-Fe-2Sx" secondAttribute="trailing" id="htc-O0-1hA"/>
                 <constraint firstItem="f2m-Nq-XMc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oyi-gO-X3z"/>
-                <constraint firstAttribute="trailing" secondItem="cef-PR-4zo" secondAttribute="trailing" id="quC-up-f86"/>
+                <constraint firstAttribute="trailing" secondItem="cef-PR-4zo" secondAttribute="trailing" constant="5" id="quC-up-f86"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="top" secondItem="Txp-Fe-2Sx" secondAttribute="bottom" id="rAZ-5d-sdu"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uXX-qo-0Fn"/>
                 <constraint firstItem="n94-6u-E8L" firstAttribute="trailing" secondItem="UcB-dh-4yK" secondAttribute="trailing" constant="-5" id="uij-uf-73L"/>

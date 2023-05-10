@@ -86,12 +86,12 @@ class RecipeViewController: UIViewController {
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         recipeImageView.sd_setImage(with: reference, placeholderImage: nil)
-        recipeImageView.contentMode = .scaleAspectFill
     }
 
     override func viewDidLayoutSubviews() {
+        let bottomSpace: CGFloat = 50
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant
+        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + bottomSpace
         mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
 

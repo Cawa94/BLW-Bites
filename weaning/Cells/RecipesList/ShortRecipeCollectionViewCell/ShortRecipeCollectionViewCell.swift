@@ -20,6 +20,12 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
 
     static let defaultHeight: CGFloat = 270
 
+    var testPictures: [String] =
+    [
+        "gs://app-svezzamento.appspot.com/recipes/IMG_0786.JPG",
+        "gs://app-svezzamento.appspot.com/recipes/IMG_0787.JPG"
+    ]
+
     public var publicImageView: UIImageView {
         foodImageView
     }
@@ -38,17 +44,30 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         startingFromLabel.text = shortRecipe.startingFrom
         premiumImageView.isHidden = shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro
         imageContainerView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
-        unavailableView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
+        unavailableView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         newView.isHidden = !shortRecipe.isNew
         seasonalView.isHidden = !shortRecipe.isSeasonal
+        seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius/2, borderWidth: 1, borderColor: .white)
 
         if !(shortRecipe.isFree) && !PurchaseManager.shared.hasUnlockedPro {
             self.unavailableView.isHidden = false
         }
 
         guard let image = shortRecipe.image, !image.isEmpty
-            else { return }
+            // else { return }
+            else {
+                // FOR TESTING ONLY
+                let reference = StorageService.shared.getReferenceFor(path: testPictures.randomElement() ?? "")
+                foodImageView.sd_setImage(with: reference, placeholderImage: nil, completion: { image, error, type, url in
+                    if !shortRecipe.isFree && !PurchaseManager.shared.hasUnlockedPro {
+                        self.foodImageView.image = image?.grayscaled
+                    }
+                })
+                return
+            }
+        //guard let image = shortRecipe.image, !image.isEmpty
+        //    else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
     }

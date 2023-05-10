@@ -23,7 +23,7 @@ public struct MenuDish: Codable {
 
     init(data: [String: Any]) {
         self.id = data["id"] as? String
-        self.isFood = data["is_food"] as? Bool
+        self.isFood = data["is_food"] as? Bool ?? false
         self.name = data["name"] as? String
         self.image = data["image"] as? String
     }
