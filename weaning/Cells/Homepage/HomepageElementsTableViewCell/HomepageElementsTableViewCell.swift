@@ -54,7 +54,7 @@ class HomepageElementsTableViewCell: UITableViewCell {
             mergedContent.append(FoodOrRecipe.initFromRecipe(recipe))
         }
 
-        mergedContent.shuffle()
+        //mergedContent.shuffle()
 
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()

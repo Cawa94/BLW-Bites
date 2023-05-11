@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubscriptionViewController" customModule="weaning" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubscriptionViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="infosTextView" destination="9bO-bn-b86" id="rKu-Rq-3O6"/>
                 <outlet property="infosTextViewHeightConstraint" destination="Xey-Dg-lnT" id="TDB-ir-m8p"/>
@@ -30,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30_days" translatesAutoresizingMaskIntoConstraints="NO" id="YUb-ON-pHD">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subscription_header" translatesAutoresizingMaskIntoConstraints="NO" id="YUb-ON-pHD">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="175"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="175" id="kyi-D5-27F"/>
@@ -103,7 +103,7 @@
         </view>
     </objects>
     <resources>
-        <image name="30_days" width="626" height="352"/>
+        <image name="subscription_header" width="1280" height="853"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

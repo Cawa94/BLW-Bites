@@ -89,9 +89,8 @@ class RecipeViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        let bottomSpace: CGFloat = 50
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + bottomSpace
+        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + .bottomSpace
         mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
 

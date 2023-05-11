@@ -84,13 +84,13 @@
                         <color key="backgroundColor" name="backgroundColor1"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cef-PR-4zo">
-                        <rect key="frame" x="0.0" y="167" width="157" height="24.666666666666657"/>
-                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                        <rect key="frame" x="0.0" y="167" width="157" height="22"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+6000months" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-Nq-XMc">
-                        <rect key="frame" x="0.0" y="196.66666666666666" width="157" height="19.333333333333343"/>
+                        <rect key="frame" x="0.0" y="194" width="157" height="19.333333333333343"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                         <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>

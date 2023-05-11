@@ -11,5 +11,6 @@ extension CGFloat {
 
     static let defaultCornerRadius: CGFloat = 15
     static let smallCornerRadius: CGFloat = .defaultCornerRadius/2
+    static let bottomSpace: CGFloat = 50
 
 }

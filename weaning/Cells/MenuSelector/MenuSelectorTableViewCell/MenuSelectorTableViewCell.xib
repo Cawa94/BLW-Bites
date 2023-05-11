@@ -13,21 +13,22 @@
             <string>Alata-Regular</string>
         </array>
         <array key="Nunito.ttf">
+            <string>Nunito-Black</string>
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="358" id="KGk-i7-Jjw" customClass="MenuSelectorTableViewCell" customModule="weaning" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="413" height="358"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="392" id="KGk-i7-Jjw" customClass="MenuSelectorTableViewCell" customModule="Test_Build" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="392"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="413" height="358"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="392"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGa-8l-83k">
-                        <rect key="frame" x="30" y="25" width="353" height="318"/>
+                        <rect key="frame" x="30" y="25" width="353" height="352"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vegetable" translatesAutoresizingMaskIntoConstraints="NO" id="xC7-xc-iB6">
                                 <rect key="frame" x="141.66666666666666" y="25" width="70" height="70"/>
@@ -37,13 +38,22 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Menù first 30-days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-wG-psk">
-                                <rect key="frame" x="15" y="115.00000000000001" width="323" height="31.666666666666671"/>
+                                <rect key="frame" x="15" y="115.00000000000001" width="323" height="35.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="JUNE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZv-FD-WEB">
+                                <rect key="frame" x="15" y="150.66666666666666" width="323" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="00e-cM-sRe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Knn-mC-OTV">
-                                <rect key="frame" x="113.66666666666666" y="243" width="126" height="45"/>
+                                <rect key="frame" x="113.66666666666666" y="277" width="126" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="5yh-sr-SC1"/>
                                 </constraints>
@@ -57,34 +67,60 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="A very simple and usefull menù to introduce the first aliments into your kid and get him used to solid foods" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ef-n9-iRy">
-                                <rect key="frame" x="15" y="156.66666666666666" width="323" height="66.333333333333343"/>
+                                <rect key="frame" x="15" y="190.66666666666666" width="323" height="66.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="16"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="eV3-k5-4ue">
-                                <rect key="frame" x="219.66666666666666" y="223" width="35" height="35"/>
+                                <rect key="frame" x="219.66666666666666" y="257" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="kBf-9n-x70"/>
                                     <constraint firstAttribute="width" secondItem="eV3-k5-4ue" secondAttribute="height" multiplier="1:1" id="mkx-Dc-htH"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uq7-So-cjU">
+                                <rect key="frame" x="288" y="15" width="50" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOWY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5l-IY-dtU">
+                                        <rect key="frame" x="6.6666666666666856" y="17.333333333333336" width="36.666666666666664" height="15.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="11"/>
+                                        <color key="textColor" name="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_NEW"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="mainColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MjL-6g-cjl"/>
+                                    <constraint firstItem="A5l-IY-dtU" firstAttribute="centerY" secondItem="Uq7-So-cjU" secondAttribute="centerY" id="VI1-24-ouf"/>
+                                    <constraint firstItem="A5l-IY-dtU" firstAttribute="centerX" secondItem="Uq7-So-cjU" secondAttribute="centerX" id="u6e-Nj-Hz6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Knn-mC-OTV" firstAttribute="top" secondItem="8Ef-n9-iRy" secondAttribute="bottom" constant="20" id="3C7-Xi-bWm"/>
                             <constraint firstItem="xC7-xc-iB6" firstAttribute="centerX" secondItem="YGa-8l-83k" secondAttribute="centerX" id="4Gt-Rz-xzg"/>
+                            <constraint firstItem="Uq7-So-cjU" firstAttribute="top" secondItem="YGa-8l-83k" secondAttribute="top" constant="15" id="61W-Z2-8iU"/>
                             <constraint firstItem="VDY-wG-psk" firstAttribute="top" secondItem="xC7-xc-iB6" secondAttribute="bottom" constant="20" id="6i7-GK-3V4"/>
                             <constraint firstItem="8Ef-n9-iRy" firstAttribute="trailing" secondItem="VDY-wG-psk" secondAttribute="trailing" id="993-ab-GwC"/>
                             <constraint firstItem="eV3-k5-4ue" firstAttribute="trailing" secondItem="Knn-mC-OTV" secondAttribute="trailing" constant="15" id="DfS-3A-9KV"/>
+                            <constraint firstItem="dZv-FD-WEB" firstAttribute="top" secondItem="VDY-wG-psk" secondAttribute="bottom" id="Fwn-LH-3Mo"/>
                             <constraint firstItem="8Ef-n9-iRy" firstAttribute="leading" secondItem="VDY-wG-psk" secondAttribute="leading" id="G50-UZ-cM9"/>
+                            <constraint firstItem="8Ef-n9-iRy" firstAttribute="top" secondItem="dZv-FD-WEB" secondAttribute="bottom" constant="10" id="Pys-Uf-KgY"/>
                             <constraint firstItem="VDY-wG-psk" firstAttribute="leading" secondItem="YGa-8l-83k" secondAttribute="leading" constant="15" id="SIh-Ia-zTb"/>
+                            <constraint firstAttribute="trailing" secondItem="Uq7-So-cjU" secondAttribute="trailing" constant="15" id="UM4-an-UNO"/>
                             <constraint firstAttribute="trailing" secondItem="VDY-wG-psk" secondAttribute="trailing" constant="15" id="UtL-jR-3yv"/>
-                            <constraint firstItem="8Ef-n9-iRy" firstAttribute="top" secondItem="VDY-wG-psk" secondAttribute="bottom" constant="10" id="jmg-4G-gul"/>
+                            <constraint firstItem="dZv-FD-WEB" firstAttribute="leading" secondItem="VDY-wG-psk" secondAttribute="leading" id="Y6U-hP-mGd"/>
+                            <constraint firstItem="Uq7-So-cjU" firstAttribute="width" secondItem="Uq7-So-cjU" secondAttribute="height" multiplier="1:1" id="i2Y-iA-k6V"/>
                             <constraint firstAttribute="bottom" secondItem="Knn-mC-OTV" secondAttribute="bottom" constant="30" id="rby-Hy-x8Y"/>
                             <constraint firstItem="eV3-k5-4ue" firstAttribute="top" secondItem="Knn-mC-OTV" secondAttribute="top" constant="-20" id="wg2-XT-N3e"/>
                             <constraint firstItem="Knn-mC-OTV" firstAttribute="centerX" secondItem="YGa-8l-83k" secondAttribute="centerX" id="xfK-D9-JMy"/>
                             <constraint firstItem="xC7-xc-iB6" firstAttribute="top" secondItem="YGa-8l-83k" secondAttribute="top" constant="25" id="z6c-WQ-bBL"/>
+                            <constraint firstItem="dZv-FD-WEB" firstAttribute="trailing" secondItem="VDY-wG-psk" secondAttribute="trailing" id="zEX-7A-PoJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -100,16 +136,22 @@
             <connections>
                 <outlet property="contentContainerView" destination="YGa-8l-83k" id="aW1-7a-5O4"/>
                 <outlet property="mainImageView" destination="xC7-xc-iB6" id="v3T-Qd-9KP"/>
+                <outlet property="monthLabel" destination="dZv-FD-WEB" id="4dO-CO-6xZ"/>
+                <outlet property="monthLabelConstraint" destination="00e-cM-sRe" id="n3w-Jz-wJB"/>
+                <outlet property="newView" destination="Uq7-So-cjU" id="VWC-zu-1zg"/>
                 <outlet property="premiumImageView" destination="eV3-k5-4ue" id="Yas-vr-4UY"/>
                 <outlet property="subtitleLabel" destination="8Ef-n9-iRy" id="cj6-ZQ-TGl"/>
                 <outlet property="titleLabel" destination="VDY-wG-psk" id="QkZ-Th-xDP"/>
             </connections>
-            <point key="canvasLocation" x="167.17557251908397" y="130.28169014084509"/>
+            <point key="canvasLocation" x="187.02290076335876" y="110.56338028169014"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="lock" width="128" height="128"/>
         <image name="vegetable" width="128" height="128"/>
+        <namedColor name="lightTextColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainColor">
             <color red="0.082352941176470587" green="0.5725490196078431" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

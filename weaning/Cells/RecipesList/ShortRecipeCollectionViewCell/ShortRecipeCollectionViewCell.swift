@@ -19,13 +19,13 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var seasonalView: UIView!
 
     static let defaultHeight: CGFloat = 270
-
+/*
     var testPictures: [String] =
     [
         "gs://app-svezzamento.appspot.com/recipes/IMG_0786.JPG",
         "gs://app-svezzamento.appspot.com/recipes/IMG_0787.JPG"
     ]
-
+*/
     public var publicImageView: UIImageView {
         foodImageView
     }
@@ -53,7 +53,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         if !(shortRecipe.isFree) && !PurchaseManager.shared.hasUnlockedPro {
             self.unavailableView.isHidden = false
         }
-
+/*
         guard let image = shortRecipe.image, !image.isEmpty
             // else { return }
             else {
@@ -65,9 +65,9 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
                     }
                 })
                 return
-            }
-        //guard let image = shortRecipe.image, !image.isEmpty
-        //    else { return }
+            }*/
+        guard let image = shortRecipe.image, !image.isEmpty
+            else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
     }

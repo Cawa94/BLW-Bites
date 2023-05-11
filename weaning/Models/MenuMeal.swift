@@ -29,4 +29,18 @@ public struct MenuMeal: Codable {
         self.dishes = dishes
     }
 
+    init(category: String?,
+         dishes: [MenuDish]?) {
+        self.category = category
+        self.dishes = dishes
+    }
+
+}
+
+extension MenuMeal {
+
+    func copyWith(category: String) -> MenuMeal {
+        .init(category: category, dishes: dishes)
+    }
+
 }

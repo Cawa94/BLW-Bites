@@ -80,7 +80,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = tableViewHeightConstraint.constant
+        contentViewHeightConstraint.constant = tableViewHeightConstraint.constant + .bottomSpace
     }
 
 }

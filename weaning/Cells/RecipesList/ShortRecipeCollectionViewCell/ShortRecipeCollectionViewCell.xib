@@ -65,6 +65,26 @@
                             <constraint firstAttribute="bottom" secondItem="q0y-QM-hDN" secondAttribute="bottom" id="yeN-ar-TMq"/>
                         </constraints>
                     </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tY-CQ-M1q">
+                        <rect key="frame" x="5" y="5" width="34.666666666666664" height="34.666666666666664"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOWY" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-lI-hST">
+                                <rect key="frame" x="4.0000000000000018" y="12" width="26.666666666666671" height="11"/>
+                                <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="8"/>
+                                <color key="textColor" name="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_NEW"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <constraints>
+                            <constraint firstItem="tpt-lI-hST" firstAttribute="width" secondItem="2tY-CQ-M1q" secondAttribute="width" constant="-8" id="J20-cO-GVL"/>
+                            <constraint firstItem="tpt-lI-hST" firstAttribute="centerY" secondItem="2tY-CQ-M1q" secondAttribute="centerY" id="O3j-0p-zWJ"/>
+                            <constraint firstItem="tpt-lI-hST" firstAttribute="centerX" secondItem="2tY-CQ-M1q" secondAttribute="centerX" id="eal-bi-BS1"/>
+                        </constraints>
+                    </view>
                     <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-Fe-2Sx">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="185"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,26 +107,6 @@
                             <constraint firstAttribute="width" constant="30" id="j8D-Wn-NNx"/>
                         </constraints>
                     </imageView>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tY-CQ-M1q">
-                        <rect key="frame" x="5" y="5" width="34.666666666666664" height="34.666666666666664"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOWY" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpt-lI-hST">
-                                <rect key="frame" x="4.0000000000000018" y="12" width="26.666666666666671" height="11"/>
-                                <fontDescription key="fontDescription" name="Nunito-Black" family="Nunito" pointSize="8"/>
-                                <color key="textColor" name="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="GLOBAL_NEW"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" name="mainColor"/>
-                        <constraints>
-                            <constraint firstItem="tpt-lI-hST" firstAttribute="width" secondItem="2tY-CQ-M1q" secondAttribute="width" constant="-8" id="J20-cO-GVL"/>
-                            <constraint firstItem="tpt-lI-hST" firstAttribute="centerY" secondItem="2tY-CQ-M1q" secondAttribute="centerY" id="O3j-0p-zWJ"/>
-                            <constraint firstItem="tpt-lI-hST" firstAttribute="centerX" secondItem="2tY-CQ-M1q" secondAttribute="centerX" id="eal-bi-BS1"/>
-                        </constraints>
-                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,7 +150,7 @@
     </objects>
     <resources>
         <image name="lock" width="128" height="128"/>
-        <image name="recipe_placeholder" width="512" height="512"/>
+        <image name="recipe_placeholder" width="408" height="409"/>
         <namedColor name="lightTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

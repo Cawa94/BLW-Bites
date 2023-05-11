@@ -89,7 +89,7 @@ class FoodViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant
+        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + .bottomSpace
         foodImageView.roundCorners(corners: [.bottomLeft, .bottomRight], cornerRadius: 157/2)
     }
 

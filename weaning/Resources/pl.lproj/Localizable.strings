@@ -45,6 +45,13 @@
 
 "MENU_SELECTOR_TITLE" = "Co dziś będzie jadło Twoje dziecko?";
 
+"MENU_ANYTIME" = "W każdej chwili";
+"MENU_BREAKFAST" = "Sniadanie";
+"MENU_FIRST_SNACK" = "Pierwsza przekąska";
+"MENU_LUNCH" = "Obiad";
+"MENU_SECOND_SNACK" = "Druga przekąska";
+"MENU_DINNER" = "Kolacja";
+
 "MENU_30_DAYS" = "Menù pierwsze 30 dni";
 "MENU_30_DAYS_DESCRIPTION" = "Bardzo proste i użyteczne menu, aby wprowadzić pierwsze pokarmy i przyzwyczaić dziecko do stałego pokarmu";
 "MENU_DISCOVER_BUTTON" = "Odkryj menu";

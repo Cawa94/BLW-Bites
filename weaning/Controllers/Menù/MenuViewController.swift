@@ -54,7 +54,8 @@ class MenuViewController: UIViewController {
 
         navigationTitleLabel.text = viewModel?.menuName
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
-        imageViewHeightConstraint.constant = viewModel?.menuId != "30_days" ? 230 : 350
+        imageViewHeightConstraint.constant = viewModel?.is30Days ?? false ? 350 : 250
+        menuImageView.image = viewModel?.is30Days ?? false ? nil : .init(named: "7-12_months")
 
         FirestoreService.shared.database
             .collection("menus")
@@ -85,7 +86,7 @@ class MenuViewController: UIViewController {
     }
 
     func updateDayPicture(withAnimation: Bool = true) {
-        guard let image = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].dayPicture
+        guard viewModel?.is30Days ?? false, let image = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].dayPicture
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         if withAnimation {

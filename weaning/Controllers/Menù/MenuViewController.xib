@@ -46,7 +46,7 @@
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQp-OQ-LO4">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7-12_months" translatesAutoresizingMaskIntoConstraints="NO" id="EgJ-Ae-Me0">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EgJ-Ae-Me0">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="350" id="FAz-5M-0lr"/>
@@ -225,7 +225,6 @@
         </view>
     </objects>
     <resources>
-        <image name="7-12_months" width="626" height="417"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

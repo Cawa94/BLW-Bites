@@ -35,11 +35,10 @@ class MenuSelectorViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = tableViewHeightConstraint.constant
+        contentViewHeightConstraint.constant = tableViewHeightConstraint.constant + .bottomSpace
     }
 
 }
-
 
 extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -82,6 +81,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func menusSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let components = Calendar(identifier: .gregorian).dateComponents([.year, .month], from: .now)
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)
@@ -91,7 +91,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                                                                 subtitle: "MENU_30_DAYS_DESCRIPTION".localized(),
                                                                 isPremium: false,
                                                                 tapHandler: {
-                    self.openMenuWith(id: "30_days", name: "MENU_30_DAYS".localized(), isPremium: false)
+                    self.openMenuWith(id: "30_days", name: "MENU_30_DAYS".localized(), isPremium: false, is30Days: true)
                 })
                 cell.configureWith(viewModel)
                 return cell
@@ -99,32 +99,68 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                 return UITableViewCell()
             }
         case 1:
+            // let month = (components.month ?? 6) < 10 ? "0\(components.month ?? 6)" : "\(components.month ?? 6)"
+            let currentMenuId = "7-12_months_2023_06" // DA LASCIARE FIN QUANDO ABBIAMO ABBONATI E DOBBIAMO INIZIARE A RUOTARE MENÙ
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)
                 as? MenuSelectorTableViewCell {
                 let viewModel = MenuSelectorTableViewModel.init(image: "7-12_months_icon",
                                                                 title: "MENU_7-12_MONTHS".localized(),
                                                                 subtitle: "MENU_7-12_MONTHS_DESCRIPTION".localized(),
                                                                 isPremium: true,
+                                                                isNew: true,
+                                                                month: Date().monthString.uppercased(),
                                                                 tapHandler: {
-                    self.openMenuWith(id: "7_12_even", name: "MENU_7-12_MONTHS".localized(), isPremium: true)
+                    //let currentMenuId = "7-12_months_\(components.year ?? 2023)_\(month)"
+                    self.openMenuWith(id: currentMenuId, name: "MENU_7-12_MONTHS".localized(), isPremium: true)
                 })
                 cell.configureWith(viewModel)
                 return cell
             } else {
                 return UITableViewCell()
             }
+        /*case 2:
+            // TO BE ADDED IN JULY TO SHOW OLD MENÙ. REMEMBER THAT WHEN YOU DO -1 TO THE MONTH CHECK IF IT'S JANUARY
+            let month = (components.month ?? 6) < 10 ? "0\(components.month ?? 6)" : "\(components.month ?? 6)"
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)
+                as? MenuSelectorTableViewCell {
+                let viewModel = MenuSelectorTableViewModel.init(image: "7-12_months_icon",
+                                                                title: "MENU_7-12_MONTHS".localized(),
+                                                                subtitle: "MENU_7-12_MONTHS_DESCRIPTION".localized(),
+                                                                isPremium: true,
+                                                                month: "",
+                                                                tapHandler: {
+                    let components = Calendar(identifier: .gregorian).dateComponents([.year, .month], from: .now)
+                    let currentMenuId = "7-12_months_\(components.year ?? 2023)_\(month)"
+                    self.openMenuWith(id: currentMenuId, name: "MENU_7-12_MONTHS".localized(), isPremium: true)
+                })
+                cell.configureWith(viewModel)
+                return cell
+            } else {
+                return UITableViewCell()
+            }*/
         default:
             return UITableViewCell()
         }
     }
 
-    func openMenuWith(id: String, name: String, isPremium: Bool) {
+    func openMenuWith(id: String, name: String, isPremium: Bool, is30Days: Bool = false) {
         if PurchaseManager.shared.hasUnlockedPro || !isPremium {
             NavigationService.push(viewController: NavigationService.menuViewController(menuId: id,
-                                                                                        menuName: name))
+                                                                                        menuName: name,
+                                                                                        is30Days: is30Days))
         } else {
             NavigationService.present(viewController: NavigationService.subscriptionViewController())
         }
+    }
+
+}
+
+extension Date {
+
+    var monthString: String {
+        let names = Calendar.current.monthSymbols
+        let month = Calendar.current.component(.month, from: self)
+        return names[month - 1]
     }
 
 }
