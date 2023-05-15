@@ -19,6 +19,8 @@
             <connections>
                 <outlet property="backNavigationView" destination="F5f-dw-MzL" id="OQZ-V9-xEd"/>
                 <outlet property="contentViewHeightConstraint" destination="grB-0b-sly" id="0m8-RD-bpB"/>
+                <outlet property="favoriteImageView" destination="Q13-Uo-EXJ" id="3NU-3W-G4K"/>
+                <outlet property="favoriteView" destination="UUs-RQ-Qjp" id="8Rs-nq-spQ"/>
                 <outlet property="foodImageView" destination="LdI-VC-ElB" id="b53-0q-jWH"/>
                 <outlet property="foodNameLabel" destination="1tM-Ck-haD" id="QwD-xX-M2p"/>
                 <outlet property="headerView" destination="fT2-Y1-ZjB" id="m2U-5K-nCv"/>
@@ -182,6 +184,38 @@
                         <constraint firstItem="yJ4-pP-643" firstAttribute="leading" secondItem="F5f-dw-MzL" secondAttribute="leading" id="tfY-uF-BRk"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-RQ-Qjp">
+                    <rect key="frame" x="333" y="65.333333333333329" width="40" height="40"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Q13-Uo-EXJ">
+                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="EwB-av-oKZ"/>
+                                <constraint firstAttribute="width" secondItem="Q13-Uo-EXJ" secondAttribute="height" multiplier="1:1" id="jTW-jR-n1n"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twv-jd-PuF">
+                            <rect key="frame" x="0.0" y="0.0" width="45" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" ">
+                                <color key="baseForegroundColor" name="mainColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="toggleFavorite" destination="-1" eventType="touchUpInside" id="Clz-56-bOi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="twv-jd-PuF" secondAttribute="trailing" constant="-5" id="8Lx-ey-86N"/>
+                        <constraint firstItem="twv-jd-PuF" firstAttribute="top" secondItem="UUs-RQ-Qjp" secondAttribute="top" id="9ht-bU-wMr"/>
+                        <constraint firstItem="twv-jd-PuF" firstAttribute="leading" secondItem="UUs-RQ-Qjp" secondAttribute="leading" id="bAX-hw-tzr"/>
+                        <constraint firstAttribute="bottom" secondItem="twv-jd-PuF" secondAttribute="bottom" id="g2M-56-7FF"/>
+                        <constraint firstItem="Q13-Uo-EXJ" firstAttribute="centerX" secondItem="UUs-RQ-Qjp" secondAttribute="centerX" id="iml-m7-yB3"/>
+                        <constraint firstAttribute="width" constant="40" id="jht-lp-01c"/>
+                        <constraint firstItem="Q13-Uo-EXJ" firstAttribute="centerY" secondItem="UUs-RQ-Qjp" secondAttribute="centerY" id="tgS-4E-Lcc"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="7QN-42-ogF"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,8 +225,11 @@
                 <constraint firstItem="LdI-VC-ElB" firstAttribute="height" secondItem="vKD-n3-PCx" secondAttribute="height" id="2vi-8t-q3i"/>
                 <constraint firstItem="aSN-Zg-KF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="31B-2n-dlc"/>
                 <constraint firstAttribute="bottom" secondItem="aSN-Zg-KF4" secondAttribute="bottom" id="3Up-gw-tEP"/>
+                <constraint firstItem="7QN-42-ogF" firstAttribute="trailing" secondItem="UUs-RQ-Qjp" secondAttribute="trailing" constant="20" id="3XG-E3-W5O"/>
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" constant="20" id="6U2-cx-IGc"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8lS-Cm-whk"/>
+                <constraint firstItem="UUs-RQ-Qjp" firstAttribute="centerY" secondItem="F5f-dw-MzL" secondAttribute="centerY" id="FNr-uv-gkm"/>
+                <constraint firstItem="UUs-RQ-Qjp" firstAttribute="width" secondItem="UUs-RQ-Qjp" secondAttribute="height" multiplier="1:1" id="KLT-HG-lo8"/>
                 <constraint firstItem="fT2-Y1-ZjB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NbN-xb-4CC"/>
                 <constraint firstItem="F5f-dw-MzL" firstAttribute="centerY" secondItem="1tM-Ck-haD" secondAttribute="centerY" id="Ucf-0N-Ybp"/>
                 <constraint firstItem="9wU-sb-ut8" firstAttribute="leading" secondItem="7QN-42-ogF" secondAttribute="leading" id="Xkt-C8-g2f"/>
@@ -211,6 +248,7 @@
     </objects>
     <resources>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="heart_empty" width="128" height="128"/>
         <namedColor name="lightTextColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

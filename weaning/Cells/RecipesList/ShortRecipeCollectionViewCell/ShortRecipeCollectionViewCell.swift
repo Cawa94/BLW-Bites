@@ -17,6 +17,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var unavailableView: UIView!
     @IBOutlet private weak var newView: UIView!
     @IBOutlet private weak var seasonalView: UIView!
+    @IBOutlet private weak var favoriteImageView: UIImageView!
 
     static let defaultHeight: CGFloat = 270
 /*
@@ -37,6 +38,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
         unavailableView.isHidden = true
         newView.isHidden = true
         seasonalView.isHidden = true
+        favoriteImageView.image = .init(named: "heart_empty")
     }
 
     func configureWith(_ shortRecipe: ShortRecipe, imageCornerRadius: CGFloat) {
@@ -70,6 +72,11 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         foodImageView.sd_setImage(with: reference, placeholderImage: nil)
+    }
+
+    @IBAction func toggleFavorite() {
+        favoriteImageView.image = .init(named: "heart_full")
+        favoriteImageView.bounce()
     }
 
 }

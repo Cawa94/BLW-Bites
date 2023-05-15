@@ -81,7 +81,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func menusSection(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let components = Calendar(identifier: .gregorian).dateComponents([.year, .month], from: .now)
+        // let components = Calendar(identifier: .gregorian).dateComponents([.year, .month], from: .now)
         switch indexPath.row {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuSelectorTableViewCell", for: indexPath)

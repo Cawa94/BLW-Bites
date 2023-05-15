@@ -101,6 +101,25 @@
                         <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Yox-AZ-hq4">
+                        <rect key="frame" x="150" y="5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="7hp-18-get"/>
+                            <constraint firstAttribute="width" secondItem="Yox-AZ-hq4" secondAttribute="height" multiplier="1:1" id="Pdk-AN-CYk"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-fC-Zc3">
+                        <rect key="frame" x="135" y="5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Z4A-OH-1Mh"/>
+                            <constraint firstAttribute="width" secondItem="dTW-fC-Zc3" secondAttribute="height" multiplier="1:1" id="aF1-na-GAU"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                        <connections>
+                            <action selector="toggleFavorite" destination="gTV-IL-0wX" eventType="touchUpInside" id="hGq-qI-bgl"/>
+                        </connections>
+                    </button>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="n94-6u-E8L">
                         <rect key="frame" x="145" y="5" width="30" height="30"/>
                         <constraints>
@@ -116,15 +135,20 @@
                 <constraint firstItem="n94-6u-E8L" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="top" constant="5" id="4x5-36-9cn"/>
                 <constraint firstAttribute="trailing" secondItem="UcB-dh-4yK" secondAttribute="trailing" id="8HU-he-zJv"/>
                 <constraint firstItem="Txp-Fe-2Sx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="90X-Ry-gUj"/>
+                <constraint firstItem="Yox-AZ-hq4" firstAttribute="top" secondItem="dTW-fC-Zc3" secondAttribute="top" id="9LU-nj-uRo"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="bottom" constant="5" id="E2W-Bc-3GO"/>
+                <constraint firstItem="Yox-AZ-hq4" firstAttribute="width" secondItem="Yox-AZ-hq4" secondAttribute="height" multiplier="1:1" id="EfW-A0-pQT"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="I4A-N0-NHu"/>
                 <constraint firstAttribute="trailing" secondItem="f2m-Nq-XMc" secondAttribute="trailing" id="J7m-PD-ZpP"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LtE-oD-fWR"/>
+                <constraint firstItem="Yox-AZ-hq4" firstAttribute="trailing" secondItem="dTW-fC-Zc3" secondAttribute="trailing" id="NLq-Rl-hLr"/>
+                <constraint firstItem="n94-6u-E8L" firstAttribute="top" secondItem="Yox-AZ-hq4" secondAttribute="top" id="SLM-k5-PU7"/>
                 <constraint firstItem="n94-6u-E8L" firstAttribute="width" secondItem="n94-6u-E8L" secondAttribute="height" multiplier="1:1" id="ZGD-HR-bML"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ex3-ai-op7"/>
                 <constraint firstItem="2tY-CQ-M1q" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="top" constant="5" id="h1k-PY-MLo"/>
                 <constraint firstAttribute="trailing" secondItem="Txp-Fe-2Sx" secondAttribute="trailing" id="htc-O0-1hA"/>
                 <constraint firstItem="f2m-Nq-XMc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oyi-gO-X3z"/>
+                <constraint firstItem="n94-6u-E8L" firstAttribute="trailing" secondItem="Yox-AZ-hq4" secondAttribute="trailing" id="qBr-c4-r9q"/>
                 <constraint firstAttribute="trailing" secondItem="cef-PR-4zo" secondAttribute="trailing" constant="5" id="quC-up-f86"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="top" secondItem="Txp-Fe-2Sx" secondAttribute="bottom" id="rAZ-5d-sdu"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uXX-qo-0Fn"/>
@@ -136,6 +160,7 @@
             </constraints>
             <size key="customSize" width="113" height="154"/>
             <connections>
+                <outlet property="favoriteImageView" destination="Yox-AZ-hq4" id="g4t-6o-MpY"/>
                 <outlet property="foodImageView" destination="q0y-QM-hDN" id="gco-ZY-rBj"/>
                 <outlet property="imageContainerView" destination="UcB-dh-4yK" id="u4l-yR-WFh"/>
                 <outlet property="nameLabel" destination="cef-PR-4zo" id="1ob-h5-9ee"/>
@@ -149,6 +174,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart_empty" width="128" height="128"/>
         <image name="lock" width="128" height="128"/>
         <image name="recipe_placeholder" width="408" height="409"/>
         <namedColor name="lightTextColor">

@@ -24,6 +24,8 @@ class FoodViewController: UIViewController {
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var newView: UIView!
     @IBOutlet private weak var seasonalView: UIView!
+    @IBOutlet private weak var favoriteView: UIView!
+    @IBOutlet private weak var favoriteImageView: UIImageView!
 
     var viewModel: FoodViewModel?
 
@@ -50,6 +52,7 @@ class FoodViewController: UIViewController {
                                forCellReuseIdentifier: "SeparatorTableViewCell")
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
+        favoriteView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
     }
@@ -95,6 +98,11 @@ class FoodViewController: UIViewController {
 
     @IBAction func dimissPage() {
         NavigationService.popViewController()
+    }
+
+    @IBAction func toggleFavorite() {
+        favoriteImageView.image = .init(named: "heart_full")
+        favoriteImageView.bounce()
     }
 
 }

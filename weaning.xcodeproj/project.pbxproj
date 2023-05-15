@@ -22,9 +22,6 @@
 		7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */; };
 		731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4EC29C2311900BD0AB0 /* StoreKitConfiguration.storekit */; };
 		732FC6BB2A0501D3001E0281 /* ZoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FC6BA2A0501D3001E0281 /* ZoomService.swift */; };
-		732FC6BF2A055360001E0281 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FC6BD2A055360001E0281 /* ProfileViewController.swift */; };
-		732FC6C02A055360001E0281 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 732FC6BE2A055360001E0281 /* ProfileViewController.xib */; };
-		732FC6C22A05536D001E0281 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FC6C12A05536D001E0281 /* ProfileViewModel.swift */; };
 		7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35729A0D3D000B172AC /* HomepageViewController.swift */; };
 		7344B35A29A0D3D000B172AC /* HomepageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B35829A0D3D000B172AC /* HomepageViewController.xib */; };
 		7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */; };
@@ -164,9 +161,6 @@
 		7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+SubscriptionViewController.swift"; sourceTree = "<group>"; };
 		732FC6BA2A0501D3001E0281 /* ZoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomService.swift; sourceTree = "<group>"; };
-		732FC6BD2A055360001E0281 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		732FC6BE2A055360001E0281 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		732FC6C12A05536D001E0281 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		7344B35729A0D3D000B172AC /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		7344B35829A0D3D000B172AC /* HomepageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageViewController.xib; sourceTree = "<group>"; };
 		7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
@@ -339,16 +333,6 @@
 			path = Subscription;
 			sourceTree = "<group>";
 		};
-		732FC6BC2A055348001E0281 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				732FC6BD2A055360001E0281 /* ProfileViewController.swift */,
-				732FC6C12A05536D001E0281 /* ProfileViewModel.swift */,
-				732FC6BE2A055360001E0281 /* ProfileViewController.xib */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		7344B35629A0D3BB00B172AC /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,7 +498,6 @@
 				738FB2C32997AB1600C286B3 /* MainController */,
 				73AE195D29BC8FC200B2A2AE /* Menu */,
 				738FB2C62997AB3600C286B3 /* MenuSelector */,
-				732FC6BC2A055348001E0281 /* Profile */,
 				73AD68D029AFB2310054B377 /* Recipe */,
 				738FB2C52997AB2500C286B3 /* RecipesList */,
 				7316B4EE29C231F800BD0AB0 /* Subscription */,
@@ -975,7 +958,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				732FC6C02A055360001E0281 /* ProfileViewController.xib in Resources */,
 				73AD68CF29AFA86D0054B377 /* ShortRecipeCollectionViewCell.xib in Resources */,
 				736579A529A231F70071F60E /* FoodTitleTableViewCell.xib in Resources */,
 				7344B35A29A0D3D000B172AC /* HomepageViewController.xib in Resources */,
@@ -1078,7 +1060,6 @@
 				738FB2F42997D7D500C286B3 /* ShortFood.swift in Sources */,
 				738FB3042997DE8F00C286B3 /* ShortFoodCollectionViewCell.swift in Sources */,
 				7316B4E429C1EC0300BD0AB0 /* MenuMeal.swift in Sources */,
-				732FC6BF2A055360001E0281 /* ProfileViewController.swift in Sources */,
 				739E91FA29F2E793009BFF34 /* VideoViewController.swift in Sources */,
 				73A0BB8A29AE8CA80099DB74 /* RecipeCategory.swift in Sources */,
 				738FB2CD2997ACA700C286B3 /* NavigationService.swift in Sources */,
@@ -1109,7 +1090,6 @@
 				739658E129F923D30040F809 /* UITextView+Extension.swift in Sources */,
 				738FB2AE2997A9B700C286B3 /* AppDelegate.swift in Sources */,
 				73AD68D329AFB24A0054B377 /* RecipeViewController.swift in Sources */,
-				732FC6C22A05536D001E0281 /* ProfileViewModel.swift in Sources */,
 				7344B36A29A0E1DA00B172AC /* CategoryCollectionViewCell.swift in Sources */,
 				73E59BE429AA67D2003D7F65 /* FoodInfosDictionary.swift in Sources */,
 				73AE196529BC994100B2A2AE /* NavigationService+MenuViewController.swift in Sources */,

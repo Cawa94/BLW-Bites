@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Let's find your healthy food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hm-iR-Tx7">
-                        <rect key="frame" x="30" y="20" width="281.33333333333331" height="80"/>
+                        <rect key="frame" x="30" y="20" width="281.33333333333331" height="255"/>
                         <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="26"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,15 +31,15 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="HOME_TITLE"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="promo_banner" translatesAutoresizingMaskIntoConstraints="NO" id="nPA-iA-JKX">
-                        <rect key="frame" x="28.666666666666657" y="125" width="318" height="175"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="nPA-iA-JKX">
+                        <rect key="frame" x="187.66666666666666" y="300" width="0.0" height="0.0"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="175" id="a52-aT-PHW"/>
+                            <constraint firstAttribute="height" id="a52-aT-PHW"/>
                             <constraint firstAttribute="width" secondItem="nPA-iA-JKX" secondAttribute="height" multiplier="318:175" id="lWu-bd-K0L"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZj-P2-PkV">
-                        <rect key="frame" x="28.666666666666657" y="125" width="318" height="175"/>
+                        <rect key="frame" x="187.66666666666666" y="300" width="0.0" height="0.0"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title=" "/>
                         <connections>
@@ -70,7 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="promo_banner" width="318" height="156"/>
         <namedColor name="textColor">
             <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
