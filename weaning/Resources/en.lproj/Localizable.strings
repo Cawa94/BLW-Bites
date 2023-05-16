@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  weaning
+
+  Created by Yuri Cavallin on 26/4/23.
+  
+*/
+
+"FOOD_CATEGORY_FRUIT" = "Fruits";
+"FOOD_CATEGORY_VEGETABLE" = "Vegetables";
+"FOOD_CATEGORY_MEAT" = "Meat";
+"FOOD_CATEGORY_FISH" = "Fish";
+"FOOD_CATEGORY_CEREALS" = "Cereals";
+"FOOD_CATEGORY_CHEESE" = "Cheese";
+"FOOD_CATEGORY_SEEDS" = "Seeds";
+"FOOD_CATEGORY_LEGUMES" = "Legumes";
+"FOOD_CATEGORY_EGG" = "Egg";
+"FOOD_CATEGORY_SUGAR" = "Sugar";
+"FOOD_CATEGORY_AVOID" = "Avoid";
+
+"FOOD_LIST_SEARCH" = "Food Search";
+
+"FOOD_RECIPES_SUGGESTED" = "Suggested recipes";
+"FOOD_HOW_TO_PROPOSE" = "How to propose";
+"FOOD_PLAY_VIDEO" = "Play a video";
+"FOOD_TAP_TO_EXPAND" = "Tap an image to see it in full screen";
+
+"GLOBAL_FAVORITES" = "Favorites";
+"GLOBAL_NEW" = "NEW";
+"GLOBAL_SEASONAL" = "Seasonal";
+
+"HOME_TITLE" = "Healthy food for baby and family";
+"HOME_SEASONAL" = "Seasonal foods and recipes";
+"HOME_NEW_ENTRY" = "This month's new entry.";
+"HOME_FREE_FOODS" = "Monthly free food";
+"HOME_FREE_RECIPES" = "Monthly free recipes";
+
+"INFO_TITLE" = "Meet your family dietitian";
+"INFO_DESCRIPTION" = "All content for the app comes from Ewelina, who is a nutritionist and you can follow her on Instagram. If you have any concerns or questions, you can contact me at ewelina.happymamas@gmail.com.";
+
+"MAIN_START" = "Start";
+"MAIN_FOOD" = "Food";
+"MAIN_MENU" = "Menu";
+"MAIN_RECIPES" = "Recipes";
+"MAIN_INFO" = "Info";
+
+"MENU_SELECTOR_TITLE" = "What is your child going to eat today?";
+
+"MENU_ANYTIME" = "At any time";
+"MENU_BREAKFAST" = "Breakfast";
+"MENU_FIRST_SNACK" = "First snack";
+"MENU_LUNCH" = "Lunch";
+"MENU_SECOND_SNACK" = "Second snack";
+"MENU_DINNER" = "Dinner";
+
+"MENU_30_DAYS" = "Menù first 30 days";
+"MENU_30_DAYS_DESCRIPTION" = "A very simple and useful menu to introduce the first foods and get the baby used to solid food";
+"MENU_DISCOVER_BUTTON" = "Discover menu";
+"MENU_7-12_MONTHS" = "Menù 7-12 Months";
+"MENU_7-12_MONTHS_DESCRIPTION" = "A more complex and advanced menu with many tasty recipes tailored for the whole family";
+
+"RECIPE_CATEGORY_BREAKFAST" = "Breakfasts";
+"RECIPE_CATEGORY_LUNCH" = "Lunches";
+"RECIPE_CATEGORY_SNACK" = "Afternoon snack";
+"RECIPE_CATEGORY_DINNER" = "Dinners";
+
+"RECIPE_LIST_SEARCH" = "Recipe search";
+
+"RECIPE_INGREDIENTS" = "Ingredients";
+"RECIPE_PREPARATION" = "Preparation";
+"RECIPE_FOODS_INCLUDED" = "Food included";
+
+"SUBSCRIPTION_TITLE" = "Access all the contents of the application";
+"SUBSCRIPTION_DESCRIPTION" = "• Access all food\n• Access all recipes\n• Access all menus";
+"SUBSCRIPTION_RESTORE_PURCHASE" = "Restore purchase";

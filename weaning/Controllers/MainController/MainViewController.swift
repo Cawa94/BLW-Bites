@@ -36,28 +36,28 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let foodListController = NavigationService.foodListViewController().embedInNavigationController()
         foodListController.isNavigationBarHidden = true
         foodListController.tabBarItem =
-            UITabBarItem(title: "Żywność",
+            UITabBarItem(title: "MAIN_FOOD".localized(),
                          image: UIImage(systemName: "carrot")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
                          selectedImage: UIImage(systemName: "carrot.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
 
         let menuSelectorController = MenuSelectorViewController().embedInNavigationController()
         menuSelectorController.isNavigationBarHidden = true
         menuSelectorController.tabBarItem =
-            UITabBarItem(title: "Menu",
+            UITabBarItem(title: "MAIN_MENU".localized(),
                          image: UIImage(systemName: "menucard")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
                          selectedImage: UIImage(systemName: "menucard.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
 
         let recipesListController = NavigationService.recipesListViewController().embedInNavigationController()
         recipesListController.isNavigationBarHidden = true
         recipesListController.tabBarItem =
-            UITabBarItem(title: "Przepisy",
+            UITabBarItem(title: "MAIN_RECIPES".localized(),
                          image: UIImage(systemName: "fork.knife")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
                          selectedImage: UIImage(systemName: "fork.knife")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
 
         let infoController = NavigationService.infoViewController().embedInNavigationController()
         infoController.isNavigationBarHidden = true
         infoController.tabBarItem =
-            UITabBarItem(title: "Info",
+            UITabBarItem(title: "MAIN_INFO".localized(),
                          image: UIImage(systemName: "info.bubble")?.withRenderingMode(.alwaysOriginal).withTintColor(.lightGray),
                          selectedImage: UIImage(systemName: "info.bubble.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(.mainColor))
 

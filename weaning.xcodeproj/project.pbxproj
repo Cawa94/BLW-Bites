@@ -182,6 +182,7 @@
 		736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSectionTableViewCell.xib; sourceTree = "<group>"; };
 		736718D329C1D8F600736D04 /* MenuDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDay.swift; sourceTree = "<group>"; };
 		736718D529C1D96800736D04 /* MenuDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDish.swift; sourceTree = "<group>"; };
+		7383D9802A12843A007D4807 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		738CCF9129C8D2DC000080AE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewModel.swift; sourceTree = "<group>"; };
@@ -942,6 +943,7 @@
 			knownRegions = (
 				Base,
 				pl,
+				en,
 			);
 			mainGroup = 738FB2A12997A9B700C286B3;
 			productRefGroup = 738FB2AB2997A9B700C286B3 /* Products */;
@@ -1171,6 +1173,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				739658DA29F91BFA0040F809 /* pl */,
+				7383D9802A12843A007D4807 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
