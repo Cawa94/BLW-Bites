@@ -100,6 +100,24 @@
                             <constraint firstItem="WPZ-CC-sfK" firstAttribute="centerY" secondItem="SbQ-AQ-uRz" secondAttribute="centerY" id="dxb-W5-VYF"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="KHy-Kk-HnC">
+                        <rect key="frame" x="135" y="2" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="YTF-TD-fTg"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-jm-Xbb">
+                        <rect key="frame" x="115" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Gzw-jm-Xbb" secondAttribute="height" multiplier="1:1" id="8pM-ae-Sdh"/>
+                            <constraint firstAttribute="width" constant="40" id="mTb-5e-mF1"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                        <connections>
+                            <action selector="toggleFavorite" destination="gTV-IL-0wX" eventType="touchUpInside" id="MSr-sc-7cH"/>
+                        </connections>
+                    </button>
                     <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guN-Re-EI9">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
                         <color key="backgroundColor" name="backgroundColor1"/>
@@ -139,15 +157,22 @@
                 <constraint firstItem="guN-Re-EI9" firstAttribute="trailing" secondItem="gsa-S5-qpm" secondAttribute="trailing" id="V5i-aA-qyq"/>
                 <constraint firstItem="guN-Re-EI9" firstAttribute="leading" secondItem="gsa-S5-qpm" secondAttribute="leading" id="aLz-ch-062"/>
                 <constraint firstItem="guN-Re-EI9" firstAttribute="top" secondItem="gsa-S5-qpm" secondAttribute="top" id="abE-i6-opg"/>
+                <constraint firstItem="KHy-Kk-HnC" firstAttribute="top" secondItem="Gzw-jm-Xbb" secondAttribute="top" id="cls-8a-e7A"/>
+                <constraint firstItem="Gzw-jm-Xbb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="dLu-zf-rmr"/>
                 <constraint firstAttribute="trailing" secondItem="gsa-S5-qpm" secondAttribute="trailing" id="dWf-6H-zYf"/>
+                <constraint firstAttribute="trailing" secondItem="Gzw-jm-Xbb" secondAttribute="trailing" constant="2" id="efu-uf-ex8"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ex3-ai-op7"/>
                 <constraint firstItem="add-Xj-4Nb" firstAttribute="centerY" secondItem="SbQ-AQ-uRz" secondAttribute="centerY" id="lVL-jP-fGL"/>
                 <constraint firstItem="add-Xj-4Nb" firstAttribute="top" secondItem="gsa-S5-qpm" secondAttribute="top" constant="5" id="m9g-Ae-Gnu"/>
+                <constraint firstItem="Gzw-jm-Xbb" firstAttribute="width" secondItem="Gzw-jm-Xbb" secondAttribute="height" multiplier="1:1" id="nM3-Bd-1Cj"/>
+                <constraint firstItem="KHy-Kk-HnC" firstAttribute="width" secondItem="KHy-Kk-HnC" secondAttribute="height" multiplier="1:1" id="qEC-Fe-0hX"/>
                 <constraint firstAttribute="trailing" secondItem="cef-PR-4zo" secondAttribute="trailing" id="quC-up-f86"/>
                 <constraint firstAttribute="trailing" secondItem="f2m-Nq-XMc" secondAttribute="trailing" id="rke-6a-p3m"/>
+                <constraint firstItem="KHy-Kk-HnC" firstAttribute="trailing" secondItem="Gzw-jm-Xbb" secondAttribute="trailing" id="waR-pK-A0L"/>
             </constraints>
             <size key="customSize" width="113" height="154"/>
             <connections>
+                <outlet property="favoriteImageView" destination="KHy-Kk-HnC" id="wX2-Th-g8x"/>
                 <outlet property="foodImageView" destination="q0y-QM-hDN" id="gco-ZY-rBj"/>
                 <outlet property="imageContainerView" destination="gsa-S5-qpm" id="NQK-hZ-T7s"/>
                 <outlet property="nameLabel" destination="cef-PR-4zo" id="1ob-h5-9ee"/>
@@ -161,6 +186,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart_empty" width="128" height="128"/>
         <image name="lock" width="128" height="128"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

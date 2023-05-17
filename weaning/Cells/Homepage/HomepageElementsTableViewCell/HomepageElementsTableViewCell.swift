@@ -75,14 +75,14 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
                                                                 for: indexPath) as? ShortFoodCollectionViewCell
                 else { return UICollectionViewCell() }
             let shortFood = mergedContent[indexPath.row].initFood()
-            cell.configureWith(shortFood, imageCornerRadius: 142/2)
+            cell.configureWith(.init(shortFood: shortFood, inHomepage: true), imageCornerRadius: 142/2)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
                                                                 for: indexPath) as? ShortRecipeCollectionViewCell
                 else { return UICollectionViewCell() }
             let shortRecipe = mergedContent[indexPath.row].initRecipe()
-            cell.configureWith(shortRecipe, imageCornerRadius: 142/2)
+            cell.configureWith(.init(shortRecipe: shortRecipe, inHomepage: true), imageCornerRadius: 142/2)
             return cell
         }
     }

@@ -5,14 +5,15 @@
 //  Created by Yuri Cavallin on 1/3/23.
 //
 
-import Foundation
+import UIKit
 
 extension NavigationService {
 
-    static func recipeViewController(recipeId: String) -> RecipeViewController {
+    static func recipeViewController(recipeId: String, cellFavoriteImageView: UIImageView? = nil) -> RecipeViewController {
         let controller = RecipeViewController(nibName: RecipeViewController.xibName,
                                               bundle: nil)
-        controller.viewModel = RecipeViewModel(recipeId: recipeId)
+        controller.viewModel = RecipeViewModel(recipeId: recipeId,
+                                               cellFavoriteImageView: cellFavoriteImageView)
         return controller
     }
 

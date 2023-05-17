@@ -53,12 +53,18 @@ class FoodListViewController: UIViewController {
         }
     }
 
-    func getFilteredFoods() {
+    func getFilteredFoods(isFavorites: Bool = false) {
         hasSearched = false
-        if let categorySelected = viewModel?.categorySelected {
+        if !isFavorites, let categorySelected = viewModel?.categorySelected {
             let category = FoodCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_foods")
                 .whereField("category", isEqualTo: category)
+                .getDocuments() { querySnapshot, error in
+                    self.convertFoodsData(querySnapshot, error)
+            }
+        } else if isFavorites {
+            FirestoreService.shared.database.collection("short_foods")
+                .whereField("id", in: UserDefaultsService.favoriteFoods.compactMap { $0 })
                 .getDocuments() { querySnapshot, error in
                     self.convertFoodsData(querySnapshot, error)
             }
@@ -139,14 +145,15 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                                                                 for: indexPath) as? CategoryCollectionViewCell
                 else { return UICollectionViewCell() }
             let foodCategory = FoodCategory.allValues[indexPath.row]
-            cell.configureWithFoodCategory(foodCategory, isSelected: viewModel?.categorySelected == indexPath.row)
+            cell.configureWithFoodCategory(.init(foodCategory: foodCategory, isFavorites: indexPath.row == 0),
+                                           isSelected: viewModel?.categorySelected == indexPath.row)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortFoodCollectionViewCell",
                                                                 for: indexPath) as? ShortFoodCollectionViewCell,
                   let shortFood = viewModel?.shortFoods[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortFood, imageCornerRadius: 157/2)
+            cell.configureWith(.init(shortFood: shortFood), imageCornerRadius: 157/2)
             return cell
         }
     }
@@ -197,23 +204,26 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            foodSearchBar.text = nil
-            let currentCategory = viewModel?.categorySelected
-            viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
-            DispatchQueue.main.async {
-                self.categoriesCollectionView.reloadData()
+            if indexPath.row != 0 || PurchaseManager.shared.hasUnlockedPro {
+                foodSearchBar.text = nil
+                let currentCategory = viewModel?.categorySelected
+                viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
+                DispatchQueue.main.async {
+                    self.categoriesCollectionView.reloadData()
+                }
+                self.getFilteredFoods(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
-            self.getFilteredFoods()
         } else {
             guard let shortFood = viewModel?.shortFoods[indexPath.row], let id = shortFood.id
                 else { return }
             if shortFood.isFree || PurchaseManager.shared.hasUnlockedPro {
-                let foodController = NavigationService.foodViewController(foodId: id)
-                if let cell = foodsCollectionView?.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell {
-                    let image = cell.publicImageView.image
-                    self.selectedIndexPath = indexPath  // <<== INSERT THIS
-                    NavigationService.push(viewController: foodController)
-                }
+                let foodController = NavigationService.foodViewController(
+                    foodId: id,
+                    cellFavoriteImageView: (collectionView.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell)?.publicFavoriteImageView)
+                self.selectedIndexPath = indexPath
+                NavigationService.push(viewController: foodController)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }

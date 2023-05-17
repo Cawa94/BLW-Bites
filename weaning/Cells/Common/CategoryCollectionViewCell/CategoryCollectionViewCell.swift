@@ -10,10 +10,12 @@ import FirebaseStorageUI
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet private weak var unavailableView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var categoryImageView: UIImageView!
 
     static let defaultHeight: CGFloat = 45
+    private var viewModel: CategoryCollectionViewModel?
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -21,21 +23,35 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         backgroundColor = .white
     }
 
-    func configureWithFoodCategory(_ foodCategory: FoodCategory, isSelected: Bool) {
-        self.nameLabel.text = foodCategory.name
-        self.categoryImageView.image = UIImage(named: foodCategory.imageName)
+    func configureWithFoodCategory(_ viewModel: CategoryCollectionViewModel, isSelected: Bool) {
+        self.viewModel = viewModel
+
+        self.nameLabel.text = viewModel.foodCategory?.name
+        if viewModel.isFavorites {
+            self.categoryImageView.image = UIImage(named: isSelected ? "heart_white" : "heart_full")
+        } else {
+            self.categoryImageView.image = UIImage(named: viewModel.foodCategory?.imageName ?? "")
+        }
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
-
+        unavailableView.isHidden = !viewModel.isFavorites || PurchaseManager.shared.hasUnlockedPro
+        unavailableView.roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
         roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
     }
 
-    func configureWithRecipeCategory(_ recipeCategory: RecipeCategory, isSelected: Bool) {
-        self.nameLabel.text = recipeCategory.name
-        self.categoryImageView.image = UIImage(named: recipeCategory.imageName)
+    func configureWithRecipeCategory(_ viewModel: CategoryCollectionViewModel, isSelected: Bool) {
+        self.viewModel = viewModel
+
+        self.nameLabel.text = viewModel.recipeCategory?.name
+        if viewModel.isFavorites {
+            self.categoryImageView.image = UIImage(named: isSelected ? "heart_white" : "heart_full")
+        } else {
+            self.categoryImageView.image = UIImage(named: viewModel.recipeCategory?.imageName ?? "")
+        }
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
-
+        unavailableView.isHidden = !viewModel.isFavorites || PurchaseManager.shared.hasUnlockedPro
+        unavailableView.roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
         roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
     }
 

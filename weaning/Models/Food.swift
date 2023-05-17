@@ -85,6 +85,10 @@ extension Food {
         properties?.contains(where: { $0 == "seasonal" }) ?? false
     }
 
+    var isFavorite: Bool {
+        UserDefaultsService.favoriteFoods.contains(where: { $0 == id })
+    }
+
     var ageSegments: [AgeSegment] {
         var segments: [AgeSegment] = []
         if let first = ageDictionary?.first {

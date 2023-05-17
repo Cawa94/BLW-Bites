@@ -64,4 +64,8 @@ extension ShortFood {
         properties?.contains(where: { $0 == "seasonal" }) ?? false
     }
 
+    var isFavorite: Bool {
+        UserDefaultsService.favoriteFoods.contains(where: { $0 == id })
+    }
+
 }

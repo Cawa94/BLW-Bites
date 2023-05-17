@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 extension NavigationService {
 
-    static func foodViewController(foodId: String) -> FoodViewController {
+    static func foodViewController(foodId: String, cellFavoriteImageView: UIImageView? = nil) -> FoodViewController {
         let controller = FoodViewController(nibName: FoodViewController.xibName,
                                             bundle: nil)
-        controller.viewModel = FoodViewModel(foodId: foodId)
+        controller.viewModel = FoodViewModel(foodId: foodId,
+                                             cellFavoriteImageView: cellFavoriteImageView)
         return controller
     }
 

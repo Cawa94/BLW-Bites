@@ -85,6 +85,24 @@
                             <constraint firstItem="tpt-lI-hST" firstAttribute="centerX" secondItem="2tY-CQ-M1q" secondAttribute="centerX" id="eal-bi-BS1"/>
                         </constraints>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Yox-AZ-hq4">
+                        <rect key="frame" x="153" y="7" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="7hp-18-get"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-fC-Zc3">
+                        <rect key="frame" x="133" y="7" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Z4A-OH-1Mh"/>
+                            <constraint firstAttribute="width" secondItem="dTW-fC-Zc3" secondAttribute="height" multiplier="1:1" id="aF1-na-GAU"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                        <connections>
+                            <action selector="toggleFavorite" destination="gTV-IL-0wX" eventType="touchUpInside" id="hGq-qI-bgl"/>
+                        </connections>
+                    </button>
                     <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txp-Fe-2Sx">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="185"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,25 +119,6 @@
                         <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Yox-AZ-hq4">
-                        <rect key="frame" x="150" y="5" width="25" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="25" id="7hp-18-get"/>
-                            <constraint firstAttribute="width" secondItem="Yox-AZ-hq4" secondAttribute="height" multiplier="1:1" id="Pdk-AN-CYk"/>
-                        </constraints>
-                    </imageView>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-fC-Zc3">
-                        <rect key="frame" x="135" y="5" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="Z4A-OH-1Mh"/>
-                            <constraint firstAttribute="width" secondItem="dTW-fC-Zc3" secondAttribute="height" multiplier="1:1" id="aF1-na-GAU"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title=" "/>
-                        <connections>
-                            <action selector="toggleFavorite" destination="gTV-IL-0wX" eventType="touchUpInside" id="hGq-qI-bgl"/>
-                        </connections>
-                    </button>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="n94-6u-E8L">
                         <rect key="frame" x="145" y="5" width="30" height="30"/>
                         <constraints>
@@ -142,17 +141,17 @@
                 <constraint firstAttribute="trailing" secondItem="f2m-Nq-XMc" secondAttribute="trailing" id="J7m-PD-ZpP"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LtE-oD-fWR"/>
                 <constraint firstItem="Yox-AZ-hq4" firstAttribute="trailing" secondItem="dTW-fC-Zc3" secondAttribute="trailing" id="NLq-Rl-hLr"/>
-                <constraint firstItem="n94-6u-E8L" firstAttribute="top" secondItem="Yox-AZ-hq4" secondAttribute="top" id="SLM-k5-PU7"/>
                 <constraint firstItem="n94-6u-E8L" firstAttribute="width" secondItem="n94-6u-E8L" secondAttribute="height" multiplier="1:1" id="ZGD-HR-bML"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ex3-ai-op7"/>
                 <constraint firstItem="2tY-CQ-M1q" firstAttribute="top" secondItem="UcB-dh-4yK" secondAttribute="top" constant="5" id="h1k-PY-MLo"/>
                 <constraint firstAttribute="trailing" secondItem="Txp-Fe-2Sx" secondAttribute="trailing" id="htc-O0-1hA"/>
+                <constraint firstAttribute="trailing" secondItem="Yox-AZ-hq4" secondAttribute="trailing" constant="7" id="mvK-9f-yti"/>
                 <constraint firstItem="f2m-Nq-XMc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oyi-gO-X3z"/>
-                <constraint firstItem="n94-6u-E8L" firstAttribute="trailing" secondItem="Yox-AZ-hq4" secondAttribute="trailing" id="qBr-c4-r9q"/>
                 <constraint firstAttribute="trailing" secondItem="cef-PR-4zo" secondAttribute="trailing" constant="5" id="quC-up-f86"/>
                 <constraint firstItem="cef-PR-4zo" firstAttribute="top" secondItem="Txp-Fe-2Sx" secondAttribute="bottom" id="rAZ-5d-sdu"/>
                 <constraint firstItem="UcB-dh-4yK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uXX-qo-0Fn"/>
                 <constraint firstItem="n94-6u-E8L" firstAttribute="trailing" secondItem="UcB-dh-4yK" secondAttribute="trailing" constant="-5" id="uij-uf-73L"/>
+                <constraint firstItem="Yox-AZ-hq4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="v8q-Sa-0oK"/>
                 <constraint firstItem="f2m-Nq-XMc" firstAttribute="top" secondItem="cef-PR-4zo" secondAttribute="bottom" constant="5" id="vP5-fD-jQL"/>
                 <constraint firstItem="2tY-CQ-M1q" firstAttribute="width" secondItem="2tY-CQ-M1q" secondAttribute="height" multiplier="1:1" id="wJy-bo-aan"/>
                 <constraint firstAttribute="trailing" secondItem="UcB-dh-4yK" secondAttribute="trailing" id="wjf-aQ-Trz"/>

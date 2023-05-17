@@ -30,7 +30,8 @@
 "GLOBAL_SEASONAL" = "Sezonowy";
 
 "HOME_TITLE" = "Zdrowa żywność dla dziecka i rodziny";
-"HOME_SEASONAL" = "Sezonowe potrawy i przepisy";
+"HOME_SEASONAL_FOODS" = "Sezonowe potrawy";
+"HOME_SEASONAL_RECIPES" = "Sezonowe przepisy";
 "HOME_NEW_ENTRY" = "W tym miesiącu nowy wpis";
 "HOME_FREE_FOODS" = "Miesięczna darmowa żywność";
 "HOME_FREE_RECIPES" = "Miesięczne darmowe przepisy";

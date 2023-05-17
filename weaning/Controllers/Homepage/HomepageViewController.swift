@@ -94,7 +94,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         default:
-            return 4
+            return 5
         }
     }
 
@@ -130,10 +130,12 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return newCell(tableView, cellForRowAt: indexPath)
         case 1:
-            return seasonalCell(tableView, cellForRowAt: indexPath)
+            return seasonalFood(tableView, cellForRowAt: indexPath)
         case 2:
-            return freeFoodCell(tableView, cellForRowAt: indexPath)
+            return seasonalRecipes(tableView, cellForRowAt: indexPath)
         case 3:
+            return freeFoodCell(tableView, cellForRowAt: indexPath)
+        case 4:
             return freeRecipesCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
@@ -149,17 +151,30 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             return newCell(tableView, cellForRowAt: indexPath)
         case 3:
-            return seasonalCell(tableView, cellForRowAt: indexPath)
+            return seasonalFood(tableView, cellForRowAt: indexPath)
+        case 4:
+            return seasonalRecipes(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
         }
     }
 
-    func seasonalCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func seasonalFood(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
             as? HomepageElementsTableViewCell {
-            cell.configureWith(shortFoods: viewModel?.seasonalFoods, shortRecipes: viewModel?.seasonalRecipes,
-                               title: "HOME_SEASONAL".localized(), indexPath: indexPath, delegate: self)
+            cell.configureWith(shortFoods: viewModel?.seasonalFoods,
+                               title: "HOME_SEASONAL_FOODS".localized(), indexPath: indexPath, delegate: self)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func seasonalRecipes(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
+            as? HomepageElementsTableViewCell {
+            cell.configureWith(shortRecipes: viewModel?.seasonalRecipes,
+                               title: "HOME_SEASONAL_RECIPES".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -206,11 +221,19 @@ extension HomepageViewController: HomepageElementsDelegate {
     func selectedElement(foodId: String?, recipeId: String?, elementIndexPath: IndexPath, cellIndexPath: IndexPath) {
         self.selectedElementIndexPath = elementIndexPath
         self.selectedCellIndexPath = cellIndexPath
-        if let foodId = foodId {
-            let foodController = NavigationService.foodViewController(foodId: foodId)
+        if let foodId = foodId,
+           let selectedCellIndexPath = selectedCellIndexPath,
+            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageElementsTableViewCell,
+            let selectedElementIndexPath = selectedElementIndexPath,
+            let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortFoodCollectionViewCell {
+            let foodController = NavigationService.foodViewController(foodId: foodId, cellFavoriteImageView: cell.publicFavoriteImageView)
             NavigationService.push(viewController: foodController)
-        } else if let recipeId = recipeId {
-            let recipeController = NavigationService.recipeViewController(recipeId: recipeId)
+        } else if let recipeId = recipeId,
+            let selectedCellIndexPath = selectedCellIndexPath,
+            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageElementsTableViewCell,
+            let selectedElementIndexPath = selectedElementIndexPath,
+            let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortRecipeCollectionViewCell {
+            let recipeController = NavigationService.recipeViewController(recipeId: recipeId, cellFavoriteImageView: cell.publicFavoriteImageView)
             NavigationService.push(viewController: recipeController)
         }
     }

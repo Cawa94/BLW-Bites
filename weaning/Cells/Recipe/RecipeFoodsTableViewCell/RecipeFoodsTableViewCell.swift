@@ -37,7 +37,7 @@ extension RecipeFoodsTableViewCell: UICollectionViewDelegate, UICollectionViewDa
                                                             for: indexPath) as? ShortFoodCollectionViewCell,
               let shortFood = shortFoods?[indexPath.row]
             else { return UICollectionViewCell() }
-        cell.configureWith(shortFood, imageCornerRadius: 157/2)
+        cell.configureWith(.init(shortFood: shortFood), imageCornerRadius: 157/2)
         return cell
     }
 

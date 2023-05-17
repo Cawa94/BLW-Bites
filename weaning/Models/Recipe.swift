@@ -88,6 +88,10 @@ extension Recipe {
         properties?.contains(where: { $0 == "seasonal" }) ?? false
     }
 
+    var isFavorite: Bool {
+        UserDefaultsService.favoriteRecipes.contains(where: { $0 == id })
+    }
+
     var ingredientsDescription: String {
         var description = ""
         for ingredient in ingredients ?? [] {

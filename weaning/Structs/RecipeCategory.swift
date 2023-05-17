@@ -14,7 +14,7 @@ struct RecipeCategory {
     let imageName: String
 
     static let allValues: [RecipeCategory] = [
-        // .init(id: "favorites", name: "GLOBAL_FAVORITES".localized(), imageName: "heart_full"),
+        .init(id: "favorites", name: "GLOBAL_FAVORITES".localized(), imageName: "heart_full"),
         .init(id: "breakfast", name: "RECIPE_CATEGORY_BREAKFAST".localized(), imageName: "breakfast"),
         .init(id: "lunch", name: "RECIPE_CATEGORY_LUNCH".localized(), imageName: "lunch"),
         .init(id: "snack", name: "RECIPE_CATEGORY_SNACK".localized(), imageName: "snack"),

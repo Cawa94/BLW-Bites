@@ -54,6 +54,7 @@ class RecipeViewController: UIViewController {
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         favoriteView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
+        favoriteView.isHidden = !PurchaseManager.shared.hasUnlockedPro
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
     }
@@ -84,6 +85,7 @@ class RecipeViewController: UIViewController {
         recipeNameLabel.text = viewModel?.recipe?.name
         newView.isHidden = !(viewModel?.recipe?.isNew ?? false)
         seasonalView.isHidden = !(viewModel?.recipe?.isSeasonal ?? false)
+        favoriteImageView.image = viewModel?.recipe?.isFavorite ?? false ? .init(named: "heart_full") : .init(named: "heart_empty")
 
         guard let image = viewModel?.recipe?.image, !image.isEmpty
             else { return }
@@ -102,7 +104,14 @@ class RecipeViewController: UIViewController {
     }
 
     @IBAction func toggleFavorite() {
-        favoriteImageView.image = .init(named: "heart_full")
+        let isFavorite = viewModel?.recipe?.isFavorite ?? false
+        if isFavorite {
+            UserDefaultsService.removeRecipeFromFavorite(viewModel?.recipe?.id ?? "")
+        } else {
+            UserDefaultsService.addRecipeToFavorite(viewModel?.recipe?.id ?? "")
+        }
+        favoriteImageView.image = !isFavorite ? .init(named: "heart_full") : .init(named: "heart_empty")
+        viewModel?.cellFavoriteImageView?.image = !isFavorite ? .init(named: "heart_full") : .init(named: "heart_empty")
         favoriteImageView.bounce()
     }
 

@@ -184,13 +184,13 @@
                         <constraint firstItem="yJ4-pP-643" firstAttribute="leading" secondItem="F5f-dw-MzL" secondAttribute="leading" id="tfY-uF-BRk"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-RQ-Qjp">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUs-RQ-Qjp">
                     <rect key="frame" x="333" y="65.333333333333329" width="40" height="40"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Q13-Uo-EXJ">
-                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                            <rect key="frame" x="7.6666666666666856" y="7.6666666666666714" width="25" height="25"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="EwB-av-oKZ"/>
+                                <constraint firstAttribute="width" constant="25" id="EwB-av-oKZ"/>
                                 <constraint firstAttribute="width" secondItem="Q13-Uo-EXJ" secondAttribute="height" multiplier="1:1" id="jTW-jR-n1n"/>
                             </constraints>
                         </imageView>

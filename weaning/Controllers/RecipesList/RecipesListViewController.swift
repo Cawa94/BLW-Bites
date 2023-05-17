@@ -53,12 +53,18 @@ class RecipesListViewController: UIViewController {
         }
     }
 
-    func getFilteredRecipes() {
+    func getFilteredRecipes(isFavorites: Bool = false) {
         hasSearched = false
-        if let categorySelected = viewModel?.categorySelected {
+        if !isFavorites, let categorySelected = viewModel?.categorySelected {
             let category = RecipeCategory.allValues[categorySelected].id
             FirestoreService.shared.database.collection("short_recipes")
                 .whereField("category", arrayContains: category)
+                .getDocuments() { querySnapshot, error in
+                    self.convertRecipesData(querySnapshot, error)
+            }
+        } else if isFavorites {
+            FirestoreService.shared.database.collection("short_recipes")
+                .whereField("id", in: UserDefaultsService.favoriteRecipes.compactMap { $0 })
                 .getDocuments() { querySnapshot, error in
                     self.convertRecipesData(querySnapshot, error)
             }
@@ -99,14 +105,15 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                                                                 for: indexPath) as? CategoryCollectionViewCell
                 else { return UICollectionViewCell() }
             let recipeCategory = RecipeCategory.allValues[indexPath.row]
-            cell.configureWithRecipeCategory(recipeCategory, isSelected: viewModel?.categorySelected == indexPath.row)
+            cell.configureWithRecipeCategory(.init(recipeCategory: recipeCategory, isFavorites: indexPath.row == 0),
+                                             isSelected: viewModel?.categorySelected == indexPath.row)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
                                                                 for: indexPath) as? ShortRecipeCollectionViewCell,
                   let shortRecipe = viewModel?.shortRecipes[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(shortRecipe, imageCornerRadius: 157/2)
+            cell.configureWith(.init(shortRecipe: shortRecipe), imageCornerRadius: 157/2)
             return cell
         }
     }
@@ -168,18 +175,24 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            recipeSearchBar.text = nil
-            let currentCategory = viewModel?.categorySelected
-            viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
-            DispatchQueue.main.async {
-                self.categoriesCollectionView.reloadData()
+            if indexPath.row != 0 || PurchaseManager.shared.hasUnlockedPro {
+                recipeSearchBar.text = nil
+                let currentCategory = viewModel?.categorySelected
+                viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
+                DispatchQueue.main.async {
+                    self.categoriesCollectionView.reloadData()
+                }
+                self.getFilteredRecipes(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
+            } else {
+                NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
-            self.getFilteredRecipes()
         } else {
             guard let shortRecipe = viewModel?.shortRecipes[indexPath.row], let id = shortRecipe.id
                 else { return }
             if shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro {
-                let recipeController = NavigationService.recipeViewController(recipeId: id)
+                let recipeController = NavigationService.recipeViewController(
+                    recipeId: id,
+                    cellFavoriteImageView: (collectionView.cellForItem(at: indexPath) as? ShortRecipeCollectionViewCell)?.publicFavoriteImageView)
                 self.selectedIndexPath = indexPath
                 NavigationService.push(viewController: recipeController)
             } else {

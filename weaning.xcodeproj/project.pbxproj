@@ -21,6 +21,10 @@
 		7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */; };
 		7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */; };
 		731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 7316B4EC29C2311900BD0AB0 /* StoreKitConfiguration.storekit */; };
+		732F54B62A15164F0045F6C5 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F54B52A15164F0045F6C5 /* UserDefaultsService.swift */; };
+		732F54B82A151E180045F6C5 /* ShortFoodCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F54B72A151E180045F6C5 /* ShortFoodCollectionViewModel.swift */; };
+		732F54BA2A151E760045F6C5 /* ShortRecipeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F54B92A151E750045F6C5 /* ShortRecipeCollectionViewModel.swift */; };
+		732F54BC2A151FA70045F6C5 /* CategoryCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732F54BB2A151FA70045F6C5 /* CategoryCollectionViewModel.swift */; };
 		732FC6BB2A0501D3001E0281 /* ZoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732FC6BA2A0501D3001E0281 /* ZoomService.swift */; };
 		7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35729A0D3D000B172AC /* HomepageViewController.swift */; };
 		7344B35A29A0D3D000B172AC /* HomepageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B35829A0D3D000B172AC /* HomepageViewController.xib */; };
@@ -160,6 +164,10 @@
 		7316B4F329C233C100BD0AB0 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		7316B4F529C233F500BD0AB0 /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		7316B4F729C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+SubscriptionViewController.swift"; sourceTree = "<group>"; };
+		732F54B52A15164F0045F6C5 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		732F54B72A151E180045F6C5 /* ShortFoodCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortFoodCollectionViewModel.swift; sourceTree = "<group>"; };
+		732F54B92A151E750045F6C5 /* ShortRecipeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortRecipeCollectionViewModel.swift; sourceTree = "<group>"; };
+		732F54BB2A151FA70045F6C5 /* CategoryCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewModel.swift; sourceTree = "<group>"; };
 		732FC6BA2A0501D3001E0281 /* ZoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomService.swift; sourceTree = "<group>"; };
 		7344B35729A0D3D000B172AC /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		7344B35829A0D3D000B172AC /* HomepageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageViewController.xib; sourceTree = "<group>"; };
@@ -182,7 +190,6 @@
 		736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSectionTableViewCell.xib; sourceTree = "<group>"; };
 		736718D329C1D8F600736D04 /* MenuDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDay.swift; sourceTree = "<group>"; };
 		736718D529C1D96800736D04 /* MenuDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDish.swift; sourceTree = "<group>"; };
-		7383D9802A12843A007D4807 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		738CCF9129C8D2DC000080AE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewModel.swift; sourceTree = "<group>"; };
@@ -359,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				7344B36829A0E1DA00B172AC /* CategoryCollectionViewCell.swift */,
+				732F54BB2A151FA70045F6C5 /* CategoryCollectionViewModel.swift */,
 				7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */,
 			);
 			path = CategoryCollectionViewCell;
@@ -557,6 +565,7 @@
 				738FB2CC2997ACA700C286B3 /* NavigationService.swift */,
 				738CCF9129C8D2DC000080AE /* PurchaseManager.swift */,
 				73E90EA12998F223003EA5C0 /* StorageService.swift */,
+				732F54B52A15164F0045F6C5 /* UserDefaultsService.swift */,
 				732FC6BA2A0501D3001E0281 /* ZoomService.swift */,
 			);
 			path = Services;
@@ -623,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				738FB3022997DE8F00C286B3 /* ShortFoodCollectionViewCell.swift */,
+				732F54B72A151E180045F6C5 /* ShortFoodCollectionViewModel.swift */,
 				738FB3032997DE8F00C286B3 /* ShortFoodCollectionViewCell.xib */,
 			);
 			path = ShortFoodCollectionViewCell;
@@ -688,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				73AD68CC29AFA86D0054B377 /* ShortRecipeCollectionViewCell.swift */,
+				732F54B92A151E750045F6C5 /* ShortRecipeCollectionViewModel.swift */,
 				73AD68CD29AFA86D0054B377 /* ShortRecipeCollectionViewCell.xib */,
 			);
 			path = ShortRecipeCollectionViewCell;
@@ -943,7 +954,6 @@
 			knownRegions = (
 				Base,
 				pl,
-				en,
 			);
 			mainGroup = 738FB2A12997A9B700C286B3;
 			productRefGroup = 738FB2AB2997A9B700C286B3 /* Products */;
@@ -1090,6 +1100,7 @@
 				7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */,
 				738FB2EA2997CB8100C286B3 /* FirestoreService.swift in Sources */,
 				739658E129F923D30040F809 /* UITextView+Extension.swift in Sources */,
+				732F54B62A15164F0045F6C5 /* UserDefaultsService.swift in Sources */,
 				738FB2AE2997A9B700C286B3 /* AppDelegate.swift in Sources */,
 				73AD68D329AFB24A0054B377 /* RecipeViewController.swift in Sources */,
 				7344B36A29A0E1DA00B172AC /* CategoryCollectionViewCell.swift in Sources */,
@@ -1100,6 +1111,7 @@
 				7344B36029A0DD0A00B172AC /* UIView+Extension.swift in Sources */,
 				736579B329A23F2C0071F60E /* FoodSectionTableViewCell.swift in Sources */,
 				73E59BDB29AA5662003D7F65 /* SeparatorTableViewCell.swift in Sources */,
+				732F54BA2A151E760045F6C5 /* ShortRecipeCollectionViewModel.swift in Sources */,
 				732FC6BB2A0501D3001E0281 /* ZoomService.swift in Sources */,
 				73CA04B629CA3C6700E60AFF /* InfoViewController.swift in Sources */,
 				738FB2D72997C40900C286B3 /* RecipesListViewController.swift in Sources */,
@@ -1119,6 +1131,7 @@
 				73E59BDE29AA5B2E003D7F65 /* AgeDictionary.swift in Sources */,
 				7307F67629CB60E3002E5710 /* DefaultColors.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
+				732F54B82A151E180045F6C5 /* ShortFoodCollectionViewModel.swift in Sources */,
 				735B3CC629FC245800437BA8 /* FoodOrRecipe.swift in Sources */,
 				739E91FF29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift in Sources */,
 				73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */,
@@ -1131,6 +1144,7 @@
 				738FB2E52997C9C500C286B3 /* MainControllerViewModel.swift in Sources */,
 				738FB2FA2997DAA800C286B3 /* FoodViewController.swift in Sources */,
 				73BF82D029C33E8200835205 /* ProductView.swift in Sources */,
+				732F54BC2A151FA70045F6C5 /* CategoryCollectionViewModel.swift in Sources */,
 				7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */,
 				73AD68D829AFB2680054B377 /* NavigationService + RecipeViewController.swift in Sources */,
 				73A0BB8629AE8ADE0099DB74 /* ShortRecipe.swift in Sources */,
@@ -1173,7 +1187,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				739658DA29F91BFA0040F809 /* pl */,
-				7383D9802A12843A007D4807 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1303,9 +1316,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = weaning/weaning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = ZWDDZD6GHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weaning/Info.plist;
@@ -1337,9 +1351,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = weaning/weaning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = ZWDDZD6GHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weaning/Info.plist;
