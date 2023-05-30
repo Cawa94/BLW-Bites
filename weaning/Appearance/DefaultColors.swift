@@ -15,7 +15,6 @@ extension UIColor {
 
     static let mainColor         = UIColor.named("mainColor")
     static let textColor         = UIColor.named("textColor")
-    static let lightTextColor    = UIColor.named("lightTextColor")
 
     private static func named(_ name: String) -> UIColor {
         return UIColor(named: name) ?? UIColor()

@@ -15,7 +15,7 @@ class RecipeInfoTableViewCell: UITableViewCell {
 
     func configureWith(title: String, text: String) {
         sectionTitleLabel.text = title
-        sectionTextView.attributedText = text.htmlToAttributedString(size: 18)
+        sectionTextView.attributedText = text.htmlToAttributedString()
         sectionTextViewHeightConstraint.constant = sectionTextView.contentSize.height
     }
 

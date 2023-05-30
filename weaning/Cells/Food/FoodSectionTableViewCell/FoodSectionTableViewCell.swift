@@ -39,7 +39,7 @@ class FoodSectionTableViewCell: UITableViewCell {
     func configureWith(infoSection: InfoSection, delegate: FoodSectionDelegate) {
         self.delegate = delegate
         sectionTitleLabel.text = infoSection.title
-        sectionTextView.attributedText = infoSection.description?.htmlToAttributedString(size: 18)
+        sectionTextView.attributedText = infoSection.description?.htmlToAttributedString()
     }
 
     @IBAction func toggleVisibility() {

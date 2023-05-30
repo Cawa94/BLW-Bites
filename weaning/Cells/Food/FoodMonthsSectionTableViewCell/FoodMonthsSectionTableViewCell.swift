@@ -51,7 +51,7 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
     }
 
     func showInfosForSegment(_ index: Int) {
-        sectionTextView.attributedText = food?.ageSegments[index].description?.htmlToAttributedString(size: 18)
+        sectionTextView.attributedText = food?.ageSegments[index].description?.htmlToAttributedString()
         sectionTextViewHeightConstraint.constant = sectionTextView.contentSize.height
         let picturesCount = food?.ageSegments[monthsSegmentControl.selectedSegmentIndex].pictures?.count ?? 0
         let numberOfItems = ((picturesCount % 2) == 0) ? picturesCount : picturesCount + 1

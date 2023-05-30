@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -164,8 +164,8 @@
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wly-Rx-KMH">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="114"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menù 30-days" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePk-CH-3EV">
-                            <rect key="frame" x="63" y="71.666666666666671" width="267" height="27.333333333333329"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menù 30-days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePk-CH-3EV">
+                            <rect key="frame" x="63" y="71.666666666666671" width="320" height="27.333333333333329"/>
                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                             <color key="textColor" name="mainColor"/>
                             <nil key="highlightedColor"/>
@@ -173,9 +173,9 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="ePk-CH-3EV" firstAttribute="centerX" secondItem="Wly-Rx-KMH" secondAttribute="centerX" id="BJh-qx-rEe"/>
+                        <constraint firstItem="ePk-CH-3EV" firstAttribute="leading" secondItem="Wly-Rx-KMH" secondAttribute="leading" constant="63" id="IEx-Ff-Ue5"/>
                         <constraint firstAttribute="bottom" secondItem="ePk-CH-3EV" secondAttribute="bottom" constant="15" id="Mep-Ku-aEz"/>
-                        <constraint firstItem="ePk-CH-3EV" firstAttribute="width" secondItem="Wly-Rx-KMH" secondAttribute="width" multiplier="0.68" id="ndm-ya-6Zl"/>
+                        <constraint firstAttribute="trailing" secondItem="ePk-CH-3EV" secondAttribute="trailing" constant="10" id="iyn-vz-xtP"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64g-hE-hG4">
@@ -225,7 +225,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.left.fill" catalog="system" width="32" height="32"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

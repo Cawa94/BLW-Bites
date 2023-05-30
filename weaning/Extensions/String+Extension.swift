@@ -10,8 +10,7 @@ import UIKit
 
 extension String {
 
-    func htmlToAttributedString(size: CGFloat,
-                                alignment: NSTextAlignment? = .left) -> NSMutableAttributedString? {
+    func htmlToAttributedString() -> NSMutableAttributedString? {
         let preparedTitle = self.replacingOccurrences(of: "\r\n", with: "<br/>").replacingOccurrences(of: "\n", with: "<br/>")
 
         guard let data = preparedTitle.data(using: .utf8) else {
@@ -37,7 +36,7 @@ extension String {
         attributedHtmlString.enumerateAttribute(.font,
                                                 in: stringRange,
                                                 options: .longestEffectiveRangeNotRequired) { value, range, _ in
-                                                    let replacementFont = UIFont.regularFontOf(size: size)
+                                                    let replacementFont = UIFont.regularFontOf(size: 18)
                                                     mutableAttributedHtmlString.addAttribute(.font,
                                                                                              value: replacementFont,
                                                                                              range: range)
@@ -47,13 +46,11 @@ extension String {
                                                  value: UIColor.textColor,
                                                  range: stringRange)
 
-        if let textAlignment = alignment {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = textAlignment
-            mutableAttributedHtmlString.addAttribute(.paragraphStyle,
-                                                     value: paragraphStyle,
-                                                     range: stringRange)
-        }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        mutableAttributedHtmlString.addAttribute(.paragraphStyle,
+                                                 value: paragraphStyle,
+                                                 range: stringRange)
 
         return mutableAttributedHtmlString
     }

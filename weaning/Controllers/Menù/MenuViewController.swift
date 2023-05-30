@@ -56,6 +56,9 @@ class MenuViewController: UIViewController {
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         imageViewHeightConstraint.constant = viewModel?.is30Days ?? false ? 350 : 250
         menuImageView.image = viewModel?.is30Days ?? false ? nil : .init(named: "7-12_months")
+        instructionTextView.attributedText = (viewModel?.is30Days ?? false
+                                              ? "MENU_30_DAYS_EXPLICATORY_TEXT".localized()
+                                              : "MENU_7-12_MONTHS_EXPLICATORY_TEXT".localized()).htmlToAttributedString()
 
         FirestoreService.shared.database
             .collection("menus")
