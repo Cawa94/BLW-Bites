@@ -61,13 +61,17 @@ class FoodViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        FirestoreService.shared.database.document("foods/\(viewModel?.foodId ?? "")").getDocument(as: Food.self) { result in
-            switch result {
-            case .success(let food):
-                self.viewModel?.food = food
-                self.configurePage()
-            case .failure(let error):
-                print("Error decoding food: \(error)")
+        if viewModel?.food != nil {
+            configurePage()
+        } else {
+            FirestoreService.shared.database.document("foods/\(viewModel?.foodId ?? "")").getDocument(as: Food.self) { result in
+                switch result {
+                case .success(let food):
+                    self.viewModel?.food = food
+                    self.configurePage()
+                case .failure(let error):
+                    print("Error decoding food: \(error)")
+                }
             }
         }
     }

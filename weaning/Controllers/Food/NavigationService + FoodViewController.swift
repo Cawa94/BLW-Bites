@@ -10,10 +10,11 @@ import UIKit
 
 extension NavigationService {
 
-    static func foodViewController(foodId: String, cellFavoriteImageView: UIImageView? = nil) -> FoodViewController {
+    static func foodViewController(foodId: String, food: Food?, cellFavoriteImageView: UIImageView? = nil) -> FoodViewController {
         let controller = FoodViewController(nibName: FoodViewController.xibName,
                                             bundle: nil)
         controller.viewModel = FoodViewModel(foodId: foodId,
+                                             food: food,
                                              cellFavoriteImageView: cellFavoriteImageView)
         return controller
     }

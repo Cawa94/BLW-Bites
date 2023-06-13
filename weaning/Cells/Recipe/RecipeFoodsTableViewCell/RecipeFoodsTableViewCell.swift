@@ -37,7 +37,7 @@ extension RecipeFoodsTableViewCell: UICollectionViewDelegate, UICollectionViewDa
                                                             for: indexPath) as? ShortFoodCollectionViewCell,
               let shortFood = shortFoods?[indexPath.row]
             else { return UICollectionViewCell() }
-        cell.configureWith(.init(shortFood: shortFood), imageCornerRadius: 157/2)
+        cell.configureWith(.init(shortFood: shortFood, food: nil), imageCornerRadius: 157/2)
         return cell
     }
 
@@ -72,7 +72,7 @@ extension RecipeFoodsTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let shortFood = shortFoods?[indexPath.row], let id = shortFood.id
             else { return }
-        let foodController = NavigationService.foodViewController(foodId: id)
+        let foodController = NavigationService.foodViewController(foodId: id, food: nil)
         NavigationService.push(viewController: foodController)
     }
 

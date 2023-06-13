@@ -20,6 +20,9 @@ class FoodListViewController: UIViewController {
     var selectedIndexPath: IndexPath?
     var viewModel: FoodListViewModel?
     private var hasSearched = false
+    private var isFavorites = false
+    private var cursor: QueryDocumentSnapshot?
+    private var dataMayContinue = true
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -42,78 +45,92 @@ class FoodListViewController: UIViewController {
             self.categoriesCollectionView.reloadData()
         }
 
-        getAllFoods()
+        getFoods()
 
         hideKeyboardWhenTappedAround()
     }
 
-    func getAllFoods() {
-        FirestoreService.shared.database.collection("short_foods").order(by: "name").getDocuments() { querySnapshot, error in
-            self.convertFoodsData(querySnapshot, error)
-        }
-    }
-
-    func getFilteredFoods(isFavorites: Bool = false) {
+    func getFoods(isFavorites: Bool = false) {
+        self.isFavorites = isFavorites
         hasSearched = false
         if !isFavorites, let categorySelected = viewModel?.categorySelected {
             let category = FoodCategory.allValues[categorySelected].id
-            FirestoreService.shared.database.collection("short_foods")
+            FirestoreService.shared.database.collection("foods")
                 .whereField("category", isEqualTo: category)
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
                 .getDocuments() { querySnapshot, error in
                     self.convertFoodsData(querySnapshot, error)
-            }
+                }
         } else if isFavorites {
-            FirestoreService.shared.database.collection("short_foods")
+            FirestoreService.shared.database.collection("foods")
                 .whereField("id", in: UserDefaultsService.favoriteFoods.compactMap { $0 })
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
                 .getDocuments() { querySnapshot, error in
                     self.convertFoodsData(querySnapshot, error)
-            }
+                }
         } else {
-            getAllFoods()
+            FirestoreService.shared.database.collection("foods")
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
+                .getDocuments() { querySnapshot, error in
+                    self.convertFoodsData(querySnapshot, error)
+                }
         }
     }
 
-/*
-    func getFilteredFoods() {
-        let keyword = keywordTextField.text
-        let onlyAllergenic = allergenicSwitch.isOn
-        let onlyChoking = chokingSwitch.isOn
-
-        if onlyAllergenic && onlyChoking {
-            FirestoreService.shared.database.collection("short_foods")
-                // .whereField("name", isGreaterThan: keyword ?? "")
-                .whereField("allergenic", isEqualTo: true)
-                .whereField("risk_choking", isEqualTo: true)
+    func getNextBatch(cursor: QueryDocumentSnapshot) {
+        // Because scrolling to bottom will cause this method to be called in rapid succession, use a boolean flag to limit this method to one call.
+        dataMayContinue = false
+        if !isFavorites, let categorySelected = viewModel?.categorySelected {
+            let category = FoodCategory.allValues[categorySelected].id
+            FirestoreService.shared.database.collection("foods")
+                .whereField("category", isEqualTo: category)
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
+                .start(afterDocument: cursor)
                 .getDocuments() { querySnapshot, error in
-                    self.convertFoodsData(querySnapshot, error)
-            }
-        } else if onlyAllergenic {
-            FirestoreService.shared.database.collection("short_foods")
-                // .whereField("name", isGreaterThan: keyword ?? "")
-                .whereField("allergenic", isEqualTo: true)
+                    self.convertFoodsData(querySnapshot, error, isNextBatch: true)
+                    self.dataMayContinue = true
+                }
+        } else if isFavorites {
+            FirestoreService.shared.database.collection("foods")
+                .whereField("id", in: UserDefaultsService.favoriteFoods.compactMap { $0 })
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
+                .start(afterDocument: cursor)
                 .getDocuments() { querySnapshot, error in
-                    self.convertFoodsData(querySnapshot, error)
-            }
-        } else if onlyChoking {
-            FirestoreService.shared.database.collection("short_foods")
-                // .whereField("name", isGreaterThan: keyword ?? "")
-                .whereField("risk_choking", isEqualTo: true)
-                .getDocuments() { querySnapshot, error in
-                    self.convertFoodsData(querySnapshot, error)
-            }
+                    self.convertFoodsData(querySnapshot, error, isNextBatch: true)
+                    self.dataMayContinue = true
+                }
         } else {
-            getAllFoods()
+            FirestoreService.shared.database.collection("foods")
+                .order(by: "name")
+                .limit(to: Int.paginationSize)
+                .start(afterDocument: cursor)
+                .getDocuments() { querySnapshot, error in
+                    self.convertFoodsData(querySnapshot, error, isNextBatch: true)
+                    self.dataMayContinue = true
+                }
         }
-
     }
-*/
-    func convertFoodsData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
+
+    func convertFoodsData(_ querySnapshot: QuerySnapshot?, _ error: Error?, isNextBatch: Bool = false) {
         if let error = error {
             print("Error getting documents: \(error)")
         } else {
-            self.viewModel?.shortFoods.removeAll()
+            if (querySnapshot?.count ?? 0) < Int.paginationSize {
+                // no need to load more
+                self.cursor = nil
+            } else {
+                self.cursor = querySnapshot?.documents.last
+            }
+            if !isNextBatch {
+                self.viewModel?.foods.removeAll()
+            }
             for document in querySnapshot!.documents {
-                self.viewModel?.shortFoods.append(.init(data: document.data()))
+                self.viewModel?.foods.append(.init(data: document.data()))
             }
             DispatchQueue.main.async {
                 DispatchQueue.main.async {
@@ -135,7 +152,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView.tag == 0 {
             return FoodCategory.allValues.count
         } else {
-            return viewModel?.shortFoods.count ?? 0
+            return viewModel?.foods.count ?? 0
         }
     }
 
@@ -151,9 +168,9 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortFoodCollectionViewCell",
                                                                 for: indexPath) as? ShortFoodCollectionViewCell,
-                  let shortFood = viewModel?.shortFoods[indexPath.row]
+                  let food = viewModel?.foods[indexPath.row]
                 else { return UICollectionViewCell() }
-            cell.configureWith(.init(shortFood: shortFood), imageCornerRadius: 157/2)
+            cell.configureWith(.init(shortFood: food.asShortFood, food: food), imageCornerRadius: 157/2)
             return cell
         }
     }
@@ -211,16 +228,16 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                 DispatchQueue.main.async {
                     self.categoriesCollectionView.reloadData()
                 }
-                self.getFilteredFoods(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
+                self.getFoods(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
         } else {
-            guard let shortFood = viewModel?.shortFoods[indexPath.row], let id = shortFood.id
+            guard let food = viewModel?.foods[indexPath.row], let id = food.id
                 else { return }
-            if shortFood.isFree || PurchaseManager.shared.hasUnlockedPro {
+            if food.isFree || PurchaseManager.shared.hasUnlockedPro {
                 let foodController = NavigationService.foodViewController(
-                    foodId: id,
+                    foodId: id, food: food,
                     cellFavoriteImageView: (collectionView.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell)?.publicFavoriteImageView)
                 self.selectedIndexPath = indexPath
                 NavigationService.push(viewController: foodController)
@@ -235,12 +252,12 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
 extension FoodListViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        getFilteredFoods()
+        getFoods()
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         if searchBar.text?.isEmpty ?? true && hasSearched {
-            getFilteredFoods()
+            getFoods()
         }
     }
 
@@ -250,7 +267,7 @@ extension FoodListViewController: UISearchBarDelegate {
         if !keyword.isEmpty {
             searchKeyword(keyword)
         } else if hasSearched {
-            getFilteredFoods()
+            getFoods()
         }
     }
 
@@ -262,19 +279,19 @@ extension FoodListViewController: UISearchBarDelegate {
         if !keyword.isEmpty {
             searchKeyword(keyword)
         } else if hasSearched {
-            getFilteredFoods()
+            getFoods()
         }
     }
 
     func searchKeyword(_ keyword: String) {
         hasSearched = true
-        FirestoreService.shared.database.collection("short_foods")
+        FirestoreService.shared.database.collection("foods")
             .whereField("name", isEqualTo: keyword)
             .getDocuments() { querySnapshot, error in
                 if !querySnapshot!.documents.isEmpty {
                     self.convertFoodsData(querySnapshot, error)
                 } else {
-                    FirestoreService.shared.database.collection("short_foods")
+                    FirestoreService.shared.database.collection("foods")
                         .whereField("name", isGreaterThan: keyword)
                         .whereField("name", isLessThan: "\(keyword)~")
                         .getDocuments() { querySnapshot, error in
@@ -289,6 +306,11 @@ extension FoodListViewController: UISearchBarDelegate {
 extension FoodListViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentSize = scrollView.contentSize.height
+        if contentSize - scrollView.contentOffset.y <= scrollView.bounds.height {
+            didScrollToBottom()
+        }
+
         let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
         if translation.y > 0 && categoriesHeightConstraint.constant == 0 {
             // swipes from top to bottom of screen -> down
@@ -300,6 +322,12 @@ extension FoodListViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+
+    func didScrollToBottom() {
+        if dataMayContinue, let cursor = cursor {
+            getNextBatch(cursor: cursor)
+        }
     }
 
 }

@@ -14,3 +14,10 @@ extension CGFloat {
     static let bottomSpace: CGFloat = 50
 
 }
+
+extension Int {
+
+    static let paginationSize: Int = 12
+    static let menuFreeDays: Int = 10
+
+}

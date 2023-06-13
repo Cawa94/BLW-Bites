@@ -9,10 +9,11 @@ import UIKit
 
 extension NavigationService {
 
-    static func recipeViewController(recipeId: String, cellFavoriteImageView: UIImageView? = nil) -> RecipeViewController {
+    static func recipeViewController(recipeId: String, recipe: Recipe?, cellFavoriteImageView: UIImageView? = nil) -> RecipeViewController {
         let controller = RecipeViewController(nibName: RecipeViewController.xibName,
                                               bundle: nil)
         controller.viewModel = RecipeViewModel(recipeId: recipeId,
+                                               recipe: recipe,
                                                cellFavoriteImageView: cellFavoriteImageView)
         return controller
     }

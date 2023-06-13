@@ -37,7 +37,6 @@
 		7344B36B29A0E1DA00B172AC /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */; };
 		7344B36E29A0E24500B172AC /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B36D29A0E24500B172AC /* FoodCategory.swift */; };
 		7344B37429A0ED6C00B172AC /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */; };
-		735B3CC629FC245800437BA8 /* FoodOrRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735B3CC529FC245800437BA8 /* FoodOrRecipe.swift */; };
 		735FE74A2A0144A000AB8BBF /* AppCheckProviderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FE7492A0144A000AB8BBF /* AppCheckProviderService.swift */; };
 		736579A429A231F70071F60E /* FoodTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736579A229A231F70071F60E /* FoodTitleTableViewCell.swift */; };
 		736579A529A231F70071F60E /* FoodTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736579A329A231F70071F60E /* FoodTitleTableViewCell.xib */; };
@@ -180,7 +179,6 @@
 		7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7344B36D29A0E24500B172AC /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
-		735B3CC529FC245800437BA8 /* FoodOrRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodOrRecipe.swift; sourceTree = "<group>"; };
 		735FE7482A01443800AB8BBF /* weaning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weaning.entitlements; sourceTree = "<group>"; };
 		735FE7492A0144A000AB8BBF /* AppCheckProviderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCheckProviderService.swift; sourceTree = "<group>"; };
 		736579A229A231F70071F60E /* FoodTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				738FB2F32997D7D500C286B3 /* ShortFood.swift */,
 				73A0BB8529AE8ADE0099DB74 /* ShortRecipe.swift */,
 				7316B4F329C233C100BD0AB0 /* Subscription.swift */,
-				735B3CC529FC245800437BA8 /* FoodOrRecipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1132,7 +1129,6 @@
 				7307F67629CB60E3002E5710 /* DefaultColors.swift in Sources */,
 				73A0BB8C29AE8F5A0099DB74 /* UICollectionView+Extension.swift in Sources */,
 				732F54B82A151E180045F6C5 /* ShortFoodCollectionViewModel.swift in Sources */,
-				735B3CC629FC245800437BA8 /* FoodOrRecipe.swift in Sources */,
 				739E91FF29F2E7E8009BFF34 /* NavigationService+VideoViewController.swift in Sources */,
 				73CA04BD29CA440700E60AFF /* FoodRecipesTableViewCell.swift in Sources */,
 				7316B4F829C2341E00BD0AB0 /* NavigationService+SubscriptionViewController.swift in Sources */,
@@ -1319,7 +1315,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = weaning/weaning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5;
+				CURRENT_PROJECT_VERSION = 1.0.6;
 				DEVELOPMENT_TEAM = ZWDDZD6GHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weaning/Info.plist;
@@ -1354,7 +1350,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = weaning/weaning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.5;
+				CURRENT_PROJECT_VERSION = 1.0.6;
 				DEVELOPMENT_TEAM = ZWDDZD6GHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weaning/Info.plist;

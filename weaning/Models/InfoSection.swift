@@ -22,4 +22,10 @@ public struct InfoSection: Codable {
         self.description = data["description"] as? String
     }
 
+    init(title: String?,
+         description: String?) {
+        self.title = title
+        self.description = description
+    }
+
 }

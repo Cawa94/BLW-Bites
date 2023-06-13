@@ -46,15 +46,45 @@ public struct Recipe: Codable {
         self.startingFrom = data["starting_from"] as? String
         self.ingredientsTitle = data["ingredients_title"] as? String
         self.ingredients = data["ingredients"] as? [String]
-        self.steps = data["steps_dictionary"] as? [String]
+        self.steps = data["steps"] as? [String]
         self.tips = data["tips"] as? String
         self.foods = data["foods"] as? [ShortFood]
         self.properties = data["properties"] as? [String]
     }
 
+    init(id: String?,
+         name: String?,
+         image: String?,
+         description: String?,
+         category: [String]?,
+         startingFrom: String?,
+         ingredientsTitle: String?,
+         ingredients: [String]?,
+         steps: [String]?,
+         tips: String?,
+         foods: [ShortFood]?,
+         properties: [String]?) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.description = description
+        self.category = category
+        self.startingFrom = startingFrom
+        self.ingredientsTitle = ingredientsTitle
+        self.ingredients = ingredients
+        self.steps = steps
+        self.tips = tips
+        self.foods = foods
+        self.properties = properties
+    }
+
 }
 
 extension Recipe {
+
+    var asShortRecipe: ShortRecipe {
+        .init(id: id, name: name, image: image, category: category, startingFrom: startingFrom, properties: properties)
+    }
 
     var hasIngredients: Bool {
         ingredients != nil

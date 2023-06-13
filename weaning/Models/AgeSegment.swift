@@ -25,4 +25,12 @@ public struct AgeSegment: Codable {
         self.pictures = data["pictures"] as? [String]
     }
 
+    init(months: String?,
+         description: String?,
+         pictures: [String]?) {
+        self.months = months
+        self.description = description
+        self.pictures = pictures
+    }
+
 }

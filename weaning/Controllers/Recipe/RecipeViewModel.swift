@@ -14,8 +14,10 @@ struct RecipeViewModel {
     var cellFavoriteImageView: UIImageView?
 
     init(recipeId: String,
+         recipe: Recipe?,
          cellFavoriteImageView: UIImageView?) {
         self.recipeId = recipeId
+        self.recipe = recipe
         self.cellFavoriteImageView = cellFavoriteImageView
     }
 

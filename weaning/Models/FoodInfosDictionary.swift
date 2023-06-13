@@ -37,4 +37,20 @@ public struct FoodInfosDictionary: Codable {
         self.seventh = data["seventh"] as? InfoSection
     }
 
+    init(first: InfoSection?,
+         second: InfoSection?,
+         third: InfoSection?,
+         fourth: InfoSection?,
+         fifth: InfoSection?,
+         sixth: InfoSection?,
+         seventh: InfoSection?) {
+        self.first = first
+        self.second = second
+        self.third = third
+        self.fourth = fourth
+        self.fifth = fifth
+        self.sixth = sixth
+        self.seventh = seventh
+    }
+
 }

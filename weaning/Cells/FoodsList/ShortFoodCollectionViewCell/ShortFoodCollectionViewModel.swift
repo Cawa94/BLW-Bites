@@ -10,10 +10,12 @@ import Foundation
 struct ShortFoodCollectionViewModel {
 
     let shortFood: ShortFood
+    let food: Food?
     let inHomepage: Bool
 
-    init(shortFood: ShortFood, inHomepage: Bool = false) {
+    init(shortFood: ShortFood, food: Food?, inHomepage: Bool = false) {
         self.shortFood = shortFood
+        self.food = food
         self.inHomepage = inHomepage
     }
 

@@ -10,11 +10,11 @@ import FirebaseFirestore
 
 struct RecipesListViewModel {
 
-    var shortRecipes: [ShortRecipe]
+    var recipes: [Recipe]
     var categorySelected: Int?
 
     init() {
-        shortRecipes = []
+        recipes = []
     }
 
 }

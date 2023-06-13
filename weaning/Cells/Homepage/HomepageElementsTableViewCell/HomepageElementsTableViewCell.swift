@@ -9,8 +9,7 @@ import UIKit
 
 protocol HomepageElementsDelegate: AnyObject {
 
-    func selectedElement(foodId: String?, recipeId: String?,
-                         elementIndexPath: IndexPath, cellIndexPath: IndexPath)
+    func selectedElement(food: Food?, recipe: Recipe?, elementIndexPath: IndexPath, cellIndexPath: IndexPath)
 
 }
 
@@ -25,36 +24,27 @@ class HomepageElementsTableViewCell: UITableViewCell {
     }
 
     private weak var delegate: HomepageElementsDelegate?
-    var shortFoods: [ShortFood]?
-    var shortRecipes: [ShortRecipe]?
-    var mergedContent: [FoodOrRecipe] = []
+    var foods: [Food]?
+    var recipes: [Recipe]?
+    var isFoodsCollection = true
     var indexPath: IndexPath?
 
-    func configureWith(shortFoods: [ShortFood]? = nil,
-                       shortRecipes: [ShortRecipe]? = nil,
+    func configureWith(foods: [Food]? = nil,
+                       recipes: [Recipe]? = nil,
                        title: String,
                        indexPath: IndexPath,
                        delegate: HomepageElementsDelegate) {
         self.indexPath = indexPath
         self.delegate = delegate
-        self.shortFoods = shortFoods
-        self.shortRecipes = shortRecipes
+        self.foods = foods
+        self.recipes = recipes
+        self.isFoodsCollection = !(foods?.isEmpty ?? true)
         self.titleLabel.text = title
 
         mainCollectionView.register(UINib(nibName:"ShortFoodCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
         mainCollectionView.register(UINib(nibName:"ShortRecipeCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"ShortRecipeCollectionViewCell")
-
-        for food in shortFoods ?? [] {
-            mergedContent.append(FoodOrRecipe.initFromFood(food))
-        }
-
-        for recipe in shortRecipes ?? [] {
-            mergedContent.append(FoodOrRecipe.initFromRecipe(recipe))
-        }
-
-        //mergedContent.shuffle()
 
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
@@ -66,23 +56,23 @@ class HomepageElementsTableViewCell: UITableViewCell {
 extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        mergedContent.count
+        return isFoodsCollection ? foods?.count ?? 0 : recipes?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if mergedContent[indexPath.row].isFood ?? false {
+        if isFoodsCollection {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortFoodCollectionViewCell",
-                                                                for: indexPath) as? ShortFoodCollectionViewCell
+                                                                for: indexPath) as? ShortFoodCollectionViewCell,
+                  let food = foods?[indexPath.row]
                 else { return UICollectionViewCell() }
-            let shortFood = mergedContent[indexPath.row].initFood()
-            cell.configureWith(.init(shortFood: shortFood, inHomepage: true), imageCornerRadius: 142/2)
+            cell.configureWith(.init(shortFood: food.asShortFood, food: food, inHomepage: true), imageCornerRadius: 142/2)
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
-                                                                for: indexPath) as? ShortRecipeCollectionViewCell
+                                                                for: indexPath) as? ShortRecipeCollectionViewCell,
+                  let recipe = recipes?[indexPath.row]
                 else { return UICollectionViewCell() }
-            let shortRecipe = mergedContent[indexPath.row].initRecipe()
-            cell.configureWith(.init(shortRecipe: shortRecipe, inHomepage: true), imageCornerRadius: 142/2)
+            cell.configureWith(.init(shortRecipe: recipe.asShortRecipe, recipe: recipe, inHomepage: true), imageCornerRadius: 142/2)
             return cell
         }
     }
@@ -116,19 +106,21 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if mergedContent[indexPath.row].isFood ?? false {
-            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree, let cellIndexPath = self.indexPath
+        if isFoodsCollection {
+            guard let food = foods?[indexPath.row], let cellIndexPath = self.indexPath
                 else { return }
+            let isFree = food.isFree
             if isFree || PurchaseManager.shared.hasUnlockedPro {
-                delegate?.selectedElement(foodId: id, recipeId: nil, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
+                delegate?.selectedElement(food: food, recipe: nil, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }
         } else {
-            guard let id = mergedContent[indexPath.row].id, let isFree = mergedContent[indexPath.row].isFree, let cellIndexPath = self.indexPath
+            guard let recipe = recipes?[indexPath.row], let cellIndexPath = self.indexPath
                 else { return }
+            let isFree = recipe.isFree
             if isFree || PurchaseManager.shared.hasUnlockedPro {
-                delegate?.selectedElement(foodId: nil, recipeId: id, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
+                delegate?.selectedElement(food: nil, recipe: recipe, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
             }

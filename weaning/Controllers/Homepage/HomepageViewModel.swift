@@ -7,35 +7,35 @@
 
 struct HomepageViewModel {
 
-    var homepageFoods: [ShortFood]
-    var homepageRecipes: [ShortRecipe]
+    var homepageFoods: [Food]
+    var homepageRecipes: [Recipe]
 
     init() {
         homepageFoods = []
         homepageRecipes = []
     }
 
-    var freeFoods: [ShortFood] {
+    var freeFoods: [Food] {
         homepageFoods.filter { $0.isFree }
     }
 
-    var freeRecipes: [ShortRecipe] {
+    var freeRecipes: [Recipe] {
         homepageRecipes.filter { $0.isFree }
     }
 
-    var seasonalFoods: [ShortFood] {
+    var seasonalFoods: [Food] {
         homepageFoods.filter { $0.isSeasonal }
     }
     
-    var seasonalRecipes: [ShortRecipe] {
+    var seasonalRecipes: [Recipe] {
         homepageRecipes.filter { $0.isSeasonal }
     }
     
-    var newFoods: [ShortFood] {
+    var newFoods: [Food] {
         homepageFoods.filter { $0.isNew }
     }
 
-    var newRecipes: [ShortRecipe] {
+    var newRecipes: [Recipe] {
         homepageRecipes.filter { $0.isNew }
     }
 

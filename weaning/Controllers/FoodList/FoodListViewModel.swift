@@ -10,11 +10,11 @@ import FirebaseFirestore
 
 struct FoodListViewModel {
 
-    var shortFoods: [ShortFood]
+    var foods: [Food]
     var categorySelected: Int?
 
     init() {
-        shortFoods = []
+        foods = []
     }
 
 }

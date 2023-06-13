@@ -28,8 +28,6 @@ class MenuViewController: UIViewController {
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
 
-    private var freeMenuDays = 10
-
     var selectedCellIndexPath: IndexPath?
     var selectedStackViewDishTag: Int?
     var viewModel: MenuViewModel?
@@ -60,13 +58,24 @@ class MenuViewController: UIViewController {
                                               ? "MENU_30_DAYS_EXPLICATORY_TEXT".localized()
                                               : "MENU_7-12_MONTHS_EXPLICATORY_TEXT".localized()).htmlToAttributedString()
 
-        FirestoreService.shared.database
-            .collection("menus")
-            .document(viewModel?.menuId ?? "")
-            .collection("menu")
-            .getDocuments() { querySnapshot, error in
-                self.convertMenuData(querySnapshot, error)
-            }
+        if viewModel?.is30Days ?? false && !PurchaseManager.shared.hasUnlockedPro {
+            FirestoreService.shared.database
+                .collection("menus")
+                .document(viewModel?.menuId ?? "")
+                .collection("menu")
+                .limit(to: .menuFreeDays) // load only the free days
+                .getDocuments() { querySnapshot, error in
+                    self.convertMenuData(querySnapshot, error)
+                }
+        } else {
+            FirestoreService.shared.database
+                .collection("menus")
+                .document(viewModel?.menuId ?? "")
+                .collection("menu")
+                .getDocuments() { querySnapshot, error in
+                    self.convertMenuData(querySnapshot, error)
+                }
+        }
     }
 
     func convertMenuData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
@@ -170,7 +179,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             else { return UICollectionViewCell() }
         cell.configureWithDay("\(indexPath.row + 1)",
                               isSelected: viewModel?.selectedRow == indexPath.row,
-                              isPremium: indexPath.row >= freeMenuDays)
+                              isPremium: indexPath.row >= .menuFreeDays)
         return cell
     }
 
@@ -200,7 +209,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if PurchaseManager.shared.hasUnlockedPro || indexPath.row < freeMenuDays {
+        if PurchaseManager.shared.hasUnlockedPro || indexPath.row < .menuFreeDays {
             viewModel?.selectedRow = indexPath.row
             
             DispatchQueue.main.async {
@@ -254,10 +263,10 @@ extension MenuViewController: MenuMealDelegate {
         self.selectedStackViewDishTag = stackViewDishTag
         self.selectedCellIndexPath = cellIndexPath
         if let foodId = foodId {
-            let foodController = NavigationService.foodViewController(foodId: foodId)
+            let foodController = NavigationService.foodViewController(foodId: foodId, food: nil)
             NavigationService.push(viewController: foodController)
         } else if let recipeId = recipeId {
-            let recipeController = NavigationService.recipeViewController(recipeId: recipeId)
+            let recipeController = NavigationService.recipeViewController(recipeId: recipeId, recipe: nil)
             NavigationService.push(viewController: recipeController)
         }
     }

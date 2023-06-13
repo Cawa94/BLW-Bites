@@ -15,12 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let providerFactory = AppCheckProviderService()
-        AppCheck.setAppCheckProviderFactory(providerFactory)
-
-        // To retrieve debug token for App Check on simulators
-        // let providerFactory = AppCheckDebugProviderFactory()
-        // AppCheck.setAppCheckProviderFactory(providerFactory)
+        #if DEBUG
+            // To retrieve debug token for App Check on simulators
+            let providerFactory = AppCheckDebugProviderFactory()
+            AppCheck.setAppCheckProviderFactory(providerFactory)
+        #else
+            let providerFactory = AppCheckProviderService()
+            AppCheck.setAppCheckProviderFactory(providerFactory)
+        #endif
 
         FirebaseApp.configure()
 

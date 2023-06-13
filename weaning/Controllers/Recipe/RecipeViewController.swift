@@ -62,13 +62,17 @@ class RecipeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        FirestoreService.shared.database.document("recipes/\(viewModel?.recipeId ?? "")").getDocument(as: Recipe.self) { result in
-            switch result {
-            case .success(let recipe):
-                self.viewModel?.recipe = recipe
-                self.configurePage()
-            case .failure(let error):
-                print("Error decoding recipe: \(error)")
+        if viewModel?.recipe != nil {
+            configurePage()
+        } else {
+            FirestoreService.shared.database.document("recipes/\(viewModel?.recipeId ?? "")").getDocument(as: Recipe.self) { result in
+                switch result {
+                case .success(let recipe):
+                    self.viewModel?.recipe = recipe
+                    self.configurePage()
+                case .failure(let error):
+                    print("Error decoding recipe: \(error)")
+                }
             }
         }
     }

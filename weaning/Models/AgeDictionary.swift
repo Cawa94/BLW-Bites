@@ -25,4 +25,12 @@ public struct AgeDictionary: Codable {
         self.third = data["third"] as? AgeSegment
     }
 
+    init(first: AgeSegment?,
+         second: AgeSegment?,
+         third: AgeSegment?) {
+        self.first = first
+        self.second = second
+        self.third = third
+    }
+
 }
