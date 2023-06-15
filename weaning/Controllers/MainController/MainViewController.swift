@@ -16,6 +16,10 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
         configureAppearance()
         configureTabBar()
+
+        if !PurchaseManager.shared.hasUnlockedPro {
+            addPromotionalBanner()
+        }
     }
 
     func configureTabBar() {
@@ -73,6 +77,14 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
             NSAttributedString.Key.font: UIFont(name: "Nunito-Bold", size: 10)!], for: .selected)
         UITabBar.appearance().barTintColor = .systemBackground
         UITabBar.appearance().backgroundColor = .white
+    }
+
+    func addPromotionalBanner() {
+        let bottomBarHeight = self.tabBar.frame.height
+        let promotionalView = PromotionalBannerView(frame: .init(
+            x: 0, y: self.view.frame.height - CGFloat(bottomBarHeight) - 74,
+            width: self.view.frame.width, height: 40))
+        self.view.addSubview(promotionalView)
     }
 
 }

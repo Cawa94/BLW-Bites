@@ -116,7 +116,7 @@
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                 </view>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FBR-Yr-j0j">
-                                    <rect key="frame" x="30" y="1380" width="333" height="800"/>
+                                    <rect key="frame" x="15" y="1380" width="363" height="800"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="800" id="lXV-Ft-seZ"/>
@@ -135,12 +135,12 @@
                                 <constraint firstAttribute="height" constant="665" id="NJa-DE-SgD"/>
                                 <constraint firstItem="nOn-ig-dGd" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="Pea-3h-Wbt"/>
                                 <constraint firstAttribute="trailing" secondItem="pTg-XG-D97" secondAttribute="trailing" id="Pvd-yn-qmp"/>
-                                <constraint firstItem="FBR-Yr-j0j" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" constant="30" id="XWu-tf-reP"/>
+                                <constraint firstItem="FBR-Yr-j0j" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" constant="15" id="XWu-tf-reP"/>
                                 <constraint firstItem="FBR-Yr-j0j" firstAttribute="top" secondItem="pTg-XG-D97" secondAttribute="top" constant="20" id="XmJ-J2-f3c"/>
                                 <constraint firstAttribute="trailing" secondItem="xcL-L2-ge8" secondAttribute="trailing" id="b1q-kl-f2c"/>
                                 <constraint firstItem="xcL-L2-ge8" firstAttribute="top" secondItem="ncY-5W-sq4" secondAttribute="bottom" id="gib-uN-EFv"/>
                                 <constraint firstItem="xcL-L2-ge8" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="hwK-Mr-SKp"/>
-                                <constraint firstAttribute="trailing" secondItem="FBR-Yr-j0j" secondAttribute="trailing" constant="30" id="lNu-Rx-WYb"/>
+                                <constraint firstAttribute="trailing" secondItem="FBR-Yr-j0j" secondAttribute="trailing" constant="15" id="lNu-Rx-WYb"/>
                                 <constraint firstItem="FBR-Yr-j0j" firstAttribute="bottom" secondItem="pTg-XG-D97" secondAttribute="bottom" id="lcP-Ty-als"/>
                                 <constraint firstItem="ncY-5W-sq4" firstAttribute="top" secondItem="bLV-BF-Fdd" secondAttribute="top" id="nr6-8g-Ui8"/>
                                 <constraint firstItem="ncY-5W-sq4" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="pGE-kB-EEQ"/>
@@ -225,7 +225,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrowshape.left.fill" catalog="system" width="32" height="32"/>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

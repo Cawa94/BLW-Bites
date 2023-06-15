@@ -6,6 +6,8 @@ target 'weaning' do
   use_frameworks!
 
   # Pods for weaning
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseCrashlytics'
   pod 'FirebaseFirestore'
   pod 'FirebaseStorage'
   pod 'FirebaseStorageUI'

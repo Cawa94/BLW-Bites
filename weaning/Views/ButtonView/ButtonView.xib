@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito.ttf">
+            <string>Nunito-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="hYT-cC-c7x"/>
+                <outlet property="titleLabel" destination="ksz-Wp-Shb" id="baD-Zg-WVK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="135" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Button title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksz-Wp-Shb">
+                    <rect key="frame" x="5" y="27.666666666666664" width="125" height="24.666666666666664"/>
+                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Roa-jL-299">
+                    <rect key="frame" x="0.0" y="0.0" width="135" height="80"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="tapAction" destination="-1" eventType="touchUpInside" id="FmK-e4-VcC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="mainColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ksz-Wp-Shb" secondAttribute="trailing" constant="5" id="0YQ-80-1rT"/>
+                <constraint firstItem="Roa-jL-299" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6S0-HX-tDt"/>
+                <constraint firstItem="ksz-Wp-Shb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ScU-5V-fIL"/>
+                <constraint firstItem="Roa-jL-299" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d6D-FY-YI7"/>
+                <constraint firstItem="ksz-Wp-Shb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="kow-RI-DOA"/>
+                <constraint firstAttribute="bottom" secondItem="Roa-jL-299" secondAttribute="bottom" id="per-N2-0ai"/>
+                <constraint firstAttribute="trailing" secondItem="Roa-jL-299" secondAttribute="trailing" id="tWl-rD-IJo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-57.251908396946561" y="-248.94366197183101"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

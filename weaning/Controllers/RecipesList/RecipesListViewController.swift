@@ -50,6 +50,12 @@ class RecipesListViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
     func getRecipes(isFavorites: Bool = false) {
         self.isFavorites = isFavorites
         hasSearched = false
@@ -133,7 +139,9 @@ class RecipesListViewController: UIViewController {
                 self.viewModel?.recipes.append(.init(data: document.data()))
             }
             DispatchQueue.main.async {
-                self.recipesCollectionView.reloadData()
+                self.recipesCollectionView.reloadData(completion: {
+                    self.recipesCollectionView.contentInset = .init(top: 0, left: 0, bottom: .bottomSpace, right: 0)
+                })
             }
         }
     }

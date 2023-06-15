@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito.ttf">
+            <string>Nunito-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PromotionalBannerView" customModule="Test_Build" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="OJ6-4a-DVZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlock 80+ foods and 100+ recipes!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ue-jY-vvh">
+                    <rect key="frame" x="43.666666666666657" y="8" width="287.66666666666674" height="24"/>
+                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_BANNER"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tb-sP-MaL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                    <connections>
+                        <action selector="showSubscriptionPage" destination="-1" eventType="touchUpInside" id="xl2-v0-zU1"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="mainColor"/>
+            <constraints>
+                <constraint firstItem="9tb-sP-MaL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7ya-nB-PS8"/>
+                <constraint firstItem="9tb-sP-MaL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="L8r-Vm-Hgb"/>
+                <constraint firstItem="2Ue-jY-vvh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X7t-Ps-sHk"/>
+                <constraint firstAttribute="bottom" secondItem="9tb-sP-MaL" secondAttribute="bottom" id="Xpt-Yq-ztS"/>
+                <constraint firstAttribute="trailing" secondItem="9tb-sP-MaL" secondAttribute="trailing" id="bG0-QZ-Ja3"/>
+                <constraint firstItem="2Ue-jY-vvh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="srg-mq-q2Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139.69465648854961" y="308.45070422535213"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="mainColor">
+            <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

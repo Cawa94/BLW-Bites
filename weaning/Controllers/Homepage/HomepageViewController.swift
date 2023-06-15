@@ -34,6 +34,12 @@ class HomepageViewController: UIViewController {
         getHomepageFoods()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
     func getHomepageFoods() {
         FirestoreService.shared.database.collection("foods").whereField("properties", arrayContainsAny: ["free", "seasonal", "new"]).getDocuments() { querySnapshot, error in
             self.convertFoodsData(querySnapshot, error)

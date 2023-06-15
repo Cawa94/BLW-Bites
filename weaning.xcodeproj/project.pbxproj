@@ -119,6 +119,13 @@
 		73AE196529BC994100B2A2AE /* NavigationService+MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE196429BC994100B2A2AE /* NavigationService+MenuViewController.swift */; };
 		73AE196A29BCCC7500B2A2AE /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE196829BCCC7500B2A2AE /* DayCollectionViewCell.swift */; };
 		73AE196B29BCCC7500B2A2AE /* DayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73AE196929BCCC7500B2A2AE /* DayCollectionViewCell.xib */; };
+		73B82BCD2A39FEDA00272290 /* PromotionalBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B82BCC2A39FEDA00272290 /* PromotionalBannerView.swift */; };
+		73B82BCF2A39FEE200272290 /* PromotionalBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B82BCE2A39FEE200272290 /* PromotionalBannerView.xib */; };
+		73B82BD32A3A0D7500272290 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B82BD22A3A0D7500272290 /* ButtonView.swift */; };
+		73B82BD52A3A0D7D00272290 /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B82BD42A3A0D7D00272290 /* ButtonViewModel.swift */; };
+		73B82BD72A3A0D8600272290 /* ButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73B82BD62A3A0D8600272290 /* ButtonView.xib */; };
+		73B82BD92A3B2AF800272290 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B82BD82A3B2AF800272290 /* AdSupport.framework */; };
+		73B82BDB2A3B2D7F00272290 /* FirebaseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B82BDA2A3B2D7F00272290 /* FirebaseAnalytics.swift */; };
 		73BF82D029C33E8200835205 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82CF29C33E8200835205 /* ProductView.swift */; };
 		73BF82D229C33E8C00835205 /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73BF82D129C33E8C00835205 /* ProductView.xib */; };
 		73BF82D429C33F2400835205 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BF82D329C33F2400835205 /* ProductViewModel.swift */; };
@@ -264,6 +271,13 @@
 		73AE196429BC994100B2A2AE /* NavigationService+MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationService+MenuViewController.swift"; sourceTree = "<group>"; };
 		73AE196829BCCC7500B2A2AE /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		73AE196929BCCC7500B2A2AE /* DayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCollectionViewCell.xib; sourceTree = "<group>"; };
+		73B82BCC2A39FEDA00272290 /* PromotionalBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionalBannerView.swift; sourceTree = "<group>"; };
+		73B82BCE2A39FEE200272290 /* PromotionalBannerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionalBannerView.xib; sourceTree = "<group>"; };
+		73B82BD22A3A0D7500272290 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		73B82BD42A3A0D7D00272290 /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
+		73B82BD62A3A0D8600272290 /* ButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonView.xib; sourceTree = "<group>"; };
+		73B82BD82A3B2AF800272290 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		73B82BDA2A3B2D7F00272290 /* FirebaseAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalytics.swift; sourceTree = "<group>"; };
 		73BF82CF29C33E8200835205 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		73BF82D129C33E8C00835205 /* ProductView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
 		73BF82D329C33F2400835205 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -301,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B42D6633F96ED8E56A177F /* Pods_weaning.framework in Frameworks */,
+				73B82BD92A3B2AF800272290 /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,8 +415,10 @@
 		7344B37229A0ED4500B172AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				73B82BD12A3A0D6700272290 /* ButtonView */,
+				73B82BD02A3A021600272290 /* CustomSearchBar */,
+				73B82BCB2A39FEB400272290 /* PromotionalBannerView */,
 				73BF82CE29C33E6A00835205 /* ProductView */,
-				7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -558,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				735FE7492A0144A000AB8BBF /* AppCheckProviderService.swift */,
+				73B82BDA2A3B2D7F00272290 /* FirebaseAnalytics.swift */,
 				738FB2E92997CB8100C286B3 /* FirestoreService.swift */,
 				738FB2CC2997ACA700C286B3 /* NavigationService.swift */,
 				738CCF9129C8D2DC000080AE /* PurchaseManager.swift */,
@@ -797,6 +815,33 @@
 			path = DayCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		73B82BCB2A39FEB400272290 /* PromotionalBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				73B82BCC2A39FEDA00272290 /* PromotionalBannerView.swift */,
+				73B82BCE2A39FEE200272290 /* PromotionalBannerView.xib */,
+			);
+			path = PromotionalBannerView;
+			sourceTree = "<group>";
+		};
+		73B82BD02A3A021600272290 /* CustomSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */,
+			);
+			path = CustomSearchBar;
+			sourceTree = "<group>";
+		};
+		73B82BD12A3A0D6700272290 /* ButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				73B82BD22A3A0D7500272290 /* ButtonView.swift */,
+				73B82BD42A3A0D7D00272290 /* ButtonViewModel.swift */,
+				73B82BD62A3A0D8600272290 /* ButtonView.xib */,
+			);
+			path = ButtonView;
+			sourceTree = "<group>";
+		};
 		73BF82CE29C33E6A00835205 /* ProductView */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +947,7 @@
 		AD4D851DDD9D8FF3EFC18BA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73B82BD82A3B2AF800272290 /* AdSupport.framework */,
 				9FE5DB4A9714F27ED6A5A5B5 /* Pods_weaning.framework */,
 			);
 			name = Frameworks;
@@ -919,6 +965,7 @@
 				738FB2A72997A9B700C286B3 /* Frameworks */,
 				738FB2A82997A9B700C286B3 /* Resources */,
 				54AA602E588FE5B14B63A59F /* [CP] Embed Pods Frameworks */,
+				73B82BDC2A3B3FFB00272290 /* Crashlytics Script */,
 			);
 			buildRules = (
 			);
@@ -993,11 +1040,13 @@
 				738FB2DC2997C41400C286B3 /* FoodListViewController.xib in Resources */,
 				731F204329C3549F0096E061 /* StoreKitConfiguration.storekit in Resources */,
 				738FB2CA2997ABAE00C286B3 /* MainViewController.xib in Resources */,
+				73B82BCF2A39FEE200272290 /* PromotionalBannerView.xib in Resources */,
 				73AE196129BC900F00B2A2AE /* MenuViewController.xib in Resources */,
 				73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */,
 				739A622829B65B74006FE951 /* HomepageElementsTableViewCell.xib in Resources */,
 				73AD68E529AFB7D20054B377 /* RecipeInfoTableViewCell.xib in Resources */,
 				738FB3052997DE8F00C286B3 /* ShortFoodCollectionViewCell.xib in Resources */,
+				73B82BD72A3A0D8600272290 /* ButtonView.xib in Resources */,
 				739658D729F91BC70040F809 /* Localizable.strings in Resources */,
 				73CA04FE29CB4FC200E60AFF /* Alata-Regular.ttf in Resources */,
 				73BF82D229C33E8C00835205 /* ProductView.xib in Resources */,
@@ -1031,6 +1080,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weaning/Pods-weaning-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		73B82BDC2A3B3FFB00272290 /* Crashlytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Crashlytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		CF93B1A9F8BBCCE09E9AEC28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1081,6 +1150,7 @@
 				738CCF9429C8F0E3000080AE /* NotificationCenter+Extension.swift in Sources */,
 				738FB2FF2997DABD00C286B3 /* NavigationService + FoodViewController.swift in Sources */,
 				738FB2F62997D98900C286B3 /* Food.swift in Sources */,
+				73B82BD32A3A0D7500272290 /* ButtonView.swift in Sources */,
 				73AE196A29BCCC7500B2A2AE /* DayCollectionViewCell.swift in Sources */,
 				739E91FD29F2E7A4009BFF34 /* VideoViewModel.swift in Sources */,
 				73AD68D629AFB2550054B377 /* RecipeViewModel.swift in Sources */,
@@ -1093,6 +1163,7 @@
 				738FB3072997DFB800C286B3 /* UICollectionViewCell+Extension.swift in Sources */,
 				73E59BE629AA683B003D7F65 /* InfoSection.swift in Sources */,
 				7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */,
+				73B82BCD2A39FEDA00272290 /* PromotionalBannerView.swift in Sources */,
 				7344B36329A0DD9700B172AC /* DefaultConstants.swift in Sources */,
 				7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */,
 				738FB2EA2997CB8100C286B3 /* FirestoreService.swift in Sources */,
@@ -1106,6 +1177,7 @@
 				73E59BE029AA5B6D003D7F65 /* AgeSegment.swift in Sources */,
 				7316B4E729C1FDFE00BD0AB0 /* MenuDishView.swift in Sources */,
 				7344B36029A0DD0A00B172AC /* UIView+Extension.swift in Sources */,
+				73B82BDB2A3B2D7F00272290 /* FirebaseAnalytics.swift in Sources */,
 				736579B329A23F2C0071F60E /* FoodSectionTableViewCell.swift in Sources */,
 				73E59BDB29AA5662003D7F65 /* SeparatorTableViewCell.swift in Sources */,
 				732F54BA2A151E760045F6C5 /* ShortRecipeCollectionViewModel.swift in Sources */,
@@ -1137,6 +1209,7 @@
 				736718D429C1D8F600736D04 /* MenuDay.swift in Sources */,
 				7316B4F129C2321A00BD0AB0 /* SubscriptionViewController.swift in Sources */,
 				739A622C29B65B8F006FE951 /* HomepageHeaderTableViewCell.swift in Sources */,
+				73B82BD52A3A0D7D00272290 /* ButtonViewModel.swift in Sources */,
 				738FB2E52997C9C500C286B3 /* MainControllerViewModel.swift in Sources */,
 				738FB2FA2997DAA800C286B3 /* FoodViewController.swift in Sources */,
 				73BF82D029C33E8200835205 /* ProductView.swift in Sources */,
@@ -1316,6 +1389,7 @@
 				CODE_SIGN_ENTITLEMENTS = weaning/weaning.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.6;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZWDDZD6GHF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = weaning/Info.plist;

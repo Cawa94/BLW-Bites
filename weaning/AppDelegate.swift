@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AppTrackingTransparency
+import FirebaseAnalytics
 import FirebaseCore
 import FirebaseAppCheck
 
@@ -15,25 +17,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        #if DEBUG
+        /*#if DEBUG
             // To retrieve debug token for App Check on simulators
             let providerFactory = AppCheckDebugProviderFactory()
             AppCheck.setAppCheckProviderFactory(providerFactory)
-        #else
+        #else*/
             let providerFactory = AppCheckProviderService()
             AppCheck.setAppCheckProviderFactory(providerFactory)
-        #endif
-
-        FirebaseApp.configure()
+        //#endif
 
         Task {
             do {
                 await PurchaseManager.shared.updatePurchasedProducts()
+                if FirebaseApp.app() == nil { // To avoid Firebase being initialised multiple times
+                    FirebaseApp.configure()
+                }
+                Analytics.setAnalyticsCollectionEnabled(false)
+                self.askForTrackingPermission()
                 NavigationService.makeMainRootController()
             }
         }
 
         return true
+    }
+
+    func askForTrackingPermission() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                DispatchQueue.main.async {
+                    switch status {
+                    case .authorized:
+                        Analytics.setAnalyticsCollectionEnabled(true)
+                    default:
+                        break
+                    }
+                }
+            })
+        }
     }
 
     // MARK: UISceneSession Lifecycle

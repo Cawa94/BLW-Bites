@@ -13,6 +13,7 @@ import StoreKit
 
 class SubscriptionViewController: UIViewController {
 
+    @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var infosTextView: UITextView!
     @IBOutlet private weak var infosTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var productsStackView: UIStackView!
@@ -22,11 +23,25 @@ class SubscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
+        DispatchQueue.main.async {
+            self.viewDidLayoutSubviews()
+        }
 
         FirestoreService.shared.database.collection("subscriptions").getDocuments() { querySnapshot, error in
             self.convertSubscriptionData(querySnapshot, error)
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
+    override func viewDidLayoutSubviews() {
+        infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
+        contentViewHeightConstraint.constant = infosTextViewHeightConstraint.constant
+            + 500
     }
 
     func convertSubscriptionData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {

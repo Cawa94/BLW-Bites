@@ -33,6 +33,12 @@ class MenuSelectorViewController: UIViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
         contentViewHeightConstraint.constant = tableViewHeightConstraint.constant + .bottomSpace

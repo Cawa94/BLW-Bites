@@ -66,4 +66,8 @@ public extension UIViewController {
         view.endEditing(true)
     }
 
+    var className: String {
+        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
+    }
+
 }

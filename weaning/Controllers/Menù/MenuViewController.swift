@@ -78,6 +78,12 @@ class MenuViewController: UIViewController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
     func convertMenuData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
         if let error = error {
             print("Error getting documents: \(error)")

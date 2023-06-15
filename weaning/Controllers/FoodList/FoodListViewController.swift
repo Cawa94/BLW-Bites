@@ -50,6 +50,12 @@ class FoodListViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
     func getFoods(isFavorites: Bool = false) {
         self.isFavorites = isFavorites
         hasSearched = false
@@ -133,13 +139,9 @@ class FoodListViewController: UIViewController {
                 self.viewModel?.foods.append(.init(data: document.data()))
             }
             DispatchQueue.main.async {
-                DispatchQueue.main.async {
-                    self.foodsCollectionView.reloadData(completion: {
-                        // self.foodsCollectionView.invalidateIntrinsicContentSize()
-                        // self.foodsCollectionView.layoutIfNeeded()
-                        // self.afterLoading()
-                    })
-                }
+                self.foodsCollectionView.reloadData(completion: {
+                    self.foodsCollectionView.contentInset = .init(top: 0, left: 0, bottom: .bottomSpace, right: 0)
+                })
             }
         }
     }

@@ -27,5 +27,17 @@
 			</array>
 		</dict>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tg</string>
+		<string>googlegmail</string>
+		<string>ms-outlook</string>
+		<string>readdle-spark</string>
+		<string>ymail</string>
+	</array>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Śledzimy sposób, w jaki użytkownik korzysta z aplikacji, aby zapewnić mu lepszą obsługę</string>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>
