@@ -9,9 +9,15 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito.ttf">
+            <string>Nunito-ExtraBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
+                <outlet property="nameLabel" destination="Vvh-MM-l0l" id="Kjt-eR-rQQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,6 +26,12 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hello again!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvh-MM-l0l">
+                    <rect key="frame" x="30" y="159" width="333" height="38.333333333333343"/>
+                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="28"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O29-Xf-9aU">
                     <rect key="frame" x="151.66666666666666" y="405.33333333333331" width="89.666666666666657" height="41.333333333333314"/>
                     <color key="tintColor" name="mainColor"/>
@@ -35,8 +47,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Vvh-MM-l0l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="5eY-GK-xrQ"/>
                 <constraint firstItem="O29-Xf-9aU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EQA-Hc-l4m"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vvh-MM-l0l" secondAttribute="trailing" constant="30" id="ZWf-Zb-DF6"/>
                 <constraint firstItem="O29-Xf-9aU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="a3t-E2-uvI"/>
+                <constraint firstItem="Vvh-MM-l0l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="aMA-lY-qCR"/>
             </constraints>
             <point key="canvasLocation" x="140" y="21"/>
         </view>
@@ -44,6 +59,9 @@
     <resources>
         <namedColor name="mainColor">
             <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

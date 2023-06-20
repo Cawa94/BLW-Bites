@@ -23,9 +23,10 @@ class RevenueCatService {
     private init() { }
 
     func configure() {
-        // Purchases.logLevel = .debug
+        Purchases.logLevel = .warn
 
-        Purchases.configure(withAPIKey: .revenueCatPublicKey)
+        debugPrint("USER EMAIL: \(AuthService.shared.currentUser?.email) ID: \(AuthService.shared.currentUser?.uid)")
+        Purchases.configure(withAPIKey: .revenueCatPublicKey, appUserID: AuthService.shared.currentUser?.uid)
         getCurrentOfferings()
         getCustomerInfo()
     }
@@ -34,6 +35,14 @@ class RevenueCatService {
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             self.customerInfo = customerInfo
             NavigationService.makeMainRootController()
+        }
+    }
+
+    func loginWithId(_ uid: String?) {
+        guard let userId = uid
+            else { return }
+        Purchases.shared.logIn(userId) { (customerInfo, created, error) in
+            self.customerInfo = customerInfo
         }
     }
 
@@ -61,6 +70,7 @@ class RevenueCatService {
         if customerInfo?.entitlements["Pro Version"]?.isActive == true {
             debugPrint("YOU GOT THE PRO VERSION!")
             self.customerInfo = customerInfo
+            self.setUserProperties()
             DispatchQueue.main.async {
                 NavigationService.makeMainRootController()
             }
@@ -78,6 +88,11 @@ class RevenueCatService {
         } else {
           // Error is a different type
         }
+    }
+
+    func setUserProperties() {
+        Purchases.shared.setAttributes(["$displayName" : AuthService.shared.currentUser?.displayName ?? "",
+                                        "$email" : AuthService.shared.currentUser?.email ?? ""])
     }
 
     var hasUnlockedPro: Bool {

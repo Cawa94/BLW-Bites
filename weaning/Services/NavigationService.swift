@@ -25,6 +25,10 @@ struct NavigationService {
         return SceneDelegate.shared.appWindow
     }
 
+    static func makeSplashRootController() {
+        appWindow.changeRootController(controller: SplashViewController())
+    }
+
     static func makeMainRootController() {
         appWindow.changeRootController(controller: MainViewController().embedInNavigationController())
     }

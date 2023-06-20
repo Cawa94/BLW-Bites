@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,7 +19,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="emailTextField" destination="4oW-Lk-sPG" id="qx1-h2-3gv"/>
+                <outlet property="loadingSpinner" destination="Ol4-fE-raF" id="H2j-ct-hy4"/>
                 <outlet property="loginButton" destination="gbf-dD-pU7" id="GdT-y7-h68"/>
+                <outlet property="messageLabel" destination="14Y-1C-pbz" id="V3K-fQ-iyV"/>
                 <outlet property="passwordTextField" destination="ogy-dw-7fS" id="Fzu-oB-9z6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -48,15 +51,21 @@
                     <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="H5U-hH-90v"/>
+                    </connections>
                 </textField>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ogy-dw-7fS" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
+                <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ogy-dw-7fS" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
                     <rect key="frame" x="30" y="377.66666666666669" width="333" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="bhr-ej-hNo"/>
                     </constraints>
                     <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Jf6-ph-k9R"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKB-bP-fD2">
                     <rect key="frame" x="229" y="437.66666666666669" width="134" height="33.333333333333314"/>
@@ -69,6 +78,13 @@
                         <action selector="openResetPassword" destination="-1" eventType="touchUpInside" id="KAB-Dj-Mbh"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-dD-pU7" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
+                    <rect key="frame" x="30" y="487.66666666666674" width="333" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="3hU-0Y-0jZ"/>
+                    </constraints>
+                </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Ol4-fE-raF">
                     <rect key="frame" x="323" y="505.33333333333326" width="25" height="25"/>
                     <constraints>
@@ -77,13 +93,12 @@
                     </constraints>
                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-dD-pU7" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
-                    <rect key="frame" x="30" y="487.66666666666674" width="333" height="60"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="3hU-0Y-0jZ"/>
-                    </constraints>
-                </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your account has been created!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14Y-1C-pbz">
+                    <rect key="frame" x="30" y="557.66666666666663" width="333" height="22"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-wM-aDM">
                     <rect key="frame" x="78.666666666666671" y="743" width="235.66666666666663" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -118,6 +133,7 @@
                 <constraint firstItem="Nfk-EX-jh0" firstAttribute="trailing" secondItem="MCr-wM-aDM" secondAttribute="trailing" id="8I4-Qr-JWo"/>
                 <constraint firstItem="gbf-dD-pU7" firstAttribute="top" secondItem="ogy-dw-7fS" secondAttribute="bottom" constant="60" id="93v-ON-qj9"/>
                 <constraint firstItem="MCr-wM-aDM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AVN-AX-GOk"/>
+                <constraint firstItem="14Y-1C-pbz" firstAttribute="top" secondItem="gbf-dD-pU7" secondAttribute="bottom" constant="10" id="C1u-pe-SQT"/>
                 <constraint firstItem="Oyy-d1-ol1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="Db4-WU-Ldc"/>
                 <constraint firstItem="MXh-Tz-Q0g" firstAttribute="leading" secondItem="MCr-wM-aDM" secondAttribute="leading" id="Eo7-1Z-lIM"/>
                 <constraint firstItem="Oyy-d1-ol1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HUz-6u-QdJ"/>
@@ -127,8 +143,10 @@
                 <constraint firstItem="Rb5-jP-zgM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="MxA-9S-SvX"/>
                 <constraint firstItem="gbf-dD-pU7" firstAttribute="centerY" secondItem="Ol4-fE-raF" secondAttribute="centerY" id="NG5-xk-RBG"/>
                 <constraint firstItem="ogy-dw-7fS" firstAttribute="leading" secondItem="4oW-Lk-sPG" secondAttribute="leading" id="NM5-lU-dCK"/>
+                <constraint firstItem="14Y-1C-pbz" firstAttribute="trailing" secondItem="gbf-dD-pU7" secondAttribute="trailing" id="OjE-sM-jCN"/>
                 <constraint firstItem="4oW-Lk-sPG" firstAttribute="leading" secondItem="Rb5-jP-zgM" secondAttribute="leading" id="QeE-fR-gwh"/>
                 <constraint firstItem="QKB-bP-fD2" firstAttribute="trailing" secondItem="ogy-dw-7fS" secondAttribute="trailing" id="Qhh-HG-OMk"/>
+                <constraint firstItem="14Y-1C-pbz" firstAttribute="leading" secondItem="gbf-dD-pU7" secondAttribute="leading" id="Rrc-cT-5IF"/>
                 <constraint firstItem="4oW-Lk-sPG" firstAttribute="top" secondItem="Rb5-jP-zgM" secondAttribute="bottom" constant="35" id="Su5-yA-tUi"/>
                 <constraint firstItem="gbf-dD-pU7" firstAttribute="trailing" secondItem="ogy-dw-7fS" secondAttribute="trailing" id="VhV-pQ-TNb"/>
                 <constraint firstItem="QKB-bP-fD2" firstAttribute="top" secondItem="ogy-dw-7fS" secondAttribute="bottom" constant="10" id="b1C-Hl-jN2"/>
@@ -150,5 +168,8 @@
         <namedColor name="textColor">
             <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

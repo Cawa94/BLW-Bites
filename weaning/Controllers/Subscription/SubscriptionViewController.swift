@@ -41,7 +41,7 @@ class SubscriptionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
         contentViewHeightConstraint.constant = infosTextViewHeightConstraint.constant
-            + 500
+            + 470
     }
 
     func appendProduct(_ package: Package) {

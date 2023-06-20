@@ -72,27 +72,14 @@
                                         <constraint firstAttribute="height" constant="220" id="gRP-be-HE1"/>
                                     </constraints>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BP-7S-ETd">
-                                    <rect key="frame" x="119.66666666666667" y="870" width="153.66666666666663" height="36"/>
-                                    <color key="tintColor" name="mainColor"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Przywrócić zakup">
-                                        <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
-                                    </buttonConfiguration>
-                                    <connections>
-                                        <action selector="restorePurchas" destination="-1" eventType="touchUpInside" id="AT7-9U-bAE"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Guk-fI-cU2" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="0eV-os-yce"/>
                                 <constraint firstAttribute="height" constant="852" id="0rt-4v-uqM"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" constant="20" id="2C0-aW-Yi8"/>
-                                <constraint firstItem="3BP-7S-ETd" firstAttribute="top" secondItem="Guk-fI-cU2" secondAttribute="bottom" constant="25" id="D3u-3d-wIz"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="YUb-ON-pHD" secondAttribute="width" multiplier="0.65" id="FEE-HY-i2R"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="top" constant="40" id="GpR-Ku-Crh"/>
-                                <constraint firstItem="3BP-7S-ETd" firstAttribute="centerX" secondItem="5xH-cn-23d" secondAttribute="centerX" id="Gzz-8F-QB3"/>
                                 <constraint firstItem="YUb-ON-pHD" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" id="Kvx-wY-31y"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="bottom" constant="25" id="R2w-qZ-652"/>
                                 <constraint firstItem="Guk-fI-cU2" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="Th6-aR-ahQ"/>
@@ -129,9 +116,6 @@
         <image name="subscription_header" width="626" height="417"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="mainColor">
-            <color red="0.019607843137254902" green="0.5490196078431373" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

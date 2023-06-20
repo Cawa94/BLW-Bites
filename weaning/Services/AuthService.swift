@@ -6,12 +6,15 @@
 //
 
 import FirebaseAuth
+import RevenueCat
 
 class AuthService {
 
     static let shared = AuthService()
 
-    private init() { }
+    private init() {
+        Auth.auth().useAppLanguage()
+    }
 
     var isLoggedIn: Bool {
         Auth.auth().currentUser != nil
@@ -21,15 +24,17 @@ class AuthService {
         Auth.auth().currentUser
     }
 
-    func sendResetPasswordTo(email: String) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
+    func updateName(_ name: String) {
+        let changeRequest = currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.commitChanges { _ in
             
         }
     }
 
-    func logout() {
-        // Dismiss also the RevenueCat user
+    func logout() async {
         do {
+            try await Purchases.shared.logOut()
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
             debugPrint("Error signing out: %@", signOutError)

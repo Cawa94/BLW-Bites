@@ -6,18 +6,34 @@
 //
 
 import UIKit
+import FirebaseAuth
+import RevenueCat
 
 class ProfileViewController: UIViewController {
+
+    @IBOutlet private weak var nameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameLabel.text = "Hi \(AuthService.shared.currentUser?.displayName ?? "")!"
     }
 
     @IBAction func logout() {
-        AuthService.shared.logout()
-        NavigationService.makeMainRootController()
+        Task {
+            do {
+                Purchases.shared.logOut(completion: { _, _ in
+                    Task {
+                        do {
+                            try Auth.auth().signOut()
+                            NavigationService.makeMainRootController()
+                        } catch let signOutError as NSError {
+                            debugPrint("Error signing out: %@", signOutError)
+                        }
+                    }
+                })
+            }
+        }
     }
 
 }

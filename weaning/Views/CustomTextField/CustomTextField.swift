@@ -26,8 +26,7 @@ final class CustomTextField: UITextField {
     func configureAppearance() {
         self.backgroundColor = .clear
         self.font = .regularFontOf(size: 16)
-        // roundCornersSimplified(cornerRadius: .defaultCornerRadius, borderWidth: 0.5, borderColor: .mainColor)
-        self.underlined(color: .lightGray)
+        self.underline()
     }
 
     func configureWith(_ viewModel: CustomTextFieldViewModel) {
@@ -36,7 +35,7 @@ final class CustomTextField: UITextField {
         self.placeholder = viewModel.placeholder
     }
 
-    func underlined(color: UIColor) {
+    func underline(color: UIColor = .lightGray) {
         self.layer.sublayers?.forEach { $0.borderWidth = 0 }
         let border = CALayer()
         let width = CGFloat(1.0)

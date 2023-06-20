@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.askForTrackingPermission()
         #endif
 
-        RevenueCatService.shared.configure()
+        // RevenueCatService.shared.configure()
 
         return true
     }
