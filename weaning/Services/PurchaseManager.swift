@@ -7,7 +7,7 @@
 
 import Foundation
 import StoreKit
-
+/*
 class PurchaseManager: ObservableObject {
 
     static let shared = PurchaseManager()
@@ -105,3 +105,4 @@ class PurchaseManager: ObservableObject {
     }
 
 }
+*/

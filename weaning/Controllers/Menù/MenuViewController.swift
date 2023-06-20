@@ -58,24 +58,7 @@ class MenuViewController: UIViewController {
                                               ? "MENU_30_DAYS_EXPLICATORY_TEXT".localized()
                                               : "MENU_7-12_MONTHS_EXPLICATORY_TEXT".localized()).htmlToAttributedString()
 
-        if viewModel?.is30Days ?? false && !PurchaseManager.shared.hasUnlockedPro {
-            FirestoreService.shared.database
-                .collection("menus")
-                .document(viewModel?.menuId ?? "")
-                .collection("menu")
-                .limit(to: .menuFreeDays) // load only the free days
-                .getDocuments() { querySnapshot, error in
-                    self.convertMenuData(querySnapshot, error)
-                }
-        } else {
-            FirestoreService.shared.database
-                .collection("menus")
-                .document(viewModel?.menuId ?? "")
-                .collection("menu")
-                .getDocuments() { querySnapshot, error in
-                    self.convertMenuData(querySnapshot, error)
-                }
-        }
+        getMenuDayWithId("00")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -84,27 +67,36 @@ class MenuViewController: UIViewController {
         FirebaseAnalytics.shared.trackScreenView(className: self.className)
     }
 
-    func convertMenuData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
-        if let error = error {
-            print("Error getting documents: \(error)")
-        } else {
-            for document in querySnapshot!.documents {
-                self.viewModel?.menuDays?.append(.init(data: document.data()))
-            }
-            DispatchQueue.main.async {
-                self.updateDayPicture(withAnimation: false)
-                self.daysCollectionView.reloadData()
-                self.mainTableView.reloadData(completion: {
-                    self.mainTableView.invalidateIntrinsicContentSize()
-                    self.mainTableView.layoutIfNeeded()
-                    self.viewDidLayoutSubviews()
-                })
+    func getMenuDayWithId(_ id: String) {
+        FirestoreService.shared.database
+            .collection("menus")
+            .document(viewModel?.menuId ?? "")
+            .collection("menu")
+            .document(id).getDocument(as: MenuDay.self) { result in
+            switch result {
+            case .success(let menuDay):
+                self.viewModel?.menuDay = menuDay
+                self.configurePage()
+            case .failure(let error):
+                print("Error decoding food: \(error)")
             }
         }
     }
 
+    func configurePage() {
+        DispatchQueue.main.async {
+            self.updateDayPicture()
+            self.daysCollectionView.reloadData()
+            self.mainTableView.reloadData(completion: {
+                self.mainTableView.invalidateIntrinsicContentSize()
+                self.mainTableView.layoutIfNeeded()
+                self.viewDidLayoutSubviews()
+            })
+        }
+    }
+
     func updateDayPicture(withAnimation: Bool = true) {
-        guard viewModel?.is30Days ?? false, let image = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].dayPicture
+        guard viewModel?.is30Days ?? false, let image = viewModel?.menuDay?.dayPicture
             else { return }
         let reference = StorageService.shared.getReferenceFor(path: image)
         if withAnimation {
@@ -141,9 +133,9 @@ class MenuViewController: UIViewController {
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard !(viewModel?.menuDays?.isEmpty ?? true)
+        guard !(viewModel?.menuDay == nil)
             else { return 0 }
-        return viewModel?.menuDays?[viewModel?.selectedRow ?? 0].mealsCount ?? 0
+        return viewModel?.menuDay?.mealsCount ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -160,7 +152,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuMealTableViewCell", for: indexPath)
-            as? MenuMealTableViewCell, let meal = viewModel?.menuDays?[viewModel?.selectedRow ?? 0].meals[indexPath.section] {
+            as? MenuMealTableViewCell, let meal = viewModel?.menuDay?.meals[indexPath.section] {
             cell.configureWith(.init(title: meal.category ?? "",
                                      dishes: meal.dishes ?? [],
                                      indexPath: indexPath,
@@ -176,7 +168,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel?.menuDays?.count ?? 0
+        (viewModel?.is30Days ?? false) ? 30 : 14
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -215,18 +207,11 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if PurchaseManager.shared.hasUnlockedPro || indexPath.row < .menuFreeDays {
+        if RevenueCatService.shared.hasUnlockedPro || indexPath.row < .menuFreeDays {
             viewModel?.selectedRow = indexPath.row
-            
-            DispatchQueue.main.async {
-                self.updateDayPicture()
-                self.daysCollectionView.reloadData()
-                self.mainTableView.reloadData(completion: {
-                    self.mainTableView.invalidateIntrinsicContentSize()
-                    self.mainTableView.layoutIfNeeded()
-                    self.viewDidLayoutSubviews()
-                })
-            }
+
+            let menuDayId = indexPath.row < 10 ? "0\(indexPath.row)" : "\(indexPath.row)"
+            self.getMenuDayWithId(menuDayId)
         } else {
             NavigationService.present(viewController: NavigationService.subscriptionViewController())
         }

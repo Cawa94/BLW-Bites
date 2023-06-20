@@ -1,23 +1,23 @@
 //
-//  ProductViewModel.swift
+//  PackageViewModel.swift
 //  weaning
 //
 //  Created by Yuri Cavallin on 16/3/23.
 //
 
 import Foundation
-import StoreKit
+import RevenueCat
 
-struct ProductViewModel {
+struct PackageViewModel {
 
     typealias TapHandler = () -> Void
 
-    let product: Product
+    let package: Package
     let tapHandler: TapHandler
 
-    init(product: Product,
+    init(package: Package,
          tapHandler: @escaping TapHandler) {
-        self.product = product
+        self.package = package
         self.tapHandler = tapHandler
     }
 

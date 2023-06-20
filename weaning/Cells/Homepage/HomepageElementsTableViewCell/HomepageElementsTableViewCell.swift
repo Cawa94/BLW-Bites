@@ -110,7 +110,7 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
             guard let food = foods?[indexPath.row], let cellIndexPath = self.indexPath
                 else { return }
             let isFree = food.isFree
-            if isFree || PurchaseManager.shared.hasUnlockedPro {
+            if isFree || RevenueCatService.shared.hasUnlockedPro {
                 delegate?.selectedElement(food: food, recipe: nil, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())
@@ -119,7 +119,7 @@ extension HomepageElementsTableViewCell: UICollectionViewDelegate, UICollectionV
             guard let recipe = recipes?[indexPath.row], let cellIndexPath = self.indexPath
                 else { return }
             let isFree = recipe.isFree
-            if isFree || PurchaseManager.shared.hasUnlockedPro {
+            if isFree || RevenueCatService.shared.hasUnlockedPro {
                 delegate?.selectedElement(food: nil, recipe: recipe, elementIndexPath: indexPath, cellIndexPath: cellIndexPath)
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())

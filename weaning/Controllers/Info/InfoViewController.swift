@@ -22,14 +22,14 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
         super.viewDidLoad()
 
         explicationTextView.attributedText = "INFO_DESCRIPTION".localized().htmlToAttributedString()
-        telegramLock.isHidden = PurchaseManager.shared.hasUnlockedPro
+        telegramLock.isHidden = RevenueCatService.shared.hasUnlockedPro
 
         emailButtonView.configureWith(.init(title: "INFO_EMAIL".localized(), tapHandler: {
             self.sendEmail()
         }))
 
         telegramButtonView.configureWith(.init(title: "INFO_TELEGRAM".localized(), tapHandler: {
-            if PurchaseManager.shared.hasUnlockedPro {
+            if RevenueCatService.shared.hasUnlockedPro {
                 self.openTelegram()
             } else {
                 NavigationService.present(viewController: NavigationService.subscriptionViewController())

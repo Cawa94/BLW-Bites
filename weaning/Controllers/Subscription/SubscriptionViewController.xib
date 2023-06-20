@@ -79,9 +79,6 @@
                                     <buttonConfiguration key="configuration" style="plain" title="Przywrócić zakup">
                                         <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                     </buttonConfiguration>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_RESTORE_PURCHASE"/>
-                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="restorePurchas" destination="-1" eventType="touchUpInside" id="AT7-9U-bAE"/>
                                     </connections>

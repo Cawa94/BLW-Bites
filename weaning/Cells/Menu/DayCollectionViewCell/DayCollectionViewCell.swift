@@ -24,7 +24,7 @@ class DayCollectionViewCell: UICollectionViewCell {
     func configureWithDay(_ dayNumber: String, isSelected: Bool, isPremium: Bool) {
         numberLabel.text = dayNumber
         numberLabel.textColor = isSelected ? .mainColor : .white
-        premiumImageView.isHidden = !(isPremium) || PurchaseManager.shared.hasUnlockedPro
+        premiumImageView.isHidden = !(isPremium) || RevenueCatService.shared.hasUnlockedPro
 
         circleView.backgroundColor = isSelected ? .white : .mainColor
         circleView.roundCornersSimplified(cornerRadius: DayCollectionViewCell.defaultHeight/2, borderWidth: 1, borderColor: .mainColor)

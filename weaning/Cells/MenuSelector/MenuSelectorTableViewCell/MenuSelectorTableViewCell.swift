@@ -32,7 +32,7 @@ class MenuSelectorTableViewCell: UITableViewCell {
         titleLabel.text = viewModel.title
         subtitleLabel.text = viewModel.subtitle
         mainImageView.image = UIImage(named: viewModel.image)
-        premiumImageView.isHidden = !(viewModel.isPremium) || PurchaseManager.shared.hasUnlockedPro
+        premiumImageView.isHidden = !(viewModel.isPremium) || RevenueCatService.shared.hasUnlockedPro
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         newView.isHidden = !viewModel.isNew
         monthLabel.text = viewModel.month

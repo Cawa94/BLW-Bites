@@ -150,7 +150,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func openMenuWith(id: String, name: String, isPremium: Bool, is30Days: Bool = false) {
-        if PurchaseManager.shared.hasUnlockedPro || !isPremium {
+        if RevenueCatService.shared.hasUnlockedPro || !isPremium {
             NavigationService.push(viewController: NavigationService.menuViewController(menuId: id,
                                                                                         menuName: name,
                                                                                         is30Days: is30Days))

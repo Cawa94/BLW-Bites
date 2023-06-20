@@ -123,7 +123,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
         case 1:
-            return PurchaseManager.shared.hasUnlockedPro
+            return RevenueCatService.shared.hasUnlockedPro
                 ? homepageElementsSection(tableView, cellForRowAt: indexPath)
                 : freeHomepageElementsSection(tableView, cellForRowAt: indexPath)
         default:

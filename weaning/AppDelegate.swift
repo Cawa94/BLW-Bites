@@ -10,6 +10,7 @@ import AppTrackingTransparency
 import FirebaseAnalytics
 import FirebaseCore
 import FirebaseAppCheck
+import RevenueCat
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,26 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        /*#if DEBUG
-            // To retrieve debug token for App Check on simulators
-            let providerFactory = AppCheckDebugProviderFactory()
-            AppCheck.setAppCheckProviderFactory(providerFactory)
-        #else*/
-            let providerFactory = AppCheckProviderService()
-            AppCheck.setAppCheckProviderFactory(providerFactory)
-        //#endif
+        // To retrieve debug token for App Check on simulators
+        // let providerFactory = AppCheckDebugProviderFactory()
+        // AppCheck.setAppCheckProviderFactory(providerFactory)
 
-        Task {
-            do {
-                await PurchaseManager.shared.updatePurchasedProducts()
-                if FirebaseApp.app() == nil { // To avoid Firebase being initialised multiple times
-                    FirebaseApp.configure()
-                }
-                Analytics.setAnalyticsCollectionEnabled(false)
-                self.askForTrackingPermission()
-                NavigationService.makeMainRootController()
-            }
-        }
+        let providerFactory = AppCheckProviderService()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(false)
+        #if RELEASE
+            self.askForTrackingPermission()
+        #endif
+
+        RevenueCatService.shared.configure()
 
         return true
     }

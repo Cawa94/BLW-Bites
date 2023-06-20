@@ -17,7 +17,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         configureAppearance()
         configureTabBar()
 
-        if !PurchaseManager.shared.hasUnlockedPro {
+        if !RevenueCatService.shared.hasUnlockedPro {
             addPromotionalBanner()
         }
     }

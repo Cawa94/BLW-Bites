@@ -34,7 +34,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
-        unavailableView.isHidden = !viewModel.isFavorites || PurchaseManager.shared.hasUnlockedPro
+        unavailableView.isHidden = !viewModel.isFavorites || RevenueCatService.shared.hasUnlockedPro
         unavailableView.roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
         roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
     }
@@ -50,7 +50,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
         self.nameLabel.textColor = isSelected ? .white : .textColor
         self.backgroundColor = isSelected ? .mainColor : .white
-        unavailableView.isHidden = !viewModel.isFavorites || PurchaseManager.shared.hasUnlockedPro
+        unavailableView.isHidden = !viewModel.isFavorites || RevenueCatService.shared.hasUnlockedPro
         unavailableView.roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
         roundCornersSimplified(cornerRadius: frame.height/2, borderWidth: 1, borderColor: isSelected ? .white : .mainColor)
     }

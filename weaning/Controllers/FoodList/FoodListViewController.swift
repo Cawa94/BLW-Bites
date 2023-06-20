@@ -223,7 +223,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            if indexPath.row != 0 || PurchaseManager.shared.hasUnlockedPro {
+            if indexPath.row != 0 || RevenueCatService.shared.hasUnlockedPro {
                 foodSearchBar.text = nil
                 let currentCategory = viewModel?.categorySelected
                 viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
@@ -237,7 +237,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             guard let food = viewModel?.foods[indexPath.row], let id = food.id
                 else { return }
-            if food.isFree || PurchaseManager.shared.hasUnlockedPro {
+            if food.isFree || RevenueCatService.shared.hasUnlockedPro {
                 let foodController = NavigationService.foodViewController(
                     foodId: id, food: food,
                     cellFavoriteImageView: (collectionView.cellForItem(at: indexPath) as? ShortFoodCollectionViewCell)?.publicFavoriteImageView)

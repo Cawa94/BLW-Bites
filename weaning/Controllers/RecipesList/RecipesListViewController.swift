@@ -234,7 +234,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            if indexPath.row != 0 || PurchaseManager.shared.hasUnlockedPro {
+            if indexPath.row != 0 || RevenueCatService.shared.hasUnlockedPro {
                 recipeSearchBar.text = nil
                 let currentCategory = viewModel?.categorySelected
                 viewModel?.categorySelected = currentCategory == indexPath.row ? nil : indexPath.row
@@ -248,7 +248,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             guard let recipe = viewModel?.recipes[indexPath.row], let id = recipe.id
                 else { return }
-            if recipe.isFree || PurchaseManager.shared.hasUnlockedPro {
+            if recipe.isFree || RevenueCatService.shared.hasUnlockedPro {
                 let recipeController = NavigationService.recipeViewController(
                     recipeId: id, recipe: recipe,
                     cellFavoriteImageView: (collectionView.cellForItem(at: indexPath) as? ShortRecipeCollectionViewCell)?.publicFavoriteImageView)

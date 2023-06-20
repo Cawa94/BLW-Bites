@@ -9,7 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
-import StoreKit
+import RevenueCat
 
 class SubscriptionViewController: UIViewController {
 
@@ -27,8 +27,8 @@ class SubscriptionViewController: UIViewController {
             self.viewDidLayoutSubviews()
         }
 
-        FirestoreService.shared.database.collection("subscriptions").getDocuments() { querySnapshot, error in
-            self.convertSubscriptionData(querySnapshot, error)
+        for package in RevenueCatService.shared.packages ?? [] {
+            appendProduct(package)
         }
     }
 
@@ -44,49 +44,16 @@ class SubscriptionViewController: UIViewController {
             + 500
     }
 
-    func convertSubscriptionData(_ querySnapshot: QuerySnapshot?, _ error: Error?) {
-        if let error = error {
-            print("Error getting documents: \(error)")
-        } else {
-            self.viewModel?.subscriptions.removeAll()
-            for document in querySnapshot!.documents {
-                self.viewModel?.subscriptions.append(.init(data: document.data()))
-            }
-            Task {
-                do {
-                    try await PurchaseManager.shared.loadProducts(productIds: (viewModel?.subscriptions.compactMap { $0.id ?? "" } ?? []))
-                    for product in PurchaseManager.shared.products?.sorted(by: { $0.price < $1.price }) ?? [] {
-                        appendProduct(product)
-                    }
-                } catch {
-                    debugPrint(error)
-                }
-            }
-        }
-    }
-
-    func appendProduct(_ product: Product) {
-        let productView = ProductView()
-        productView.configureWith(.init(product: product, tapHandler: {
-            Task {
-                do {
-                    try await PurchaseManager.shared.purchase(product)
-                } catch {
-                    debugPrint(error)
-                }
-            }
+    func appendProduct(_ package: Package) {
+        let productView = PackageView()
+        productView.configureWith(.init(package: package, tapHandler: {
+            RevenueCatService.shared.purchase(package)
         }))
         productsStackView.addArrangedSubview(productView)
     }
 
     @IBAction func restorePurchas() {
-        Task {
-            do {
-                try await PurchaseManager.shared.restorePurchase()
-            } catch {
-                debugPrint(error)
-            }
-        }
+        RevenueCatService.shared.restorePurchas()
     }
 
 }

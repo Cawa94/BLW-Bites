@@ -81,10 +81,10 @@ public struct Food: Codable {
         if let firstDictionary = dictionary?["first"] as? [String: Any] {
             first = AgeSegment(months: firstDictionary["months"] as? String, description: firstDictionary["description"] as? String, pictures: firstDictionary["pictures"] as? [String])
         }
-        if let secondDictionary = dictionary?["first"] as? [String: Any] {
+        if let secondDictionary = dictionary?["second"] as? [String: Any] {
             second = AgeSegment(months: secondDictionary["months"] as? String, description: secondDictionary["description"] as? String, pictures: secondDictionary["pictures"] as? [String])
         }
-        if let thirdDictionary = dictionary?["first"] as? [String: Any] {
+        if let thirdDictionary = dictionary?["third"] as? [String: Any] {
             third = AgeSegment(months: thirdDictionary["months"] as? String, description: thirdDictionary["description"] as? String, pictures: thirdDictionary["pictures"] as? [String])
         }
         return .init(first: first, second: second, third: third)

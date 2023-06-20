@@ -45,17 +45,17 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
 
         nameLabel.text = viewModel.shortRecipe.name
         startingFromLabel.text = viewModel.shortRecipe.startingFrom
-        premiumImageView.isHidden = viewModel.shortRecipe.isFree || PurchaseManager.shared.hasUnlockedPro
+        premiumImageView.isHidden = viewModel.shortRecipe.isFree || RevenueCatService.shared.hasUnlockedPro
         imageContainerView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         unavailableView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         newView.isHidden = !viewModel.shortRecipe.isNew
         seasonalView.isHidden = !viewModel.shortRecipe.isSeasonal
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius/2, borderWidth: 1, borderColor: .white)
-        favoriteImageView.isHidden = !PurchaseManager.shared.hasUnlockedPro
+        favoriteImageView.isHidden = !RevenueCatService.shared.hasUnlockedPro
         favoriteImageView.image = viewModel.shortRecipe.isFavorite ? .init(named: "heart_full") : .init(named: "heart_empty")
 
-        if !(viewModel.shortRecipe.isFree) && !PurchaseManager.shared.hasUnlockedPro {
+        if !(viewModel.shortRecipe.isFree) && !RevenueCatService.shared.hasUnlockedPro {
             self.unavailableView.isHidden = false
         }
 
@@ -66,7 +66,7 @@ class ShortRecipeCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func toggleFavorite() {
-        if PurchaseManager.shared.hasUnlockedPro {
+        if RevenueCatService.shared.hasUnlockedPro {
             let isFavorite = viewModel?.shortRecipe.isFavorite ?? false
             if isFavorite {
                 UserDefaultsService.removeRecipeFromFavorite(viewModel?.shortRecipe.id ?? "")

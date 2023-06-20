@@ -54,7 +54,7 @@ class RecipeViewController: UIViewController {
 
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         favoriteView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
-        favoriteView.isHidden = !PurchaseManager.shared.hasUnlockedPro
+        favoriteView.isHidden = !RevenueCatService.shared.hasUnlockedPro
         newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
         seasonalView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
     }

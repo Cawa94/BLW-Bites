@@ -10,10 +10,4 @@ import StoreKit
 
 struct SubscriptionViewModel {
 
-    var subscriptions: [Subscription]
-
-    init() {
-        subscriptions = []
-    }
-
 }

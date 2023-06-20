@@ -1,5 +1,5 @@
 //
-//  ProductView.swift
+//  PackageView.swift
 //  weaning
 //
 //  Created by Yuri Cavallin on 16/3/23.
@@ -8,13 +8,13 @@
 import UIKit
 import StoreKit
 
-class ProductView: UIView {
+class PackageView: UIView {
 
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var priceLabel: UILabel!
 
-    private var viewModel: ProductViewModel?
+    private var viewModel: PackageViewModel?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ class ProductView: UIView {
     }
 
     func commonInit() {
-        Bundle.main.loadNibNamed("ProductView",
+        Bundle.main.loadNibNamed("PackageView",
                                  owner: self,
                                  options: nil)
         addSubview(contentView)
@@ -36,11 +36,11 @@ class ProductView: UIView {
         contentView.drawShadow()
     }
 
-    func configureWith(_ viewModel: ProductViewModel) {
+    func configureWith(_ viewModel: PackageViewModel) {
         self.viewModel = viewModel
 
-        nameLabel.text = viewModel.product.displayName
-        priceLabel.text = viewModel.product.displayPrice
+        nameLabel.text = viewModel.package.offeringIdentifier
+        priceLabel.text = viewModel.package.localizedPriceString
     }
 
     @IBAction func startPurchasing() {
