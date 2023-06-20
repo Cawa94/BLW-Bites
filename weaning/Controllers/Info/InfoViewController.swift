@@ -32,7 +32,7 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
             if RevenueCatService.shared.hasUnlockedPro {
                 self.openTelegram()
             } else {
-                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+                NavigationService.openLoginOrSubscription()
             }
         }))
 

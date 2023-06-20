@@ -117,7 +117,12 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageHeaderTableViewCell", for: indexPath)
                 as? HomepageHeaderTableViewCell {
-                cell.configureWith(.init(tapHandler: { NavigationService.present(viewController: NavigationService.subscriptionViewController()) }))
+                cell.configureWith(.init(tapHandler: {
+                    if AuthService.shared.isLoggedIn {
+                        NavigationService.present(viewController: NavigationService.profileViewController())
+                    } else {
+                        NavigationService.present(viewController: NavigationService.loginViewController())
+                    }}))
                 return cell
             } else {
                 return UITableViewCell()

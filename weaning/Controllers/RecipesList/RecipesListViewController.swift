@@ -243,7 +243,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                 }
                 self.getRecipes(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
             } else {
-                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+                NavigationService.openLoginOrSubscription()
             }
         } else {
             guard let recipe = viewModel?.recipes[indexPath.row], let id = recipe.id
@@ -255,7 +255,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                 self.selectedIndexPath = indexPath
                 NavigationService.push(viewController: recipeController)
             } else {
-                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+                NavigationService.openLoginOrSubscription()
             }
         }
     }

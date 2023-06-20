@@ -22,6 +22,15 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if NavigationService.willPresentSubscription {
+            NavigationService.willPresentSubscription = false
+            NavigationService.present(viewController: NavigationService.subscriptionViewController())
+        }
+    }
+
     func configureTabBar() {
         self.delegate = self
 

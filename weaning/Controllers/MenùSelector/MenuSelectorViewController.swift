@@ -155,7 +155,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
                                                                                         menuName: name,
                                                                                         is30Days: is30Days))
         } else {
-            NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            NavigationService.openLoginOrSubscription()
         }
     }
 

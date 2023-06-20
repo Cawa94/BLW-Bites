@@ -625,6 +625,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - PromisesObjC (~> 2.1)
   - FirebaseAppCheckInterop (10.5.0)
+  - FirebaseAuth (10.11.0):
+    - FirebaseAppCheckInterop (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
   - FirebaseAuthInterop (10.5.0)
   - FirebaseCore (10.5.0):
     - FirebaseCoreInternal (~> 10.0)
@@ -804,6 +810,7 @@ PODS:
 DEPENDENCIES:
   - FirebaseAnalytics
   - FirebaseAppCheck
+  - FirebaseAuth
   - FirebaseCrashlytics
   - FirebaseFirestore
   - FirebaseFirestoreSwift
@@ -821,6 +828,7 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAppCheck
     - FirebaseAppCheckInterop
+    - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreExtension
@@ -856,6 +864,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 6c6bf99e8854475bf1fa342028841be8ecd236da
   FirebaseAppCheck: ad3a99d0e14dd153eb54d11bdd7e702e396ee505
   FirebaseAppCheckInterop: 95bc238f8755d597cad95815b3c448f8617f720f
+  FirebaseAuth: 7aabcb00fbf330db49c207c0d645b8b1b62df0e9
   FirebaseAuthInterop: e1a53afba01599095100f92d6d3ecb75da6b5fa8
   FirebaseCore: 324b8d182d9ff7e3f6d1fa2f04b082d1c7a3e366
   FirebaseCoreExtension: d9fa427f1ae1edccf2368ce5e8d567e4c1f0ebc8
@@ -885,6 +894,6 @@ SPEC CHECKSUMS:
   RevenueCat: 3cfa343e1ffe37e0084578351e39c4146813f34d
   SDWebImage: 8ab87d4b3e5cc4927bd47f78db6ceb0b94442577
 
-PODFILE CHECKSUM: 5b46cbb5d48775312acaab633911a85ead3eda83
+PODFILE CHECKSUM: 94338d84a5995969af2f636b69a82b3414aee087
 
 COCOAPODS: 1.12.1

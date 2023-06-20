@@ -213,7 +213,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let menuDayId = indexPath.row < 10 ? "0\(indexPath.row)" : "\(indexPath.row)"
             self.getMenuDayWithId(menuDayId)
         } else {
-            NavigationService.present(viewController: NavigationService.subscriptionViewController())
+            NavigationService.openLoginOrSubscription()
         }
     }
 

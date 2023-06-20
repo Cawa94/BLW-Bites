@@ -7,12 +7,13 @@ target 'weaning' do
 
   # Pods for weaning
   pod 'FirebaseAnalytics'
+  pod 'FirebaseAppCheck'
+  pod 'FirebaseAuth'
   pod 'FirebaseCrashlytics'
   pod 'FirebaseFirestore'
+  pod 'FirebaseFirestoreSwift'
   pod 'FirebaseStorage'
   pod 'FirebaseStorageUI'
-  pod 'FirebaseFirestoreSwift'
-  pod 'FirebaseAppCheck'
   pod 'HCVimeoVideoExtractor'
   pod 'ImageViewer.swift'
   pod 'ImageScrollView'

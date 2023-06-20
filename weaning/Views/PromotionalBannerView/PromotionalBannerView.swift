@@ -32,7 +32,7 @@ class PromotionalBannerView: UIView {
     }
 
     @IBAction func showSubscriptionPage() {
-        NavigationService.present(viewController: NavigationService.subscriptionViewController())
+        NavigationService.openLoginOrSubscription()
     }
 
 }

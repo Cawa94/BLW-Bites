@@ -232,7 +232,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                 }
                 self.getFoods(isFavorites: viewModel?.categorySelected != nil ? indexPath.row == 0 : false)
             } else {
-                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+                NavigationService.openLoginOrSubscription()
             }
         } else {
             guard let food = viewModel?.foods[indexPath.row], let id = food.id
@@ -244,7 +244,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                 self.selectedIndexPath = indexPath
                 NavigationService.push(viewController: foodController)
             } else {
-                NavigationService.present(viewController: NavigationService.subscriptionViewController())
+                NavigationService.openLoginOrSubscription()
             }
         }
     }

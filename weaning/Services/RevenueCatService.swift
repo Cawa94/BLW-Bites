@@ -23,9 +23,7 @@ class RevenueCatService {
     private init() { }
 
     func configure() {
-        #if DEBUG
-            Purchases.logLevel = .debug
-        #endif
+        // Purchases.logLevel = .debug
 
         Purchases.configure(withAPIKey: .revenueCatPublicKey)
         getCurrentOfferings()

@@ -17,6 +17,7 @@ struct NavigationService {
     }
 
     static let zoomNavigation = ZoomTransitioningDelegate()
+    static var willPresentSubscription = false
 
     init() {}
 
@@ -64,15 +65,12 @@ struct NavigationService {
         tabNavigationController?.popViewController(animated: true)
     }
 
-}
-
-extension NavigationService {
-
-    static func profileViewController() -> HomepageViewController {
-        let controller = HomepageViewController(nibName: HomepageViewController.xibName,
-                                                bundle: nil)
-        controller.viewModel = HomepageViewModel()
-        return controller
+    static func openLoginOrSubscription() {
+        if AuthService.shared.isLoggedIn {
+            NavigationService.present(viewController: NavigationService.subscriptionViewController())
+        } else {
+            NavigationService.present(viewController: NavigationService.loginViewController())
+        }
     }
 
 }
