@@ -21,6 +21,7 @@
                 <outlet property="contentViewHeightConstraint" destination="582-jA-dTM" id="Ge2-Q1-0OV"/>
                 <outlet property="emailTextField" destination="4oW-Lk-sPG" id="qx1-h2-3gv"/>
                 <outlet property="loadingSpinner" destination="5d9-uC-SRG" id="tYY-Qk-UL6"/>
+                <outlet property="mainScrollView" destination="Dc0-CM-hSt" id="oEG-MM-yFL"/>
                 <outlet property="messageLabel" destination="Y2J-Gx-voe" id="Ed9-NB-6Zo"/>
                 <outlet property="nameTextField" destination="aGN-jC-4EI" id="yMl-Jv-Szh"/>
                 <outlet property="passwordTextField" destination="ogy-dw-7fS" id="Fzu-oB-9z6"/>
@@ -37,22 +38,40 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-hx-RV9" userLabel="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="770"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="730"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hello there!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyy-d1-ol1">
-                                    <rect key="frame" x="117.66666666666669" y="100" width="158" height="38.333333333333343"/>
+                                    <rect key="frame" x="117.66666666666669" y="50" width="158" height="38.333333333333343"/>
                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="28"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_TITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Fill your information to create an account!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-jP-zgM">
-                                    <rect key="frame" x="30" y="148.33333333333334" width="333" height="60.333333333333343"/>
+                                    <rect key="frame" x="30" y="98.333333333333329" width="333" height="60.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="22"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_SUBTITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-jC-4EI" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
+                                    <rect key="frame" x="30" y="193.66666666666666" width="333" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="jad-9G-5Rn"/>
+                                    </constraints>
+                                    <color key="textColor" name="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="foD-ma-jyn"/>
+                                    </connections>
+                                </textField>
                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4oW-Lk-sPG" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="318.66666666666669" width="333" height="50"/>
+                                    <rect key="frame" x="30" y="268.66666666666669" width="333" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="8Bg-4C-dkV"/>
                                     </constraints>
@@ -64,7 +83,7 @@
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ogy-dw-7fS" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="393.66666666666669" width="333" height="50"/>
+                                    <rect key="frame" x="30" y="343.66666666666669" width="333" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="bhr-ej-hNo"/>
                                     </constraints>
@@ -76,7 +95,7 @@
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3xW-7p-xIu" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="468.66666666666669" width="333" height="50.000000000000057"/>
+                                    <rect key="frame" x="30" y="418.66666666666669" width="333" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="7gO-8j-UO1"/>
                                     </constraints>
@@ -88,20 +107,20 @@
                                     </connections>
                                 </textField>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your account has been created!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2J-Gx-voe">
-                                    <rect key="frame" x="30" y="628.66666666666663" width="333" height="22"/>
+                                    <rect key="frame" x="30" y="578.66666666666663" width="333" height="22"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                     <color key="textColor" name="mainColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-dD-pU7" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="558.66666666666663" width="333" height="60"/>
+                                    <rect key="frame" x="30" y="508.66666666666674" width="333" height="60"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="3hU-0Y-0jZ"/>
                                     </constraints>
                                 </view>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-uC-SRG">
-                                    <rect key="frame" x="323" y="576.33333333333337" width="25" height="25"/>
+                                    <rect key="frame" x="323" y="526.33333333333337" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="ObA-Lq-QaG"/>
                                         <constraint firstAttribute="width" secondItem="5d9-uC-SRG" secondAttribute="height" multiplier="1:1" id="h3X-4C-bft"/>
@@ -109,51 +128,45 @@
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-wM-aDM">
-                                    <rect key="frame" x="69" y="695" width="255" height="30"/>
+                                    <rect key="frame" x="69" y="655" width="255" height="30"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Gre-fY-ask"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-Tz-Q0g">
-                                    <rect key="frame" x="68.999999999999986" y="699" width="189.66666666666663" height="22"/>
+                                    <rect key="frame" x="68.999999999999986" y="659" width="189.66666666666663" height="22"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_ALREADY_ACCOUNT"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfk-EX-jh0">
-                                    <rect key="frame" x="258.66666666666669" y="692" width="65.333333333333314" height="36"/>
+                                    <rect key="frame" x="258.66666666666669" y="652" width="65.333333333333314" height="36"/>
                                     <color key="tintColor" name="mainColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Login">
                                         <fontDescription key="titleFontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                     </buttonConfiguration>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_LOGIN_BUTTON"/>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="backToLogin" destination="-1" eventType="touchUpInside" id="7tO-Z2-B7u"/>
                                     </connections>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aGN-jC-4EI" customClass="CustomTextField" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="243.66666666666663" width="333" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="jad-9G-5Rn"/>
-                                    </constraints>
-                                    <color key="textColor" name="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="foD-ma-jyn"/>
-                                    </connections>
-                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="MCr-wM-aDM" firstAttribute="centerX" secondItem="cP4-hx-RV9" secondAttribute="centerX" id="1ne-uA-FJg"/>
                                 <constraint firstAttribute="trailing" secondItem="Rb5-jP-zgM" secondAttribute="trailing" constant="30" id="2ku-fJ-yl0"/>
                                 <constraint firstItem="3xW-7p-xIu" firstAttribute="top" secondItem="ogy-dw-7fS" secondAttribute="bottom" constant="25" id="2mC-KO-Ysd"/>
-                                <constraint firstAttribute="height" constant="770" id="582-jA-dTM"/>
+                                <constraint firstAttribute="height" constant="730" id="582-jA-dTM"/>
                                 <constraint firstAttribute="bottom" secondItem="MCr-wM-aDM" secondAttribute="bottom" constant="45" id="5qx-ln-9m9"/>
                                 <constraint firstItem="MCr-wM-aDM" firstAttribute="leading" secondItem="MXh-Tz-Q0g" secondAttribute="leading" id="78U-PN-eMt"/>
-                                <constraint firstItem="Oyy-d1-ol1" firstAttribute="top" secondItem="cP4-hx-RV9" secondAttribute="top" constant="100" id="7ms-pY-Jz0"/>
+                                <constraint firstItem="Oyy-d1-ol1" firstAttribute="top" secondItem="cP4-hx-RV9" secondAttribute="top" constant="50" id="7ms-pY-Jz0"/>
                                 <constraint firstItem="ogy-dw-7fS" firstAttribute="trailing" secondItem="4oW-Lk-sPG" secondAttribute="trailing" id="AYP-0h-YnU"/>
                                 <constraint firstItem="3xW-7p-xIu" firstAttribute="trailing" secondItem="ogy-dw-7fS" secondAttribute="trailing" id="FwS-e7-fuh"/>
                                 <constraint firstItem="aGN-jC-4EI" firstAttribute="top" secondItem="Rb5-jP-zgM" secondAttribute="bottom" constant="35" id="GqA-PX-1CF"/>

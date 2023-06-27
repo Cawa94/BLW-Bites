@@ -6,8 +6,19 @@
 //
 
 import Foundation
-import StoreKit
+import RevenueCat
 
 struct SubscriptionViewModel {
+
+    var firstSelected = false
+    var hasFreeTrial: Bool
+    var firstPackage: Package?
+    var secondPackage: Package?
+
+    init() {
+        self.hasFreeTrial = RevenueCatService.shared.hasFreeTrial
+        self.firstPackage = RevenueCatService.shared.packages?[0]
+        self.secondPackage = RevenueCatService.shared.packages?[1]
+    }
 
 }

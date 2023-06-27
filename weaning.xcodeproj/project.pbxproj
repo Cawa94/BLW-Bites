@@ -42,6 +42,7 @@
 		733846572A4239AE00FAEEAF /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733846562A4239AE00FAEEAF /* Error+Extension.swift */; };
 		733846602A425D5900FAEEAF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7338465E2A425D5900FAEEAF /* SplashViewController.swift */; };
 		733846612A425D5900FAEEAF /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7338465F2A425D5900FAEEAF /* SplashViewController.xib */; };
+		73386F3E2A433668004FB4F4 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73386F3D2A433668004FB4F4 /* UIButton+Extension.swift */; };
 		7344B35929A0D3D000B172AC /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35729A0D3D000B172AC /* HomepageViewController.swift */; };
 		7344B35A29A0D3D000B172AC /* HomepageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B35829A0D3D000B172AC /* HomepageViewController.xib */; };
 		7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */; };
@@ -62,7 +63,6 @@
 		736579B429A23F2C0071F60E /* FoodSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */; };
 		736718D429C1D8F600736D04 /* MenuDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736718D329C1D8F600736D04 /* MenuDay.swift */; };
 		736718D629C1D96800736D04 /* MenuDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736718D529C1D96800736D04 /* MenuDish.swift */; };
-		738CCF9229C8D2DC000080AE /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9129C8D2DC000080AE /* PurchaseManager.swift */; };
 		738CCF9429C8F0E3000080AE /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */; };
 		738CCF9629CA11EE000080AE /* HomepageHeaderTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */; };
 		738FB2AE2997A9B700C286B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738FB2AD2997A9B700C286B3 /* AppDelegate.swift */; };
@@ -169,6 +169,7 @@
 		73E59BE629AA683B003D7F65 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BE529AA683B003D7F65 /* InfoSection.swift */; };
 		73E59BEB29AA72EE003D7F65 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E59BEA29AA72EE003D7F65 /* String+Extension.swift */; };
 		73E90EA22998F223003EA5C0 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E90EA12998F223003EA5C0 /* StorageService.swift */; };
+		73F7BD732A49A48300A4E98B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7BD722A49A48300A4E98B /* Date+Extension.swift */; };
 		A2B42D6633F96ED8E56A177F /* Pods_weaning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE5DB4A9714F27ED6A5A5B5 /* Pods_weaning.framework */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +209,7 @@
 		733846562A4239AE00FAEEAF /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
 		7338465E2A425D5900FAEEAF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7338465F2A425D5900FAEEAF /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		73386F3D2A433668004FB4F4 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7344B35729A0D3D000B172AC /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
 		7344B35829A0D3D000B172AC /* HomepageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageViewController.xib; sourceTree = "<group>"; };
 		7344B35B29A0D3E300B172AC /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
@@ -229,7 +231,6 @@
 		736579B229A23F2C0071F60E /* FoodSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodSectionTableViewCell.xib; sourceTree = "<group>"; };
 		736718D329C1D8F600736D04 /* MenuDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDay.swift; sourceTree = "<group>"; };
 		736718D529C1D96800736D04 /* MenuDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDish.swift; sourceTree = "<group>"; };
-		738CCF9129C8D2DC000080AE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		738CCF9529CA11EE000080AE /* HomepageHeaderTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageHeaderTableViewModel.swift; sourceTree = "<group>"; };
 		738FB2AA2997A9B700C286B3 /* Test Build.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Build.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +339,7 @@
 		73E59BE529AA683B003D7F65 /* InfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 		73E59BEA29AA72EE003D7F65 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		73E90EA12998F223003EA5C0 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		73F7BD722A49A48300A4E98B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		8781D3EB27AF7329B23848C5 /* Pods-weaning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weaning.release.xcconfig"; path = "Target Support Files/Pods-weaning/Pods-weaning.release.xcconfig"; sourceTree = "<group>"; };
 		8A73DD944BA7A607A674D82A /* Pods-weaning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weaning.debug.xcconfig"; path = "Target Support Files/Pods-weaning/Pods-weaning.debug.xcconfig"; sourceTree = "<group>"; };
 		9FE5DB4A9714F27ED6A5A5B5 /* Pods_weaning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weaning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -675,7 +677,6 @@
 				73B82BDA2A3B2D7F00272290 /* FirebaseAnalytics.swift */,
 				738FB2E92997CB8100C286B3 /* FirestoreService.swift */,
 				738FB2CC2997ACA700C286B3 /* NavigationService.swift */,
-				738CCF9129C8D2DC000080AE /* PurchaseManager.swift */,
 				7351ECD32A40944A00DCF611 /* RevenueCatService.swift */,
 				73E90EA12998F223003EA5C0 /* StorageService.swift */,
 				732F54B52A15164F0045F6C5 /* UserDefaultsService.swift */,
@@ -699,10 +700,12 @@
 		738FB2DD2997C59800C286B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				73F7BD722A49A48300A4E98B /* Date+Extension.swift */,
 				733846562A4239AE00FAEEAF /* Error+Extension.swift */,
 				738CCF9329C8F0E3000080AE /* NotificationCenter+Extension.swift */,
 				738FB2E22997C74D00C286B3 /* Optional+Extension.swift */,
 				73E59BEA29AA72EE003D7F65 /* String+Extension.swift */,
+				73386F3D2A433668004FB4F4 /* UIButton+Extension.swift */,
 				73A0BB8B29AE8F5A0099DB74 /* UICollectionView+Extension.swift */,
 				738FB3062997DFB800C286B3 /* UICollectionViewCell+Extension.swift */,
 				73A0C2E829F6C64C0055C57B /* UIImage+Extension.swift */,
@@ -1235,6 +1238,7 @@
 			files = (
 				738CCF9629CA11EE000080AE /* HomepageHeaderTableViewModel.swift in Sources */,
 				7316B4EB29C202E100BD0AB0 /* MenuDishViewModel.swift in Sources */,
+				73386F3E2A433668004FB4F4 /* UIButton+Extension.swift in Sources */,
 				738FB2F22997D6AD00C286B3 /* NavigationService + RecipesListViewController.swift in Sources */,
 				738FB2DF2997C5B000C286B3 /* UIViewController+Extension.swift in Sources */,
 				736579A729A2340A0071F60E /* UITableView+Extension.swift in Sources */,
@@ -1249,8 +1253,8 @@
 				738FB2F02997D69200C286B3 /* RecipesListViewModel.swift in Sources */,
 				73AE195629BC85E000B2A2AE /* MenuSelectorTableViewCell.swift in Sources */,
 				73E59BCE29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.swift in Sources */,
+				73F7BD732A49A48300A4E98B /* Date+Extension.swift in Sources */,
 				735FE74A2A0144A000AB8BBF /* AppCheckProviderService.swift in Sources */,
-				738CCF9229C8D2DC000080AE /* PurchaseManager.swift in Sources */,
 				738CCF9429C8F0E3000080AE /* NotificationCenter+Extension.swift in Sources */,
 				738FB2FF2997DABD00C286B3 /* NavigationService + FoodViewController.swift in Sources */,
 				738FB2F62997D98900C286B3 /* Food.swift in Sources */,

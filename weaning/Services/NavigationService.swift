@@ -77,4 +77,20 @@ struct NavigationService {
         }
     }
 
+    static func presentAlertWith(title: String,
+                                 message: String,
+                                 isDestructive: Bool = false,
+                                 confirmText: String = "COMMON_OK",
+                                 confirmAction: @escaping () -> Void,
+                                 showCancelAction: Bool = false) {
+        let alertController = UIAlertController(title: title.uppercased(), message: message, preferredStyle: .alert)
+        alertController.addAction(.init(title: confirmText.localized(), style: isDestructive ? .destructive : .default) { _ in
+            confirmAction()
+        })
+        if showCancelAction {
+            alertController.addAction(.init(title: "COMMON_CANCEL".localized(), style: .cancel))
+        }
+        NavigationService.rootNavigationController?.visibleViewController?.present(alertController, animated: true, completion: nil)
+    }
+
 }

@@ -13,6 +13,14 @@ public extension UIViewController {
         return String(describing: self)
     }
 
+    @objc var internalScrollView: UIScrollView {
+        UIScrollView()
+    }
+
+    @objc var className: String {
+        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
+    }
+
     /// Return top visible controller even if we have inner UI(Navigation/TabBar)Controller's inside
     var topVisibleViewController: UIViewController {
         switch self {
@@ -55,6 +63,11 @@ public extension UIViewController {
         return navController
     }
 
+    func addKeyboardSettings() {
+        hideKeyboardWhenTappedAround()
+        scrollWhenKeyboardAppears()
+    }
+
     func hideKeyboardWhenTappedAround() {
         let tapGesture = UITapGestureRecognizer(target: self,
                          action: #selector(hideKeyboard))
@@ -66,8 +79,24 @@ public extension UIViewController {
         view.endEditing(true)
     }
 
-    var className: String {
-        return NSStringFromClass(self.classForCoder).components(separatedBy: ".").last ?? ""
+    func scrollWhenKeyboardAppears() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification:NSNotification){
+        let userInfo = notification.userInfo!
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = internalScrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        internalScrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        internalScrollView.contentInset = contentInset
     }
 
 }

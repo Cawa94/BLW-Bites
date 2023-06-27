@@ -65,7 +65,7 @@ extension String {
             boldBlock = boldBlock.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
 
             let boldAttribute: [NSAttributedString.Key : Any] = [
-                .font : UIFont.boldFontOf(size: 18),
+                .font : UIFont.extraBoldFontOf(size: 18),
                 .foregroundColor: UIColor.mainColor
             ]
 

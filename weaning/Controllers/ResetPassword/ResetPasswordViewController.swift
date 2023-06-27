@@ -18,12 +18,18 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        hideKeyboardWhenTappedAround()
+        addKeyboardSettings()
 
-        emailTextField.configureWith(.init(placeholder: "Email"))
-        sendEmailButton.configureWith(.init(title: "Send email", tapHandler: {
+        emailTextField.configureWith(.init(placeholder: "AUTH_EMAIL".localized()))
+        sendEmailButton.configureWith(.init(title: "RESET_PASSWORD_SEND_EMAIL".localized(), tapHandler: {
             self.sendEmail()
         }))
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
     }
 
     func sendEmail() {
@@ -38,7 +44,7 @@ class ResetPasswordViewController: UIViewController {
                 self.showMessageLabel(error.localizedFirebaseAuthMessage, color: .red)
                 debugPrint("ERROR: \(error.localizedFirebaseAuthMessage)")
             } else {
-                self.showMessageLabel("The email has been sent", color: .mainColor)
+                self.showMessageLabel("RESET_PASSWORD_EMAIL_SENT".localized(), color: .mainColor)
             }
         }
     }
@@ -60,6 +66,28 @@ class ResetPasswordViewController: UIViewController {
         messageLabel.textColor = color
         messageLabel.text = text
         messageLabel.isHidden = false
+    }
+
+}
+
+extension ResetPasswordViewController: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let customTextField = textField as? CustomTextField {
+            customTextField.underline(color: .mainColor)
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let customTextField = textField as? CustomTextField {
+            customTextField.underline()
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        return false
     }
 
 }

@@ -11,10 +11,18 @@ import StoreKit
 class PackageView: UIView {
 
     @IBOutlet private var contentView: UIView!
+    @IBOutlet private var containerView: UIView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var priceLabel: UILabel!
+    @IBOutlet private var discountPercentageLabel: UILabel!
+    @IBOutlet private var discountView: UIView!
+    @IBOutlet private var freeTrialView: UIView!
 
     private var viewModel: PackageViewModel?
+
+    public var publicContainerView: UIView {
+        containerView
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,14 +41,27 @@ class PackageView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView.drawShadow()
+
+        containerView.drawShadow()
+        discountView.roundCornersSimplified(cornerRadius: .smallCornerRadius, borderWidth: 1, borderColor: .white)
     }
 
     func configureWith(_ viewModel: PackageViewModel) {
         self.viewModel = viewModel
 
-        nameLabel.text = viewModel.package.offeringIdentifier
-        priceLabel.text = viewModel.package.localizedPriceString
+        if viewModel.package.id == "$rc_six_month" {
+            discountView.isHidden = false
+            freeTrialView.isHidden = viewModel.hasFreeTrial ? false : true
+            discountPercentageLabel.text = viewModel.percentage
+            containerView.roundCornersSimplified(cornerRadius: .defaultCornerRadius, borderWidth: 1, borderColor: .mainColor)
+        } else {
+            containerView.backgroundColor = .backgroundColor1
+            nameLabel.textColor = .textColor
+            priceLabel.textColor = .textColor
+            containerView.roundCornersSimplified(cornerRadius: .defaultCornerRadius, borderWidth: 1, borderColor: .mainColor)
+        }
+        nameLabel.text = viewModel.package.storeProduct.localizedTitle
+        priceLabel.text = "\(viewModel.package.storeProduct.pricePerMonth ?? 0) \(viewModel.package.storeProduct.currencyCode ?? "")/M"
     }
 
     @IBAction func startPurchasing() {

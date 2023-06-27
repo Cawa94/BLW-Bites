@@ -32,6 +32,10 @@ class HomepageViewController: UIViewController {
                                forCellReuseIdentifier: "HomepageElementsTableViewCell")
 
         getHomepageFoods()
+
+        if !RevenueCatService.shared.hasUnlockedPro, let mainController = NavigationService.mainViewController {
+            mainController.addPromotionalBanner()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -47,7 +47,7 @@ class FoodListViewController: UIViewController {
 
         getFoods()
 
-        hideKeyboardWhenTappedAround()
+        addKeyboardSettings()
     }
 
     override func viewDidAppear(_ animated: Bool) {

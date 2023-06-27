@@ -13,21 +13,21 @@ extension NSError {
         let errCode = AuthErrorCode(_nsError: self).code
         switch errCode {
         case .invalidEmail:
-            return "The email is invalid"
+            return "AUTH_ERROR_INVALID_EMAIL".localized()
         case .operationNotAllowed:
-            return "The operation is not allowedt"
+            return "AUTH_ERROR_OPERATION_NOT_ALLOWED".localized()
         case .userDisabled:
-            return "The user account has been disable"
+            return "AUTH_ERROR_USER_DISABLED".localized()
         case .wrongPassword:
-            return "The password inserted is wrong"
+            return "AUTH_ERROR_WRONG_PASSWORD".localized()
         case .emailAlreadyInUse:
-            return "This email has already been used"
+            return "AUTH_ERROR_EMAIL_ALREADY_USED".localized()
         case .weakPassword:
-            return "The password is too weak"
+            return "AUTH_ERROR_WEAK_PASSWORD".localized()
         case .userNotFound:
-            return "User account not found"
+            return "AUTH_ERROR_USER_NOT_FOUND".localized()
         case .requiresRecentLogin:
-            return "Login again in order to continue"
+            return "AUTH_ERROR_REQUIRES_RECENT_LOGIN".localized()
         default:
             return self.localizedDescription
         }

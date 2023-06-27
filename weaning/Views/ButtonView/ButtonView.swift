@@ -38,6 +38,7 @@ class ButtonView: UIView {
     func configureWith(_ viewModel: ButtonViewModel) {
         self.viewModel = viewModel
 
+        titleLabel.font = .extraBoldFontOf(size: viewModel.fontSize)
         titleLabel.text = viewModel.title
     }
 

@@ -32,21 +32,31 @@ class AuthService {
         }
     }
 
-    func logout() async {
-        do {
-            try await Purchases.shared.logOut()
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            debugPrint("Error signing out: %@", signOutError)
-        }
+    func logout() {
+        Purchases.shared.logOut(completion: { _, _ in
+            do {
+                try Auth.auth().signOut()
+                RevenueCatService.shared.getOfferingsAndCustomerInfo()
+            } catch let signOutError as NSError {
+                NavigationService.presentAlertWith(title: "ALERT_ERROR".localized(),
+                                                   message: signOutError.localizedDescription,
+                                                   confirmAction: {})
+            }
+        })
     }
 
     func deleteUser() {
         currentUser?.delete { error in
             if let error = error {
-                // An error happened.
+                NavigationService.presentAlertWith(title: "ALERT_ERROR".localized(),
+                                                   message: error.localizedDescription,
+                                                   confirmAction: {})
             } else {
-                // Account deleted.
+                NavigationService.presentAlertWith(title: "ALERT_SUCCESS".localized(),
+                                                   message: "ALERT_ACCOUNT_DELETED".localized(),
+                                                   confirmAction: {
+                    AuthService.shared.logout()
+                })
             }
         }
     }

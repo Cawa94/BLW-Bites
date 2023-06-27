@@ -18,6 +18,7 @@ class RevenueCatService {
     static let shared = RevenueCatService()
 
     var packages: [Package]?
+    var hasFreeTrial = false
     var customerInfo: CustomerInfo?
 
     private init() { }
@@ -25,8 +26,27 @@ class RevenueCatService {
     func configure() {
         Purchases.logLevel = .warn
 
-        debugPrint("USER EMAIL: \(AuthService.shared.currentUser?.email) ID: \(AuthService.shared.currentUser?.uid)")
-        Purchases.configure(withAPIKey: .revenueCatPublicKey, appUserID: AuthService.shared.currentUser?.uid)
+        if let userId = AuthService.shared.currentUser?.uid {
+            Purchases.configure(withAPIKey: .revenueCatPublicKey, appUserID: userId)
+        } else {
+            Purchases.configure(withAPIKey: .revenueCatPublicKey)
+        }
+        getOfferingsAndCustomerInfo()
+    }
+
+    var proVersionEntitlement: EntitlementInfo? {
+        customerInfo?.entitlements["Pro Version"]
+    }
+
+    var hasUnlockedPro: Bool {
+        /*#if DEBUG
+            return true
+        #else*/
+            return proVersionEntitlement?.isActive ?? false
+        //#endif
+    }
+
+    func getOfferingsAndCustomerInfo() {
         getCurrentOfferings()
         getCustomerInfo()
     }
@@ -34,15 +54,18 @@ class RevenueCatService {
     func getCustomerInfo() {
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             self.customerInfo = customerInfo
-            NavigationService.makeMainRootController()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                NavigationService.makeMainRootController()
+            }
         }
     }
 
-    func loginWithId(_ uid: String?) {
+    func associateToRevenueCatUserWith(_ uid: String?) {
         guard let userId = uid
             else { return }
         Purchases.shared.logIn(userId) { (customerInfo, created, error) in
             self.customerInfo = customerInfo
+            self.setUserProperties()
         }
     }
 
@@ -50,6 +73,13 @@ class RevenueCatService {
         Purchases.shared.getOfferings { (offerings, error) in
             if let packages = offerings?.current?.availablePackages {
                 self.packages = packages
+                for package in packages where package.id == "$rc_six_month" {
+                    Purchases.shared.checkTrialOrIntroDiscountEligibility(product: package.storeProduct) { eligibility in
+                        if eligibility == .eligible {
+                            self.hasFreeTrial = true
+                        }
+                    }
+                }
             }
         }
     }
@@ -60,7 +90,7 @@ class RevenueCatService {
         }
     }
 
-    func restorePurchas() {
+    func restorePurchase() {
         Purchases.shared.restorePurchases { customerInfo, error in
             self.handlePurchasResponse(customerInfo: customerInfo, error: error)
         }
@@ -68,39 +98,40 @@ class RevenueCatService {
 
     func handlePurchasResponse(customerInfo: CustomerInfo?, error: PublicError?) {
         if customerInfo?.entitlements["Pro Version"]?.isActive == true {
-            debugPrint("YOU GOT THE PRO VERSION!")
-            self.customerInfo = customerInfo
-            self.setUserProperties()
-            DispatchQueue.main.async {
-                NavigationService.makeMainRootController()
-            }
+            NavigationService.presentAlertWith(title: "ALERT_SUCCESS".localized(),
+                                               message: "ALERT_UNLOCKED_PRO_VERSION".localized(),
+                                               confirmAction: {
+                self.customerInfo = customerInfo
+                DispatchQueue.main.async {
+                    NavigationService.makeMainRootController()
+                }
+            })
         } else if let error = error as? RevenueCat.ErrorCode {
             debugPrint(error.errorCode)
             debugPrint(error.errorUserInfo)
             
+            let errorMessage: String
             switch error {
             case .purchaseNotAllowedError:
-                debugPrint("Purchases not allowed on this device.")
+                errorMessage = "ALERT_PURCHASE_NOT_ALLOWED".localized()
             case .purchaseInvalidError:
-                debugPrint("Purchase invalid, check payment source.")
-            default: break
+                errorMessage = "ALERT_PURCHASE_INVALID".localized()
+            default:
+                errorMessage = "ALERT_GENERAL_ERROR".localized()
             }
+            NavigationService.presentAlertWith(title: "ALERT_ERROR".localized(),
+                                               message: errorMessage,
+                                               confirmAction: {})
         } else {
-          // Error is a different type
+            NavigationService.presentAlertWith(title: "ALERT_WARNING".localized(),
+                                               message: "ALERT_GENERAL_ERROR".localized(),
+                                               confirmAction: {})
         }
     }
 
     func setUserProperties() {
-        Purchases.shared.setAttributes(["$displayName" : AuthService.shared.currentUser?.displayName ?? "",
-                                        "$email" : AuthService.shared.currentUser?.email ?? ""])
-    }
-
-    var hasUnlockedPro: Bool {
-        /*#if DEBUG
-            return true
-        #else*/
-            return customerInfo?.entitlements["Pro Version"]?.isActive ?? false
-        //#endif
+        Purchases.shared.attribution.setAttributes(["$displayName" : AuthService.shared.currentUser?.displayName ?? "",
+                                                    "$email" : AuthService.shared.currentUser?.email ?? ""])
     }
 
 }

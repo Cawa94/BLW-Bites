@@ -17,7 +17,7 @@ extension UIFont {
         return fontWith(name: "Nunito-Bold", size: size)
     }
 
-    static func boldFontOf(size: CGFloat) -> UIFont {
+    static func extraBoldFontOf(size: CGFloat) -> UIFont {
         return fontWith(name: "Nunito-ExtraBold", size: size)
     }
 

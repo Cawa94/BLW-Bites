@@ -10,6 +10,7 @@ import FirebaseAuth
 
 class RegistrationViewController: UIViewController {
 
+    @IBOutlet private weak var mainScrollView: UIScrollView!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var nameTextField: CustomTextField!
     @IBOutlet private weak var emailTextField: CustomTextField!
@@ -19,18 +20,28 @@ class RegistrationViewController: UIViewController {
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
 
+    override var internalScrollView: UIScrollView {
+        mainScrollView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        hideKeyboardWhenTappedAround()
+        addKeyboardSettings()
 
-        nameTextField.configureWith(.init(placeholder: "Name"))
-        emailTextField.configureWith(.init(placeholder: "Email"))
-        passwordTextField.configureWith(.init(placeholder: "Password"))
-        confirmPasswordTextField.configureWith(.init(placeholder: "Confirm Password"))
-        registerButton.configureWith(.init(title: "Register", tapHandler: {
+        nameTextField.configureWith(.init(placeholder: "REGISTRATION_NAME".localized()))
+        emailTextField.configureWith(.init(placeholder: "AUTH_EMAIL".localized()))
+        passwordTextField.configureWith(.init(placeholder: "AUTH_PASSWORD".localized()))
+        confirmPasswordTextField.configureWith(.init(placeholder: "REGISTRATION_CONFIRM_PASSWORD".localized()))
+        registerButton.configureWith(.init(title: "REGISTRATION_BUTTON".localized(), tapHandler: {
             self.register()
         }))
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        FirebaseAnalytics.shared.trackScreenView(className: self.className)
     }
 
     func register() {
@@ -42,17 +53,16 @@ class RegistrationViewController: UIViewController {
 
         loadingSpinner.startAnimating()
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            self.loadingSpinner.stopAnimating()
             if AuthService.shared.isLoggedIn {
                 AuthService.shared.updateName(name)
-                RevenueCatService.shared.loginWithId(AuthService.shared.currentUser?.uid)
-                debugPrint("USER EMAIL: \(AuthService.shared.currentUser?.email) ID: \(AuthService.shared.currentUser?.uid)")
-                self.showMessageLabel("Your account has been created!", color: .mainColor)
+                RevenueCatService.shared.associateToRevenueCatUserWith(AuthService.shared.currentUser?.uid)
+                self.showMessageLabel("REGISTRATION_ACCOUNT_CREATED".localized(), color: .mainColor)
                 NavigationService.willPresentSubscription = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                    NavigationService.makeMainRootController()
+                    RevenueCatService.shared.getOfferingsAndCustomerInfo()
                 }
             } else if let error = error as? NSError {
+                self.loadingSpinner.stopAnimating()
                 self.showMessageLabel(error.localizedFirebaseAuthMessage, color: .red)
                 debugPrint("ERROR: \(error.localizedFirebaseAuthMessage)")
             }
@@ -84,7 +94,7 @@ class RegistrationViewController: UIViewController {
         if passwordTextField.text != confirmPasswordTextField.text {
             passwordTextField.underline(color: .red)
             confirmPasswordTextField.underline(color: .red)
-            showMessageLabel("The 2 passwords are different", color: .red)
+            showMessageLabel("REGISTRATION_PASSWORD_DIFFERENT".localized(), color: .red)
             valid = false
         }
         return valid
@@ -101,6 +111,12 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let customTextField = textField as? CustomTextField {
+            customTextField.underline(color: .mainColor)
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if let customTextField = textField as? CustomTextField {
             customTextField.underline()
         }

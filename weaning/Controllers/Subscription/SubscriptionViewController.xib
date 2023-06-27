@@ -12,6 +12,9 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
+        <array key="Nunito.ttf">
+            <string>Nunito-Bold</string>
+        </array>
         <array key="Sunshiny.ttf">
             <string>Sunshiny</string>
         </array>
@@ -20,9 +23,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubscriptionViewController" customModule="Test_Build" customModuleProvider="target">
             <connections>
                 <outlet property="contentViewHeightConstraint" destination="0rt-4v-uqM" id="M4z-uh-Onm"/>
+                <outlet property="firstPackageView" destination="HU7-Gv-er3" id="qOl-cJ-0cX"/>
                 <outlet property="infosTextView" destination="9bO-bn-b86" id="rKu-Rq-3O6"/>
                 <outlet property="infosTextViewHeightConstraint" destination="Xey-Dg-lnT" id="TDB-ir-m8p"/>
-                <outlet property="productsStackView" destination="Guk-fI-cU2" id="Rnd-0e-jTV"/>
+                <outlet property="loadingSpinner" destination="os7-id-bip" id="A3L-M7-eJk"/>
+                <outlet property="purchaseButton" destination="EWE-bv-L7p" id="kAz-Dh-hre"/>
+                <outlet property="purchaseExplanationLabel" destination="zzu-iU-cqb" id="n0Q-7A-rrT"/>
+                <outlet property="secondPackageView" destination="PCT-lf-Ycm" id="Qlj-uE-b2d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,28 +73,69 @@
                                         <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIPTION_DESCRIPTION"/>
                                     </userDefinedRuntimeAttributes>
                                 </textView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-fI-cU2">
-                                    <rect key="frame" x="20" y="625" width="353" height="220"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU7-Gv-er3" customClass="PackageView" customModule="Test_Build" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="630" width="165" height="165"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="220" id="gRP-be-HE1"/>
+                                        <constraint firstAttribute="width" secondItem="HU7-Gv-er3" secondAttribute="height" multiplier="1:1" id="pea-88-MCE"/>
                                     </constraints>
-                                </stackView>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCT-lf-Ycm" customClass="PackageView" customModule="Test_Build" customModuleProvider="target">
+                                    <rect key="frame" x="196" y="624" width="177" height="177"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="PCT-lf-Ycm" secondAttribute="height" multiplier="1:1" id="jhh-IO-2L7"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-bv-L7p" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="825" width="353" height="60"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="C4n-oH-cXS"/>
+                                    </constraints>
+                                </view>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="os7-id-bip">
+                                    <rect key="frame" x="333" y="842.66666666666663" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="os7-id-bip" secondAttribute="height" multiplier="1:1" id="AMj-hq-s4x"/>
+                                        <constraint firstAttribute="width" constant="25" id="AwK-wg-a9m"/>
+                                    </constraints>
+                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="After the free trial has ended, you will be paying " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzu-iU-cqb">
+                                    <rect key="frame" x="30" y="890" width="333" height="19.333333333333371"/>
+                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
+                                    <color key="textColor" name="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="Guk-fI-cU2" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="0eV-os-yce"/>
                                 <constraint firstAttribute="height" constant="852" id="0rt-4v-uqM"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" constant="20" id="2C0-aW-Yi8"/>
+                                <constraint firstItem="HU7-Gv-er3" firstAttribute="width" secondItem="5xH-cn-23d" secondAttribute="width" multiplier="0.42" id="3A8-B1-bQ7"/>
+                                <constraint firstItem="EWE-bv-L7p" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="7Ax-xL-sI2"/>
+                                <constraint firstItem="zzu-iU-cqb" firstAttribute="trailing" secondItem="EWE-bv-L7p" secondAttribute="trailing" constant="-10" id="7No-o8-Bjg"/>
+                                <constraint firstItem="HU7-Gv-er3" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="8dO-cu-drf"/>
+                                <constraint firstItem="EWE-bv-L7p" firstAttribute="centerY" secondItem="os7-id-bip" secondAttribute="centerY" id="EcK-rV-x9Z"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="YUb-ON-pHD" secondAttribute="width" multiplier="0.65" id="FEE-HY-i2R"/>
+                                <constraint firstItem="zzu-iU-cqb" firstAttribute="top" secondItem="EWE-bv-L7p" secondAttribute="bottom" constant="5" id="GnX-dR-IWw"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="top" constant="40" id="GpR-Ku-Crh"/>
+                                <constraint firstItem="PCT-lf-Ycm" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="GzD-tc-NdO"/>
                                 <constraint firstItem="YUb-ON-pHD" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" id="Kvx-wY-31y"/>
+                                <constraint firstItem="PCT-lf-Ycm" firstAttribute="width" secondItem="5xH-cn-23d" secondAttribute="width" multiplier="0.45" id="O8V-Pn-9iS"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="bottom" constant="25" id="R2w-qZ-652"/>
-                                <constraint firstItem="Guk-fI-cU2" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="Th6-aR-ahQ"/>
                                 <constraint firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" constant="20" id="Z91-1c-jPj"/>
+                                <constraint firstItem="HU7-Gv-er3" firstAttribute="top" secondItem="9bO-bn-b86" secondAttribute="bottom" constant="30" id="ZSV-EK-460"/>
                                 <constraint firstAttribute="trailing" secondItem="YUb-ON-pHD" secondAttribute="trailing" id="bBU-f6-LHq"/>
-                                <constraint firstItem="Guk-fI-cU2" firstAttribute="top" secondItem="9bO-bn-b86" secondAttribute="bottom" constant="25" id="pIR-Zr-9wQ"/>
+                                <constraint firstItem="zzu-iU-cqb" firstAttribute="leading" secondItem="EWE-bv-L7p" secondAttribute="leading" constant="10" id="bXc-tr-6lI"/>
+                                <constraint firstItem="os7-id-bip" firstAttribute="trailing" secondItem="EWE-bv-L7p" secondAttribute="trailing" constant="-15" id="g0z-ih-OKy"/>
+                                <constraint firstItem="os7-id-bip" firstAttribute="width" secondItem="os7-id-bip" secondAttribute="height" multiplier="1:1" id="iYa-H3-8mg"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="leading" secondItem="YUb-ON-pHD" secondAttribute="leading" constant="15" id="t4s-Wm-pxJ"/>
                                 <constraint firstItem="YUb-ON-pHD" firstAttribute="top" secondItem="5xH-cn-23d" secondAttribute="top" id="vAY-0e-k2b"/>
+                                <constraint firstItem="EWE-bv-L7p" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="yWQ-Lb-FJ9"/>
+                                <constraint firstItem="PCT-lf-Ycm" firstAttribute="centerY" secondItem="HU7-Gv-er3" secondAttribute="centerY" id="ybf-hj-hAC"/>
+                                <constraint firstItem="EWE-bv-L7p" firstAttribute="top" secondItem="HU7-Gv-er3" secondAttribute="bottom" constant="30" id="zqs-SM-qK8"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -116,6 +164,9 @@
         <image name="subscription_header" width="626" height="417"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0039215686274509803" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

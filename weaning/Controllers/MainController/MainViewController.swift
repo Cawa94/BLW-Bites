@@ -16,10 +16,6 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
 
         configureAppearance()
         configureTabBar()
-
-        if !RevenueCatService.shared.hasUnlockedPro {
-            addPromotionalBanner()
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -91,7 +87,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     func addPromotionalBanner() {
         let bottomBarHeight = self.tabBar.frame.height
         let promotionalView = PromotionalBannerView(frame: .init(
-            x: 0, y: self.view.frame.height - CGFloat(bottomBarHeight) - 74,
+            x: 0, y: self.view.frame.height - CGFloat(bottomBarHeight) - 40,
             width: self.view.frame.width, height: 40))
         self.view.addSubview(promotionalView)
     }

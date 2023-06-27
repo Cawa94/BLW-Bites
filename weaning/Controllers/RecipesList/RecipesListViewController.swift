@@ -16,7 +16,11 @@ class RecipesListViewController: UIViewController {
     @IBOutlet private weak var categoriesHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var recipesCollectionView: UICollectionView!
     @IBOutlet private weak var recipeSearchBar: CustomSearchBar!
-
+/*
+    override var internalScrollView: UIScrollView {
+        categoriesCollectionView.scrollView
+    }
+*/
     var selectedIndexPath: IndexPath?
     var viewModel: RecipesListViewModel?
     private var hasSearched = false
@@ -47,7 +51,7 @@ class RecipesListViewController: UIViewController {
 
         getRecipes()
 
-        hideKeyboardWhenTappedAround()
+        addKeyboardSettings()
     }
 
     override func viewDidAppear(_ animated: Bool) {
