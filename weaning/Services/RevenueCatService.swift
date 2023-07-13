@@ -73,7 +73,7 @@ class RevenueCatService {
         Purchases.shared.getOfferings { (offerings, error) in
             if let packages = offerings?.current?.availablePackages {
                 self.packages = packages
-                for package in packages where package.id == "$rc_six_month" {
+                for package in packages where package.id == "$rc_six_month" || package.id == "$rc_annual" {
                     Purchases.shared.checkTrialOrIntroDiscountEligibility(product: package.storeProduct) { eligibility in
                         if eligibility == .eligible {
                             self.hasFreeTrial = true
@@ -130,8 +130,8 @@ class RevenueCatService {
     }
 
     func setUserProperties() {
-        Purchases.shared.attribution.setAttributes(["$displayName" : AuthService.shared.currentUser?.displayName ?? "",
-                                                    "$email" : AuthService.shared.currentUser?.email ?? ""])
+        Purchases.shared.attribution.setEmail(AuthService.shared.currentUser?.email ?? "")
+        Purchases.shared.attribution.setDisplayName(AuthService.shared.currentUser?.displayName ?? "")
     }
 
 }

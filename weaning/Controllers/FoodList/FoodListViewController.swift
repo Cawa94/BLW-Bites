@@ -154,7 +154,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         if collectionView.tag == 0 {
             return FoodCategory.allValues.count
         } else {
-            return viewModel?.foods.count ?? 0
+            return viewModel?.visibleFoods.count ?? 0
         }
     }
 
@@ -170,7 +170,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortFoodCollectionViewCell",
                                                                 for: indexPath) as? ShortFoodCollectionViewCell,
-                  let food = viewModel?.foods[indexPath.row]
+                  let food = viewModel?.visibleFoods[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(.init(shortFood: food.asShortFood, food: food), imageCornerRadius: 157/2)
             return cell
@@ -235,7 +235,7 @@ extension FoodListViewController: UICollectionViewDelegate, UICollectionViewData
                 NavigationService.openLoginOrSubscription()
             }
         } else {
-            guard let food = viewModel?.foods[indexPath.row], let id = food.id
+            guard let food = viewModel?.visibleFoods[indexPath.row], let id = food.id
                 else { return }
             if food.isFree || RevenueCatService.shared.hasUnlockedPro {
                 let foodController = NavigationService.foodViewController(

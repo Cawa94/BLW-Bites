@@ -19,6 +19,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet private weak var registerButton: ButtonView!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
+    @IBOutlet private weak var termsConditionsTextView: UITextView!
 
     override var internalScrollView: UIScrollView {
         mainScrollView
@@ -36,6 +37,8 @@ class RegistrationViewController: UIViewController {
         registerButton.configureWith(.init(title: "REGISTRATION_BUTTON".localized(), tapHandler: {
             self.register()
         }))
+
+        setTermsConditionsText()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -106,6 +109,20 @@ class RegistrationViewController: UIViewController {
         messageLabel.isHidden = false
     }
 
+    func setTermsConditionsText() {
+        termsConditionsTextView.attributedText = "REGISTRATION_TERMS_CONDITIONS".localized()
+            .htmlToAttributedString(fontSize: 13)
+        termsConditionsTextView.isUserInteractionEnabled = true
+        termsConditionsTextView.isEditable = false
+        termsConditionsTextView.textAlignment = .center
+
+        termsConditionsTextView.linkTextAttributes = [
+            NSAttributedString.Key.font: UIFont.regularFontOf(size: 13),
+            NSAttributedString.Key.foregroundColor: UIColor.textColor,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+    }
+
 }
 
 extension RegistrationViewController: UITextFieldDelegate {
@@ -131,5 +148,14 @@ extension RegistrationViewController: UITextFieldDelegate {
 
         return false
     }
+
+}
+
+extension RegistrationViewController: UITextViewDelegate {
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+           //Check your url whether it is privacy policy or terms and do accordigly
+            return true
+        }
 
 }

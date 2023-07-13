@@ -158,7 +158,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             return RecipeCategory.allValues.count
         } else {
-            return viewModel?.recipes.count ?? 0
+            return viewModel?.visibleRecipes.count ?? 0
         }
     }
 
@@ -174,7 +174,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShortRecipeCollectionViewCell",
                                                                 for: indexPath) as? ShortRecipeCollectionViewCell,
-                  let recipe = viewModel?.recipes[indexPath.row]
+                  let recipe = viewModel?.visibleRecipes[indexPath.row]
                 else { return UICollectionViewCell() }
             cell.configureWith(.init(shortRecipe: recipe.asShortRecipe, recipe: recipe), imageCornerRadius: 157/2)
             return cell
@@ -250,7 +250,7 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
                 NavigationService.openLoginOrSubscription()
             }
         } else {
-            guard let recipe = viewModel?.recipes[indexPath.row], let id = recipe.id
+            guard let recipe = viewModel?.visibleRecipes[indexPath.row], let id = recipe.id
                 else { return }
             if recipe.isFree || RevenueCatService.shared.hasUnlockedPro {
                 let recipeController = NavigationService.recipeViewController(

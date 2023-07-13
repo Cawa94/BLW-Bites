@@ -30,6 +30,7 @@
                 <outlet property="purchaseButton" destination="EWE-bv-L7p" id="kAz-Dh-hre"/>
                 <outlet property="purchaseExplanationLabel" destination="zzu-iU-cqb" id="n0Q-7A-rrT"/>
                 <outlet property="secondPackageView" destination="PCT-lf-Ycm" id="Qlj-uE-b2d"/>
+                <outlet property="termsConditionsTextView" destination="aMS-YU-tEi" id="8d1-vd-vLV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,7 +43,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xH-cn-23d" userLabel="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subscription_header" translatesAutoresizingMaskIntoConstraints="NO" id="YUb-ON-pHD">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="175"/>
@@ -108,20 +109,33 @@
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="If you have any questions, please contact us at this number" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-YU-tEi">
+                                    <rect key="frame" x="30" y="939.33333333333337" width="333" height="52"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" name="textColor"/>
+                                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="13"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_TERMS_CONDITIONS"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="852" id="0rt-4v-uqM"/>
+                                <constraint firstAttribute="height" constant="900" id="0rt-4v-uqM"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" constant="20" id="2C0-aW-Yi8"/>
                                 <constraint firstItem="HU7-Gv-er3" firstAttribute="width" secondItem="5xH-cn-23d" secondAttribute="width" multiplier="0.42" id="3A8-B1-bQ7"/>
                                 <constraint firstItem="EWE-bv-L7p" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="7Ax-xL-sI2"/>
                                 <constraint firstItem="zzu-iU-cqb" firstAttribute="trailing" secondItem="EWE-bv-L7p" secondAttribute="trailing" constant="-10" id="7No-o8-Bjg"/>
                                 <constraint firstItem="HU7-Gv-er3" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" id="8dO-cu-drf"/>
+                                <constraint firstItem="aMS-YU-tEi" firstAttribute="leading" secondItem="9bO-bn-b86" secondAttribute="leading" constant="10" id="9ef-fi-wD5"/>
+                                <constraint firstItem="aMS-YU-tEi" firstAttribute="top" secondItem="zzu-iU-cqb" secondAttribute="bottom" constant="30" id="CQ1-va-DpC"/>
                                 <constraint firstItem="EWE-bv-L7p" firstAttribute="centerY" secondItem="os7-id-bip" secondAttribute="centerY" id="EcK-rV-x9Z"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="width" secondItem="YUb-ON-pHD" secondAttribute="width" multiplier="0.65" id="FEE-HY-i2R"/>
                                 <constraint firstItem="zzu-iU-cqb" firstAttribute="top" secondItem="EWE-bv-L7p" secondAttribute="bottom" constant="5" id="GnX-dR-IWw"/>
                                 <constraint firstItem="mMf-WE-yZ3" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="top" constant="40" id="GpR-Ku-Crh"/>
                                 <constraint firstItem="PCT-lf-Ycm" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" id="GzD-tc-NdO"/>
+                                <constraint firstItem="aMS-YU-tEi" firstAttribute="trailing" secondItem="9bO-bn-b86" secondAttribute="trailing" constant="-10" id="IRr-6a-r8U"/>
                                 <constraint firstItem="YUb-ON-pHD" firstAttribute="leading" secondItem="5xH-cn-23d" secondAttribute="leading" id="Kvx-wY-31y"/>
                                 <constraint firstItem="PCT-lf-Ycm" firstAttribute="width" secondItem="5xH-cn-23d" secondAttribute="width" multiplier="0.45" id="O8V-Pn-9iS"/>
                                 <constraint firstItem="9bO-bn-b86" firstAttribute="top" secondItem="YUb-ON-pHD" secondAttribute="bottom" constant="25" id="R2w-qZ-652"/>

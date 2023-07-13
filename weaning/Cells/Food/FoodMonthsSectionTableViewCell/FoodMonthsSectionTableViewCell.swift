@@ -24,6 +24,9 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
     @IBOutlet private weak var playerViewButton: UIButton!
     @IBOutlet private weak var playerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var playerViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var playerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var tapToExpandLabel: UILabel!
+    @IBOutlet private weak var tapToExpandTopConstraint: NSLayoutConstraint!
 
     private weak var delegate: FoodMonthsSectionDelegate?
     private var food: Food?
@@ -60,6 +63,10 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.imagesCollectionView.reloadData()
         }
+
+        tapToExpandLabel.text = picturesCount == 0 ? "" : "FOOD_TAP_TO_EXPAND".localized()
+        playerViewBottomConstraint.constant = picturesCount == 0 ? 0 : 20
+        tapToExpandTopConstraint.constant = picturesCount == 0 ? 0 : 20
 
         if let video = food?.video, let videoUrl = URL(string: video) {
             playerViewButton.isHidden = false
@@ -100,7 +107,8 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
 extension FoodMonthsSectionTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return food?.ageSegments[monthsSegmentControl.selectedSegmentIndex].pictures?.count ?? 0
+        let picturesCount = food?.ageSegments[monthsSegmentControl.selectedSegmentIndex].pictures?.count ?? 0
+        return picturesCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

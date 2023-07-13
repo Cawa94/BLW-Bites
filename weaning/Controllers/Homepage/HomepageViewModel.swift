@@ -16,27 +16,27 @@ struct HomepageViewModel {
     }
 
     var freeFoods: [Food] {
-        homepageFoods.filter { $0.isFree }
+        homepageFoods.filter { $0.isFree && !($0.isHidden ?? false) }
     }
 
     var freeRecipes: [Recipe] {
-        homepageRecipes.filter { $0.isFree }
+        homepageRecipes.filter { $0.isFree && !($0.isHidden ?? false) }
     }
 
     var seasonalFoods: [Food] {
-        homepageFoods.filter { $0.isSeasonal }
+        homepageFoods.filter { $0.isSeasonal && !($0.isHidden ?? false) }
     }
     
     var seasonalRecipes: [Recipe] {
-        homepageRecipes.filter { $0.isSeasonal }
+        homepageRecipes.filter { $0.isSeasonal && !($0.isHidden ?? false) }
     }
     
     var newFoods: [Food] {
-        homepageFoods.filter { $0.isNew }
+        homepageFoods.filter { $0.isNew && !($0.isHidden ?? false) }
     }
 
     var newRecipes: [Recipe] {
-        homepageRecipes.filter { $0.isNew }
+        homepageRecipes.filter { $0.isNew && !($0.isHidden ?? false) }
     }
 
 }

@@ -17,4 +17,8 @@ struct FoodListViewModel {
         foods = []
     }
 
+    var visibleFoods: [Food] {
+        foods.filter { !($0.isHidden ?? false) }
+    }
+
 }

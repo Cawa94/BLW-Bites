@@ -17,4 +17,8 @@ struct RecipesListViewModel {
         recipes = []
     }
 
+    var visibleRecipes: [Recipe] {
+        recipes.filter { !($0.isHidden ?? false) }
+    }
+
 }

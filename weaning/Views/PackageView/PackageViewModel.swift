@@ -15,15 +15,18 @@ struct PackageViewModel {
     let package: Package
     let hasFreeTrial: Bool
     let percentage: String?
+    let fullPrice: String?
     let tapHandler: TapHandler
 
     init(package: Package,
          hasFreeTrial: Bool = false,
          percentage: String? = nil,
+         fullPrice: String? = nil,
          tapHandler: @escaping TapHandler) {
         self.package = package
         self.hasFreeTrial = hasFreeTrial
         self.percentage = percentage
+        self.fullPrice = fullPrice
         self.tapHandler = tapHandler
     }
 

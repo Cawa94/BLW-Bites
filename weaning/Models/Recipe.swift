@@ -21,6 +21,7 @@ public struct Recipe: Codable {
     let tips: String?
     let foods: [ShortFood]?
     let properties: [String]?
+    let isHidden: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +36,7 @@ public struct Recipe: Codable {
         case tips
         case foods
         case properties
+        case isHidden
     }
 
     init(data: [String: Any]) {
@@ -50,6 +52,7 @@ public struct Recipe: Codable {
         self.tips = data["tips"] as? String
         self.foods = data["foods"] as? [ShortFood]
         self.properties = data["properties"] as? [String]
+        self.isHidden = data["is_hidden"] as? Bool
     }
 
     init(id: String?,
@@ -63,7 +66,8 @@ public struct Recipe: Codable {
          steps: [String]?,
          tips: String?,
          foods: [ShortFood]?,
-         properties: [String]?) {
+         properties: [String]?,
+         isHidden: Bool?) {
         self.id = id
         self.name = name
         self.image = image
@@ -76,6 +80,7 @@ public struct Recipe: Codable {
         self.tips = tips
         self.foods = foods
         self.properties = properties
+        self.isHidden = isHidden
     }
 
 }

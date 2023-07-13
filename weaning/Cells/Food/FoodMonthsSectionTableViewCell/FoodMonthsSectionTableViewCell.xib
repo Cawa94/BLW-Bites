@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +62,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rMC-ta-L6P">
-                        <rect key="frame" x="30" y="465.00000000000006" width="315" height="194.66666666666669"/>
+                        <rect key="frame" x="30" y="465.00000000000006" width="315" height="184.66666666666669"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="206" id="g0D-OS-sRm"/>
@@ -78,6 +78,15 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="aEF-Q9-xEI"/>
                         </connections>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap an image to expand " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFx-cH-qpE">
+                        <rect key="frame" x="30" y="669.66666666666663" width="315" height="19.333333333333371"/>
+                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="14"/>
+                        <color key="textColor" name="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_TAP_TO_EXPAND"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOe-Ch-8M7">
                         <rect key="frame" x="87.666666666666686" y="739" width="200" height="50"/>
                         <constraints>
@@ -96,21 +105,12 @@
                             <action selector="playVideo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uxO-y9-9sB"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap an image to expand " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFx-cH-qpE">
-                        <rect key="frame" x="30" y="679.66666666666663" width="315" height="19.333333333333371"/>
-                        <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="14"/>
-                        <color key="textColor" name="textColor"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_TAP_TO_EXPAND"/>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ZvI-hp-lya" secondAttribute="trailing" constant="30" id="0b3-8W-lfd"/>
                     <constraint firstItem="lnj-Qa-Yce" firstAttribute="top" secondItem="ZvI-hp-lya" secondAttribute="bottom" constant="15" id="7v8-EO-8UV"/>
-                    <constraint firstItem="XOe-Ch-8M7" firstAttribute="top" secondItem="bFx-cH-qpE" secondAttribute="bottom" constant="40" id="OL0-SU-Bvh"/>
+                    <constraint firstItem="XOe-Ch-8M7" firstAttribute="top" secondItem="bFx-cH-qpE" secondAttribute="bottom" constant="50" id="OL0-SU-Bvh"/>
                     <constraint firstItem="fma-h9-dQh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Qci-4u-Aea"/>
                     <constraint firstItem="ZvI-hp-lya" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="RJJ-Xk-6IG"/>
                     <constraint firstAttribute="trailing" secondItem="fma-h9-dQh" secondAttribute="trailing" constant="30" id="Syw-1W-733"/>
@@ -133,11 +133,14 @@
                 <outlet property="imagesCollectionView" destination="rMC-ta-L6P" id="XS3-hI-i4H"/>
                 <outlet property="imagesCollectionViewHeightConstraint" destination="g0D-OS-sRm" id="kO6-dA-2Xu"/>
                 <outlet property="monthsSegmentControl" destination="ZvI-hp-lya" id="5kL-OE-v5e"/>
+                <outlet property="playerViewBottomConstraint" destination="cL7-0r-giW" id="0R4-QS-etZ"/>
                 <outlet property="playerViewButton" destination="XOe-Ch-8M7" id="UJc-xk-UZt"/>
                 <outlet property="playerViewHeightConstraint" destination="ctS-T3-nQc" id="yXG-is-I6A"/>
                 <outlet property="playerViewTopConstraint" destination="OL0-SU-Bvh" id="pZu-fR-XUz"/>
                 <outlet property="sectionTextView" destination="lnj-Qa-Yce" id="PKK-BK-3BW"/>
                 <outlet property="sectionTextViewHeightConstraint" destination="fVL-uv-4gS" id="3wG-NP-OZv"/>
+                <outlet property="tapToExpandLabel" destination="bFx-cH-qpE" id="Qr5-iF-Rpe"/>
+                <outlet property="tapToExpandTopConstraint" destination="dqo-Fp-RsO" id="tFC-xe-yJL"/>
             </connections>
             <point key="canvasLocation" x="138.1679389312977" y="317.25352112676057"/>
         </tableViewCell>

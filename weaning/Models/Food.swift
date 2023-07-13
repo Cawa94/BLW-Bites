@@ -20,6 +20,7 @@ public struct Food: Codable {
     let infosDictionary: FoodInfosDictionary?
     let recipes: [ShortRecipe]?
     let properties: [String]?
+    let isHidden: Bool?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -33,6 +34,7 @@ public struct Food: Codable {
         case infosDictionary = "infos_dictionary"
         case recipes
         case properties
+        case isHidden
     }
 
     init(data: [String: Any]) {
@@ -47,6 +49,7 @@ public struct Food: Codable {
         self.infosDictionary = Food.buildFoodInfosDictionary(data)
         self.recipes = data["recipes"] as? [ShortRecipe]
         self.properties = data["properties"] as? [String]
+        self.isHidden = data["is_hidden"] as? Bool
     }
 
     init(id: String?,
@@ -59,7 +62,8 @@ public struct Food: Codable {
          ageDictionary: AgeDictionary?,
          infosDictionary: FoodInfosDictionary?,
          recipes: [ShortRecipe],
-         properties: [String]?) {
+         properties: [String]?,
+         isHidden: Bool?) {
         self.id = id
         self.name = name
         self.image = image
@@ -71,6 +75,7 @@ public struct Food: Codable {
         self.infosDictionary = infosDictionary
         self.recipes = recipes
         self.properties = properties
+        self.isHidden = isHidden
     }
 
     static func buildAgeDictionary(_ data: [String: Any]) -> AgeDictionary? {
@@ -87,7 +92,12 @@ public struct Food: Codable {
         if let thirdDictionary = dictionary?["third"] as? [String: Any] {
             third = AgeSegment(months: thirdDictionary["months"] as? String, description: thirdDictionary["description"] as? String, pictures: thirdDictionary["pictures"] as? [String])
         }
-        return .init(first: first, second: second, third: third)
+
+        if first != nil || second != nil || third != nil {
+            return .init(first: first, second: second, third: third)
+        } else {
+            return nil
+        }
     }
 
     static func buildFoodInfosDictionary(_ data: [String: Any]) -> FoodInfosDictionary? {
@@ -120,7 +130,12 @@ public struct Food: Codable {
         if let seventhDictionary = dictionary?["seventh"] as? [String: Any] {
             seventh = InfoSection(title: seventhDictionary["title"] as? String, description: seventhDictionary["description"] as? String)
         }
-        return .init(first: first, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, seventh: seventh)
+
+        if first != nil || second != nil || third != nil || fourth != nil || fifth != nil || sixth != nil || seventh != nil {
+            return .init(first: first, second: second, third: third, fourth: fourth, fifth: fifth, sixth: sixth, seventh: seventh)
+        } else {
+            return nil
+        }
     }
 
 }

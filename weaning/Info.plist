@@ -36,7 +36,7 @@
 		<string>ymail</string>
 	</array>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Śledzimy sposób, w jaki użytkownik korzysta z aplikacji, aby zapewnić mu lepszą obsługę</string>
+	<string>Sledzimy sposob, w jaki użytkownik korzysta z aplikacji, aby zapewnic mu lepsza obsluge</string>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<false/>
 </dict>

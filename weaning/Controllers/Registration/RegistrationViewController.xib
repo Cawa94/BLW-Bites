@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Alata-Regular.ttf">
+            <string>Alata-Regular</string>
+        </array>
         <array key="Nunito.ttf">
             <string>Nunito-Bold</string>
             <string>Nunito-ExtraBold</string>
@@ -26,6 +29,7 @@
                 <outlet property="nameTextField" destination="aGN-jC-4EI" id="yMl-Jv-Szh"/>
                 <outlet property="passwordTextField" destination="ogy-dw-7fS" id="Fzu-oB-9z6"/>
                 <outlet property="registerButton" destination="gbf-dD-pU7" id="i0f-MF-xT0"/>
+                <outlet property="termsConditionsTextView" destination="B0O-dc-l9R" id="CwK-it-pMi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,7 +42,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-hx-RV9" userLabel="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="730"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="770"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hello there!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyy-d1-ol1">
                                     <rect key="frame" x="117.66666666666669" y="50" width="158" height="38.333333333333343"/>
@@ -128,14 +132,14 @@
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-wM-aDM">
-                                    <rect key="frame" x="69" y="655" width="255" height="30"/>
+                                    <rect key="frame" x="69" y="638" width="255" height="30"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Gre-fY-ask"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXh-Tz-Q0g">
-                                    <rect key="frame" x="68.999999999999986" y="659" width="189.66666666666663" height="22"/>
+                                    <rect key="frame" x="68.999999999999986" y="642" width="189.66666666666663" height="22"/>
                                     <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -144,7 +148,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfk-EX-jh0">
-                                    <rect key="frame" x="258.66666666666669" y="652" width="65.333333333333314" height="36"/>
+                                    <rect key="frame" x="258.66666666666669" y="635" width="65.333333333333314" height="36"/>
                                     <color key="tintColor" name="mainColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Login">
@@ -157,14 +161,25 @@
                                         <action selector="backToLogin" destination="-1" eventType="touchUpInside" id="7tO-Z2-B7u"/>
                                     </connections>
                                 </button>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="If you have any questions, please contact us at this number" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B0O-dc-l9R">
+                                    <rect key="frame" x="30" y="688" width="333" height="52"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" name="textColor"/>
+                                    <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="13"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="REGISTRATION_TERMS_CONDITIONS"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="MCr-wM-aDM" firstAttribute="centerX" secondItem="cP4-hx-RV9" secondAttribute="centerX" id="1ne-uA-FJg"/>
                                 <constraint firstAttribute="trailing" secondItem="Rb5-jP-zgM" secondAttribute="trailing" constant="30" id="2ku-fJ-yl0"/>
                                 <constraint firstItem="3xW-7p-xIu" firstAttribute="top" secondItem="ogy-dw-7fS" secondAttribute="bottom" constant="25" id="2mC-KO-Ysd"/>
-                                <constraint firstAttribute="height" constant="730" id="582-jA-dTM"/>
-                                <constraint firstAttribute="bottom" secondItem="MCr-wM-aDM" secondAttribute="bottom" constant="45" id="5qx-ln-9m9"/>
+                                <constraint firstAttribute="bottom" secondItem="B0O-dc-l9R" secondAttribute="bottom" constant="30" id="3q4-t1-DVQ"/>
+                                <constraint firstAttribute="height" constant="770" id="582-jA-dTM"/>
+                                <constraint firstItem="B0O-dc-l9R" firstAttribute="leading" secondItem="Rb5-jP-zgM" secondAttribute="leading" id="6kr-Ox-fsd"/>
                                 <constraint firstItem="MCr-wM-aDM" firstAttribute="leading" secondItem="MXh-Tz-Q0g" secondAttribute="leading" id="78U-PN-eMt"/>
                                 <constraint firstItem="Oyy-d1-ol1" firstAttribute="top" secondItem="cP4-hx-RV9" secondAttribute="top" constant="50" id="7ms-pY-Jz0"/>
                                 <constraint firstItem="ogy-dw-7fS" firstAttribute="trailing" secondItem="4oW-Lk-sPG" secondAttribute="trailing" id="AYP-0h-YnU"/>
@@ -172,9 +187,11 @@
                                 <constraint firstItem="aGN-jC-4EI" firstAttribute="top" secondItem="Rb5-jP-zgM" secondAttribute="bottom" constant="35" id="GqA-PX-1CF"/>
                                 <constraint firstItem="gbf-dD-pU7" firstAttribute="top" secondItem="3xW-7p-xIu" secondAttribute="bottom" constant="40" id="HmX-61-BqJ"/>
                                 <constraint firstItem="aGN-jC-4EI" firstAttribute="leading" secondItem="Rb5-jP-zgM" secondAttribute="leading" id="Mgv-az-i92"/>
+                                <constraint firstItem="B0O-dc-l9R" firstAttribute="trailing" secondItem="Rb5-jP-zgM" secondAttribute="trailing" id="MjH-Ej-FrR"/>
                                 <constraint firstItem="gbf-dD-pU7" firstAttribute="leading" secondItem="3xW-7p-xIu" secondAttribute="leading" id="NSB-p1-eCl"/>
                                 <constraint firstItem="Rb5-jP-zgM" firstAttribute="leading" secondItem="cP4-hx-RV9" secondAttribute="leading" constant="30" id="P9U-sD-Ln8"/>
                                 <constraint firstItem="4oW-Lk-sPG" firstAttribute="top" secondItem="aGN-jC-4EI" secondAttribute="bottom" constant="25" id="SoQ-IF-gu7"/>
+                                <constraint firstItem="B0O-dc-l9R" firstAttribute="top" secondItem="MCr-wM-aDM" secondAttribute="bottom" constant="20" id="UjD-vL-CGP"/>
                                 <constraint firstItem="aGN-jC-4EI" firstAttribute="trailing" secondItem="Rb5-jP-zgM" secondAttribute="trailing" id="W9S-OW-bGk"/>
                                 <constraint firstItem="Nfk-EX-jh0" firstAttribute="leading" secondItem="MXh-Tz-Q0g" secondAttribute="trailing" id="WkD-SQ-LP3"/>
                                 <constraint firstAttribute="trailing" secondItem="Y2J-Gx-voe" secondAttribute="trailing" constant="30" id="dNt-oy-DVk"/>

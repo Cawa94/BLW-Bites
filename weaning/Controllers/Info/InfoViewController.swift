@@ -36,6 +36,12 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
             }
         }))
 
+        explicationTextView.linkTextAttributes = [
+            NSAttributedString.Key.font: UIFont.regularFontOf(size: 18),
+            NSAttributedString.Key.foregroundColor: UIColor.mainColor,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+
         DispatchQueue.main.async {
             self.viewDidLayoutSubviews()
         }
@@ -102,8 +108,8 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
 
     func openTelegram() {
-        let appURL = NSURL(string: "tg://resolve?domain=ewelina84")!
-        let webURL = NSURL(string: "https://t.me/ewelina84")!
+        let appURL = NSURL(string: "tg://resolve?domain=\("PROFILE_TELEGRAM_ACCOUNT".localized())")!
+        let webURL = NSURL(string: "https://t.me/\("PROFILE_TELEGRAM_ACCOUNT".localized())")!
         if UIApplication.shared.canOpenURL(appURL as URL) {
             UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
         }

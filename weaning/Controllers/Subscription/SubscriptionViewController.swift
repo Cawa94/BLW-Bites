@@ -21,11 +21,14 @@ class SubscriptionViewController: UIViewController {
     @IBOutlet private weak var purchaseButton: ButtonView!
     @IBOutlet private weak var purchaseExplanationLabel: UILabel!
     @IBOutlet private weak var loadingSpinner: UIActivityIndicatorView!
+    @IBOutlet private weak var termsConditionsTextView: UITextView!
 
     var viewModel: SubscriptionViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        infosTextView.attributedText = "SUBSCRIPTION_DESCRIPTION".localized().htmlToAttributedString()
 
         DispatchQueue.main.async {
             self.viewDidLayoutSubviews()
@@ -51,9 +54,14 @@ class SubscriptionViewController: UIViewController {
                                                                           raiseOnDivideByZero: false))
                 discountPercentage = NSDecimalNumber(100).subtracting(percentage ?? 0)
             }
+            let fullPrice = viewModel?.secondPackage?.id == "$rc_six_month"
+                ? (viewModel?.firstPackage?.storeProduct.price ?? 0) * 6
+                : (viewModel?.firstPackage?.storeProduct.price ?? 0) * 12
             secondPackageView.configureWith(.init(package: secondPackage,
                                                   hasFreeTrial: viewModel?.hasFreeTrial ?? false,
-                                                  percentage: "-\(discountPercentage)%", tapHandler: {
+                                                  percentage: "-\(discountPercentage)%",
+                                                  fullPrice: "\(fullPrice) \(viewModel?.secondPackage?.storeProduct.currencyCode ?? "PLN")",
+                                                  tapHandler: {
                 self.setFirstAsSelected(false)
             }))
         } else {
@@ -61,6 +69,8 @@ class SubscriptionViewController: UIViewController {
         }
 
         setFirstAsSelected(false)
+
+        setTermsConditionsText()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +82,7 @@ class SubscriptionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
         contentViewHeightConstraint.constant = infosTextViewHeightConstraint.constant
-            + 550
+            + 650
     }
 
     func setFirstAsSelected(_ firstSelected: Bool) {
@@ -83,13 +93,19 @@ class SubscriptionViewController: UIViewController {
         self.secondPackageView.publicContainerView.roundCornersSimplified(
             cornerRadius: .defaultCornerRadius, borderWidth: firstSelected ? 1 : 3,  borderColor: (viewModel?.hasFreeTrial ?? false) ? .mainColor : .white)
 
-        let explanationLabel = firstSelected || !(viewModel?.hasFreeTrial ?? false)
-            ? "SUBSCRIPTION_CANCEL_ANYTIME".localized()
-        :    String(format: "SUBSCRIPTION_PAY_AFTER_TRIAL".localized(), viewModel?.secondPackage?.localizedPriceString ?? "")
+        let explanationLabel: String
+        if firstSelected || !(viewModel?.hasFreeTrial ?? false) {
+            explanationLabel = "SUBSCRIPTION_CANCEL_ANYTIME".localized()
+        } else {
+            explanationLabel = String(format: viewModel?.secondPackage?.id == "$rc_annual"
+                                      ? "SUBSCRIPTION_PAY_AFTER_TRIAL_1_YEAR".localized()
+                                      : "SUBSCRIPTION_PAY_AFTER_TRIAL_6_MONTHS".localized(),
+                                      viewModel?.secondPackage?.localizedPriceString ?? "")
+        }
         purchaseExplanationLabel.text = explanationLabel
 
         let buttonTitle = firstSelected || !(viewModel?.hasFreeTrial ?? false)
-        ? String(format: "SUBSCRIPTION_PAY_NOW".localized(), firstSelected
+            ? String(format: "SUBSCRIPTION_PAY_NOW".localized(), firstSelected
                  ? viewModel?.firstPackage?.localizedPriceString ?? ""
                  : viewModel?.secondPackage?.localizedPriceString ?? "")
             : "SUBSCRIPTION_START_FREE_TRIAL".localized()
@@ -108,6 +124,20 @@ class SubscriptionViewController: UIViewController {
             loadingSpinner.startAnimating()
             RevenueCatService.shared.purchase(secondPackage)
         }
+    }
+
+    func setTermsConditionsText() {
+        termsConditionsTextView.attributedText = "SUBSCRIPTION_TERMS_CONDITIONS".localized()
+            .htmlToAttributedString(fontSize: 13)
+        termsConditionsTextView.isUserInteractionEnabled = true
+        termsConditionsTextView.isEditable = false
+        termsConditionsTextView.textAlignment = .center
+
+        termsConditionsTextView.linkTextAttributes = [
+            NSAttributedString.Key.font: UIFont.regularFontOf(size: 13),
+            NSAttributedString.Key.foregroundColor: UIColor.textColor,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
     }
 
 }

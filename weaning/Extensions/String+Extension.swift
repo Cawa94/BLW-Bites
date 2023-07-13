@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
 
-    func htmlToAttributedString() -> NSMutableAttributedString? {
+    func htmlToAttributedString(fontSize: CGFloat = 18) -> NSMutableAttributedString? {
         let preparedTitle = self.replacingOccurrences(of: "\r\n", with: "<br/>").replacingOccurrences(of: "\n", with: "<br/>")
 
         guard let data = preparedTitle.data(using: .utf8) else {
@@ -34,7 +34,7 @@ extension String {
         attributedHtmlString.enumerateAttribute(.font,
                                                 in: stringRange,
                                                 options: .longestEffectiveRangeNotRequired) { value, range, _ in
-                                                    let replacementFont = UIFont.regularFontOf(size: 18)
+                                                    let replacementFont = UIFont.regularFontOf(size: fontSize)
                                                     mutableAttributedHtmlString.addAttribute(.font,
                                                                                              value: replacementFont,
                                                                                              range: range)
@@ -44,7 +44,8 @@ extension String {
                                                  value: UIColor.textColor,
                                                  range: stringRange)
 
-        mutableAttributedHtmlString = replaceBoldParts(originalString: self, mutableString: mutableAttributedHtmlString)
+        mutableAttributedHtmlString = replaceBoldParts(originalString: self, mutableString: mutableAttributedHtmlString, fontSize: fontSize)
+        mutableAttributedHtmlString = replaceUnderlinedParts(originalString: self, mutableString: mutableAttributedHtmlString, fontSize: fontSize)
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
@@ -55,7 +56,7 @@ extension String {
         return mutableAttributedHtmlString
     }
 
-    func replaceBoldParts(originalString: String, mutableString: NSMutableAttributedString) -> NSMutableAttributedString {
+    func replaceBoldParts(originalString: String, mutableString: NSMutableAttributedString, fontSize: CGFloat) -> NSMutableAttributedString {
         let updatedString = mutableString
         for index in originalString.indices(of: "<b>") {
             let boldString = originalString.suffix(from: index).asString.slice(from: "<b>", toString: "</b>")
@@ -65,7 +66,7 @@ extension String {
             boldBlock = boldBlock.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
 
             let boldAttribute: [NSAttributedString.Key : Any] = [
-                .font : UIFont.extraBoldFontOf(size: 18),
+                .font : UIFont.extraBoldFontOf(size: fontSize),
                 .foregroundColor: UIColor.mainColor
             ]
 
@@ -77,12 +78,27 @@ extension String {
         return updatedString
     }
 
-    func bold(_ value: String) -> NSMutableAttributedString {
-        let attributes:[NSAttributedString.Key : Any] = [
-            .font : UIFont.titleFontOf(size: 18)
-        ]
-        
-        return NSMutableAttributedString(string: value, attributes:attributes)
+    func replaceUnderlinedParts(originalString: String, mutableString: NSMutableAttributedString, fontSize: CGFloat) -> NSMutableAttributedString {
+        let updatedString = mutableString
+        for index in originalString.indices(of: "<u>") {
+            let boldString = originalString.suffix(from: index).asString.slice(from: "<u>", toString: "</u>")
+            guard var boldBlock = boldString
+                else { break }
+            
+            boldBlock = boldBlock.replacingOccurrences(of: "<u>", with: "").replacingOccurrences(of: "</u>", with: "")
+
+            let boldAttribute: [NSAttributedString.Key : Any] = [
+                NSAttributedString.Key.font: UIFont.regularFontOf(size: fontSize),
+                NSAttributedString.Key.foregroundColor: UIColor.textColor,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
+            ]
+
+            if let range = updatedString.string.range(of: boldBlock) {
+                updatedString.addAttributes(boldAttribute, range: NSRange(range, in: updatedString.string))
+            }
+        }
+
+        return updatedString
     }
 
     var nsRange: NSRange {
