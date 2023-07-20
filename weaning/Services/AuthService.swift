@@ -16,6 +16,14 @@ class AuthService {
         Auth.auth().useAppLanguage()
     }
 
+    var hasFavoriteRecipes: Bool {
+        !UserDefaultsService.favoriteRecipes.isEmpty
+    }
+
+    var hasFavoriteFoods: Bool {
+        !UserDefaultsService.favoriteFoods.isEmpty
+    }
+
     var isLoggedIn: Bool {
         Auth.auth().currentUser != nil
     }

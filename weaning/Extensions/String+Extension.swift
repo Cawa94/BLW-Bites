@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
 
-    func htmlToAttributedString(fontSize: CGFloat = 18) -> NSMutableAttributedString? {
+    func htmlToAttributedString(fontSize: CGFloat = 18, nunito: Bool = false) -> NSMutableAttributedString? {
         let preparedTitle = self.replacingOccurrences(of: "\r\n", with: "<br/>").replacingOccurrences(of: "\n", with: "<br/>")
 
         guard let data = preparedTitle.data(using: .utf8) else {
@@ -34,10 +34,8 @@ extension String {
         attributedHtmlString.enumerateAttribute(.font,
                                                 in: stringRange,
                                                 options: .longestEffectiveRangeNotRequired) { value, range, _ in
-                                                    let replacementFont = UIFont.regularFontOf(size: fontSize)
-                                                    mutableAttributedHtmlString.addAttribute(.font,
-                                                                                             value: replacementFont,
-                                                                                             range: range)
+            let replacementFont = nunito ? UIFont.boldFontOf(size: fontSize) : UIFont.regularFontOf(size: fontSize)
+            mutableAttributedHtmlString.addAttribute(.font, value: replacementFont, range: range)
         }
 
         mutableAttributedHtmlString.addAttribute(.foregroundColor,

@@ -20,7 +20,7 @@ class ShortFoodCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var seasonalView: UIView!
     @IBOutlet private weak var favoriteImageView: UIImageView!
 
-    static let defaultHeight: CGFloat = 230
+    static var heightWidthRatio: CGFloat = 1.4375
     private var viewModel: ShortFoodCollectionViewModel?
 
     public var publicImageView: UIImageView {
@@ -34,34 +34,37 @@ class ShortFoodCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        foodImageView.image = nil
         unavailableView.isHidden = true
         newView.isHidden = true
         seasonalView.isHidden = true
+        favoriteImageView.image = .init(named: "heart_empty")
     }
 
     func configureWith(_ viewModel: ShortFoodCollectionViewModel, imageCornerRadius: CGFloat) {
         self.viewModel = viewModel
 
-        nameLabel.text = viewModel.shortFood.name
-        startingFromLabel.text = viewModel.shortFood.startingFrom
-        premiumImageView.isHidden = viewModel.shortFood.isFree || RevenueCatService.shared.hasUnlockedPro
-        imageContainerView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 1.5, borderColor: .mainColor)
-        unavailableView.roundCornersSimplified(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
-        newView.roundCornersSimplified(cornerRadius: newView.frame.height/2, borderWidth: 1, borderColor: .white)
-        newView.isHidden = !viewModel.shortFood.isNew
-        seasonalView.isHidden = !viewModel.shortFood.isSeasonal
-        favoriteImageView.isHidden = !RevenueCatService.shared.hasUnlockedPro
-        favoriteImageView.image = viewModel.shortFood.isFavorite ? .init(named: "heart_full") : .init(named: "heart_empty")
+        DispatchQueue.main.async {
+            self.imageContainerView.roundCorners(cornerRadius: imageCornerRadius, borderWidth: 2.5, borderColor: .mainColor)
+            self.unavailableView.roundCorners(cornerRadius: imageCornerRadius, borderWidth: 4, borderColor: .white)
+            self.newView.roundCorners(cornerRadius: self.newView.frame.height/2, borderWidth: 1, borderColor: .white)
 
-        if !(viewModel.shortFood.isFree) && !RevenueCatService.shared.hasUnlockedPro {
-            self.unavailableView.isHidden = false
+            self.nameLabel.text = viewModel.shortFood.name
+            self.startingFromLabel.text = viewModel.shortFood.startingFrom
+            self.premiumImageView.isHidden = viewModel.shortFood.isFree || RevenueCatService.shared.hasUnlockedPro
+            self.newView.isHidden = !viewModel.shortFood.isNew
+            self.seasonalView.isHidden = !viewModel.shortFood.isSeasonal
+            self.favoriteImageView.isHidden = !RevenueCatService.shared.hasUnlockedPro
+            self.favoriteImageView.image = viewModel.shortFood.isFavorite ? .init(named: "heart_full") : .init(named: "heart_empty")
+
+            if !(viewModel.shortFood.isFree) && !RevenueCatService.shared.hasUnlockedPro {
+                self.unavailableView.isHidden = false
+            }
+
+            guard let image = viewModel.shortFood.image, !image.isEmpty
+                else { return }
+            let reference = StorageService.shared.getReferenceFor(path: image)
+            self.foodImageView.sd_setImage(with: reference, placeholderImage: nil)
         }
-
-        guard let image = viewModel.shortFood.image, !image.isEmpty
-            else { return }
-        let reference = StorageService.shared.getReferenceFor(path: image)
-        foodImageView.sd_setImage(with: reference, placeholderImage: nil)
     }
 
     @IBAction func toggleFavorite() {

@@ -48,7 +48,7 @@ public extension UIViewController {
         appearance.shadowImage = #imageLiteral(resourceName: "navbar_shadow")*/
 
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.titleFontOf(size: 16),
+            .font: UIFont.boldFontOf(size: 16),
             .foregroundColor: UIColor.white
         ]
 

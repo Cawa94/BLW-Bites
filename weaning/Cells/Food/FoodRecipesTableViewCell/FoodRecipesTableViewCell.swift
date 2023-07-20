@@ -50,11 +50,10 @@ extension FoodRecipesTableViewCell: UICollectionViewDelegate, UICollectionViewDa
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let leftInset = 30
-        let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
-        let width = columnWidth - (20 / 2)
-
-        return CGSize(width: CGFloat(width), height: ShortRecipeCollectionViewCell.defaultHeight)
+        let cellsWidth = CGFloat(collectionView.bounds.width * CGFloat.homepageCellsSpacePercentage)
+        let width = cellsWidth / 2
+        let height = Double(width) * ShortRecipeCollectionViewCell.heightWidthRatio
+        return CGSize(width: width, height: CGFloat(height))
     }
 
     public func collectionView(_ collectionView: UICollectionView,

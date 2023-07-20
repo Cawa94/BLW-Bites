@@ -52,8 +52,8 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Get Access to All The App Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-WE-yZ3">
-                                    <rect key="frame" x="15.000000000000014" y="40" width="255.33333333333337" height="55.333333333333343"/>
-                                    <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="26"/>
+                                    <rect key="frame" x="15.000000000000014" y="40" width="255.33333333333337" height="53"/>
+                                    <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="25"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>

@@ -13,11 +13,8 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
-        <array key="Nunito.ttf">
+        <array key="Nunito-ExtraBold.ttf">
             <string>Nunito-ExtraBold</string>
-        </array>
-        <array key="Sunshiny.ttf">
-            <string>Sunshiny</string>
         </array>
     </customFonts>
     <objects>
@@ -44,8 +41,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVZ-jD-hyU">
-                    <rect key="frame" x="30" y="99" width="135" height="29.666666666666657"/>
-                    <fontDescription key="fontDescription" name="Sunshiny" family="Sunshiny" pointSize="28"/>
+                    <rect key="frame" x="29.999999999999993" y="99" width="121.33333333333331" height="34.333333333333343"/>
+                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
@@ -53,10 +50,10 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFB-Tk-Wd7">
-                    <rect key="frame" x="127.66666666666667" y="158.66666666666669" width="137.66666666666663" height="137.66666666666669"/>
+                    <rect key="frame" x="127.66666666666667" y="163.33333333333337" width="137.66666666666663" height="137.66666666666663"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef_1" translatesAutoresizingMaskIntoConstraints="NO" id="Hov-JR-L8c">
-                            <rect key="frame" x="20.666666666666679" y="20.666666666666679" width="96.333333333333314" height="96.333333333333314"/>
+                            <rect key="frame" x="20.666666666666679" y="20.66666666666665" width="96.333333333333314" height="96.333333333333314"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Hov-JR-L8c" secondAttribute="height" multiplier="1:1" id="v7Z-6m-pvK"/>
@@ -71,7 +68,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="My Subscription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuG-XO-QCh">
-                    <rect key="frame" x="30" y="227" width="333" height="27.333333333333343"/>
+                    <rect key="frame" x="30" y="231.66666666666666" width="333" height="27.333333333333343"/>
                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
@@ -80,13 +77,13 @@
                     </userDefinedRuntimeAttributes>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Pro Version" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Ud-NNO">
-                    <rect key="frame" x="30" y="269.33333333333331" width="333" height="30.666666666666686"/>
+                    <rect key="frame" x="30" y="274" width="333" height="30.666666666666686"/>
                     <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="22"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOl-O2-BrJ">
-                    <rect key="frame" x="92" y="305" width="209" height="22.333333333333314"/>
+                    <rect key="frame" x="92" y="309.66666666666669" width="209" height="22.333333333333314"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Next payment:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQs-xw-ffq">
                             <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="22.333333333333332"/>
@@ -115,14 +112,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-9c-uej" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
-                    <rect key="frame" x="59" y="337.33333333333331" width="275" height="60"/>
+                    <rect key="frame" x="59" y="342" width="275" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="iyl-sl-BAe"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KH0-Vv-gHm">
-                    <rect key="frame" x="110.66666666666667" y="417.33333333333331" width="171.66666666666663" height="36"/>
+                    <rect key="frame" x="110.66666666666667" y="422" width="171.66666666666663" height="36"/>
                     <color key="tintColor" name="mainColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Cancel Subscription">
@@ -133,7 +130,7 @@
                     </connections>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="aXr-cj-EAg">
-                    <rect key="frame" x="282.33333333333331" y="425.33333333333331" width="20" height="20"/>
+                    <rect key="frame" x="282.33333333333331" y="430" width="20" height="20"/>
                     <color key="color" name="mainColor"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="My Account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zh9-bR-3Kg">
@@ -184,7 +181,7 @@
                     <color key="color" name="mainColor"/>
                 </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Yuri" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvh-MM-l0l">
-                    <rect key="frame" x="30" y="158.66666666666666" width="333" height="38.333333333333343"/>
+                    <rect key="frame" x="30" y="163.33333333333334" width="333" height="38.333333333333343"/>
                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="28"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>

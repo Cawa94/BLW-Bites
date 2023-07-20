@@ -58,7 +58,9 @@ class FoodMonthsSectionTableViewCell: UITableViewCell {
         sectionTextViewHeightConstraint.constant = sectionTextView.contentSize.height
         let picturesCount = food?.ageSegments[monthsSegmentControl.selectedSegmentIndex].pictures?.count ?? 0
         let numberOfItems = ((picturesCount % 2) == 0) ? picturesCount : picturesCount + 1
-        let collectionHeight = CGFloat(165 * (Double((numberOfItems)/2).rounded(.up)))
+        let cellsWidth = CGFloat(imagesCollectionView.bounds.width * CGFloat.foodImagesSpacePercentage)
+        let widthWithSpace = (cellsWidth / 2) + 35
+        let collectionHeight = CGFloat(widthWithSpace * (Double((numberOfItems)/2).rounded(.up)))
         imagesCollectionViewHeightConstraint.constant = collectionHeight
         DispatchQueue.main.async {
             self.imagesCollectionView.reloadData()
@@ -129,13 +131,17 @@ extension FoodMonthsSectionTableViewCell: UICollectionViewDelegate, UICollection
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 145, height: 145)
+        let cellsWidth = CGFloat(collectionView.bounds.width * CGFloat.foodImagesSpacePercentage)
+        let width = cellsWidth / 2
+        return CGSize(width: width, height: width)
     }
 
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 10, left: 5, bottom: 10, right: 5)
+        let cellsWidth = CGFloat(collectionView.bounds.width * CGFloat.foodImagesSpacePercentage)
+        let inset = CGFloat(collectionView.bounds.width - cellsWidth) / 3
+        return .init(top: 10, left: inset, bottom: 10, right: inset)
     }
 
     public func collectionView(_ collectionView: UICollectionView,

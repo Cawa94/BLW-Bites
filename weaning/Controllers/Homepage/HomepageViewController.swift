@@ -28,8 +28,10 @@ class HomepageViewController: UIViewController {
         mainTableView.rowHeight = UITableView.automaticDimension
         mainTableView.register(UINib(nibName: "HomepageHeaderTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "HomepageHeaderTableViewCell")
-        mainTableView.register(UINib(nibName: "HomepageElementsTableViewCell", bundle: nil),
-                               forCellReuseIdentifier: "HomepageElementsTableViewCell")
+        mainTableView.register(UINib(nibName: "HomepageFoodsTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "HomepageFoodsTableViewCell")
+        mainTableView.register(UINib(nibName: "HomepageRecipesTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "HomepageRecipesTableViewCell")
 
         getHomepageFoods()
 
@@ -175,10 +177,9 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func seasonalFood(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
-            as? HomepageElementsTableViewCell {
-            cell.configureWith(foods: viewModel?.seasonalFoods,
-                               title: "HOME_SEASONAL_FOODS".localized(), indexPath: indexPath, delegate: self)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageFoodsTableViewCell", for: indexPath)
+            as? HomepageFoodsTableViewCell {
+            cell.configureWith(foods: viewModel?.seasonalFoods, title: "HOME_SEASONAL_FOODS".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -186,10 +187,9 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func seasonalRecipes(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
-            as? HomepageElementsTableViewCell {
-            cell.configureWith(recipes: viewModel?.seasonalRecipes,
-                               title: "HOME_SEASONAL_RECIPES".localized(), indexPath: indexPath, delegate: self)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageRecipesTableViewCell", for: indexPath)
+            as? HomepageRecipesTableViewCell {
+            cell.configureWith(recipes: viewModel?.seasonalRecipes, title: "HOME_SEASONAL_RECIPES".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -197,10 +197,9 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func newCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
-            as? HomepageElementsTableViewCell {
-            cell.configureWith(foods: viewModel?.newFoods, recipes: viewModel?.newRecipes,
-                               title: "HOME_NEW_ENTRY".localized(), indexPath: indexPath, delegate: self)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageRecipesTableViewCell", for: indexPath)
+            as? HomepageRecipesTableViewCell {
+            cell.configureWith(recipes: viewModel?.newRecipes, title: "HOME_NEW_ENTRY".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -208,10 +207,9 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func freeFoodCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
-            as? HomepageElementsTableViewCell {
-            cell.configureWith(foods: viewModel?.freeFoods, recipes: nil,
-                               title: "HOME_FREE_FOODS".localized(), indexPath: indexPath, delegate: self)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageFoodsTableViewCell", for: indexPath)
+            as? HomepageFoodsTableViewCell {
+            cell.configureWith(foods: viewModel?.freeFoods, title: "HOME_FREE_FOODS".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -219,10 +217,9 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func freeRecipesCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageElementsTableViewCell", for: indexPath)
-            as? HomepageElementsTableViewCell {
-            cell.configureWith(foods: nil, recipes: viewModel?.freeRecipes,
-                               title: "HOME_FREE_RECIPES".localized(), indexPath: indexPath, delegate: self)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageRecipesTableViewCell", for: indexPath)
+            as? HomepageRecipesTableViewCell {
+            cell.configureWith(recipes: viewModel?.freeRecipes, title: "HOME_FREE_RECIPES".localized(), indexPath: indexPath, delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -231,21 +228,27 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension HomepageViewController: HomepageElementsDelegate {
+extension HomepageViewController: HomepageRecipesDelegate, HomepageFoodsDelegate {
 
-    func selectedElement(food: Food?, recipe: Recipe?, elementIndexPath: IndexPath, cellIndexPath: IndexPath) {
+    func selectedElement(food: Food?, elementIndexPath: IndexPath, cellIndexPath: IndexPath) {
         self.selectedElementIndexPath = elementIndexPath
         self.selectedCellIndexPath = cellIndexPath
         if let foodId = food?.id,
            let selectedCellIndexPath = selectedCellIndexPath,
-            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageElementsTableViewCell,
+            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageFoodsTableViewCell,
             let selectedElementIndexPath = selectedElementIndexPath,
             let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortFoodCollectionViewCell {
             let foodController = NavigationService.foodViewController(foodId: foodId, food: food, cellFavoriteImageView: cell.publicFavoriteImageView)
             NavigationService.push(viewController: foodController)
-        } else if let recipeId = recipe?.id,
+        }
+    }
+
+    func selectedElement(recipe: Recipe?, elementIndexPath: IndexPath, cellIndexPath: IndexPath) {
+        self.selectedElementIndexPath = elementIndexPath
+        self.selectedCellIndexPath = cellIndexPath
+        if let recipeId = recipe?.id,
             let selectedCellIndexPath = selectedCellIndexPath,
-            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageElementsTableViewCell,
+            let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageRecipesTableViewCell,
             let selectedElementIndexPath = selectedElementIndexPath,
             let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortRecipeCollectionViewCell {
             let recipeController = NavigationService.recipeViewController(recipeId: recipeId, recipe: recipe, cellFavoriteImageView: cell.publicFavoriteImageView)
@@ -262,13 +265,21 @@ extension HomepageViewController: ZoomingViewController {
     }
 
     func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
-        if let selectedCellIndexPath = selectedCellIndexPath,
-           let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageElementsTableViewCell,
-           let selectedElementIndexPath = selectedElementIndexPath {
-            if let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortFoodCollectionViewCell {
-                return cell.publicImageView
-            } else if let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortRecipeCollectionViewCell {
-                return cell.publicImageView
+        if let selectedCellIndexPath = selectedCellIndexPath {
+           if let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageFoodsTableViewCell,
+              let selectedElementIndexPath = selectedElementIndexPath {
+               if let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortFoodCollectionViewCell {
+                   return cell.publicImageView
+               } else {
+                   return nil
+               }
+           } else if let elementsCell = mainTableView?.cellForRow(at: selectedCellIndexPath) as? HomepageRecipesTableViewCell,
+              let selectedElementIndexPath = selectedElementIndexPath {
+               if let cell = elementsCell.publicCollectionView.cellForItem(at: selectedElementIndexPath) as? ShortRecipeCollectionViewCell {
+                    return cell.publicImageView
+                } else {
+                    return nil
+                }
             } else {
                 return nil
             }

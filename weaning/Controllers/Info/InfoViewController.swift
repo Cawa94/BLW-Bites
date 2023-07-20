@@ -56,8 +56,7 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
     override func viewDidLayoutSubviews() {
         textViewHeightConstraint.constant = explicationTextView.contentSize.height
         contentViewHeightConstraint.constant = textViewHeightConstraint.constant
-            + 400
-        ewelinaImageView.roundCornersSimplified(cornerRadius: ewelinaImageView.frame.height/2)
+            + 600
     }
 
     func sendEmail() {

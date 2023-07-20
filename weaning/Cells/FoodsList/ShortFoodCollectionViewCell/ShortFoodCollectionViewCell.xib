@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,34 +19,34 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShortFoodCollectionViewCell" id="gTV-IL-0wX" customClass="ShortFoodCollectionViewCell" customModule="Test_Build" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="157" height="230"/>
+            <rect key="frame" x="0.0" y="0.0" width="160" height="230"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="157" height="230"/>
+                <rect key="frame" x="0.0" y="0.0" width="160" height="230"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-S5-qpm">
-                        <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q0y-QM-hDN">
-                                <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q0y-QM-hDN" secondAttribute="height" multiplier="1:1" id="82K-ew-CqF"/>
                                 </constraints>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LmA-O0-Htv">
-                                <rect key="frame" x="0.0" y="122" width="157" height="35"/>
+                                <rect key="frame" x="0.0" y="125" width="160" height="35"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtH-OZ-XHt">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="2"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="2"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="ynz-Bo-Erl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sezonowy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNr-xg-HPQ">
-                                        <rect key="frame" x="47" y="6" width="63.333333333333343" height="18"/>
+                                        <rect key="frame" x="48.333333333333329" y="6" width="63.333333333333329" height="18"/>
                                         <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="13"/>
                                         <color key="textColor" name="lightTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -101,13 +101,13 @@
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_empty" translatesAutoresizingMaskIntoConstraints="NO" id="KHy-Kk-HnC">
-                        <rect key="frame" x="135" y="2" width="20" height="20"/>
+                        <rect key="frame" x="138" y="2" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="YTF-TD-fTg"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-jm-Xbb">
-                        <rect key="frame" x="115" y="2" width="40" height="40"/>
+                        <rect key="frame" x="118" y="2" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Gzw-jm-Xbb" secondAttribute="height" multiplier="1:1" id="8pM-ae-Sdh"/>
                             <constraint firstAttribute="width" constant="40" id="mTb-5e-mF1"/>
@@ -119,23 +119,23 @@
                         </connections>
                     </button>
                     <view hidden="YES" alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guN-Re-EI9">
-                        <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <color key="backgroundColor" name="backgroundColor1"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cef-PR-4zo">
-                        <rect key="frame" x="0.0" y="167" width="157" height="22"/>
+                        <rect key="frame" x="0.0" y="170" width="160" height="22"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+6000months" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-Nq-XMc">
-                        <rect key="frame" x="0.0" y="194" width="157" height="19.333333333333343"/>
+                        <rect key="frame" x="0.0" y="197" width="160" height="19.333333333333343"/>
                         <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="14"/>
                         <color key="textColor" name="mainColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="add-Xj-4Nb">
-                        <rect key="frame" x="117" y="5" width="35" height="35"/>
+                        <rect key="frame" x="120" y="5" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="QX2-ss-s2f"/>
                             <constraint firstAttribute="width" secondItem="add-Xj-4Nb" secondAttribute="height" multiplier="1:1" id="XdU-mi-sdi"/>

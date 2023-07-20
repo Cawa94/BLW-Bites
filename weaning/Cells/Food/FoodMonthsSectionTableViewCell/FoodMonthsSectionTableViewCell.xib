@@ -101,6 +101,9 @@
                             <fontDescription key="titleFontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="18"/>
                             <color key="baseBackgroundColor" name="mainColor"/>
                         </buttonConfiguration>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_PLAY_VIDEO"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="playVideo:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uxO-y9-9sB"/>
                         </connections>

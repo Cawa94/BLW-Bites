@@ -2,11 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tg</string>
+		<string>googlegmail</string>
+		<string>ms-outlook</string>
+		<string>readdle-spark</string>
+		<string>ymail</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Nunito-ExtraBold.ttf</string>
+		<string>Nunito-SemiBold.ttf</string>
 		<string>Alata-Regular.ttf</string>
+		<string>Nunito-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
@@ -27,17 +40,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>tg</string>
-		<string>googlegmail</string>
-		<string>ms-outlook</string>
-		<string>readdle-spark</string>
-		<string>ymail</string>
-	</array>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Sledzimy sposob, w jaki użytkownik korzysta z aplikacji, aby zapewnic mu lepsza obsluge</string>
-	<key>FirebaseAutomaticScreenReportingEnabled</key>
-	<false/>
 </dict>
 </plist>

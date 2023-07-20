@@ -73,12 +73,21 @@ class RecipesListViewController: UIViewController {
                     self.convertRecipesData(querySnapshot, error)
             }
         } else if isFavorites {
-            FirestoreService.shared.database.collection("recipes")
-                .whereField("id", in: UserDefaultsService.favoriteRecipes.compactMap { $0 })
-                .order(by: "name")
-                .limit(to: Int.paginationSize)
-                .getDocuments() { querySnapshot, error in
-                    self.convertRecipesData(querySnapshot, error)
+            if AuthService.shared.hasFavoriteRecipes {
+                FirestoreService.shared.database.collection("recipes")
+                    .whereField("id", in: UserDefaultsService.favoriteRecipes.compactMap { $0 })
+                    .order(by: "name")
+                    .limit(to: Int.paginationSize)
+                    .getDocuments() { querySnapshot, error in
+                        self.convertRecipesData(querySnapshot, error)
+                    }
+            } else {
+                self.viewModel?.recipes.removeAll()
+                DispatchQueue.main.async {
+                    self.recipesCollectionView.reloadData(completion: {
+                        self.recipesCollectionView.contentInset = .init(top: 0, left: 0, bottom: .bottomSpace, right: 0)
+                    })
+                }
             }
         } else {
             FirestoreService.shared.database.collection("recipes")
@@ -203,16 +212,15 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             let categoryName = RecipeCategory.allValues[indexPath.row].name
             let label = UILabel()
-            label.font = .titleFontOf(size: 16)
+            label.font = .boldFontOf(size: 16)
             label.text = categoryName
             let width = label.intrinsicContentSize.width + 55
             return CGSize(width: width, height: CategoryCollectionViewCell.defaultHeight)
         } else {
-            let leftInset = 10
-            let columnWidth = Int(collectionView.bounds.width) / 2 - leftInset
-            let width = columnWidth - 5
-
-            return CGSize(width: CGFloat(width), height: ShortRecipeCollectionViewCell.defaultHeight)
+            let cellsWidth = CGFloat(collectionView.bounds.width * CGFloat.recipeCellsSpacePercentage)
+            let width = cellsWidth / 2
+            let height = Double(width) * ShortRecipeCollectionViewCell.heightWidthRatio
+            return CGSize(width: width, height: CGFloat(height))
         }
     }
 
@@ -222,7 +230,9 @@ extension RecipesListViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             return .init(top: 10, left: 10, bottom: 10, right: 10)
         } else {
-            return .init(top: 10, left: 10, bottom: 10, right: 10)
+            let cellsWidth = CGFloat(collectionView.bounds.width * CGFloat.recipeCellsSpacePercentage)
+            let inset = CGFloat(collectionView.bounds.width - cellsWidth) / 3
+            return .init(top: 20, left: inset, bottom: 20, right: inset)
         }
     }
 
@@ -323,22 +333,24 @@ extension RecipesListViewController: UISearchBarDelegate {
 extension RecipesListViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let contentSize = scrollView.contentSize.height
-        if contentSize - scrollView.contentOffset.y <= scrollView.bounds.height {
-            didScrollToBottom()
+        if scrollView == self.recipesCollectionView {
+            let contentSize = scrollView.contentSize.height
+            if contentSize - scrollView.contentOffset.y <= scrollView.bounds.height {
+                didScrollToBottom()
+            }
+            
+            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+            if translation.y > 0 && categoriesHeightConstraint.constant == 0 {
+                // swipes from top to bottom of screen -> down
+                categoriesHeightConstraint.constant = 65
+            } else if translation.y < -25 && categoriesHeightConstraint.constant == 65 {
+                // swipes from bottom to top of screen -> up
+                categoriesHeightConstraint.constant = 0
+            }
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
-
-        let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-        if translation.y > 0 && categoriesHeightConstraint.constant == 0 {
-            // swipes from top to bottom of screen -> down
-            categoriesHeightConstraint.constant = 65
-        } else if translation.y < -25 && categoriesHeightConstraint.constant == 65 {
-            // swipes from bottom to top of screen -> up
-            categoriesHeightConstraint.constant = 0
-        }
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
     }
 
     func didScrollToBottom() {

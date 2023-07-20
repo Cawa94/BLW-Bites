@@ -13,7 +13,7 @@ extension UIButton {
         get { titleLabel?.text }
         set(value) {
             var attributes = AttributeContainer()
-            attributes.font = .titleFontOf(size: self.titleLabel?.font.pointSize ?? 20)
+            attributes.font = .boldFontOf(size: self.titleLabel?.font.pointSize ?? 20)
 
             let title = AttributedString(value?.localized() ?? "", attributes: attributes)
             self.configuration?.attributedTitle = title
@@ -22,7 +22,7 @@ extension UIButton {
 
     func setAttributedTitle(_ value: String) {
         var attributes = AttributeContainer()
-        attributes.font = .titleFontOf(size: self.titleLabel?.font.pointSize ?? 20)
+        attributes.font = .boldFontOf(size: self.titleLabel?.font.pointSize ?? 20)
 
         let title = AttributedString(value, attributes: attributes)
         self.configuration?.attributedTitle = title
