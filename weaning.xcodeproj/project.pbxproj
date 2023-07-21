@@ -55,6 +55,8 @@
 		7344B36E29A0E24500B172AC /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B36D29A0E24500B172AC /* FoodCategory.swift */; };
 		7344B37429A0ED6C00B172AC /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */; };
 		7351ECD42A40944A00DCF611 /* RevenueCatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351ECD32A40944A00DCF611 /* RevenueCatService.swift */; };
+		735385C62A6AC47500C2ACBF /* TickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735385C52A6AC47500C2ACBF /* TickView.swift */; };
+		735385C82A6AC47E00C2ACBF /* TickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735385C72A6AC47E00C2ACBF /* TickView.xib */; };
 		735A91FD2A69D18C00AE7661 /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 735A91FB2A69D18B00AE7661 /* Nunito-VariableFont_wght.ttf */; };
 		735FE74A2A0144A000AB8BBF /* AppCheckProviderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735FE7492A0144A000AB8BBF /* AppCheckProviderService.swift */; };
 		736579A429A231F70071F60E /* FoodTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736579A229A231F70071F60E /* FoodTitleTableViewCell.swift */; };
@@ -229,6 +231,8 @@
 		7344B36D29A0E24500B172AC /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		7351ECD32A40944A00DCF611 /* RevenueCatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatService.swift; sourceTree = "<group>"; };
+		735385C52A6AC47500C2ACBF /* TickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickView.swift; sourceTree = "<group>"; };
+		735385C72A6AC47E00C2ACBF /* TickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickView.xib; sourceTree = "<group>"; };
 		735A91FB2A69D18B00AE7661 /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		735FE7482A01443800AB8BBF /* weaning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weaning.entitlements; sourceTree = "<group>"; };
 		735FE7492A0144A000AB8BBF /* AppCheckProviderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCheckProviderService.swift; sourceTree = "<group>"; };
@@ -527,8 +531,18 @@
 				733846382A41E0DB00FAEEAF /* CustomTextField */,
 				73BF82CE29C33E6A00835205 /* PackageView */,
 				73B82BCB2A39FEB400272290 /* PromotionalBannerView */,
+				735385C42A6AC45300C2ACBF /* TickView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		735385C42A6AC45300C2ACBF /* TickView */ = {
+			isa = PBXGroup;
+			children = (
+				735385C52A6AC47500C2ACBF /* TickView.swift */,
+				735385C72A6AC47E00C2ACBF /* TickView.xib */,
+			);
+			path = TickView;
 			sourceTree = "<group>";
 		};
 		736579A129A231C40071F60E /* Food */ = {
@@ -1171,6 +1185,7 @@
 				73AE196129BC900F00B2A2AE /* MenuViewController.xib in Resources */,
 				73E59BCF29AA0C65003D7F65 /* FoodMonthsSectionTableViewCell.xib in Resources */,
 				739A622829B65B74006FE951 /* HomepageFoodsTableViewCell.xib in Resources */,
+				735385C82A6AC47E00C2ACBF /* TickView.xib in Resources */,
 				733846412A41F8A100FAEEAF /* RegistrationViewController.xib in Resources */,
 				73C331A82A69CDAC00EA7D45 /* Nunito-Regular.ttf in Resources */,
 				73AD68E529AFB7D20054B377 /* RecipeInfoTableViewCell.xib in Resources */,
@@ -1298,6 +1313,7 @@
 				738FB3072997DFB800C286B3 /* UICollectionViewCell+Extension.swift in Sources */,
 				73E59BE629AA683B003D7F65 /* InfoSection.swift in Sources */,
 				7344B35C29A0D3E300B172AC /* HomepageViewModel.swift in Sources */,
+				735385C62A6AC47500C2ACBF /* TickView.swift in Sources */,
 				73B82BCD2A39FEDA00272290 /* PromotionalBannerView.swift in Sources */,
 				7344B36329A0DD9700B172AC /* DefaultConstants.swift in Sources */,
 				733846452A41F8C800FAEEAF /* NavigationService+RegistrationViewController.swift in Sources */,

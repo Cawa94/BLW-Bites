@@ -17,6 +17,8 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
     @IBOutlet private weak var emailButtonView: ButtonView!
     @IBOutlet private weak var telegramButtonView: ButtonView!
     @IBOutlet private weak var telegramLock: UIImageView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var mainScrollView: UIScrollView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,8 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
             self.sendEmail()
         }))
 
-        telegramButtonView.configureWith(.init(title: "INFO_TELEGRAM".localized(), tapHandler: {
+        telegramButtonView.configureWith(.init(title: "INFO_TELEGRAM".localized(),
+                                               icon: UIImage(named: "telegram"), tapHandler: {
             if RevenueCatService.shared.hasUnlockedPro {
                 self.openTelegram()
             } else {
@@ -41,6 +44,8 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
             NSAttributedString.Key.foregroundColor: UIColor.mainColor,
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
         ]
+
+        mainScrollView.contentInsetAdjustmentBehavior = .never
 
         DispatchQueue.main.async {
             self.viewDidLayoutSubviews()
@@ -55,8 +60,11 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewDidLayoutSubviews() {
         textViewHeightConstraint.constant = explicationTextView.contentSize.height
-        contentViewHeightConstraint.constant = textViewHeightConstraint.constant
-            + 600
+        contentViewHeightConstraint.constant = textViewHeightConstraint.constant + 850 + .bottomSpace + 100
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     func sendEmail() {
@@ -115,6 +123,30 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
         else {
             UIApplication.shared.open(webURL as URL, options: [:], completionHandler: nil)
         }
+    }
+
+}
+
+extension InfoViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        var headerTransform = CATransform3DIdentity
+
+        if offset < 0 {
+            // PULL DOWN -----------------
+            let headerScaleFactor: CGFloat = -(offset) / headerView.bounds.height
+            let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor))
+                - headerView.bounds.height)/2.0
+
+            headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+            headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 90)
+        } else {
+            // SCROLL UP/DOWN ------------
+            headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
+        }
+
+        headerView.layer.transform = headerTransform
     }
 
 }

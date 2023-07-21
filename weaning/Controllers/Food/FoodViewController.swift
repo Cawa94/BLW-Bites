@@ -51,6 +51,8 @@ class FoodViewController: UIViewController {
         mainTableView.register(UINib(nibName: "SeparatorTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "SeparatorTableViewCell")
 
+        mainScrollView.contentInsetAdjustmentBehavior = .never
+
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         favoriteView.roundCornersSimplified(cornerRadius: .smallCornerRadius)
         favoriteView.isHidden = !RevenueCatService.shared.hasUnlockedPro
@@ -104,8 +106,8 @@ class FoodViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         tableViewHeightConstraint.constant = mainTableView.contentSize.height
-        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + .bottomSpace
-        foodImageView.roundCorners(corners: [.bottomLeft, .bottomRight], cornerRadius: 157/2)
+        contentViewHeightConstraint.constant = imageViewHeightConstraint.constant + tableViewHeightConstraint.constant + .bottomSpace + 100
+        mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
 
     @IBAction func dimissPage() {

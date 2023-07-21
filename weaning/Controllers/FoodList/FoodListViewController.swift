@@ -12,6 +12,10 @@ import FirebaseFirestoreSwift
 
 class FoodListViewController: UIViewController {
 
+    @IBOutlet private weak var mainScrollView: UIScrollView!
+    @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerViewHeighConstraint: NSLayoutConstraint!
     @IBOutlet private weak var categoriesCollectionView: UICollectionView!
     @IBOutlet private weak var categoriesHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var foodsCollectionView: UICollectionView!
@@ -41,8 +45,12 @@ class FoodListViewController: UIViewController {
                                      forCellWithReuseIdentifier:"ShortFoodCollectionViewCell")
         foodSearchBar.placeholder = "FOOD_LIST_SEARCH".localized()
 
+        mainScrollView.contentInsetAdjustmentBehavior = .never
+
         DispatchQueue.main.async {
-            self.categoriesCollectionView.reloadData()
+            self.categoriesCollectionView.reloadData(completion: {
+                self.viewDidLayoutSubviews()
+            })
         }
 
         getFoods()
@@ -54,6 +62,18 @@ class FoodListViewController: UIViewController {
         super.viewDidAppear(animated)
 
         FirebaseAnalytics.shared.trackScreenView(className: self.className)
+    }
+
+    override func viewDidLayoutSubviews() {
+        contentViewHeightConstraint.constant = headerViewHeighConstraint.constant
+            + categoriesHeightConstraint.constant
+            + foodsCollectionView.contentSize.height
+            + .bottomSpace
+            + 150
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     func getFoods(isFavorites: Bool = false) {
@@ -150,6 +170,7 @@ class FoodListViewController: UIViewController {
             DispatchQueue.main.async {
                 self.foodsCollectionView.reloadData(completion: {
                     self.foodsCollectionView.contentInset = .init(top: 0, left: 0, bottom: .bottomSpace, right: 0)
+                    self.viewDidLayoutSubviews()
                 })
             }
         }
@@ -319,23 +340,27 @@ extension FoodListViewController: UISearchBarDelegate {
 extension FoodListViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == self.foodsCollectionView {
+        if scrollView == self.mainScrollView {
             let contentSize = scrollView.contentSize.height
             if contentSize - scrollView.contentOffset.y <= scrollView.bounds.height {
                 didScrollToBottom()
             }
-            
-            let translation = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
-            if translation.y > 0 && categoriesHeightConstraint.constant == 0 {
-                // swipes from top to bottom of screen -> down
-                categoriesHeightConstraint.constant = 65
-            } else if translation.y < -25 && categoriesHeightConstraint.constant == 65 {
-                // swipes from bottom to top of screen -> up
-                categoriesHeightConstraint.constant = 0
+
+            let offset = scrollView.contentOffset.y
+            var headerTransform = CATransform3DIdentity
+
+            if offset < 0 {
+                // PULL DOWN -----------------
+                let headerScaleFactor: CGFloat = -(offset) / headerView.bounds.height
+                let headerSizevariation = ((headerView.bounds.height * (1.0 + headerScaleFactor)) - headerView.bounds.height)/2.0
+                headerTransform = CATransform3DTranslate(headerTransform, 0, headerSizevariation, 0)
+                headerTransform = CATransform3DScale(headerTransform, 1.0 + headerScaleFactor, 1.0 + headerScaleFactor, 90)
+            } else {
+                // SCROLL UP/DOWN ------------
+                headerTransform = CATransform3DTranslate(headerTransform, 0, -offset, 0)
             }
-            UIView.animate(withDuration: 0.2, animations: {
-                self.view.layoutIfNeeded()
-            })
+
+            headerView.layer.transform = headerTransform
         }
     }
 

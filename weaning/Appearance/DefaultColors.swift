@@ -13,6 +13,8 @@ extension UIColor {
 
     static let backgroundColor1  = UIColor.named("backgroundColor1")
 
+    static let telegram          = UIColor.named("telegram")
+
     static let mainColor         = UIColor.named("mainColor")
     static let textColor         = UIColor.named("textColor")
 

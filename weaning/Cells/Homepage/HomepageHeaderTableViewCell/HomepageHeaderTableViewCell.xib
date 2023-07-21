@@ -8,10 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
-        </array>
         <array key="Nunito-VariableFont_wght.ttf">
+            <string>Nunito-Bold</string>
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
@@ -91,6 +89,7 @@
                 <outlet property="subscribeButtonBottomConstraint" destination="cMf-qU-FdP" id="yIg-xE-otF"/>
                 <outlet property="subscribeButtonHeighConstraint" destination="MPu-Kx-jM6" id="XEP-KI-vB0"/>
                 <outlet property="subtitleLabel" destination="xRL-FC-Oer" id="0TS-zg-1A6"/>
+                <outlet property="titleLabel" destination="0hm-iR-Tx7" id="zdM-j7-DWX"/>
             </connections>
             <point key="canvasLocation" x="138.1679389312977" y="40.492957746478872"/>
         </tableViewCell>

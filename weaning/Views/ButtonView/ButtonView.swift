@@ -12,6 +12,8 @@ class ButtonView: UIView {
 
     @IBOutlet private var contentView: UIView!
     @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var iconImageView: UIImageView!
+    @IBOutlet private var iconWidthConstraint: NSLayoutConstraint!
 
     private var viewModel: ButtonViewModel?
 
@@ -38,8 +40,14 @@ class ButtonView: UIView {
     func configureWith(_ viewModel: ButtonViewModel) {
         self.viewModel = viewModel
 
+        contentView.backgroundColor = viewModel.backgroundColor
+
         titleLabel.font = .extraBoldFontOf(size: viewModel.fontSize)
         titleLabel.text = viewModel.title
+
+        iconImageView.image = viewModel.icon
+        iconWidthConstraint.constant = viewModel.icon != nil ? 25 : 0
+        
     }
 
     @IBAction func tapAction() {

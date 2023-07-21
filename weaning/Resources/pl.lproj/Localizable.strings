@@ -122,7 +122,7 @@
 "RESET_PASSWORD_EMAIL_SENT" = "Wiadomość e-mail została wysłana";
 "SUBSCRIPTION_BANNER" = "Odblokuj 80+ produktów i 100+ przepisów!";
 "SUBSCRIPTION_TITLE" = "Uzyskaj dostęp do pełnej zawartości aplikacji";
-"SUBSCRIPTION_DESCRIPTION" = "• Dowiedz się, jak prawidłowo kroić <b>ponad 80 produktów spożywczych</b> i przygotować <b>ponad 100 przepisów</b>\n\n• <b>2-tygodniowy sezonowy jadłospis</b> dla niemowląt w wieku 7-12 miesięcy <b>aktualizowany co miesiąc</b>\n\n• <b>Otrzymuj ekskluzywne wsparcie</b> w przypadku jakichkolwiek wątpliwości lub pytań bezpośrednio <b>na Telegramie</b>\n\n• <b>20% zniżki na moje konsultacje online 1 na 1</b>\n\n• Zapisywanie ulubionych produktów i przepisów\n\n• Pełny dostęp do jadłospisu na pierwsze 30 dni rozszerzania dietyi\n\n• <b>Nowe sezonowe przepisy dodawane co miesiąc</b>";
+"SUBSCRIPTION_DESCRIPTION" = "Dowiedz się, jak prawidłowo kroić <b>ponad 80 produktów spożywczych</b> i przygotować <b>ponad 100 przepisów</b>\n\n<b>2-tygodniowy sezonowy jadłospis</b> dla niemowląt w wieku 7-12 miesięcy <b>aktualizowany co miesiąc</b>\n\n<b>Otrzymuj ekskluzywne wsparcie</b> w przypadku jakichkolwiek wątpliwości lub pytań bezpośrednio na Telegramie\n\n<b>20% zniżki</b> na moje konsultacje online 1 na 1\n\nZapisywanie ulubionych produktów i przepisów\n\nPełny dostęp do jadłospisu na pierwsze <b>30 dni rozszerzania dietyi</b>\n\nNowe sezonowe przepisy dodawane co miesiąc";
 "SUBSCRIPTION_RESTORE_PURCHASE" = "Przywrócić zakup";
 "SUBSCRIPTION_FREE_TRIAL" = "7-DNI ZA DARMO";
 "SUBSCRIPTION_CANCEL_ANYTIME" = "Będziesz mógł anulować subskrypcję w dowolnym momencie";

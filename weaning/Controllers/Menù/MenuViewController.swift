@@ -50,6 +50,8 @@ class MenuViewController: UIViewController {
         daysCollectionView.register(UINib(nibName:"DayCollectionViewCell", bundle: nil),
                                     forCellWithReuseIdentifier:"DayCollectionViewCell")
 
+        mainScrollView.contentInsetAdjustmentBehavior = .never
+
         navigationTitleLabel.text = viewModel?.menuName
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         imageViewHeightConstraint.constant = viewModel?.is30Days ?? false ? 350 : 250
@@ -118,10 +120,10 @@ class MenuViewController: UIViewController {
         contentViewHeightConstraint.constant = imageViewHeightConstraint.constant
             + collectionViewHeightConstraint.constant
             + tableViewHeightConstraint.constant
-            + 20
             + instructionTextViewHeightconstraint.constant
+            + .bottomSpace
+            + 180
         daysCollectionViewBackground.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
-        mainTableView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 45)
     }
 
     @IBAction func dimissPage() {

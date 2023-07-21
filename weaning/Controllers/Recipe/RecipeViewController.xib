@@ -3,14 +3,16 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito.ttf">
+        <array key="Nunito-Black.ttf">
             <string>Nunito-Black</string>
+        </array>
+        <array key="Nunito-ExtraBold.ttf">
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
@@ -40,12 +42,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT2-Y1-ZjB">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LdI-VC-ElB">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="350" id="pBs-ob-YyY"/>
+                                <constraint firstAttribute="height" constant="400" id="pBs-ob-YyY"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -107,11 +109,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="665"/>
                             <subviews>
                                 <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKD-n3-PCx">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-bz-G41" customClass="ContentSizedTableView" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="350" width="393" height="950"/>
+                                    <rect key="frame" x="0.0" y="400" width="393" height="950"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="950" id="mXw-V2-bOz"/>

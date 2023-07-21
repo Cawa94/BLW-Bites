@@ -14,8 +14,8 @@ import RevenueCat
 class SubscriptionViewController: UIViewController {
 
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var infosTextView: UITextView!
-    @IBOutlet private weak var infosTextViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var tickStackView: UIStackView!
+    @IBOutlet private weak var tickStackViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var firstPackageView: PackageView!
     @IBOutlet private weak var secondPackageView: PackageView!
     @IBOutlet private weak var purchaseButton: ButtonView!
@@ -28,7 +28,7 @@ class SubscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        infosTextView.attributedText = "SUBSCRIPTION_DESCRIPTION".localized().htmlToAttributedString()
+        addTicksToStackView()
 
         DispatchQueue.main.async {
             self.viewDidLayoutSubviews()
@@ -73,6 +73,15 @@ class SubscriptionViewController: UIViewController {
         setTermsConditionsText()
     }
 
+    func addTicksToStackView() {
+        for benefit in "SUBSCRIPTION_DESCRIPTION".localized().components(separatedBy: "\n\n") {
+            let benefitString = benefit.replacingOccurrences(of: "\n\n", with: "")
+            let tickView = TickView()
+            tickView.configureWith(benefitString.htmlToAttributedString())
+            tickStackView.addArrangedSubview(tickView)
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -80,9 +89,10 @@ class SubscriptionViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
-        contentViewHeightConstraint.constant = infosTextViewHeightConstraint.constant
-            + 650
+        //infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
+        tickStackView.layoutIfNeeded()
+        // tickStackViewHeightConstraint.constant = tickStackView.bounds.height
+        contentViewHeightConstraint.constant = tickStackView.bounds.height + 650
     }
 
     func setFirstAsSelected(_ firstSelected: Bool) {

@@ -45,7 +45,7 @@ class MenuMealTableViewCell: UITableViewCell {
             appendDish(dish.element, hideSeparator: dish.offset == viewModel.dishes.count - 1, tag: dish.offset)
         }
 
-        contentContainerView.drawShadow()
+        // contentContainerView.drawShadow()
     }
 
     func appendDish(_ menuDish: MenuDish, hideSeparator: Bool, tag: Int) {
