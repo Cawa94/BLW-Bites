@@ -43,7 +43,7 @@ class MenuDishView: UIView {
         self.viewModel = viewModel
 
         nameLabel.text = viewModel.menuDish.name
-        separatorView.isHidden = viewModel.hideSeparator
+        // separatorView.isHidden = viewModel.hideSeparator
         dishImageView.roundCornersSimplified(cornerRadius: viewModel.menuDish.isFood ?? false ? dishImageView.frame.height/2 : .smallCornerRadius)
         guard let image = viewModel.menuDish.image, !image.isEmpty
             else { return }

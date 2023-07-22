@@ -55,7 +55,7 @@ class MenuViewController: UIViewController {
         navigationTitleLabel.text = viewModel?.menuName
         backNavigationView.roundCornersSimplified(cornerRadius: backNavigationView.bounds.height/2)
         imageViewHeightConstraint.constant = viewModel?.is30Days ?? false ? 350 : 250
-        menuImageView.image = viewModel?.is30Days ?? false ? nil : .init(named: "7-12_months")
+        menuImageView.image = viewModel?.is30Days ?? false ? nil : .init(named: "istockphoto-488560068-1024x1024")
         instructionTextView.attributedText = (viewModel?.is30Days ?? false
                                               ? "MENU_30_DAYS_EXPLICATORY_TEXT".localized()
                                               : "MENU_7-12_MONTHS_EXPLICATORY_TEXT".localized()).htmlToAttributedString()

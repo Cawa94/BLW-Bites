@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
         <array key="Nunito-ExtraBold.ttf">
             <string>Nunito-ExtraBold</string>
         </array>
@@ -15,33 +18,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="137" id="KGk-i7-Jjw" customClass="TitleTableViewCell" customModule="Test_Build" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="280" id="KGk-i7-Jjw" customClass="TitleTableViewCell" customModule="Test_Build" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="137"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Let's find your healthy food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btU-Yv-0yr">
-                        <rect key="frame" x="30" y="20" width="281.33333333333331" height="117"/>
+                        <rect key="frame" x="30" y="20" width="281.33333333333331" height="68.333333333333329"/>
                         <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
+                        <color key="textColor" name="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="With Baby-Led Weaning you can provide to your baby all the nutrition necessary and introduce solid foods with easy and fun!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8El-uY-Rix">
+                        <rect key="frame" x="30" y="98.333333333333329" width="281.33333333333331" height="181.66666666666669"/>
+                        <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="btU-Yv-0yr" secondAttribute="bottom" id="MFF-av-dlm"/>
+                    <constraint firstItem="8El-uY-Rix" firstAttribute="leading" secondItem="btU-Yv-0yr" secondAttribute="leading" id="1Ok-8D-m7G"/>
+                    <constraint firstItem="8El-uY-Rix" firstAttribute="trailing" secondItem="btU-Yv-0yr" secondAttribute="trailing" id="KXR-m2-H1j"/>
                     <constraint firstItem="btU-Yv-0yr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="OsS-UL-CKQ"/>
+                    <constraint firstItem="8El-uY-Rix" firstAttribute="top" secondItem="btU-Yv-0yr" secondAttribute="bottom" constant="10" id="Uw8-KQ-CMn"/>
+                    <constraint firstAttribute="bottom" secondItem="8El-uY-Rix" secondAttribute="bottom" id="eRN-Kq-7h8"/>
                     <constraint firstItem="btU-Yv-0yr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="jbj-dL-yAE"/>
                     <constraint firstItem="btU-Yv-0yr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.75" id="oAV-Vm-uvf"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="subtitleLabel" destination="8El-uY-Rix" id="peA-ti-H47"/>
                 <outlet property="titleLabel" destination="btU-Yv-0yr" id="CPj-b5-aBk"/>
             </connections>
-            <point key="canvasLocation" x="138.93129770992365" y="122.1830985915493"/>
+            <point key="canvasLocation" x="138.1679389312977" y="172.53521126760563"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -32,6 +32,8 @@ class HomepageViewController: UIViewController {
                                forCellReuseIdentifier: "HomepageFoodsTableViewCell")
         mainTableView.register(UINib(nibName: "HomepageRecipesTableViewCell", bundle: nil),
                                forCellReuseIdentifier: "HomepageRecipesTableViewCell")
+        mainTableView.register(UINib(nibName: "HomepageCertificationsTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: "HomepageCertificationsTableViewCell")
 
         getHomepageFoods()
 
@@ -106,7 +108,7 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         default:
-            return 5
+            return 6
         }
     }
 
@@ -149,10 +151,12 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return seasonalFood(tableView, cellForRowAt: indexPath)
         case 2:
-            return seasonalRecipes(tableView, cellForRowAt: indexPath)
+            return certificationsCell(tableView, cellForRowAt: indexPath)
         case 3:
-            return freeFoodCell(tableView, cellForRowAt: indexPath)
+            return seasonalRecipes(tableView, cellForRowAt: indexPath)
         case 4:
+            return freeFoodCell(tableView, cellForRowAt: indexPath)
+        case 5:
             return freeRecipesCell(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
@@ -166,10 +170,12 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return freeRecipesCell(tableView, cellForRowAt: indexPath)
         case 2:
-            return newCell(tableView, cellForRowAt: indexPath)
+            return certificationsCell(tableView, cellForRowAt: indexPath)
         case 3:
-            return seasonalFood(tableView, cellForRowAt: indexPath)
+            return newCell(tableView, cellForRowAt: indexPath)
         case 4:
+            return seasonalFood(tableView, cellForRowAt: indexPath)
+        case 5:
             return seasonalRecipes(tableView, cellForRowAt: indexPath)
         default:
             return UITableViewCell()
@@ -220,6 +226,16 @@ extension HomepageViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageRecipesTableViewCell", for: indexPath)
             as? HomepageRecipesTableViewCell {
             cell.configureWith(recipes: viewModel?.freeRecipes, title: "HOME_FREE_RECIPES".localized(), indexPath: indexPath, delegate: self)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+
+    func certificationsCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HomepageCertificationsTableViewCell", for: indexPath)
+            as? HomepageCertificationsTableViewCell {
+            cell.configure()
             return cell
         } else {
             return UITableViewCell()

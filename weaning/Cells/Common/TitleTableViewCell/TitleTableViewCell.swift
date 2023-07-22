@@ -10,9 +10,11 @@ import UIKit
 class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
 
-    func configureWith(_ text: String) {
-        titleLabel.text = text
+    func configureWith(_ title: String, subtitle: String? = nil) {
+        titleLabel.text = title
+        subtitleLabel.attributedText = subtitle?.htmlToAttributedString(nunito: true)
     }
 
 }

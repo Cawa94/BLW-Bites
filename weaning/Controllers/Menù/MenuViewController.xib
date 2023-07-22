@@ -13,7 +13,7 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
-        <array key="Nunito-VariableFont_wght.ttf">
+        <array key="Nunito-ExtraBold.ttf">
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
@@ -114,12 +114,21 @@
                                         <constraint firstAttribute="height" constant="20" id="blO-Eg-zYN"/>
                                     </constraints>
                                 </view>
-                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-ig-dGd" customClass="ContentSizedTableView" customModule="Test_Build" customModuleProvider="target">
+                                <view userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sf-P5-3nw">
+                                    <rect key="frame" x="15" y="491.33333333333331" width="363" height="1"/>
+                                    <color key="backgroundColor" name="mainColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="ONT-Ul-Fka"/>
+                                    </constraints>
+                                </view>
+                                <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-ig-dGd" customClass="ContentSizedTableView" customModule="Test_Build" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="492.33333333333326" width="393" height="950"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="950" id="Z1T-rH-QCs"/>
                                     </constraints>
+                                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                                     <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color"/>
                                     <connections>
                                         <outlet property="dataSource" destination="-1" id="V7y-g0-3rY"/>
@@ -145,17 +154,20 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="nOn-ig-dGd" firstAttribute="top" secondItem="kCv-Vt-NUM" secondAttribute="bottom" id="0YI-mS-COH"/>
+                                <constraint firstItem="kCv-Vt-NUM" firstAttribute="bottom" secondItem="3sf-P5-3nw" secondAttribute="bottom" id="1p8-L2-CpJ"/>
                                 <constraint firstItem="pTg-XG-D97" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="1p9-CM-cRc"/>
                                 <constraint firstAttribute="trailing" secondItem="ncY-5W-sq4" secondAttribute="trailing" id="FwJ-rj-fla"/>
                                 <constraint firstAttribute="height" constant="665" id="NJa-DE-SgD"/>
                                 <constraint firstItem="nOn-ig-dGd" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="Pea-3h-Wbt"/>
                                 <constraint firstAttribute="trailing" secondItem="pTg-XG-D97" secondAttribute="trailing" id="Pvd-yn-qmp"/>
+                                <constraint firstItem="3sf-P5-3nw" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" constant="15" id="TzU-lK-f5B"/>
                                 <constraint firstItem="FBR-Yr-j0j" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" constant="15" id="XWu-tf-reP"/>
                                 <constraint firstItem="FBR-Yr-j0j" firstAttribute="top" secondItem="pTg-XG-D97" secondAttribute="top" constant="20" id="XmJ-J2-f3c"/>
                                 <constraint firstAttribute="trailing" secondItem="xcL-L2-ge8" secondAttribute="trailing" id="b1q-kl-f2c"/>
                                 <constraint firstAttribute="trailing" secondItem="kCv-Vt-NUM" secondAttribute="trailing" id="bm3-tA-TLc"/>
                                 <constraint firstItem="xcL-L2-ge8" firstAttribute="top" secondItem="ncY-5W-sq4" secondAttribute="bottom" id="gib-uN-EFv"/>
                                 <constraint firstItem="xcL-L2-ge8" firstAttribute="leading" secondItem="bLV-BF-Fdd" secondAttribute="leading" id="hwK-Mr-SKp"/>
+                                <constraint firstAttribute="trailing" secondItem="3sf-P5-3nw" secondAttribute="trailing" constant="15" id="icl-fa-gFG"/>
                                 <constraint firstItem="kCv-Vt-NUM" firstAttribute="top" secondItem="xcL-L2-ge8" secondAttribute="bottom" id="jKI-T4-sUW"/>
                                 <constraint firstAttribute="trailing" secondItem="FBR-Yr-j0j" secondAttribute="trailing" constant="15" id="lNu-Rx-WYb"/>
                                 <constraint firstItem="FBR-Yr-j0j" firstAttribute="bottom" secondItem="pTg-XG-D97" secondAttribute="bottom" id="lcP-Ty-als"/>

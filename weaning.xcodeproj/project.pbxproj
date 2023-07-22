@@ -54,6 +54,8 @@
 		7344B36B29A0E1DA00B172AC /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */; };
 		7344B36E29A0E24500B172AC /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B36D29A0E24500B172AC /* FoodCategory.swift */; };
 		7344B37429A0ED6C00B172AC /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */; };
+		73483E9C2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73483E9A2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.swift */; };
+		73483E9D2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73483E9B2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.xib */; };
 		7351ECD42A40944A00DCF611 /* RevenueCatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351ECD32A40944A00DCF611 /* RevenueCatService.swift */; };
 		735385C62A6AC47500C2ACBF /* TickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735385C52A6AC47500C2ACBF /* TickView.swift */; };
 		735385C82A6AC47E00C2ACBF /* TickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735385C72A6AC47E00C2ACBF /* TickView.xib */; };
@@ -230,6 +232,8 @@
 		7344B36929A0E1DA00B172AC /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		7344B36D29A0E24500B172AC /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		7344B37329A0ED6C00B172AC /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		73483E9A2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageCertificationsTableViewCell.swift; sourceTree = "<group>"; };
+		73483E9B2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomepageCertificationsTableViewCell.xib; sourceTree = "<group>"; };
 		7351ECD32A40944A00DCF611 /* RevenueCatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatService.swift; sourceTree = "<group>"; };
 		735385C52A6AC47500C2ACBF /* TickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickView.swift; sourceTree = "<group>"; };
 		735385C72A6AC47E00C2ACBF /* TickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickView.xib; sourceTree = "<group>"; };
@@ -536,6 +540,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		73483E992A6C42DA00E1C2D9 /* HomepageCertificationsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				73483E9A2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.swift */,
+				73483E9B2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.xib */,
+			);
+			path = HomepageCertificationsTableViewCell;
+			sourceTree = "<group>";
+		};
 		735385C42A6AC45300C2ACBF /* TickView */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +816,7 @@
 		739A622329B65B22006FE951 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				73483E992A6C42DA00E1C2D9 /* HomepageCertificationsTableViewCell */,
 				739A622429B65B3E006FE951 /* HomepageFoodsTableViewCell */,
 				739A622929B65B7C006FE951 /* HomepageHeaderTableViewCell */,
 				736C0EC22A61628C004894C3 /* HomepageRecipesTableViewCell */,
@@ -1151,6 +1165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73483E9D2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.xib in Resources */,
 				73C331A52A69CDAC00EA7D45 /* Nunito-SemiBold.ttf in Resources */,
 				73AD68CF29AFA86D0054B377 /* ShortRecipeCollectionViewCell.xib in Resources */,
 				736579A529A231F70071F60E /* FoodTitleTableViewCell.xib in Resources */,
@@ -1318,6 +1333,7 @@
 				7344B36329A0DD9700B172AC /* DefaultConstants.swift in Sources */,
 				733846452A41F8C800FAEEAF /* NavigationService+RegistrationViewController.swift in Sources */,
 				7316B4F629C233F500BD0AB0 /* SubscriptionViewModel.swift in Sources */,
+				73483E9C2A6C42F700E1C2D9 /* HomepageCertificationsTableViewCell.swift in Sources */,
 				733846602A425D5900FAEEAF /* SplashViewController.swift in Sources */,
 				7338463C2A41EAF800FAEEAF /* CustomTextFieldViewModel.swift in Sources */,
 				738FB2EA2997CB8100C286B3 /* FirestoreService.swift in Sources */,
