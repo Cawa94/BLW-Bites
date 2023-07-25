@@ -19,11 +19,15 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
     @IBOutlet private weak var telegramLock: UIImageView!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var mainScrollView: UIScrollView!
+    @IBOutlet private weak var emailDescriptionLabel: UILabel!
+    @IBOutlet private weak var telegramDescriptionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        explicationTextView.attributedText = "INFO_DESCRIPTION".localized().htmlToAttributedString()
+        emailDescriptionLabel.attributedText = "INFO_EMAIL_SECTION_SUBTITLE".localized().htmlToAttributedString(fontSize: 17)
+        telegramDescriptionLabel.attributedText = "INFO_TELEGRAM_SECTION_SUBTITLE".localized().htmlToAttributedString(fontSize: 17)
+        explicationTextView.attributedText = "INFO_DESCRIPTION".localized().htmlToAttributedString(fontSize: 17)
         telegramLock.isHidden = RevenueCatService.shared.hasUnlockedPro
 
         emailButtonView.configureWith(.init(title: "INFO_EMAIL".localized(), tapHandler: {
@@ -60,7 +64,7 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     override func viewDidLayoutSubviews() {
         textViewHeightConstraint.constant = explicationTextView.contentSize.height
-        contentViewHeightConstraint.constant = textViewHeightConstraint.constant + 850 + .bottomSpace + 100
+        contentViewHeightConstraint.constant = textViewHeightConstraint.constant + 1250 + .bottomSpace + 100
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -68,7 +72,7 @@ class InfoViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
 
     func sendEmail() {
-        let recipientEmail = "konsultacje.ewelina@gmail.com"
+        let recipientEmail = "blwbites@gmail.com"
         let subject = "INFO_EMAIL_TITLE".localized()
         let body = "INFO_EMAIL_BODY".localized()
 

@@ -33,15 +33,21 @@
                                 <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="HOME_CERTIFIED_TITLE"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="All foods and recipes have been written and checked by Ewelina, a certified nutritionist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo2-aw-vMK">
                                 <rect key="frame" x="30" y="60.333333333333336" width="463" height="66.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="HOME_CERTIFIED_SUBTITLE"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge" translatesAutoresizingMaskIntoConstraints="NO" id="0Xe-g1-BRi">
-                                <rect key="frame" x="463" y="20" width="50" height="50"/>
+                                <rect key="frame" x="463" y="15" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="DEL-X7-5pW"/>
                                     <constraint firstAttribute="height" constant="50" id="UIl-ry-oLF"/>
@@ -56,7 +62,7 @@
                             <constraint firstAttribute="trailing" secondItem="0Xe-g1-BRi" secondAttribute="trailing" constant="30" id="Gad-5J-ha4"/>
                             <constraint firstItem="W38-Vv-sP5" firstAttribute="top" secondItem="OC4-nN-VMi" secondAttribute="top" constant="20" id="LRJ-2d-hpC"/>
                             <constraint firstItem="W38-Vv-sP5" firstAttribute="leading" secondItem="OC4-nN-VMi" secondAttribute="leading" constant="30" id="OKo-rM-8g4"/>
-                            <constraint firstItem="0Xe-g1-BRi" firstAttribute="top" secondItem="OC4-nN-VMi" secondAttribute="top" constant="20" id="X3j-Ki-mb3"/>
+                            <constraint firstItem="0Xe-g1-BRi" firstAttribute="top" secondItem="OC4-nN-VMi" secondAttribute="top" constant="15" id="X3j-Ki-mb3"/>
                             <constraint firstAttribute="bottom" secondItem="wo2-aw-vMK" secondAttribute="bottom" constant="30" id="bxG-wP-8Ur"/>
                             <constraint firstAttribute="trailing" secondItem="W38-Vv-sP5" secondAttribute="trailing" constant="120" id="soX-oB-IUV"/>
                         </constraints>

@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
+        <array key="Nunito-ExtraBold.ttf">
+            <string>Nunito-ExtraBold</string>
         </array>
         <array key="Nunito-VariableFont_wght.ttf">
-            <string>Nunito-ExtraBold</string>
+            <string>Nunito-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -36,29 +36,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spF-Vu-owC">
-                    <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="istockphoto-1158034126-1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="IQe-43-t2M">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="foods_list_header" translatesAutoresizingMaskIntoConstraints="NO" id="IQe-43-t2M">
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="230" id="dJG-er-NEZ"/>
+                                <constraint firstAttribute="height" constant="240" id="dJG-er-NEZ"/>
                             </constraints>
                         </imageView>
                         <view alpha="0.92000001668930054" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjg-2Y-wsN">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                             <color key="backgroundColor" name="mainColor"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Explore a database of over 80+ foods!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q78-QP-doa">
-                            <rect key="frame" x="30" y="79" width="337.66666666666669" height="68.333333333333314"/>
-                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
+                            <rect key="frame" x="30" y="79" width="337.66666666666669" height="60.333333333333343"/>
+                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_LIST_TITLE"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how to correctly cut and serve solid foods to your baby. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCT-74-sK7">
-                            <rect key="frame" x="30" y="157.33333333333334" width="337.66666666666669" height="49.333333333333343"/>
-                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="43.666666666666657"/>
+                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="FOOD_LIST_SUBTITLE"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                     </subviews>
                     <constraints>
@@ -84,11 +90,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="450" height="1500"/>
                             <subviews>
                                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i60-lz-tjb">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sjd-93-a1d">
-                                    <rect key="frame" x="0.0" y="230" width="450" height="86"/>
+                                    <rect key="frame" x="0.0" y="240" width="450" height="86"/>
                                     <subviews>
                                         <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Lng-Uf-fWf" customClass="CustomSearchBar" customModule="Test_Build" customModuleProvider="target">
                                             <rect key="frame" x="10" y="20" width="430" height="56"/>
@@ -110,7 +116,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="360-ef-c58">
-                                    <rect key="frame" x="0.0" y="316" width="450" height="65"/>
+                                    <rect key="frame" x="0.0" y="326" width="450" height="65"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="9h4-2b-6uc"/>
@@ -127,7 +133,7 @@
                                     </connections>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qhq-dW-lv6">
-                                    <rect key="frame" x="0.0" y="381" width="450" height="1119"/>
+                                    <rect key="frame" x="0.0" y="391" width="450" height="1109"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wG2-zZ-O9J">
                                         <size key="itemSize" width="128" height="128"/>
@@ -191,7 +197,7 @@
         </view>
     </objects>
     <resources>
-        <image name="istockphoto-1158034126-1024x1024" width="1024" height="1024"/>
+        <image name="foods_list_header" width="1732" height="1732"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

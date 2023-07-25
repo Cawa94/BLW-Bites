@@ -14,7 +14,7 @@ class TitleTableViewCell: UITableViewCell {
 
     func configureWith(_ title: String, subtitle: String? = nil) {
         titleLabel.text = title
-        subtitleLabel.attributedText = subtitle?.htmlToAttributedString(nunito: true)
+        subtitleLabel.attributedText = subtitle?.htmlToAttributedString(fontSize: 17, nunito: true)
     }
 
 }

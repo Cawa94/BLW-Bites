@@ -92,7 +92,7 @@ class SubscriptionViewController: UIViewController {
         //infosTextViewHeightConstraint.constant = infosTextView.contentSize.height
         tickStackView.layoutIfNeeded()
         // tickStackViewHeightConstraint.constant = tickStackView.bounds.height
-        contentViewHeightConstraint.constant = tickStackView.bounds.height + 650
+        contentViewHeightConstraint.constant = tickStackView.bounds.height + 700
     }
 
     func setFirstAsSelected(_ firstSelected: Bool) {

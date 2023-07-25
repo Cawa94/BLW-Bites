@@ -12,7 +12,7 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
-        <array key="Nunito-VariableFont_wght.ttf">
+        <array key="Nunito-ExtraBold.ttf">
             <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
@@ -21,11 +21,13 @@
             <connections>
                 <outlet property="contentViewHeightConstraint" destination="kJj-2A-QSf" id="Q0b-4Z-6sa"/>
                 <outlet property="emailButtonView" destination="7GX-Zp-loZ" id="HYJ-U3-TUF"/>
+                <outlet property="emailDescriptionLabel" destination="eU2-ZC-ot6" id="ePc-PI-VSc"/>
                 <outlet property="ewelinaImageView" destination="DBF-Qq-bI6" id="SY6-ef-5pB"/>
                 <outlet property="explicationTextView" destination="JpQ-hf-mhp" id="pXX-45-PU8"/>
                 <outlet property="headerView" destination="qxn-de-w2R" id="8QT-XJ-Jqk"/>
                 <outlet property="mainScrollView" destination="uxJ-8Y-7dW" id="1sw-M3-s4d"/>
                 <outlet property="telegramButtonView" destination="aS7-Hj-rzT" id="CRQ-ph-E2U"/>
+                <outlet property="telegramDescriptionLabel" destination="vez-sH-4aL" id="QyK-lM-SPo"/>
                 <outlet property="telegramLock" destination="RRO-TE-elH" id="EV8-5x-16E"/>
                 <outlet property="textViewHeightConstraint" destination="MSg-BO-NuP" id="ajC-c9-Npf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,8 +66,8 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Twój osobisty dietetyk!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5J-1x-Gtk">
-                                    <rect key="frame" x="30" y="300" width="333" height="34.333333333333314"/>
-                                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
+                                    <rect key="frame" x="30" y="300" width="333" height="30.333333333333314"/>
+                                    <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
@@ -73,55 +75,70 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="I'm here for you" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-WD-Bti">
-                                    <rect key="frame" x="30" y="344.33333333333331" width="333" height="27.333333333333314"/>
+                                    <rect key="frame" x="30" y="340.33333333333331" width="333" height="27.333333333333314"/>
                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                                     <color key="textColor" name="mainColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_EMAIL_SECTION_TITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="For any questions you might have, you can reach out to me simply using the button below to schedule a consultancy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU2-ZC-ot6">
-                                    <rect key="frame" x="30" y="376.66666666666669" width="333" height="74.666666666666686"/>
+                                    <rect key="frame" x="30" y="372.66666666666669" width="333" height="74.666666666666686"/>
                                     <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_EMAIL_SECTION_SUBTITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GX-Zp-loZ" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="466.33333333333331" width="275" height="69.999999999999943"/>
+                                    <rect key="frame" x="30" y="467.33333333333331" width="275" height="69.999999999999943"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="70" id="m7z-Gn-ULt"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Let's chat on Telegram" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKT-Mg-Fza">
-                                    <rect key="frame" x="30" y="566.33333333333337" width="333" height="27.333333333333371"/>
+                                    <rect key="frame" x="30" y="572.33333333333337" width="333" height="27.333333333333371"/>
                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                                     <color key="textColor" name="mainColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_TELEGRAM_SECTION_TITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="To get support instantly for any questions or doubt, you can write me directly on Telegram" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vez-sH-4aL">
-                                    <rect key="frame" x="30" y="598.66666666666663" width="333" height="74.666666666666629"/>
+                                    <rect key="frame" x="30" y="604.66666666666663" width="333" height="74.666666666666629"/>
                                     <fontDescription key="fontDescription" name="Alata-Regular" family="Alata" pointSize="18"/>
                                     <color key="textColor" name="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_TELEGRAM_SECTION_SUBTITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Let me introuduce myself" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWi-bx-Vpm">
-                                    <rect key="frame" x="30" y="788.33333333333337" width="333" height="27.333333333333371"/>
+                                    <rect key="frame" x="30" y="804.33333333333337" width="333" height="27.333333333333371"/>
                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                                     <color key="textColor" name="mainColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="INFO_DESCRIPTION_TITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS7-Hj-rzT" customClass="ButtonView" customModule="Test_Build" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="688.33333333333337" width="275" height="70"/>
+                                    <rect key="frame" x="30" y="699.33333333333337" width="275" height="70"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-TE-elH">
-                                    <rect key="frame" x="280" y="668.33333333333337" width="35" height="35"/>
+                                    <rect key="frame" x="280" y="679.33333333333337" width="35" height="35"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="CWE-Y2-AJh"/>
                                         <constraint firstAttribute="width" secondItem="RRO-TE-elH" secondAttribute="height" multiplier="1:1" id="msC-N9-EmS"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpQ-hf-mhp">
-                                    <rect key="frame" x="25" y="815.66666666666652" width="343" height="1500"/>
+                                    <rect key="frame" x="25" y="831.66666666666652" width="343" height="1500"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1500" id="MSg-BO-NuP"/>
@@ -144,7 +161,7 @@
                                 <constraint firstItem="RRO-TE-elH" firstAttribute="top" secondItem="aS7-Hj-rzT" secondAttribute="top" constant="-20" id="8YU-0T-E5b"/>
                                 <constraint firstItem="2kM-WD-Bti" firstAttribute="trailing" secondItem="q5J-1x-Gtk" secondAttribute="trailing" id="Aay-Sh-ie7"/>
                                 <constraint firstItem="vhi-SW-jQd" firstAttribute="top" secondItem="tcu-Ca-odz" secondAttribute="top" id="AdK-zX-occ"/>
-                                <constraint firstItem="JKT-Mg-Fza" firstAttribute="top" secondItem="7GX-Zp-loZ" secondAttribute="bottom" constant="30" id="BSV-tv-IKL"/>
+                                <constraint firstItem="JKT-Mg-Fza" firstAttribute="top" secondItem="7GX-Zp-loZ" secondAttribute="bottom" constant="35" id="BSV-tv-IKL"/>
                                 <constraint firstItem="q5J-1x-Gtk" firstAttribute="leading" secondItem="tcu-Ca-odz" secondAttribute="leading" constant="30" id="GIW-HW-vbE"/>
                                 <constraint firstItem="7GX-Zp-loZ" firstAttribute="leading" secondItem="q5J-1x-Gtk" secondAttribute="leading" id="GWt-Sm-Vgc"/>
                                 <constraint firstItem="q5J-1x-Gtk" firstAttribute="top" secondItem="vhi-SW-jQd" secondAttribute="bottom" constant="20" id="Hlb-S4-6I4"/>
@@ -155,16 +172,16 @@
                                 <constraint firstAttribute="trailing" secondItem="q5J-1x-Gtk" secondAttribute="trailing" constant="30" id="Rqg-4C-dRm"/>
                                 <constraint firstItem="JpQ-hf-mhp" firstAttribute="top" secondItem="LWi-bx-Vpm" secondAttribute="bottom" id="Vg5-qt-jTh"/>
                                 <constraint firstItem="aS7-Hj-rzT" firstAttribute="width" secondItem="7GX-Zp-loZ" secondAttribute="width" id="WAC-iy-zVs"/>
-                                <constraint firstItem="7GX-Zp-loZ" firstAttribute="top" secondItem="eU2-ZC-ot6" secondAttribute="bottom" constant="15" id="cem-sr-Ysw"/>
+                                <constraint firstItem="7GX-Zp-loZ" firstAttribute="top" secondItem="eU2-ZC-ot6" secondAttribute="bottom" constant="20" id="cem-sr-Ysw"/>
                                 <constraint firstItem="vez-sH-4aL" firstAttribute="top" secondItem="JKT-Mg-Fza" secondAttribute="bottom" constant="5" id="dNv-Xc-aM6"/>
                                 <constraint firstItem="eU2-ZC-ot6" firstAttribute="top" secondItem="2kM-WD-Bti" secondAttribute="bottom" constant="5" id="eMy-tE-3fb"/>
                                 <constraint firstItem="JKT-Mg-Fza" firstAttribute="leading" secondItem="2kM-WD-Bti" secondAttribute="leading" id="ezH-eI-Fpc"/>
                                 <constraint firstItem="aS7-Hj-rzT" firstAttribute="height" secondItem="7GX-Zp-loZ" secondAttribute="height" id="gOy-IZ-Tgn"/>
-                                <constraint firstItem="LWi-bx-Vpm" firstAttribute="top" secondItem="aS7-Hj-rzT" secondAttribute="bottom" constant="30" id="hZT-x5-SQ6"/>
+                                <constraint firstItem="LWi-bx-Vpm" firstAttribute="top" secondItem="aS7-Hj-rzT" secondAttribute="bottom" constant="35" id="hZT-x5-SQ6"/>
                                 <constraint firstItem="2kM-WD-Bti" firstAttribute="top" secondItem="q5J-1x-Gtk" secondAttribute="bottom" constant="10" id="iyP-RC-26S"/>
                                 <constraint firstItem="eU2-ZC-ot6" firstAttribute="leading" secondItem="2kM-WD-Bti" secondAttribute="leading" id="jY2-Va-hvx"/>
                                 <constraint firstAttribute="height" constant="1559" id="kJj-2A-QSf"/>
-                                <constraint firstItem="aS7-Hj-rzT" firstAttribute="top" secondItem="vez-sH-4aL" secondAttribute="bottom" constant="15" id="ltT-Ic-19f"/>
+                                <constraint firstItem="aS7-Hj-rzT" firstAttribute="top" secondItem="vez-sH-4aL" secondAttribute="bottom" constant="20" id="ltT-Ic-19f"/>
                                 <constraint firstItem="vez-sH-4aL" firstAttribute="leading" secondItem="JKT-Mg-Fza" secondAttribute="leading" id="nE5-3P-4Bt"/>
                                 <constraint firstAttribute="trailing" secondItem="JpQ-hf-mhp" secondAttribute="trailing" constant="25" id="qKG-Mx-Z3T"/>
                                 <constraint firstItem="vez-sH-4aL" firstAttribute="trailing" secondItem="JKT-Mg-Fza" secondAttribute="trailing" id="s6c-2w-u68"/>

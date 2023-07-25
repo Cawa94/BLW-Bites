@@ -74,7 +74,7 @@ extension MenuSelectorViewController: UITableViewDelegate, UITableViewDataSource
         case 0:
             if let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath)
                 as? TitleTableViewCell {
-                cell.configureWith("MENU_SELECTOR_TITLE".localized(), subtitle: "Discover <b>delicious menus for your baby</b> here below. Each menu contains <b>clear instructions to follow</b> in order to serve it to your baby in the safest way")
+                cell.configureWith("MENU_SELECTOR_TITLE".localized(), subtitle: "MENU_SELECTOR_SUBTITLE".localized())
                 return cell
             } else {
                 return UITableViewCell()

@@ -11,11 +11,11 @@
         <array key="Alata-Regular.ttf">
             <string>Alata-Regular</string>
         </array>
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
+        <array key="Nunito-ExtraBold.ttf">
+            <string>Nunito-ExtraBold</string>
         </array>
         <array key="Nunito-VariableFont_wght.ttf">
-            <string>Nunito-ExtraBold</string>
+            <string>Nunito-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -63,6 +63,9 @@
                                     <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="20"/>
                                     <color key="textColor" name="mainColor"/>
                                     <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="SUBSCRIBTION_SUBTITLE"/>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QIa-ad-5Cg">
                                     <rect key="frame" x="20" y="250" width="353" height="128"/>

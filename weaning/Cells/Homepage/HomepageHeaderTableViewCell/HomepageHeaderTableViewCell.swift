@@ -24,11 +24,7 @@ class HomepageHeaderTableViewCell: UITableViewCell {
     func configureWith(_ viewModel: HomepageHeaderTableViewModel) {
         self.viewModel = viewModel
 
-        /*titleLabel.attributedText = "HOME_TITLE".localized().replaceBoldParts(
-            originalString: "HOME_TITLE".localized(),
-            mutableString: NSMutableAttributedString(string: "HOME_TITLE".localized()),
-            fontSize: 25)*/
-        subtitleLabel.attributedText = "With <b>Baby-Led Weaning</b> you can provide to your baby <b>all the nutrition necessary</b> and introduce solid foods with easy and fun!".htmlToAttributedString(nunito: true)
+        subtitleLabel.attributedText = "HOME_SUBTITLE".localized().htmlToAttributedString(nunito: true)
 
         if RevenueCatService.shared.hasUnlockedPro {
             subscribeButton.isHidden = true

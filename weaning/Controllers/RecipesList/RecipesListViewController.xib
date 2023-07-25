@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-Bold.ttf">
-            <string>Nunito-Bold</string>
+        <array key="Nunito-ExtraBold.ttf">
+            <string>Nunito-ExtraBold</string>
         </array>
         <array key="Nunito-VariableFont_wght.ttf">
-            <string>Nunito-ExtraBold</string>
+            <string>Nunito-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -36,29 +36,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN6-fi-CzD">
-                    <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="istockphoto-655976142-1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-1L-W8d">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="recipes_list_header" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-1L-W8d">
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="230" id="AeW-CL-x6t"/>
+                                <constraint firstAttribute="height" constant="280" id="AeW-CL-x6t"/>
                             </constraints>
                         </imageView>
                         <view alpha="0.92000000000000004" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU1-Li-6Eo">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
                             <color key="backgroundColor" name="mainColor"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Prepare over 100+ delicious recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYJ-DR-ASs">
-                            <rect key="frame" x="30" y="79" width="337.66666666666669" height="68.333333333333314"/>
-                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="25"/>
+                            <rect key="frame" x="30" y="79" width="337.66666666666669" height="60.333333333333343"/>
+                            <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="RECIPE_LIST_TITLE"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your baby is gonna love all this easy and tasty recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-n6-0ic">
-                            <rect key="frame" x="30" y="157.33333333333334" width="337.66666666666669" height="49.333333333333343"/>
-                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="18"/>
+                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="43.666666666666657"/>
+                            <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="RECIPE_LIST_SUBTITLE"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                     </subviews>
                     <constraints>
@@ -84,11 +90,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="450" height="1500"/>
                             <subviews>
                                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoI-lV-bbm">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="230"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvE-dZ-CZh">
-                                    <rect key="frame" x="0.0" y="230" width="450" height="86"/>
+                                    <rect key="frame" x="0.0" y="280" width="450" height="86"/>
                                     <subviews>
                                         <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-JS-DUX" customClass="CustomSearchBar" customModule="Test_Build" customModuleProvider="target">
                                             <rect key="frame" x="10" y="20" width="430" height="56"/>
@@ -110,7 +116,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-Lb-CLe">
-                                    <rect key="frame" x="0.0" y="316" width="450" height="65"/>
+                                    <rect key="frame" x="0.0" y="366" width="450" height="65"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="tP6-j0-sHj"/>
@@ -127,7 +133,7 @@
                                     </connections>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KbN-9P-JK4">
-                                    <rect key="frame" x="0.0" y="381" width="450" height="1119"/>
+                                    <rect key="frame" x="0.0" y="431" width="450" height="1069"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DbR-jk-vpa">
                                         <size key="itemSize" width="128" height="128"/>
@@ -191,7 +197,7 @@
         </view>
     </objects>
     <resources>
-        <image name="istockphoto-655976142-1024x1024" width="1024" height="755"/>
+        <image name="recipes_list_header" width="1732" height="1267"/>
         <namedColor name="backgroundColor1">
             <color red="0.93725490196078431" green="1" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

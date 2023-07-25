@@ -35,7 +35,7 @@ class RevenueCatService {
     }
 
     var proVersionEntitlement: EntitlementInfo? {
-        customerInfo?.entitlements["Pro Version"]
+        return customerInfo?.entitlements["Pro Version"]
     }
 
     var hasUnlockedPro: Bool {
