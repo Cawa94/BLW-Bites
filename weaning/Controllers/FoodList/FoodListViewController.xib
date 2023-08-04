@@ -25,7 +25,6 @@
                 <outlet property="foodSearchBar" destination="Lng-Uf-fWf" id="cZH-BF-vtv"/>
                 <outlet property="foodsCollectionView" destination="Qhq-dW-lv6" id="5DN-qO-Ez9"/>
                 <outlet property="headerView" destination="spF-Vu-owC" id="YSF-hc-XbR"/>
-                <outlet property="headerViewHeighConstraint" destination="dJG-er-NEZ" id="j53-kc-Lxa"/>
                 <outlet property="mainScrollView" destination="fEu-oO-D5l" id="WZw-hU-nTC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,7 +40,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="foods_list_header" translatesAutoresizingMaskIntoConstraints="NO" id="IQe-43-t2M">
                             <rect key="frame" x="0.0" y="0.0" width="450" height="240"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="240" id="dJG-er-NEZ"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="240" id="dJG-er-NEZ"/>
                             </constraints>
                         </imageView>
                         <view alpha="0.92000001668930054" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjg-2Y-wsN">
@@ -58,7 +57,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how to correctly cut and serve solid foods to your baby. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCT-74-sK7">
-                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="43.666666666666657"/>
+                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="60.666666666666657"/>
                             <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -78,6 +77,7 @@
                         <constraint firstItem="Q78-QP-doa" firstAttribute="width" secondItem="spF-Vu-owC" secondAttribute="width" multiplier="0.75" id="SWF-8G-QX5"/>
                         <constraint firstItem="pCT-74-sK7" firstAttribute="top" secondItem="Q78-QP-doa" secondAttribute="bottom" constant="10" id="pRZ-Rh-L2B"/>
                         <constraint firstItem="pCT-74-sK7" firstAttribute="trailing" secondItem="Q78-QP-doa" secondAttribute="trailing" id="rrr-yY-sru"/>
+                        <constraint firstAttribute="bottom" secondItem="pCT-74-sK7" secondAttribute="bottom" constant="30" id="xeR-bu-HcO"/>
                         <constraint firstAttribute="bottom" secondItem="hjg-2Y-wsN" secondAttribute="bottom" id="xoe-Gh-N0A"/>
                         <constraint firstItem="pCT-74-sK7" firstAttribute="leading" secondItem="Q78-QP-doa" secondAttribute="leading" id="xtk-Pt-SN1"/>
                         <constraint firstItem="hjg-2Y-wsN" firstAttribute="top" secondItem="spF-Vu-owC" secondAttribute="top" id="zJW-62-TgR"/>

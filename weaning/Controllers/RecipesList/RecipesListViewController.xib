@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Nunito-ExtraBold.ttf">
-            <string>Nunito-ExtraBold</string>
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
         </array>
         <array key="Nunito-VariableFont_wght.ttf">
-            <string>Nunito-Bold</string>
+            <string>Nunito-ExtraBold</string>
         </array>
     </customFonts>
     <objects>
@@ -23,7 +23,6 @@
                 <outlet property="categoriesHeightConstraint" destination="tP6-j0-sHj" id="Qpc-ak-fK5"/>
                 <outlet property="contentViewHeightConstraint" destination="8eo-N5-iic" id="69A-YW-0kQ"/>
                 <outlet property="headerView" destination="hN6-fi-CzD" id="RGP-qp-VUN"/>
-                <outlet property="headerViewHeighConstraint" destination="AeW-CL-x6t" id="j3l-7h-CLC"/>
                 <outlet property="mainScrollView" destination="8N7-IX-7eF" id="xCL-bG-fVQ"/>
                 <outlet property="recipeSearchBar" destination="uHK-JS-DUX" id="zkP-L9-rDC"/>
                 <outlet property="recipesCollectionView" destination="KbN-9P-JK4" id="YNJ-ef-awB"/>
@@ -36,19 +35,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hN6-fi-CzD">
-                    <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" image="recipes_list_header" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-1L-W8d">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipes_list_header" translatesAutoresizingMaskIntoConstraints="NO" id="sVZ-1L-W8d">
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="280" id="AeW-CL-x6t"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="290" id="gLY-hZ-hZ4"/>
                             </constraints>
                         </imageView>
                         <view alpha="0.92000000000000004" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU1-Li-6Eo">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
+                            <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                             <color key="backgroundColor" name="mainColor"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Prepare over 100+ delicious recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYJ-DR-ASs">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Prepare over 100+ delicious recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYJ-DR-ASs">
                             <rect key="frame" x="30" y="79" width="337.66666666666669" height="60.333333333333343"/>
                             <fontDescription key="fontDescription" name="Nunito-ExtraBold" family="Nunito" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,8 +56,8 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="RECIPE_LIST_TITLE"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your baby is gonna love all this easy and tasty recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-n6-0ic">
-                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="43.666666666666657"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Your baby is gonna love all this easy and tasty recipes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAp-n6-0ic">
+                            <rect key="frame" x="30" y="149.33333333333334" width="337.66666666666669" height="110.66666666666666"/>
                             <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -69,6 +68,8 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="CU1-Li-6Eo" secondAttribute="bottom" id="4wY-bH-bth"/>
+                        <constraint firstItem="sVZ-1L-W8d" firstAttribute="width" secondItem="hN6-fi-CzD" secondAttribute="width" id="5l6-PR-9uu"/>
+                        <constraint firstAttribute="bottom" secondItem="aAp-n6-0ic" secondAttribute="bottom" constant="30" id="65Z-ew-SiH"/>
                         <constraint firstItem="sVZ-1L-W8d" firstAttribute="leading" secondItem="hN6-fi-CzD" secondAttribute="leading" id="8tw-5d-vlo"/>
                         <constraint firstAttribute="trailing" secondItem="sVZ-1L-W8d" secondAttribute="trailing" id="CY4-ol-zrg"/>
                         <constraint firstItem="sVZ-1L-W8d" firstAttribute="top" secondItem="hN6-fi-CzD" secondAttribute="top" id="Dwk-ox-GK9"/>
@@ -90,11 +91,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="450" height="1500"/>
                             <subviews>
                                 <view autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoI-lV-bbm">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="280"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvE-dZ-CZh">
-                                    <rect key="frame" x="0.0" y="280" width="450" height="86"/>
+                                    <rect key="frame" x="0.0" y="290" width="450" height="86"/>
                                     <subviews>
                                         <searchBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="uHK-JS-DUX" customClass="CustomSearchBar" customModule="Test_Build" customModuleProvider="target">
                                             <rect key="frame" x="10" y="20" width="430" height="56"/>
@@ -116,7 +117,7 @@
                                     </constraints>
                                 </view>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gf7-Lb-CLe">
-                                    <rect key="frame" x="0.0" y="366" width="450" height="65"/>
+                                    <rect key="frame" x="0.0" y="376" width="450" height="65"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="65" id="tP6-j0-sHj"/>
@@ -133,7 +134,7 @@
                                     </connections>
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KbN-9P-JK4">
-                                    <rect key="frame" x="0.0" y="431" width="450" height="1069"/>
+                                    <rect key="frame" x="0.0" y="441" width="450" height="1059"/>
                                     <color key="backgroundColor" name="backgroundColor1"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DbR-jk-vpa">
                                         <size key="itemSize" width="128" height="128"/>

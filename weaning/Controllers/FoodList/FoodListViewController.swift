@@ -15,7 +15,6 @@ class FoodListViewController: UIViewController {
     @IBOutlet private weak var mainScrollView: UIScrollView!
     @IBOutlet private weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var headerViewHeighConstraint: NSLayoutConstraint!
     @IBOutlet private weak var categoriesCollectionView: UICollectionView!
     @IBOutlet private weak var categoriesHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var foodsCollectionView: UICollectionView!
@@ -65,7 +64,7 @@ class FoodListViewController: UIViewController {
     }
 
     override func viewDidLayoutSubviews() {
-        contentViewHeightConstraint.constant = headerViewHeighConstraint.constant
+        contentViewHeightConstraint.constant = headerView.bounds.height
             + categoriesHeightConstraint.constant
             + foodsCollectionView.contentSize.height
             + .bottomSpace
