@@ -1,3 +1,5 @@
+![1113-video-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ad8521cb-a503-40e6-bcdb-bbaa450cc46e)
+
 # BLW Bites
 
 **BLW Bites** is a production-ready iOS app that helps parents introduce solid foods to their babies using the Baby Led Weaning (BLW) method.  
