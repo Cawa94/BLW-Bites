@@ -50,7 +50,7 @@ I provided architectural guidance, design specifications, code reviews, and ensu
 - **Swift**
 - **UIKit**
 - **CocoaPods**
-- **iOS 16+ target**
+- **iOS 26+ target**
 
 ### **Backend & Services**
 - **Firebase**
