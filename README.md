@@ -10,21 +10,36 @@ The app provides a curated food database, safe preparation guidelines, family-fr
 
 ## 👨‍💻 My Role
 
-I designed and developed the entire iOS application end-to-end, including:
+I was fully responsible for the end-to-end creation of the app — from concept, design, and architecture, to development, backend integration, testing, and release.
 
-- Application architecture (UIKit + MVC / MVVM hybrid)
-- All UI implementation and custom components
-- Local and remote data models
-- Firebase integration (Auth, Firestore, Storage, Analytics, Crashlytics, App Check)
-- RevenueCat subscription and paywall system
-- App Tracking Transparency flow and analytics gating
-- Custom image viewer with zoom & fullscreen support
-- Vimeo video extraction and playback integration
-- Internationalization & localization
-- Build setup, dependency management, and release pipeline
+My responsibilities included:
 
-Additionally, I **coordinated and mentored a junior Android developer** to recreate the same application for Android.  
-I provided architectural guidance, code reviews, and UI/UX supervision to ensure a faithful cross-platform implementation and full feature parity between platforms.
+- **Complete UI/UX design** of the entire application  
+  (screen layouts, navigation flow, visual identity, colors, icons, component styling, and user interactions)
+
+- **Application architecture** using UIKit with  
+  **MVC + MVVM applied on complex screens** for better scalability and maintainability
+
+- **Full iOS development**  
+  (view controllers, custom components, data handling, animations, navigation)
+
+- **Local and remote data modeling**, including a scalable structure for foods, recipes, age segments, and meal plans
+
+- **Firebase integration**  
+  (Auth, Firestore, Storage, Crashlytics, App Check, conditional Analytics via ATT)
+
+- **RevenueCat integration**  
+  (subscription paywall, entitlements, restore flow)
+
+- **Custom UI features**, such as full-screen image viewer with zoom/pinch and smooth Vimeo video playback
+
+- **Internationalization & localization** across multiple languages
+
+- **Build setup**, dependency management (CocoaPods), and release preparation
+
+Additionally, I **coordinated and mentored a junior Android developer** tasked with recreating the app for Android.  
+I provided architectural guidance, design specifications, code reviews, and ensured **full feature parity and UI/UX consistency** across platforms.
+
 
 ---
 
@@ -70,40 +85,6 @@ I provided architectural guidance, code reviews, and UI/UX supervision to ensure
 - **Subscription paywall**
 - **Telegram support channel**
 - **Multi-language support**
-
----
-
-## 🧩 Key Technical Challenges I Solved
-
-### **1. Scalable data model for complex food structures**
-Foods contain multiple age segments, safety warnings, preparation styles, and metadata.
-
-### **2. Custom full-screen image viewer**
-Built from scratch with pinch-to-zoom, double-tap, and high-resolution photos.
-
-### **3. ATT-compliant Firebase Analytics**
-Dynamic enabling of analytics only after user permission.
-
-### **4. Firebase + RevenueCat integration**
-Secure handling of Pro entitlements, subscription restore, and gated content.
-
-### **5. Vimeo video extraction**
-Automatic retrieval of playable video URLs and smooth playback.
-
-### **6. Efficient media loading**
-Async image loading, caching, and memory-safe scrolling.
-
-### **7. Maintainable UIKit structure**
-Avoiding Massive View Controllers with a clean separation of concerns.
-
-### **8. Full localization**
-Multiple languages + dynamic text sizing.
-
-### **9. Subscription UX**
-Custom paywall, free trial onboarding, entitlement refresh, and failure handling.
-
-### **10. End-to-end production delivery**
-Architecture → implementation → backend → analytics → compliance → release.
 
 ---
 
