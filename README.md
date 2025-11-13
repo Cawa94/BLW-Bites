@@ -1,4 +1,5 @@
-![1113-video-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ad8521cb-a503-40e6-bcdb-bbaa450cc46e)
+
+<img width="1920" height="1080" alt="Untitled design" src="https://github.com/user-attachments/assets/3bca575c-c4f6-4521-a6a8-a9987f7472b6" />
 
 # BLW Bites
 
@@ -113,3 +114,9 @@ Yuri Cavallin — Senior iOS Developer
 Email: [yuricavallin.developer@gmail.com]
 
 LinkedIn: [https://www.linkedin.com/in/yuri-cavallin/]
+
+---
+
+## 📱 App Preview
+
+![1113-video-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ad8521cb-a503-40e6-bcdb-bbaa450cc46e)
