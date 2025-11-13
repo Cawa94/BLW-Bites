@@ -1,4 +1,3 @@
-
 <img width="1920" height="1080" alt="Untitled design" src="https://github.com/user-attachments/assets/3bca575c-c4f6-4521-a6a8-a9987f7472b6" />
 
 # BLW Bites
