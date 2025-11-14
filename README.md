@@ -38,7 +38,7 @@ My responsibilities included:
 
 Additionally, I **coordinated and mentored a junior Android developer** tasked with recreating the app for Android.  
 I provided architectural guidance, design specifications, code reviews, and ensured **full feature parity and UI/UX consistency** across platforms.
-
+You can find the Android version here: https://github.com/Froyder/BLW
 
 ---
 
