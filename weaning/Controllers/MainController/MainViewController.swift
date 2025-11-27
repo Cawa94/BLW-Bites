@@ -74,14 +74,36 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     }
 
     func configureAppearance() {
-        UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.lightGray,
-            NSAttributedString.Key.font: UIFont(name: "Nunito-Bold", size: 10)!], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: UIColor.mainColor,
-            NSAttributedString.Key.font: UIFont(name: "Nunito-Bold", size: 10)!], for: .selected)
-        UITabBar.appearance().barTintColor = .systemBackground
-        UITabBar.appearance().backgroundColor = .white
+        // iOS 13+ uses UITabBarAppearance. Since your minimum is iOS 16, configure it explicitly.
+        let font = UIFont(name: "Nunito-Bold", size: 10) ?? UIFont.systemFont(ofSize: 10, weight: .bold)
+
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+
+        // Unselected state
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+            .foregroundColor: UIColor.lightGray,
+            .font: font
+        ]
+        appearance.inlineLayoutAppearance.normal.titleTextAttributes = appearance.stackedLayoutAppearance.normal.titleTextAttributes
+        appearance.compactInlineLayoutAppearance.normal.titleTextAttributes = appearance.stackedLayoutAppearance.normal.titleTextAttributes
+
+        // Selected state
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+            .foregroundColor: UIColor.mainColor,
+            .font: font
+        ]
+        appearance.inlineLayoutAppearance.selected.titleTextAttributes = appearance.stackedLayoutAppearance.selected.titleTextAttributes
+        appearance.compactInlineLayoutAppearance.selected.titleTextAttributes = appearance.stackedLayoutAppearance.selected.titleTextAttributes
+
+        // Background colors (keep your previous intent)
+        appearance.backgroundColor = .white
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = appearance
+
+        // Tinting for icons and titles as a fallback/consistency
+        tabBar.tintColor = .mainColor
+        tabBar.unselectedItemTintColor = .lightGray
     }
 
     func addPromotionalBanner() {

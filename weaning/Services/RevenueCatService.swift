@@ -39,11 +39,11 @@ class RevenueCatService {
     }
 
     var hasUnlockedPro: Bool {
-        /*#if DEBUG
+        #if DEBUG
             return true
-        #else*/
+        #else
             return proVersionEntitlement?.isActive ?? false
-        //#endif
+        #endif
     }
 
     func getOfferingsAndCustomerInfo() {
